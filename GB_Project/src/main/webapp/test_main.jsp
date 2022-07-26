@@ -156,6 +156,7 @@
 
 						<div class="home_btns m-top-40">
 							<a href="boardListPaging.jsp" target="_blank" class="btn btn-primary m-top-20">게시판이동</a>
+							<a href="payState.jsp" target="_blank" class="btn btn-primary m-top-20">결제상태</a>
 							<a href="myPage.jsp" target="_blank" class="btn btn-primary m-top-20">마이페이지</a>
 						</div>
 
@@ -213,12 +214,6 @@
 										
 									</div>
 								</div>
-								
-								
-								
-								
-								
-								
 								<!-- End off accordion item-4 -->
 							</div>
 						</div>
