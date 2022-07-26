@@ -15,7 +15,7 @@ import com.smhrd.model.Board;
 import com.smhrd.model.BoardDAO;
 import com.smhrd.model.Member;
 
-public class BoardWriteCon extends HttpServlet {
+public class BoardWC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,8 +24,8 @@ public class BoardWriteCon extends HttpServlet {
 		
 		//세션 - id
 		HttpSession session = request.getSession();
-		Member vo = (Member) session.getAttribute("loginVO");
-		String id = vo.getId();
+		String writer = (String)session.getAttribute("loginMember");
+		
 		
 		//파일이 저장될 서버의 경로 지정
 		String saveDir = request.getServletContext().getRealPath("img");
@@ -38,46 +38,44 @@ public class BoardWriteCon extends HttpServlet {
 		MultipartRequest multi =  new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
 		
 		String name = multi.getParameter("name");
+		System.out.println(name);
 		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
-		String content = null;
-		String state = null;
-		String del = "n";
-		String r1 = request.getParameter("r1");
-		String r2 = request.getParameter("r2");
-		String r3 = request.getParameter("r3");
-		String r4 = request.getParameter("r4");
-		String category = null;
-		if(r1!=null) {
-			category = "B";
-			content = multi.getParameter("r1");
-			state = "진행";
-			String buylink = request.getParameter("buylink");
-			String buypay = request.getParameter("buypay");
-			
-			Board boardVO = new Board(name, id, filename, content,del,state,category,buypay,buylink);
+		String content = multi.getParameter("content");
+		String cate = request.getParameter("cate");
+		
+		String buylink = request.getParameter("buylink");
+		String buypay = request.getParameter("buypay");
+		System.out.println(buypay);
+		System.out.println(buylink);
+		System.out.println(writer);
+		System.out.println(name);
+		System.out.println(content);
+		System.out.println(filename);
+		System.out.println(cate);
+		
+			Board boardVO = new Board(name, writer, filename, content,buypay,buylink);
 			BoardDAO dao = new BoardDAO();
-			int cnt = dao.insertBoard(boardVO);
-			if(cnt>0) {
-				System.out.println("작성성공");
-				response.sendRedirect("boardListPaging.jsp");
+			int cnt1 = dao.insertBuyBoard(boardVO);
+			int cnt2 = dao.insertBuyBoardMember(boardVO);
+			if(cnt1>0) {
+				System.out.println("작성성공1");
+				response.sendRedirect("boardBuy.jsp");
 			}else {
-				System.out.println("작성실패");
-				response.sendRedirect("boardWrite.jsp");
+				System.out.println("작성실패1");
+				response.sendRedirect("boardBuy.jsp");
 			}
+			if(cnt2>0) {
+				System.out.println("작성성공2");
+				
+			}else {
+				System.out.println("작성실패2");
+				
+			
 			
 			
 		}
 		
-		Board boardVO = new Board(name, id, filename, content,del,state,category);
-		BoardDAO dao = new BoardDAO();
-		int cnt = dao.insertBoard(boardVO);
-		if(cnt>0) {
-			System.out.println("작성성공");
-			response.sendRedirect("boardListPaging.jsp");
-		}else {
-			System.out.println("작성실패");
-			response.sendRedirect("boardWrite.jsp");
-		}
+		
 		
 	}
 

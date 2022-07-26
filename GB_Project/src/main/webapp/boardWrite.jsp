@@ -46,7 +46,7 @@ input[type=text]{
 
 </head>
 <body>
-	<form action="BoardWriteCon" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+	<form action="BoardWC" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 50px">
 			<input type="text" placeholder="게시물 제목 작성" name="name">
 		</div>
@@ -55,15 +55,19 @@ input[type=text]{
 		<div class="card mb-2" style="width : 100%;">
 			<div class="card-body">
 				<input name="filename" type="file">
-				<!-- <select name="blood" id="">
-                        <option value="buy" onclick="cat1()">구매공유</option>
-                        <option value="account">계정공유</option>
-                        <option value="arbeit">아르바이트대타</option>
-                    </select> -->
                     
                     
+                    
+					<select name="cate" >
+                        <option value="a">구매</option>
+                        <option value="b">계정공유</option>
+                        <option value="c">알바대행</option>
+                        <option value="d">자유</option>
+                    </select>
 				<div class="mytest">		
-				<div style="width:200px;">
+				<div style="width:200px;" >
+                    
+				<br>
 				  <input type="radio" name="radio" id="r1" value="1" checked><label for="r1">구매</label>
 				  <input type="radio" name="radio" id="r2" value="2"><label for="r2">계정공유</label>
 				  <input type="radio" name="radio" id="r3" value="3"><label for="r3">알바대행</label>
@@ -71,20 +75,20 @@ input[type=text]{
 				</div>
 				
 				<div class="buyForm" style="width:200px; display:none;">
-				 구매링크 <input  type="text" name="text" id="buylink" >
-				 구매가격 <input type="text" name="text" id="buypay" >
+				 구매링크 <input  type="text" name="buylink" >
+				 구매가격 <input type="text" name="buypay" >
 				</div>
 				
 				<div class="accountingForm" style="width:200px; display:none;">
-				 계정링크 <input type="text" name="text" id="idlink" >
-				 이용기간 <input type="text" name="text" id="idtime" >
-				 구매가격 <input type="text" name="text" id="idpay" >
+				 계정링크 <input type="text" name="idlink" >
+				 이용기간 <input type="text" name="idtime" >
+				 구매가격 <input type="text" name="idpay" >
 				</div>
 				
 				<div class="albeitForm" style="width:200px;  display:none;">
-				 알바시간 <input type="text" name="text" id="arbeittime" >
-				 알바장소 <input type="text" name="text" id="arbeitsite" >
-				 알바시급 <input type="text" name="text" id="arbeitpay" >
+				 알바시간 <input type="text" name="arbeittime" >
+				 알바장소 <input type="text" name="arbeitsite" >
+				 알바시급 <input type="text" name="arbeitpay" >
 				</div>
 				</div>
 				<script>
@@ -121,7 +125,7 @@ input[type=text]{
 				
 				
 				<textarea name="content" rows="10" style="width : 100%;"></textarea>	
-				<input type="submit" value="게시물작성">
+				<input type="submit" value="게시물작성" >
 			</div>
 		</div>
 	</form>

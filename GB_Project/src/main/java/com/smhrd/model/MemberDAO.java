@@ -36,8 +36,8 @@ public class MemberDAO {
 	
 	
 	
-	public Member selectMember(Member vo) { //로그인 메소드
-		Member loginMember= null;
+	public String selectMember(Member vo) { //로그인 메소드
+		String loginMember= null;
 		
 		try {
 			loginMember = sqlSession.selectOne("com.smhrd.model.MemberDAO.selectMember",vo);

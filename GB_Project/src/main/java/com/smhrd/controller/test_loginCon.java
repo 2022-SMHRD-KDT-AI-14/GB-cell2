@@ -23,7 +23,7 @@ public class test_loginCon extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		System.out.println("LoginCon id/pw >>"+id+"/"+pw);
-		Member loginMember = dao.selectMember(vo);
+		String loginMember = dao.selectMember(vo);
 		System.out.println("이상없음");
 		if(loginMember != null) {
 			

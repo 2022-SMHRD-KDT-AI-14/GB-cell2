@@ -5,8 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.BoardDAO"> 
 	
-	<insert  id="insertBoard" parameterType="com.smhrd.model.Board">
-		insert into board values (board_seq.nextval,#{name},#{writer},#{filename},#{content},0,sysdate)	
+	<insert  id="insertBuyBoard" parameterType="com.smhrd.model.Board">
+		insert into tbl_share values (tbl_share_seq.nextval,#{name},#{content},#{writer},sysdate,#{filename},"0",'n','진행','B')	
+	</insert>
+	
+	<insert  id="insertBuyBoardMember" parameterType="com.smhrd.model.Board">
+		insert into tbl_buy_applicant values (TBL_BUY_APPLICANT_SEQ.nextval,#{writer},sysdate,'없음','없음',#{buylink},#{buypay},'B')	
 	</insert>
 	
 	<select id="selectAllList" resultType="com.smhrd.model.Board">
