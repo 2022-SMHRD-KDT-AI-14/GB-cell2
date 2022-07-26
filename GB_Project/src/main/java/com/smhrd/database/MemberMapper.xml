@@ -6,8 +6,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.smhrd.model.MemberDAO"> 
 	
 	<select id="selectMember" parameterType="com.smhrd.model.Member" resultType="com.smhrd.model.Member">
-		select * from BOARDMEMBER where id=#{id} and pw=#{pw}
+		select * from tbl_member where mem_id=#{id} and mem_pw=#{pw}
 	</select>
+	
+	<!-- <select id="insertMember" parameterType="com.smhrd.model.Member">
+		insert into tbl_member values(#{id},#{pw},#{nick},#{name},0,null,null,null,null,sysdate,null,0,0,0,null)
+	</select> 원본테이블 수정해야할것 같은딩 ㅜㅠ?-->
+	
+	<select id="insertMember" parameterType="com.smhrd.model.Member">
+		insert into tbl_member values(#{id},#{pw},#{nick},#{name},#{age},#{job},#{phone},#{bank_num},#{jumin},sysdate,'a',36.5,0,0,#{area})
+	</select>
+	
+				
+				
+	
+	
+	<select id="idCheck" parameterType="String" resultType="boolean">
+  	select case when count(*)>0 then 1 <!--1=true  -->
+  				else 0 <!--0=false  -->
+  			end result
+  	from tbl_member where mem_id=#{id}
+  	</select>
 	
 	
 	

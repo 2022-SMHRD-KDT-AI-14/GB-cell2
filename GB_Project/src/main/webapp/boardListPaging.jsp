@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <style>
 	body{
-		background-image : url('./asset/img/bg.jpg');
+		/* background-image : url('./asset/img/bg.jpg'); */
 		font-family: 'Do Hyeon', sans-serif;
 		font-size : 30px;
 	}
