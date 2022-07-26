@@ -64,26 +64,27 @@ input[type=text]{
                     
 				<div class="mytest">		
 				<div style="width:200px;">
-				  <input type="radio" name="radio" id="r1" value="1" checked><label for="r1">카테1</label>
-				  <input type="radio" name="radio" id="r2" value="2"><label for="r2">카테2</label>
-				  <input type="radio" name="radio" id="r3" value="3"><label for="r3">카테3</label>
+				  <input type="radio" name="radio" id="r1" value="1" checked><label for="r1">구매</label>
+				  <input type="radio" name="radio" id="r2" value="2"><label for="r2">계정공유</label>
+				  <input type="radio" name="radio" id="r3" value="3"><label for="r3">알바대행</label>
+				  <input type="radio" name="radio" id="r4" value="4"><label for="r4">자유</label>
 				</div>
 				
 				<div class="buyForm" style="width:200px; display:none;">
-				 구매링크 <input  type="text" name="text" >
-				 구매가격 <input type="text" name="text" >
+				 구매링크 <input  type="text" name="text" id="buylink" >
+				 구매가격 <input type="text" name="text" id="buypay" >
 				</div>
 				
 				<div class="accountingForm" style="width:200px; display:none;">
-				 계정링크 <input type="text" name="text" >
-				 이용기간 <input type="text" name="text" >
-				 구매가격 <input type="text" name="text" >
+				 계정링크 <input type="text" name="text" id="idlink" >
+				 이용기간 <input type="text" name="text" id="idtime" >
+				 구매가격 <input type="text" name="text" id="idpay" >
 				</div>
 				
 				<div class="albeitForm" style="width:200px;  display:none;">
-				 알바시간 <input type="text" name="text" >
-				 알바장소 <input type="text" name="text" >
-				 알바시급 <input type="text" name="text" >
+				 알바시간 <input type="text" name="text" id="arbeittime" >
+				 알바장소 <input type="text" name="text" id="arbeitsite" >
+				 알바시급 <input type="text" name="text" id="arbeitpay" >
 				</div>
 				</div>
 				<script>
@@ -105,10 +106,8 @@ input[type=text]{
 				        	$(".buyForm").css('display', 'none')
 				        	$(".accountingForm").css('display', 'none')
 				        	$(".albeitForm").css('display', 'block')
-				        }
-				        
-				        else{
-				        	console.log("모름")
+				        }else{
+				        	
 				        }
 				    });
 				});

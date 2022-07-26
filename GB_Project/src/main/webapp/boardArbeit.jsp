@@ -26,6 +26,7 @@
 </style>
 </head>
 <body>
+<h1>알바대행게시판</h1>
 <div class="container">
 <a href="boardWrite.jsp"><button id="writeBtn">글작성</button></a>
 <table class="table">

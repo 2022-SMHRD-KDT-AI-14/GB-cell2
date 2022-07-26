@@ -23,6 +23,9 @@ public class Board {
 	private String filename;
 	@NonNull
 	private String content;
+	private String del;
+	private String state;
+	private String catgory;
 	private BigDecimal views;
 	private Timestamp uploadday;
 	

@@ -40,8 +40,19 @@ public class BoardWriteCon extends HttpServlet {
 		String name = multi.getParameter("name");
 		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
 		String content = multi.getParameter("content");
+		String state = request.getParameter("num");
+		String del = "n";
+		String r1 = request.getParameter("r1");
+		String r2 = request.getParameter("r2");
+		String r3 = request.getParameter("r3");
+		String r4 = request.getParameter("r4");
+		String category = null;
+		if(r1!=null) {
+			String category = request.getParameter("r1");
+			
+		}
 		
-		Board boardVO = new Board(name, id, filename, content);
+		Board boardVO = new Board(name, id, filename, content,del,state,category);
 		BoardDAO dao = new BoardDAO();
 		int cnt = dao.insertBoard(boardVO);
 		if(cnt>0) {
