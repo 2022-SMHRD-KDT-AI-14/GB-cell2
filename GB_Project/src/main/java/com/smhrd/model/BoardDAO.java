@@ -45,7 +45,7 @@ public class BoardDAO {
 		} finally {
 			sqlSession.close();
 		}
-		return cnt;
+		return cnt;  
 		
 	}
 	
