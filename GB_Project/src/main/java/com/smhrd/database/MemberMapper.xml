@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.MemberDAO"> 
 	
-	<select id="selectMember" parameterType="com.smhrd.model.Member" resultType="com.smhrd.model.Member">
-		select * from tbl_member where mem_id=#{id} and mem_pw=#{pw}
+	<select id="selectMember" parameterType="com.smhrd.model.Member" resultType="String">
+		select mem_id from tbl_member where mem_id=#{id} and mem_pw=#{pw}
 	</select>
 	
 	<!-- <select id="insertMember" parameterType="com.smhrd.model.Member">

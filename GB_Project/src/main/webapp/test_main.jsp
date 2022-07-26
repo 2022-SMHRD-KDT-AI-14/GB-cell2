@@ -176,6 +176,7 @@
 					<div class="main_about">
 						<div class="col-md-6">
 							<div class="about_content">
+	
 								<h2>로그인</h2>
 								<div class="separator_left"></div>
 								<p>회원이 아니시면 회원가입부터 해주세요</p>
@@ -208,7 +209,7 @@
 					<h1>로그인해주세용</h1>
 				</c:when>
 				<c:otherwise>
-					<h1>${loginMember.id}님<h1>
+					<h1>님<h1>
 				</c:otherwise>
 			</c:choose>
 										

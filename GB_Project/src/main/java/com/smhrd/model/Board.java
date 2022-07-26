@@ -10,31 +10,61 @@ import lombok.RequiredArgsConstructor;
 
 
 
+
 @RequiredArgsConstructor
 @Getter
 @AllArgsConstructor
 public class Board {
+	
 	private BigDecimal num;
-	@NonNull
+
 	private String name;
-	@NonNull
+	
 	private String writer;
-	@NonNull
+
 	private String filename;
-	@NonNull
-	private String content;
+	
 	private String del;
+	
 	private String state;
-	private String catgory;
+	
 	private BigDecimal views;
+	
 	private Timestamp uploadday;
-	private String buylink;
+	
+	private String content;
+	
+	private String catgory;
+	
 	private String buypay;
+	
+	private String buylink;
+
 	private String idlink;
+	
 	private String idtime;
+	
 	private String idpay;
+	
 	private String arbeittime;
+
 	private String arbeitsite;
+	
 	private String arbeitpay;
+
+	public Board(String name, String writer, String filename,String content, String buypay, String buylink) {
+		super();
+		this.name = name;
+		this.writer = writer;
+		this.filename =filename;
+		this.content = content;
+		this.buypay = buypay;
+		this.buylink = buylink;
+	}
+	
+	
+	
+	
+	
 	
 }
