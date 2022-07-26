@@ -252,10 +252,8 @@
 						<li>PW: <input type="password" placeholder="PW를 입력하세요" name="pw"></li>
 						<li>닉네임: <input type="text" placeholder="닉네임을 입력하세요" name="nick"></li>
 						<li>이름: <input type="text" placeholder="이름을 입력하세요" name="name"></li>
-						<li>나이: <input type="text" placeholder="나이를 입력하세요" name="age"></li>
-						<li>직업: <input type="text" placeholder="직업을 입력하세요" name="job"></li>
 						<li>전화번호: <input type="text" placeholder="전화번호를 입력하세요" name="phone"></li>
-						<li>계좌번호: <input type="text" placeholder="계좌번호를 입력하세요" name="bank_num"></li>
+						<li>계좌번호: <input type="text" placeholder="계좌번호를 입력하세요" name="account"></li>
 						<li>주민번호: <input type="text" placeholder="주민번호를 입력하세요" name="jumin"></li> 
 						<input type="submit" class="btn btn-primary" value="JoinUs" class="button fit">
 					</form>

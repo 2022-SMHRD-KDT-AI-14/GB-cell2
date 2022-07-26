@@ -25,22 +25,16 @@ public class test_JoinCon extends HttpServlet {
 				String pw = request.getParameter("pw");
 				String nick = request.getParameter("nick");
 				String name = request.getParameter("name");
-				int age =  Integer.parseInt(request.getParameter("age"));
-				String job = request.getParameter("job");
 				String phone = request.getParameter("phone");
-				String bank_num = request.getParameter("bank_num");
+				String account = request.getParameter("account");
 				String jumin = request.getParameter("jumin");
 				System.out.println("여기1");
-				Timestamp joindate = new Timestamp(System.currentTimeMillis());
 				char type = 'a';
 				double temper=36.5;
-				int trade_cnt=0;//불필요
-				int suc_cnt=0;//불필요
 				String area="earth"; 
 				System.out.println("test_JoincCon,id >> "+id);
-			
-				Member vo = new Member(id,pw,nick,name,age,job,phone,bank_num,jumin,joindate,type,temper,trade_cnt,suc_cnt,area);
-				Member vo = new Member(id,pw,nick,name,age,job,phone,bank_num,jumin,joindate,'a',36.5,0,0,area);
+			Timestamp joindate= new Timestamp(System.currentTimeMillis());
+				Member vo = new Member(id,pw,nick,name,phone,account,jumin,joindate,type,temper,area);
 				System.out.println("여기2");
 				
 				MemberDAO dao = new MemberDAO();

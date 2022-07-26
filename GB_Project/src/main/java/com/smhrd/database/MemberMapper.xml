@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select> 원본테이블 수정해야할것 같은딩 ㅜㅠ?-->
 	
 	<select id="insertMember" parameterType="com.smhrd.model.Member">
-		insert into tbl_member values(#{id},#{pw},#{nick},#{name},#{age},#{job},#{phone},#{bank_num},#{jumin},sysdate,'a',36.5,0,0,#{area})
+		insert into tbl_member values(#{id},#{pw},#{nick},#{name},#{phone},#{account},#{jumin},sysdate,#{type},#{temper},#{area})
 	</select>
 	
 				
