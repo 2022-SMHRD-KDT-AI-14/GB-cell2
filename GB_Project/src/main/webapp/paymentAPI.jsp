@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+입력값: 1자 아이디, 게시글번호, 금액, 참여자인원
 
 </body>
 </html>
