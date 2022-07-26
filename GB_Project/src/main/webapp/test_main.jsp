@@ -179,7 +179,7 @@
 								<h2>로그인</h2>
 								<div class="separator_left"></div>
 								<p>회원이 아니시면 회원가입부터 해주세요</p>
-								<form action="LoginCon" method="post" id="loginform">
+								<form action="test_loginCon" method="post" id="loginform">
 									<input type="text" class="fadeIn second" name="id"
 										placeholder="id" style="margin-top: 30px"> <input
 										type="password" class="fadeIn third" name="pw"
