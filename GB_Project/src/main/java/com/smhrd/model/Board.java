@@ -28,5 +28,13 @@ public class Board {
 	private String catgory;
 	private BigDecimal views;
 	private Timestamp uploadday;
+	private String buylink;
+	private String buypay;
+	private String idlink;
+	private String idtime;
+	private String idpay;
+	private String arbeittime;
+	private String arbeitsite;
+	private String arbeitpay;
 	
 }

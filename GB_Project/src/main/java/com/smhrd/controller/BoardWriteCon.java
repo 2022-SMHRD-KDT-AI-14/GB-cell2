@@ -39,8 +39,8 @@ public class BoardWriteCon extends HttpServlet {
 		
 		String name = multi.getParameter("name");
 		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
-		String content = multi.getParameter("content");
-		String state = request.getParameter("num");
+		String content = null;
+		String state = null;
 		String del = "n";
 		String r1 = request.getParameter("r1");
 		String r2 = request.getParameter("r2");
@@ -48,7 +48,23 @@ public class BoardWriteCon extends HttpServlet {
 		String r4 = request.getParameter("r4");
 		String category = null;
 		if(r1!=null) {
-			String category = request.getParameter("r1");
+			category = "B";
+			content = multi.getParameter("r1");
+			state = "진행";
+			String buylink = request.getParameter("buylink");
+			String buypay = request.getParameter("buypay");
+			
+			Board boardVO = new Board(name, id, filename, content,del,state,category,buypay,buylink);
+			BoardDAO dao = new BoardDAO();
+			int cnt = dao.insertBoard(boardVO);
+			if(cnt>0) {
+				System.out.println("작성성공");
+				response.sendRedirect("boardListPaging.jsp");
+			}else {
+				System.out.println("작성실패");
+				response.sendRedirect("boardWrite.jsp");
+			}
+			
 			
 		}
 		
