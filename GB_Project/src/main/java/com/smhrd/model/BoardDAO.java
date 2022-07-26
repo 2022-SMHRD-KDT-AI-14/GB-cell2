@@ -49,6 +49,120 @@ public class BoardDAO {
 		
 	}
 	
+	public int insertIdBoard(Board vo){
+		int cnt = 0;
+		try {
+			// 실행
+			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertIdBoard", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+		
+	}
+	
+	public int insertIdBoardMember(Board vo){
+		int cnt = 0;
+		try {
+			// 실행
+			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertIdBoardMember", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;  
+		
+	}
+	
+	public int insertArbeitBoard(Board vo){
+		int cnt = 0;
+		try {
+			// 실행
+			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertArbeitBoard", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+		
+	}
+	
+	public int insertArbeitBoardMember(Board vo){
+		int cnt = 0;
+		try {
+			// 실행
+			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertArbeitBoardMember", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;  
+		
+	}
+	
+	public int insertFreeBoard(Board vo){
+		int cnt = 0;
+		try {
+			// 실행
+			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertFreeBoard", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+		
+	}
+	
+	public int insertFreeBoardMember(Board vo){
+		int cnt = 0;
+		try {
+			// 실행
+			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertFreeBoardMember", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;  
+		
+	}
+	
 	
 	public List<Board> selectAllList() {
 		List<Board> list =null;

@@ -45,14 +45,15 @@ public class BoardWC extends HttpServlet {
 		
 		String buylink = request.getParameter("buylink");
 		String buypay = request.getParameter("buypay");
-		System.out.println(buypay);
-		System.out.println(buylink);
-		System.out.println(writer);
-		System.out.println(name);
-		System.out.println(content);
-		System.out.println(filename);
-		System.out.println(cate);
+		String idlink = request.getParameter("idlink");
+		String idtime = request.getParameter("idtime");
+		String idpay = request.getParameter("idpay");
+		String arbeittime = request.getParameter("arbeittime");
+		String arbeitsite = request.getParameter("arbeitsite");
+		String arbeitpay = request.getParameter("arbeitpay");
 		
+		
+		if(cate.equals("1")) {
 			Board boardVO = new Board(name, writer, filename, content,buypay,buylink);
 			BoardDAO dao = new BoardDAO();
 			int cnt1 = dao.insertBuyBoard(boardVO);
@@ -75,8 +76,86 @@ public class BoardWC extends HttpServlet {
 			
 		}
 		
+		}else if(cate.equals("2")) {
+			
+			Board boardVO = new Board(name, writer, filename, content,idlink,idtime,idpay);
+			BoardDAO dao = new BoardDAO();
+			int cnt1 = dao.insertIdBoard(boardVO);
+			int cnt2 = dao.insertIdBoardMember(boardVO);
+			if(cnt1>0) {
+				System.out.println("작성성공1");
+				response.sendRedirect("boardId.jsp");
+			}else {
+				System.out.println("작성실패1");
+				response.sendRedirect("boardId.jsp");
+			}
+			if(cnt2>0) {
+				System.out.println("작성성공2");
+				
+			}else {
+				System.out.println("작성실패2");
+				
+			
+			
+			
+		}
+			
+			
+			
+			
+			
+		}else if(cate.equals("3")) {
+			
+			Board boardVO = new Board(name, writer, filename, content,"n",arbeittime,arbeitsite,arbeitpay);
+			BoardDAO dao = new BoardDAO();
+			int cnt1 = dao.insertArbeitBoard(boardVO);
+			int cnt2 = dao.insertArbeitBoardMember(boardVO);
+			if(cnt1>0) {
+				System.out.println("작성성공1");
+				response.sendRedirect("boardArbeit.jsp");
+			}else {
+				System.out.println("작성실패1");
+				response.sendRedirect("boardArbeit.jsp");
+			}
+			if(cnt2>0) {
+				System.out.println("작성성공2");
+				
+			}else {
+				System.out.println("작성실패2");
+			}
+			
+			
+			
+			
+			
 		
 		
+	}else {
+		
+		
+		Board boardVO = new Board(name, writer, filename, content);
+		BoardDAO dao = new BoardDAO();
+		int cnt1 = dao.insertFreeBoard(boardVO);
+		int cnt2 = dao.insertFreeBoardMember(boardVO);
+		if(cnt1>0) {
+			System.out.println("작성성공1");
+			response.sendRedirect("boardFree.jsp");
+		}else {
+			System.out.println("작성실패1");
+			response.sendRedirect("boardFree.jsp");
+		}
+		if(cnt2>0) {
+			System.out.println("작성성공2");
+			
+		}else {
+			System.out.println("작성실패2");
+		}
+		
+		
+		
+	
+	}
 	}
 
 }
+
