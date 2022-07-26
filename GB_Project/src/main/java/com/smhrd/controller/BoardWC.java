@@ -15,7 +15,7 @@ import com.smhrd.model.Board;
 import com.smhrd.model.BoardDAO;
 import com.smhrd.model.Member;
 
-public class BoardWriteCon extends HttpServlet {
+public class BoardWC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,21 +38,21 @@ public class BoardWriteCon extends HttpServlet {
 		MultipartRequest multi =  new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
 		
 		String name = multi.getParameter("name");
+		System.out.println(name);
 		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
-		String content = null;
-		String state = null;
-		String r1 = request.getParameter("r1");
-		String r2 = request.getParameter("r2");
-		String r3 = request.getParameter("r3");
-		String r4 = request.getParameter("r4");
-		String category = null;
-		if(r1!=null) {
-			
-			content = multi.getParameter("r1");
-			
-			String buylink = request.getParameter("buylink");
-			String buypay = request.getParameter("buypay");
-			
+		String content = multi.getParameter("content");
+		String cate = request.getParameter("cate");
+		
+		String buylink = request.getParameter("buylink");
+		String buypay = request.getParameter("buypay");
+		System.out.println(buypay);
+		System.out.println(buylink);
+		System.out.println(writer);
+		System.out.println(name);
+		System.out.println(content);
+		System.out.println(filename);
+		System.out.println(cate);
+		
 			Board boardVO = new Board(name, writer, filename, content,buypay,buylink);
 			BoardDAO dao = new BoardDAO();
 			int cnt1 = dao.insertBuyBoard(boardVO);
@@ -66,11 +66,11 @@ public class BoardWriteCon extends HttpServlet {
 			}
 			if(cnt2>0) {
 				System.out.println("작성성공2");
-				response.sendRedirect("boardBuy.jsp");
+				
 			}else {
 				System.out.println("작성실패2");
-				response.sendRedirect("boardBuy.jsp");
-			}
+				
+			
 			
 			
 		}
