@@ -5,12 +5,6 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>LoginCon</servlet-name>
-  	<display-name>LoginCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.LoginCon</servlet-class>
-  </servlet>
-  <servlet>
   	<servlet-name>BoardWriteCon</servlet-name>
   	<display-name>BoardWriteCon</display-name>
   	<description></description>
@@ -47,11 +41,13 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.test</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>test_loginCon</servlet-name>
+  	<display-name>test_loginCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.test_loginCon</servlet-class>
+  </servlet>
   
-  <servlet-mapping>
-  	<servlet-name>LoginCon</servlet-name>
-  	<url-pattern>/LoginCon</url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>BoardWriteCon</servlet-name>
   	<url-pattern>/BoardWriteCon</url-pattern>
@@ -77,6 +73,10 @@
   <servlet-mapping>
   	<servlet-name>test</servlet-name>
   	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>test_loginCon</servlet-name>
+  	<url-pattern>/test_loginCon</url-pattern>
   </servlet-mapping>
 
 </web-app>

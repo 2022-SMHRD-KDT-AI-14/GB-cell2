@@ -51,6 +51,8 @@ public class MemberDAO {
 		return loginMember;
 	}
 	
+	
+	
 	public boolean idCheck(String inputE) { //이메일체크 메소드
 		boolean checkE = false;
 		//db에 있는 값 확인할때는 try-catch-finally문
