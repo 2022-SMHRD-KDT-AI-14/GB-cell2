@@ -200,7 +200,7 @@
 		<!--End off Skill section -->
 	</div>
 
-	
+	<a href="test_boardView.jsp?num=7">게시글</a>
 
 </body>
 

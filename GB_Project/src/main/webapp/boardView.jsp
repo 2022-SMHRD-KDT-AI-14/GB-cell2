@@ -81,9 +81,9 @@ p {
 	
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
-	<form action="participateCons">
+	<a href="participateCons">
 	<button><h1>참여결정</h1></button>
-	</form>
+	</a>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
