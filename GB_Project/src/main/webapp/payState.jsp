@@ -83,8 +83,8 @@
 									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
 					
 										<c:if test="${!empty loginMember}">
-										<table border='1'>
-										<th>게시글No.</th><th>제 목</th><th>작성자</th><th>거래상태</th>
+										<table >
+										<th>게시글No.</th><th>제목</th><th>작성자</th><th>거래상태</th>
 											<c:forEach items="${ShareList}" var="s"  >
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
@@ -92,7 +92,9 @@
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
 													<c:if test ="${empty s.article_state}">
-													<td><button name="btn${s.board_seq}" >거래결정</button></td>
+													<td>
+													<a href="test_participateCon?num=${s.board_seq}"><button>거래결정(참여확정)</button></a>
+													</td>
 													</c:if>
 												</tr>
 											</c:forEach>
@@ -128,8 +130,8 @@
 									<c:set var="nShareList" value="${ShareDAO.selectAllMyParList(loginMember)}" />
 					
 										<c:if test="${!empty loginMember}">
-										<table border='1'>
-										<th>게시글No.</th><th>제 목</th><th>작성자</th><th>거래상태</th>
+										<table >
+										<th>게시글No.</th><th>제목</th><th>작성자</th><th>거래상태</th>
 											<c:forEach items="${nShareList}" var="s"  >
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
@@ -200,7 +202,11 @@
 		<!--End off Skill section -->
 	</div>
 
-	<a href="test_boardView.jsp?num=7">게시글</a>
+	<!-- 버튼클릭하면 jsp->servlet으로 정보전달 
+	63번(smart가 작성한))게시글에서 참여확정버튼클릭! -->
+
+	
+	<a href="test_participateCon?num=89"><button> 참여확정!</button></a>
 
 </body>
 
