@@ -1,5 +1,11 @@
+<%@page import="com.smhrd.model.Share"%>
+<%@page import="com.smhrd.model.ShareDAO"%>
+<%@page import="org.apache.ibatis.scripting.xmltags.ForEachSqlNode"%>
+<%@page import="java.util.List"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     
     
@@ -72,37 +78,39 @@
 								<h2>등록한 게시글</h2>
 								<div class="separator_left"></div>
 								<p>
-								 최종확정을 기다리는 게시글1
-								<button type="button" name="거래결정"
-								class="" onclick="location.href='paymentAPI.jsp'">버튼</button><br>
-									onclick="location.href='index.html'"
-									거래결정
-								 1.1자 거래상태는 공백 상태로 올리기
-									>>건빈이 게시판패VO,DAO 사용해서 메소드만들기
-								2.2자가 채팅으로 참여버튼 누르기
-									>>일단 채팅방의 결제내용은 웹으로 구현가정
-								3.1자가 인원수 확정후 금액 브로커에게 보내기 (계좌이체 API)/돈 받음완료 상태변경하기
-								4.브로커는 계산해서 2자에게 금액알리기/
-								5.2자는 진행상태를 취소(언제까지?)할 수 있는 UI구성
-								6.1자는 거래완료후 브로커에 알리기 > 거래정보 공유하기
-								7.2자는 거래완료 버튼 누르기
-								8.1자에게 거래금액 돌려주기(계좌이체 API)
 								
-								등록한 게시글조회보기 + 진행상태(진행 완료 취소 공백)
+									<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
+									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
+					
+										<c:if test="${!empty loginMember}">
+										<table border='1'>
+										<th>게시글No.</th><th>제 목</th><th>작성자</th><th>거래상태</th>
+											<c:forEach items="${ShareList}" var="s"  >
+												<tr>
+													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.article_title}" /></td>
+													<td><c:out value="${s.mem_id}" /></td>
+													<td><c:out value="${s.article_state}" /></td>
+													<c:if test ="${empty s.article_state}">
+													<td><button name="btn${s.board_seq}" >거래결정</button></td>
+													</c:if>
+												</tr>
+											</c:forEach>
+										</table>
+										</c:if>
 								
-								(참여버튼 눌러서 확인가능)참여한 게시글조회보기 + 진행상태(거리상태의 진행 완료 취소 공백)
-								1.1자 거래상태는 공백 상태로 올리기
-								2.2자가 채팅으로 참여버튼 누르기
-								3.1자가 인원수 확정후 금액 브로커에게 보내기 (계좌이체 API)/돈 받음완료 상태변경하기
-								4.브로커는 계산해서 2자에게 금액알리기/
-								5.2자는 진행상태를 취소(언제까지?)할 수 있는 UI구성
-								6.1자는 거래완료후 브로커에 알리기 > 거래정보 공유하기
-								7.2자는 거래완료 버튼 누르기
-								8.1자에게 거래금액 돌려주기(계좌이체 API)
+									
+									<!-- 		<script>
+												function payAPI() {
+													url: "",
+													data:{
+														
+													}
+													
+												}
+											</script> -->
 								
-								등록한 게시글조회보기 + 진행상태(진행 완료 취소 공백)
 								
-								(참여버튼 눌러서 확인가능)참여한 게시글조회보기 + 진행상태(거리상태의 진행 완료 취소 공백)
 								</p>
 							</div>
 						</div>
@@ -112,7 +120,29 @@
 								<div class="separator_left"></div>
 						
 								<p>
-									'참여확정'을 한 게시글만 올라온다
+		<h5> @P1참여확정 누른경우 게시글 보임</h5>
+		<h5>   (참여확정자 테이블을 통합한게 나으려나?)</h5>
+		<h5> @P1(채팅이 안될경우)1자가 거래결정시 : 게시글옆에 알림기능이 표기되고 클릭시 정보확인/브러커중계하기/취소기능화면 </h5>
+		<h5> @P2브로커중계하기 누르면 이체API화면
+		<h5> @P3이체 결과출력화면 및 배송정보 등</h5>
+									<c:set var="nShareList" value="${ShareDAO.selectAllMyParList(loginMember)}" />
+					
+										<c:if test="${!empty loginMember}">
+										<table border='1'>
+										<th>게시글No.</th><th>제 목</th><th>작성자</th><th>거래상태</th>
+											<c:forEach items="${nShareList}" var="s"  >
+												<tr>
+													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.article_title}" /></td>
+													<td><c:out value="${s.mem_id}" /></td>
+													<td><c:out value="${s.article_state}" /></td>
+													<c:if test ="${empty s.article_state}">
+													<td><button name="btn${s.board_seq}" onclick="payAPI()">거래결정</button></td>
+													</c:if>
+												</tr>
+											</c:forEach>
+										</table>
+										</c:if>
 									
 								</p>
 						
@@ -170,7 +200,7 @@
 		<!--End off Skill section -->
 	</div>
 
-	
+	<a href="test_boardView.jsp?num=7">게시글</a>
 
 </body>
 

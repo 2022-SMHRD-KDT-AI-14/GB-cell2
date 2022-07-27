@@ -7,33 +7,18 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.database.SqlSessionManager;
 
-public class ReplyDAO {
+public class tbl_shareDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
-	public int insertReply(Reply vo){
-		int cnt = 0;
-		try {
-			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.ReplyDAO.insertReply", vo);
-			if (cnt > 0) {
-				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
-			} else {
-				sqlSession.rollback();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			sqlSession.close();
-		}
-		return cnt;
-	}
 	
-	public List<Reply> selectBuy(int boardnum) {
-		List<Reply> list =null;
+	
+	
+	public List<tbl_share> selectAllList() {
+		List<tbl_share> list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
-			list=sqlSession.selectList("com.smhrd.model.ReplyDAO.selectBuy",boardnum); 
+			list=sqlSession.selectList("com.smhrd.model.BoardDAO.selectAllList"); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -42,5 +27,19 @@ public class ReplyDAO {
 		return list;
 	}
 	
+	
+	public List<tbl_share> selectAllListPage(int num) {
+		List<tbl_share> list =null;
+		try {
+			list=sqlSession.selectList("com.smhrd.model.tbl_shareDAO.selectAllListPage",num); 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+
 	
 }

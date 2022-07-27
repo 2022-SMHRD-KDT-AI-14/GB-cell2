@@ -36,7 +36,7 @@ public class Board {
 	
 	private String catgory;
 	
-	private String buypay;
+	private int buypay;
 	
 	private String buylink;
 
@@ -44,15 +44,15 @@ public class Board {
 	
 	private String idtime;
 	
-	private String idpay;
+	private int  idpay;
 	
 	private String arbeittime;
 
 	private String arbeitsite;
 	
-	private String arbeitpay;
+	private int arbeitpay;
 
-	public Board(String name, String writer, String filename,String content, String buypay, String buylink) {
+	public Board(String name, String writer, String filename,String content, int buypay, String buylink) {
 		super();
 		this.name = name;
 		this.writer = writer;
@@ -61,6 +61,50 @@ public class Board {
 		this.buypay = buypay;
 		this.buylink = buylink;
 	}
+
+	public Board(String name, String writer, String filename, String content, String idlink, String idtime,
+			int idpay) {
+		super();
+		this.name = name;
+		this.writer = writer;
+		this.filename = filename;
+		this.content = content;
+		this.idlink = idlink;
+		this.idtime = idtime;
+		this.idpay = idpay;
+	}
+
+	public Board(String name, String writer, String filename,String content, String del, String arbeittime, String arbeitsite,
+			int arbeitpay) {
+		super();
+		this.name = name;
+		this.writer = writer;
+		this.filename = filename;
+		this.content = content;
+		this.del = del;
+		this.arbeittime = arbeittime;
+		this.arbeitsite = arbeitsite;
+		this.arbeitpay = arbeitpay;
+	}
+
+	public Board(String name, String writer, String filename, String content) {
+		super();
+		this.name = name;
+		this.writer = writer;
+		this.filename = filename;
+		this.content = content;
+	}
+
+	public Board(BigDecimal num, String name, String writer) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.writer = writer;
+		
+		
+	}
+
+	
 	
 	
 	

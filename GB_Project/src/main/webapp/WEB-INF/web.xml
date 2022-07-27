@@ -48,6 +48,48 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.BoardWC</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AboardPagingCon</servlet-name>
+  	<display-name>AboardPagingCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.AboardPagingCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FboardPagingCon</servlet-name>
+  	<display-name>FboardPagingCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.FboardPagingCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>IboardPagingCon</servlet-name>
+  	<display-name>IboardPagingCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.IboardPagingCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BboardPagingCon</servlet-name>
+  	<display-name>BboardPagingCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.BboardPagingCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AoardPagingCon</servlet-name>
+  	<display-name>AoardPagingCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.AoardPagingCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FoardPagingCon</servlet-name>
+  	<display-name>FoardPagingCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.FoardPagingCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Participate</servlet-name>
+  	<display-name>Participate</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.Participate</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -79,6 +121,34 @@
   <servlet-mapping>
   	<servlet-name>BoardWC</servlet-name>
   	<url-pattern>/BoardWC</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AboardPagingCon</servlet-name>
+  	<url-pattern>/AboardPagingCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FboardPagingCon</servlet-name>
+  	<url-pattern>/FboardPagingCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>IboardPagingCon</servlet-name>
+  	<url-pattern>/IboardPagingCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BboardPagingCon</servlet-name>
+  	<url-pattern>/BboardPagingCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AoardPagingCon</servlet-name>
+  	<url-pattern>/AoardPagingCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FoardPagingCon</servlet-name>
+  	<url-pattern>/FoardPagingCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Participate</servlet-name>
+  	<url-pattern>/Participate</url-pattern>
   </servlet-mapping>
 
 </web-app>

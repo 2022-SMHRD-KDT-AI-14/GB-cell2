@@ -6,23 +6,53 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.smhrd.model.BoardDAO"> 
 	
 	<insert  id="insertBuyBoard" parameterType="com.smhrd.model.Board">
-		insert into tbl_share values (tbl_share_seq.nextval,#{name},#{content},#{writer},sysdate,#{filename},"0",'n','진행','B')	
+		insert into tbl_share values (tbl_share_seq.nextval,#{name},#{content},#{writer},sysdate,#{filename},#{buylink},'n','진행','B')	
 	</insert>
 	
 	<insert  id="insertBuyBoardMember" parameterType="com.smhrd.model.Board">
-		insert into tbl_buy_applicant values (TBL_BUY_APPLICANT_SEQ.nextval,#{writer},sysdate,'없음','없음',#{buylink},#{buypay},'B')	
+		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{writer},sysdate,'없음','없음',#{buylink},#{buypay},'B')	
 	</insert>
 	
+	<insert  id="insertIdBoard" parameterType="com.smhrd.model.Board">
+		insert into tbl_share values (tbl_share_seq.nextval,#{name},#{content},#{writer},sysdate,#{filename},#{idlink},'n','진행','I')	
+	</insert>
+	
+	<insert  id="insertIdBoardMember" parameterType="com.smhrd.model.Board">
+		insert into tbl_account_applicant values (TBL_BUY_APPLICANT_SEQ.nextval,#{writer},sysdate,'없음','없음',#{idlink},#{idtime},#{idpay},'I')	
+	</insert>
+	
+	<insert  id="insertArbeitBoard" parameterType="com.smhrd.model.Board">
+		insert into tbl_share values (tbl_share_seq.nextval,#{name},#{content},#{writer},sysdate,#{filename},null,'n','진행','A')	
+	</insert>
+	
+	<insert  id="insertArbeitBoardMember" parameterType="com.smhrd.model.Board">
+		insert into tbl_arbeit_applicant values (TBL_BUY_APPLICANT_SEQ.nextval,#{writer},sysdate,'없음','없음',#{arbeittime},#{arbeitsite},#{arbeitpay},'A')	
+	</insert>
+	
+	
+	
+	<insert  id="insertFreeBoard" parameterType="com.smhrd.model.Board">
+		insert into tbl_share values (tbl_share_seq.nextval,#{name},#{content},#{writer},sysdate,#{filename},null,'n','진행','F')	
+	</insert>
+	
+	<insert  id="insertFreeBoardMember" parameterType="com.smhrd.model.Board">
+		insert into TBL_FREE_APPLICANT values (TBL_BUY_APPLICANT_SEQ.nextval,sysdate,#{writer},'없음','없음','F')	
+	</insert>
+	
+	
+	
+	
+	
 	<select id="selectAllList" resultType="com.smhrd.model.Board">
-		select * from board
+		select * from tbl_share
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultType="com.smhrd.model.Board">
-		select * from board where num=#{num}
+		select * from tbl_share where BOARD_SEQ=#{num}
 	</select>
 	
 	<select id="selectAllListPage" parameterType="int" resultType="com.smhrd.model.Board">
-		select * from board where num>=#{num} order by num
+		select * where BOARD_SEQ >=#{num} order by BOARD_SEQ
 	</select>
 	
 	

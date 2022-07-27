@@ -44,6 +44,9 @@ p {
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
 
+
+
+
 <jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean>
 <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/>
 <body>
@@ -67,7 +70,6 @@ p {
 					<!-- ï¿½ï¿½ï¿½â¸¦ ï¿½Û¼ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½ï¿½Î°ï¿½Ä§ï¿½Øµï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
 					<c:forEach items="${replyList}" var = "reply">
 					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
-						
 					</c:forEach>
 					
 		
@@ -76,6 +78,14 @@ p {
 		</div>
 	
 	</form>
+	
+	
+	<!-- Âü¿©¹öÆ° Å¬¸¯½Ã DBÀúÀå -->
+	<a href="participateCons">
+	<button><h1>Âü¿©°áÁ¤</h1></button>
+	</a>
+	
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
 		function addReply() {

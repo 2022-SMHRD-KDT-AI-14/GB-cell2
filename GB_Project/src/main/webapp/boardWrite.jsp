@@ -56,9 +56,7 @@ input[type=text]{
 			<div class="card-body">
 				<input name="filename" type="file">
                     
-                    
-                    
-					<select name="cate" >
+                    <select name="cate" >
                         <option value="a">구매</option>
                         <option value="b">계정공유</option>
                         <option value="c">알바대행</option>
