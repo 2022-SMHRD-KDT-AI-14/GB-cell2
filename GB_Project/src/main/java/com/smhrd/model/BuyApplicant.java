@@ -18,11 +18,12 @@ public class BuyApplicant {
 	@NonNull
 	private String mem_id;
 	private Timestamp buy_date;
-	private String buy_p_state;
-	private String buy_c_state;
-//	private BigDecimal cat_seq;
+	private String buy_p_state; //결제상태랑 연결?
+	private char buy_c_state; //이거왜?
 	private String buy_link;
 	private int buy_pay;
 	private char cat_name;
+	private int board_seq;
+	
 }
 
