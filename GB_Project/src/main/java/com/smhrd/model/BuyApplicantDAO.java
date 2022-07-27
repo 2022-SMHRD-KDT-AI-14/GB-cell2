@@ -15,4 +15,22 @@ public class BuyApplicantDAO {
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	
+	
+	public int insertBuyApplicant(BuyApplicant vo){ //회원가입 메소드
+		int cnt = 0;
+		try {
+			cnt = sqlSession.insert("com.smhrd.model.BuyApplicantDAO.insertBuyApplicant", vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
 }
