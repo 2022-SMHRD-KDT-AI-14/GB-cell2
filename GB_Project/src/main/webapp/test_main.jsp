@@ -209,7 +209,7 @@
 					<h1>로그인해주세용</h1>
 				</c:when>
 				<c:otherwise>
-					<h1>님<h1>
+					<h1>${loginMember}님 환영합니다😁</h1>
 				</c:otherwise>
 			</c:choose>
 										
