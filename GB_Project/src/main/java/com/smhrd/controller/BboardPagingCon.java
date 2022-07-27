@@ -11,16 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.smhrd.model.Board;
-import com.smhrd.model.BoardDAO;
 import com.smhrd.model.tbl_share;
 import com.smhrd.model.tbl_shareDAO;
 
-public class boardPagingCon extends HttpServlet {
+/**
+ * Servlet implementation class BboardPagingCon
+ */
+public class BboardPagingCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		int num = Integer.parseInt(request.getParameter("num"));
 		tbl_shareDAO dao = new tbl_shareDAO();
 		List<tbl_share> list =  dao.selectAllListPage(num);
@@ -35,7 +38,7 @@ public class boardPagingCon extends HttpServlet {
 		
 		
 		for(tbl_share b: list) {
-			if(b.getCAT_NAME().equals("I")) {
+			if(b.getCAT_NAME().equals("B")) {
 			json.addProperty("num",b.getBOARD_SEQ());
 			json.addProperty("name", b.getARTICLE_TITLE());
 			json.addProperty("writer", b.getMEM_ID());
@@ -52,5 +55,6 @@ public class boardPagingCon extends HttpServlet {
 	
 	
 	}
+	}
 
-}
+

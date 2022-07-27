@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.tbl_shareDAO"> 
+	
+	
+	
+	
+	
+	<select id="selectAllList" resultType="com.smhrd.model.tbl_share">
+		select * from tbl_share
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="com.smhrd.model.tbl_share">
+		select * from tbl_share where BOARD_SEQ= #{num}
+	</select>
+	
+	<select id="selectAllListPage" parameterType="int" resultType="com.smhrd.model.tbl_share">
+		select * from tbl_share where BOARD_SEQ >= #{num}  order by BOARD_SEQ
+	</select>
+	
+	
+	
+	
+	
+</mapper>    
