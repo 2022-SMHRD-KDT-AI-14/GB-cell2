@@ -29,11 +29,11 @@ public class ReplyDAO {
 		return cnt;
 	}
 	
-	public List<Reply> selectReply(int boardnum) {
+	public List<Reply> selectBuy(int boardnum) {
 		List<Reply> list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
-			list=sqlSession.selectList("com.smhrd.model.ReplyDAO.selectReply",boardnum); 
+			list=sqlSession.selectList("com.smhrd.model.ReplyDAO.selectBuy",boardnum); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
