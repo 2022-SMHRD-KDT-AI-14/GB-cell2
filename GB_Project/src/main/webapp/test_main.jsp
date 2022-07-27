@@ -200,7 +200,7 @@
 										type="password" class="fadeIn third" name="pw"
 										placeholder="password">
 									<p id="check"></p>
-									<input type="submit" class="btn btn-primary" value="Log In">
+									<input type="submit" class="btn btn-primary" value="LogIn">
 								</form>
 								</c:if>
 									
