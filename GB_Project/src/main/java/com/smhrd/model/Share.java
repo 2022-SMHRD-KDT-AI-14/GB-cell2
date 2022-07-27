@@ -24,7 +24,7 @@ public class Share {
  private Timestamp article_date;
  private String  article_file;
  private String  article_link;
- private char  del_YN= 'N';
+ private String  del_YN;
  private String  article_state;
- private char  cat_name;
+ private String  cat_name;
 }
