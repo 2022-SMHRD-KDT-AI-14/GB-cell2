@@ -95,6 +95,15 @@ public class Board {
 		this.content = content;
 	}
 
+	public Board(BigDecimal num, String name, String writer) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.writer = writer;
+		
+		
+	}
+
 	
 	
 	

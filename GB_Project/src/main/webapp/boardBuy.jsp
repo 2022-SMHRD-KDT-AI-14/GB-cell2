@@ -36,11 +36,13 @@
       <th>조회수</th>
   </tr>
   <c:forEach begin="0" end="10" step="1" varStatus="status">
+  
   <tr>
 	  <td id="name${status.index}"></td>
 	  <td id="writer${status.index}"></td>
-	  <td id="views${status.index}"></td>
+	  <td id="category${status.index}"></td>
   </tr>
+ 
   </c:forEach>
   <tr>
 	  <td colspan="3" id="controller"></td>
@@ -86,7 +88,7 @@ function button_create(data_list,startPage){
 function next_list(startRow,startPage){
 	$.ajax({
 		/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
-		url:'boardPagingCon',
+		url:'BboardPagingCon',
 		method:'post',
 		dataType :'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
 		data :{"num":startRow},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */

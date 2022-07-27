@@ -393,42 +393,7 @@
 						</div>
 					</div>
 					<div class="col-md-8 sm-m-top-30">
-						<form class="" action="MessageSend" method="post">
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<c:choose>
-											<c:when test="${!empty loginMember}">
-										<input id="first_name" name="sendE" type="text" placeholder="Name" 
-											class="form-control" value="${loginMember.id}" readonly>
-											</c:when>
-											<c:otherwise>
-										<input id="first_name" name="first_name" type="text" placeholder="Name" class="form-control" required="">
-											</c:otherwise>
-										</c:choose>
-									
-									</div>
-								</div>
-
-								<div class="col-sm-6">
-									<div class="form-group">
-										<input id="phone" name="phone" type="text" placeholder="Phone"
-											class="form-control">
-									</div>
-								</div>
-
-								<div class="col-sm-12">
-									<div class="form-group">
-										<textarea class="form-control" rows="6" placeholder="Message"></textarea>
-									</div>
-									<div class="form-group text-center">
-										<a href="" class="btn btn-primary">SEND MESSAGE</a>
-									</div>
-								</div>
-
-							</div>
-
-						</form>
+						
 					</div>
 				</div>
 			</div>

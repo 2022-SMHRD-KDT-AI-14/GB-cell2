@@ -48,11 +48,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultType="com.smhrd.model.Board">
-		select * from tbl_share where num=#{num}
+		select * from tbl_share where BOARD_SEQ=#{num}
 	</select>
 	
 	<select id="selectAllListPage" parameterType="int" resultType="com.smhrd.model.Board">
-		select * from tbl_share where num>=#{num} order by num
+		select * where BOARD_SEQ >=#{num} order by BOARD_SEQ
 	</select>
 	
 	
