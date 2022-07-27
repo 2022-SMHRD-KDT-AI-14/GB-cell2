@@ -105,7 +105,15 @@
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown"
 						data-out="fadeOutUp">
 						<li><a href="#hello">홈화면</a></li>
+						<c:choose>
+						<c:when test="${empty loginMember}">
 						<li><a href="#login">로그인</a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="logoutCon">로그아웃</a></li>
+						</c:otherwise>
+						</c:choose>
+						
 						<li><a href="#join">회원가입</a></li>
 						<li><a href="#contact">문의하기</a></li>
 					</ul>
@@ -152,14 +160,20 @@
 							<h1 class="text-white">
 								1/n 😀 분의1 <br /> 공유 중계 서비스
 							</h1>
+									
+								
 						</div>
-
+						<div>
+								
+	
+						</div>
+					<c:if test = "${!empty loginMember}">
 						<div class="home_btns m-top-40">
 							<a href="boardCategory.jsp" target="_blank" class="btn btn-primary m-top-20">게시판이동</a>
 							<a href="payState.jsp" target="_blank" class="btn btn-primary m-top-20">결제상태</a>
 							<a href="myPage.jsp" target="_blank" class="btn btn-primary m-top-20">마이페이지</a>
 						</div>
-
+					</c:if>
 					</div>
 				</div>
 				<!--End off row-->
@@ -170,13 +184,13 @@
 
 
 		<!--About Sections-->
-		<section id="login" class="about roomy-100">
+		<section id="logine" class="about roomy-100">
 			<div class="container">
 				<div class="row">
 					<div class="main_about">
 						<div class="col-md-6">
 							<div class="about_content">
-	
+								<c:if test="${empty loginMember}">
 								<h2>로그인</h2>
 								<div class="separator_left"></div>
 								<p>회원이 아니시면 회원가입부터 해주세요</p>
@@ -188,30 +202,18 @@
 									<p id="check"></p>
 									<input type="submit" class="btn btn-primary" value="Log In">
 								</form>
-
+								</c:if>
+									
+								
+								
+							
 							</div>
 						</div>
 
 				
 
-						<div class="col-md-6">
-							<div class="about_accordion wow fadeIn">
-
-								<h6>
-									<i class="fa fa-angle-right"></i> 하고싶은말1제목
-								</h6>
-								<div>
-									<div class="content">
-										<p>하고싶은말1내용하고싶은말1내용하고싶은말1내용하고싶은말1내용</p>
-										
-			<c:choose>
-				<c:when test="${empty loginMember}">
-					<h1>로그인해주세용</h1>
-				</c:when>
-				<c:otherwise>
-					<h1>${loginMember}님 환영합니다😁</h1>
-				</c:otherwise>
-			</c:choose>
+				
+	
 										
 									</div>
 								</div>

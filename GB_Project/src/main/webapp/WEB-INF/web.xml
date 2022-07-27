@@ -90,6 +90,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.Participate</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>logoutCon</servlet-name>
+  	<display-name>logoutCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.logoutCon</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -149,6 +155,10 @@
   <servlet-mapping>
   	<servlet-name>Participate</servlet-name>
   	<url-pattern>/Participate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>logoutCon</servlet-name>
+  	<url-pattern>/logoutCon</url-pattern>
   </servlet-mapping>
 
 </web-app>
