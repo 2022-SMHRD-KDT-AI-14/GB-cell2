@@ -25,6 +25,7 @@ public class test_loginCon extends HttpServlet {
 		System.out.println("LoginCon id/pw >>"+id+"/"+pw);
 		String loginMember = dao.selectMember(vo);
 		System.out.println("이상없음");
+		
 		if(loginMember != null) {
 			
 			System.out.println("로그인 성공");
