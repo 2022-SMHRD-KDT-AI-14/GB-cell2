@@ -33,4 +33,19 @@ public class BuyApplicantDAO {
 		return cnt;
 	}
 	
+	public int SelectBuyApplicantCNT(int board_seq) { //로그인 메소드
+		int cnt =0;
+		
+		try {
+			cnt = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectBuyApplicantCNT",board_seq);
+			System.out.println("BuyApplicantDAO, cnt >>" +cnt);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return cnt;
+	}
+	
 }

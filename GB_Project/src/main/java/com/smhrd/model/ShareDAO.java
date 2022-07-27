@@ -43,4 +43,20 @@ public class ShareDAO {
 	}
 	
 	
+	
+	public String selectWriter(int board_seq){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		String writer =null;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			writer=sqlSession.selectOne("com.smhrd.model.ShareDAO.selectWriter",board_seq); 
+			System.out.println("selectWriter, dao의 writer >> : "+writer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return writer;
+	}
+	
 }

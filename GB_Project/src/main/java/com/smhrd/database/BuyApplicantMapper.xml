@@ -8,9 +8,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert  id="insertBuyApplicant" parameterType="com.smhrd.model.BuyApplicant">
 		insert into tbl_buy_applicant values (
-		tbl_buy_applicant_seq.nextval,#{mem_id},sysdate,null,#{buy_c_state},#{buy_link},#{buy_pay},#{cat_name},#{board_seq})	
+		tbl_buy_applicant_seq.nextval,#{mem_id},sysdate,#{buy_p_state},#{buy_c_state},#{buy_link},#{buy_pay},#{cat_name},#{board_seq})	
 	</insert>
 
+	<select id="SelectBuyApplicantCNT" parameterType="int" resultType="int">
+		select count(*) from tbl_buy_applicant where board_seq=#{board_seq}
+	</select>
 
 
 
