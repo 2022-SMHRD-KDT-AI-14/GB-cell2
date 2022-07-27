@@ -41,19 +41,24 @@ public class BoardWC extends HttpServlet {
 		System.out.println(name);
 		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
 		String content = multi.getParameter("content");
-		String cate = request.getParameter("cate");
+		String cate = multi.getParameter("cate");
 		
-		String buylink = request.getParameter("buylink");
-		String buypay = request.getParameter("buypay");
-		String idlink = request.getParameter("idlink");
-		String idtime = request.getParameter("idtime");
-		String idpay = request.getParameter("idpay");
-		String arbeittime = request.getParameter("arbeittime");
-		String arbeitsite = request.getParameter("arbeitsite");
-		String arbeitpay = request.getParameter("arbeitpay");
+		String buylink = multi.getParameter("buylink");
+		String buypay2 = multi.getParameter("buypay");
+		String idlink = multi.getParameter("idlink");
+		String idtime = multi.getParameter("idtime");
+		String idpay2 = multi.getParameter("idpay");
+		String arbeittime = multi.getParameter("arbeittime");
+		String arbeitsite = multi.getParameter("arbeitsite");
+		String arbeitpay2 = multi.getParameter("arbeitpay");
+		
+	
+	
 		
 		
-		if(cate.equals("1")) {
+		
+		if(cate.equals("a")) {
+			int buypay = Integer.parseInt(buypay2);
 			Board boardVO = new Board(name, writer, filename, content,buypay,buylink);
 			BoardDAO dao = new BoardDAO();
 			int cnt1 = dao.insertBuyBoard(boardVO);
@@ -76,7 +81,9 @@ public class BoardWC extends HttpServlet {
 			
 		}
 		
-		}else if(cate.equals("2")) {
+		}else if(cate.equals("b")) {
+			
+			int idpay = Integer.parseInt(idpay2);
 			
 			Board boardVO = new Board(name, writer, filename, content,idlink,idtime,idpay);
 			BoardDAO dao = new BoardDAO();
@@ -104,7 +111,9 @@ public class BoardWC extends HttpServlet {
 			
 			
 			
-		}else if(cate.equals("3")) {
+		}else if(cate.equals("c")) {
+			
+			int arbeitpay = Integer.parseInt(arbeitpay2);
 			
 			Board boardVO = new Board(name, writer, filename, content,"n",arbeittime,arbeitsite,arbeitpay);
 			BoardDAO dao = new BoardDAO();

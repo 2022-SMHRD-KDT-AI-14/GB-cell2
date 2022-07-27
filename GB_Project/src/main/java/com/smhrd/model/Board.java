@@ -36,7 +36,7 @@ public class Board {
 	
 	private String catgory;
 	
-	private String buypay;
+	private int buypay;
 	
 	private String buylink;
 
@@ -44,15 +44,15 @@ public class Board {
 	
 	private String idtime;
 	
-	private String idpay;
+	private int  idpay;
 	
 	private String arbeittime;
 
 	private String arbeitsite;
 	
-	private String arbeitpay;
+	private int arbeitpay;
 
-	public Board(String name, String writer, String filename,String content, String buypay, String buylink) {
+	public Board(String name, String writer, String filename,String content, int buypay, String buylink) {
 		super();
 		this.name = name;
 		this.writer = writer;
@@ -63,7 +63,7 @@ public class Board {
 	}
 
 	public Board(String name, String writer, String filename, String content, String idlink, String idtime,
-			String idpay) {
+			int idpay) {
 		super();
 		this.name = name;
 		this.writer = writer;
@@ -75,7 +75,7 @@ public class Board {
 	}
 
 	public Board(String name, String writer, String filename,String content, String del, String arbeittime, String arbeitsite,
-			String arbeitpay) {
+			int arbeitpay) {
 		super();
 		this.name = name;
 		this.writer = writer;

@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert  id="insertBuyBoardMember" parameterType="com.smhrd.model.Board">
-		insert into tbl_buy_applicant values (TBL_BUY_APPLICANT_SEQ.nextval,#{writer},sysdate,'없음','없음',#{buylink},#{buypay},'B')	
+		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{writer},sysdate,'없음','없음','B',#{buylink},#{buypay})	
 	</insert>
 	
 	<insert  id="insertIdBoard" parameterType="com.smhrd.model.Board">
