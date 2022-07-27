@@ -113,8 +113,9 @@
 						<li><a href="logoutCon">로그아웃</a></li>
 						</c:otherwise>
 						</c:choose>
-						
+						<c:if test="${empty loginMember}">
 						<li><a href="#join">회원가입</a></li>
+						</c:if>
 						<li><a href="#contact">문의하기</a></li>
 					</ul>
 				</div> -->
@@ -241,6 +242,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="main_service roomy-100">
+				<c:if test="${empty loginMember}">
 					<h2>회원가입</h2>
 					<div class="separator_left"></div>
 					<form action="test_JoinCon" method="post">
@@ -255,6 +257,7 @@
 						<li>주민번호: <input type="text" placeholder="주민번호를 입력하세요" name="jumin"></li> 
 						<input type="submit" class="btn btn-primary" value="JoinUs" class="button fit">
 					</form>
+					</c:if>
 					<script>
 								function checkE() {
 									var inputE = $('#inputE').val()
