@@ -9,8 +9,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_share where mem_id=#{loginMember}
 	</select>
 	
-	
-	
 	<select id="selectAllMyParList" resultType="com.smhrd.model.Share" parameterType="String">
 		select * from tbl_share 
 		where board_seq in( select board_seq from tbl_buy_applicant where mem_id=#{loginMember})
