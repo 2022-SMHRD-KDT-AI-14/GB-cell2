@@ -52,6 +52,7 @@ public class BoardWC extends HttpServlet {
 		String arbeitsite = multi.getParameter("arbeitsite");
 		String arbeitpay2 = multi.getParameter("arbeitpay");
 		
+		
 	
 	
 		
@@ -60,27 +61,29 @@ public class BoardWC extends HttpServlet {
 		if(cate.equals("a")) {
 			int buypay = Integer.parseInt(buypay2);
 			Board boardVO = new Board(name, writer, filename, content,buypay,buylink);
+			Board boardVO2 = new Board(name, writer, filename, content,buypay,buylink);
 			BoardDAO dao = new BoardDAO();
 			int cnt1 = dao.insertBuyBoard(boardVO);
-			int cnt2 = dao.insertBuyBoardMember(boardVO);
+			int cnt2 = dao.insertBuyBoardMember(boardVO2);
+			
 			if(cnt1>0) {
 				System.out.println("작성성공1");
-				response.sendRedirect("boardBuy.jsp");
+				
 			}else {
 				System.out.println("작성실패1");
-				response.sendRedirect("boardBuy.jsp");
+				
 			}
+			
 			if(cnt2>0) {
 				System.out.println("작성성공2");
 				
 			}else {
 				System.out.println("작성실패2");
-				
+							
+			}
+			response.sendRedirect("boardBuy.jsp");
 			
 			
-			
-		}
-		
 		}else if(cate.equals("b")) {
 			
 			int idpay = Integer.parseInt(idpay2);
