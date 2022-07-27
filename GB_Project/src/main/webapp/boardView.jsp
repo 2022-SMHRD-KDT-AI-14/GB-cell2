@@ -24,6 +24,8 @@ body {
 
 .card-body {
 	background-color: whitesmoke;
+	padding-top: 10px;
+	padding-left: 10px;
 }
 
 p {
@@ -33,7 +35,7 @@ p {
 }
 
 #date{
-	font-size : 20px;
+	font-size : 15px;
 	text-align : right;
 }
 </style>
@@ -48,7 +50,7 @@ p {
 
 
 <jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean>
-<c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/>
+<%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
 	<form>
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
@@ -58,10 +60,12 @@ p {
 	
 		<!-- 댓글작성 -->
 		<div class="card mb-2">
-			<div class="card-body">
+			<!-- 이미지 가운데 자동 정렬  -->
+			<div class="card-body" style="text-align: center;">
 				<img src="img/${board.filename}">
-				<!-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> -->
-				<ul class="list-group list-group-flush">
+				
+				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
+				<%-- <ul class="list-group list-group-flush">
 					<li class="list-group-item"><textarea class="form-control"
 							id="exampleFormControlTextarea1" rows="3"></textarea>
 						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
@@ -73,8 +77,9 @@ p {
 					</c:forEach>
 					
 		
-				</ul>
+				</ul> --%>
 			</div>
+			<div class="card-body" ><h6>작성문구<br>상품상세<br>제품홍보</h6></div>
 		</div>
 	
 	</form>
@@ -82,7 +87,9 @@ p {
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
 	<a href="participateCons">
-	<button><h1>참여결정</h1></button>
+	<div style="text-align: right;">
+	<button style=""><h4>참여결정</h4></button>
+	</div>
 	</a>
 	
 	
