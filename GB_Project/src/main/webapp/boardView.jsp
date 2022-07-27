@@ -44,6 +44,9 @@ p {
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
 
+
+
+
 <jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean>
 <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/>
 <body>
@@ -67,7 +70,6 @@ p {
 					<!-- 여기를 작성해야 새로고침해도 그대로 남아있음 -->
 					<c:forEach items="${replyList}" var = "reply">
 					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
-						
 					</c:forEach>
 					
 		
@@ -76,6 +78,14 @@ p {
 		</div>
 	
 	</form>
+	
+	
+	<!-- 참여버튼 클릭시 DB저장 -->
+	<form action="participateCons">
+	<button><h1>참여결정</h1></button>
+	</form>
+	
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
 		function addReply() {

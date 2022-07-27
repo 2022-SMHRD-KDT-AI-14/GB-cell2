@@ -78,7 +78,9 @@
 								<h2>등록한 게시글</h2>
 								<div class="separator_left"></div>
 								<p>
-								
+								<h5> @P1 거래결정 클릭> 진행상태가 '진행'로 변경</h5>
+								<h5> @p1-1 결정한게시글 참여자수 카운트(함수), 총액불러오기, 정보 참여자들에게 알리기 </h5>
+								<h5> @p2 출금이체API 메뉴만들고 거래상태 완료 </h5>
 									<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
 									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
 					
@@ -91,9 +93,22 @@
 													<td><c:out value="${s.article_title}" /></td>
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
-													<c:if test ="${empty s.article_state}">
-													<td><button name="btn${s.board_seq}" >거래결정</button></td>
-													</c:if>
+													
+													<td>
+													<c:choose>
+												    	<c:when test ="${s.article_state=='진행'}">
+															<button name="btn${s.board_seq}" onclick="payAPI()">거래취소</button>
+													    	<a href="pageAPI.jsp">진행상황 보기</a>
+												        </c:when>   
+												        <c:when  test ="${empty s.article_state}">
+															<button name="btn${s.board_seq}" onclick="payAPI()">거래결정</button>
+												        </c:when>      
+												        <c:otherwise>
+												           
+												    	</c:otherwise>
+												    </c:choose>
+												</td>
+													
 												</tr>
 											</c:forEach>
 										</table>
@@ -120,25 +135,36 @@
 								<div class="separator_left"></div>
 						
 								<p>
-		<h5> @P1참여확정 누른경우 게시글 보임</h5>
-		<h5>   (참여확정자 테이블을 통합한게 나으려나?)</h5>
-		<h5> @P1(채팅이 안될경우)1자가 거래결정시 : 게시글옆에 알림기능이 표기되고 클릭시 정보확인/브러커중계하기/취소기능화면 </h5>
-		<h5> @P2브로커중계하기 누르면 이체API화면
-		<h5> @P3이체 결과출력화면 및 배송정보 등</h5>
+									<h5> @P1참여확정 누른사람만 게시글 보임</h5>
+									<h5> @P1(채팅이 안될경우)1자가 거래결정 클릭 : 게시글옆에 알림기능이 표기되고 클릭시 정보확인/브러커중계하기/취소기능화면 </h5>
+									<h5> @P2브로커중계하기 누르면 이체API화면
+									<h5> @P3이체 결과출력화면 및 배송정보 등</h5>
 									<c:set var="nShareList" value="${ShareDAO.selectAllMyParList(loginMember)}" />
+					
 					
 										<c:if test="${!empty loginMember}">
 										<table border='1'>
 										<th>게시글No.</th><th>제 목</th><th>작성자</th><th>거래상태</th>
 											<c:forEach items="${nShareList}" var="s"  >
 												<tr>
-													<td><c:out value="${s.board_seq}" /></td>
-													<td><c:out value="${s.article_title}" /></td>
-													<td><c:out value="${s.mem_id}" /></td>
-													<td><c:out value="${s.article_state}" /></td>
-													<c:if test ="${empty s.article_state}">
-													<td><button name="btn${s.board_seq}" onclick="payAPI()">거래결정</button></td>
-													</c:if>
+												<td><c:out value="${s.board_seq}" /></td>
+												<td><c:out value="${s.article_title}" /></td>
+												<td><c:out value="${s.mem_id}" /></td>
+												<td><c:out value="${s.article_state}" /></td>
+												<td>
+													<c:choose>
+												    	<c:when test ="${s.article_state=='진행'}">
+															<button name="btn${s.board_seq}" onclick="payAPI()">거래취소</button>
+													    	<a href="pageAPI.jsp">진행상황 보기</a>
+												        </c:when>   
+												        <c:when test ="${empty s.article_state}">
+															<button name="btn${s.board_seq}" onclick="payAPI()">참여취소</button>
+												        </c:when>      
+												        <c:otherwise>
+												           
+												    	</c:otherwise>
+												    </c:choose>
+												</td>
 												</tr>
 											</c:forEach>
 										</table>
