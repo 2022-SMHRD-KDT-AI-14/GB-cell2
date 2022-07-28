@@ -16,6 +16,7 @@ import com.smhrd.model.Member;
 import com.smhrd.model.MemberDAO;
 import com.smhrd.model.Share;
 import com.smhrd.model.ShareDAO;
+import com.smhrd.model.test_participateConDAO;
 public class test_participateCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,46 +31,56 @@ public class test_participateCon extends HttpServlet {
 		String writer= new ShareDAO().selectWriter(board_seq);
 		System.out.println("dao실행후 writer >> "+writer);
 		
+		test_participateConDAO dao = new test_participateConDAO();
+		String category = dao.selectOneBoardnumber(board_seq);
 		
-		String by_p_state;
-		if(mem_id.equals(writer)){ //참여자가 작성자와 같은경우
-			by_p_state = "입금대기";  //모집중, 입금대기, 거래중, 거래완료
-		}else { //참여자가 작성자가 아닌경우
-			by_p_state = "모집중";  //모집중, 입금대기, 거래중, 거래완료
-		}
+		System.out.println(category);
 		
 		
 		
-		String by_c_state = "N";
-//		String buy_link = request.getParameter("buy_link"); //form에서 받기
-//		int buy_pay = Integer.parseInt(request.getParameter("buy_pay"));//form에서 받기
-//		String cat_name = request.getParameter("cat_name");//form에서 받기
-//		int board_seq=Integer.parseInt(request.getParameter("num"));//form에서 받기
-//		System.out.println("test_JoincCon,mem_id >> "+mem_id);
-//		BuyApplicant vo= new BuyApplicant(mem_id, by_p_state, by_c_state, buy_link, buy_pay, cat_name, board_seq);
-
-		
-		String buy_link = "www.coupang.com"; //form에서 받ㅋ
-		int buy_pay = 20000;//form에서 받기
-		String cat_name = "P";//form에서 받기
-		
-		System.out.println("test_Con,board_seq >> "+board_seq);
-		BuyApplicant vo= new BuyApplicant(mem_id,by_p_state,by_c_state, buy_link, buy_pay, cat_name, board_seq);
 		
 		
-		BuyApplicantDAO dao = new BuyApplicantDAO();
-		int cnt = dao.insertBuyApplicant(vo);
 		
-		if(cnt>0) {
-			System.out.println("참여 성공");
 		
-			response.sendRedirect("payState.jsp");
-		
-		}else {
-			System.out.println("참여 실패");
-			// 포워딩 방식 joinSuccess.jsp이동, email->request영역에 저장
-			response.sendRedirect("payState.jsp");
-		}
+//		String by_p_state;
+//		if(mem_id.equals(writer)){ //참여자가 작성자와 같은경우
+//			by_p_state = "입금대기";  //모집중, 입금대기, 거래중, 거래완료
+//		}else { //참여자가 작성자가 아닌경우
+//			by_p_state = "모집중";  //모집중, 입금대기, 거래중, 거래완료
+//		}
+//		
+//		
+//		
+//		String by_c_state = "N";
+////		String buy_link = request.getParameter("buy_link"); //form에서 받기
+////		int buy_pay = Integer.parseInt(request.getParameter("buy_pay"));//form에서 받기
+////		String cat_name = request.getParameter("cat_name");//form에서 받기
+////		int board_seq=Integer.parseInt(request.getParameter("num"));//form에서 받기
+////		System.out.println("test_JoincCon,mem_id >> "+mem_id);
+////		BuyApplicant vo= new BuyApplicant(mem_id, by_p_state, by_c_state, buy_link, buy_pay, cat_name, board_seq);
+//
+//		
+//		String buy_link = "www.coupang.com"; //form에서 받ㅋ
+//		int buy_pay = 20000;//form에서 받기
+//		String cat_name = "P";//form에서 받기
+//		
+//		System.out.println("test_Con,board_seq >> "+board_seq);
+//		BuyApplicant vo= new BuyApplicant(mem_id,by_p_state,by_c_state, buy_link, buy_pay, cat_name, board_seq);
+//		
+//		
+//		BuyApplicantDAO dao = new BuyApplicantDAO();
+//		int cnt = dao.insertBuyApplicant(vo);
+//		
+//		if(cnt>0) {
+//			System.out.println("참여 성공");
+//		
+//			response.sendRedirect("payState.jsp");
+//		
+//		}else {
+//			System.out.println("참여 실패");
+//			// 포워딩 방식 joinSuccess.jsp이동, email->request영역에 저장
+//			response.sendRedirect("payState.jsp");
+//		}
 		
 		
 		
