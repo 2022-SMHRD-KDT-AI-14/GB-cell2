@@ -28,4 +28,17 @@ public class tbl_account_applicant {
 	private int ID_PAY;
 	
 	private String CAT_NAME;
+
+	public tbl_account_applicant(String mEM_ID, String aCCOUNT_P_STATE, String aCCOUNT_C_STATE, String iD_LINK,
+			String iD_TIME, int iD_PAY, String cAT_NAME) {
+		super();
+		MEM_ID = mEM_ID;
+		ACCOUNT_P_STATE = aCCOUNT_P_STATE;
+		ACCOUNT_C_STATE = aCCOUNT_C_STATE;
+		ID_LINK = iD_LINK;
+		ID_TIME = iD_TIME;
+		ID_PAY = iD_PAY;
+		CAT_NAME = cAT_NAME;
+	}
+	
 }
