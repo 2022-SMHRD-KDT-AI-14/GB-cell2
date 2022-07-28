@@ -120,6 +120,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.buyApplicantCNT</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>updateStateCon</servlet-name>
+  	<display-name>updateStateCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.updateStateCon</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -199,6 +205,10 @@
   <servlet-mapping>
   	<servlet-name>buyApplicantCNT</servlet-name>
   	<url-pattern>/buyApplicantCNT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateStateCon</servlet-name>
+  	<url-pattern>/updateStateCon</url-pattern>
   </servlet-mapping>
 
 </web-app>

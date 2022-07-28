@@ -46,20 +46,6 @@
 <body data-spy="scroll" data-target=".navbar-collapse">
 
 
-	<!-- Preloader -->
-	<!-- <div id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_one"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_four"></div>
-			</div>
-		</div>
-	</div> -->
-	<!--End off Preloader -->
-
-
 	<div class="culmn">
 		<!--Home page style-->
 
@@ -206,12 +192,9 @@
 										type="password" class="fadeIn third" name="pw"
 										placeholder="password">
 									<p id="check"></p>
-<<<<<<< HEAD
 									
 									<input type="submit" class="btn btn-primary" value="Log In">
-=======
 									<input type="submit" class="btn btn-primary" value="LogIn">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 								</form>
 								</c:if>
 									
