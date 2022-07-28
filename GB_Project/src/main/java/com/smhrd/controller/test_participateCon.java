@@ -17,8 +17,13 @@ import com.smhrd.model.MemberDAO;
 import com.smhrd.model.Share;
 import com.smhrd.model.ShareDAO;
 import com.smhrd.model.test_participateConDAO;
+import com.smhrd.model.test_participatelistCon;
 public class test_participateCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+
+	
+
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 본래는 제2자 '참여확정'시 호출됨
@@ -34,9 +39,55 @@ public class test_participateCon extends HttpServlet {
 		test_participateConDAO dao = new test_participateConDAO();
 		String category = dao.selectOneBoardnumber(board_seq);
 		
+		test_participatelistCon vo = new test_participatelistCon(mem_id,category,board_seq);
+		
+		test_participateConDAO dao2 = new test_participateConDAO();
 		System.out.println(category);
 		
 		
+		int cnt;
+		if(category.equals("B")) {
+			
+		cnt = dao2.insertBuyBoardMember(vo);
+		if(cnt>0) {
+			System.out.println("작성성공1");
+			
+		}else {
+			System.out.println("작성실패1");
+			
+		}
+		}else if(category.equals("A")){
+			
+			cnt = dao2.insertAccountBoardMember(vo);
+			if(cnt>0) {
+				System.out.println("작성성공1");
+				
+			}else {
+				System.out.println("작성실패1");
+				
+			}
+		}else if(category.equals("F")){
+			
+			cnt = dao2.insertFreeBoardMember(vo);
+			if(cnt>0) {
+				System.out.println("작성성공1");
+				
+			}else {
+				System.out.println("작성실패1");
+				
+			}
+		}else if(category.equals("I")){
+			
+			cnt = dao2.insertAccountBoardMember(vo);
+			if(cnt>0) {
+				System.out.println("작성성공1");
+				
+			}else {
+				System.out.println("작성실패1");
+				
+			}
+			
+		}
 		
 		
 		
