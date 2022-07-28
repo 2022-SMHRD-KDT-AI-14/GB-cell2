@@ -73,6 +73,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 	<div class="culmn">
+	
 		<!--Skill Sections-->
 		<section id="skill" class="skill roomy-100">
 			<div class="container">
@@ -104,10 +105,14 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state='입금대기'"><button>거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
+																<!-- 입금이되면 
+																	BoardApplicant의 buy_c_state 가 Y로 변경
+																	updateStateCon?board_seq=${s.board_seq}&article_state='입금대기'
+																c_state y로 변경  -->
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">

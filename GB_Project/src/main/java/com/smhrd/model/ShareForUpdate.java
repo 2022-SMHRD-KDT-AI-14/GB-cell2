@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -7,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ShareForUpdate {
 	
-	private int board_seq;
-	private String ariicle_state;
+	private BigDecimal board_seq;
+	private String article_state;
 	
 }
