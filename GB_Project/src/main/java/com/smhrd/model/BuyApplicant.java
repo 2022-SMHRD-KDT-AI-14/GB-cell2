@@ -19,9 +19,9 @@ public class BuyApplicant {
 	private String mem_id;
 	private Timestamp buy_date;
 	@NonNull
-	private String buy_p_state; //결제상태랑 연결?
+	private String buy_p_state; //결제상태랑 
 	@NonNull
-	private String buy_c_state; //이거왜?
+	private String buy_c_state; // 계좌이체
 	@NonNull
 	private String buy_link;
 	@NonNull
