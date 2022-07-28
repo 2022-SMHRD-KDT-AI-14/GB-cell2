@@ -26,6 +26,7 @@ body {
 	background-color: whitesmoke;
 	padding-top: 10px;
 	padding-left: 10px;
+
 }
 
 p {
@@ -53,16 +54,13 @@ p {
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
 	<form>
-		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-			<p>${board.name}/${board.writer}</p>
-			<p id="date">작성일 : ${board.uploadday}</p>
+		
+	<div>
+		
 		</div>
-	
-		<!-- 댓글작성 -->
-		<div class="card mb-2">
-			<!-- 이미지 가운데 자동 정렬  -->
-			<div class="card-body" style="text-align: center;">
-				<img src="img/${board.filename}">
+			<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
+				<img src="img/${board.filename}" width="auto" height="200px">
+			</div>
 				
 				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
 				<%-- <ul class="list-group list-group-flush">
@@ -79,6 +77,19 @@ p {
 		
 				</ul> --%>
 			</div>
+		<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
+			<h4>가격</h4>
+			<h5>상품명</h5>
+			<h6 id="date">작성일 : ${board.uploadday}</h6>
+			<h6>${board.name}/${board.writer}</h6>
+		</div>
+		<!-- 댓글작성 -->
+		<div class="card mb-2">
+			<!-- 이미지 가운데 자동 정렬  -->
+			<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+				<p>${board.name}/${board.writer}</p>
+				<p id="date">작성일 : ${board.uploadday}</p>
+		</div> --%>
 			<div class="card-body" ><h6>작성문구<br>상품상세<br>제품홍보</h6></div>
 		</div>
 	
