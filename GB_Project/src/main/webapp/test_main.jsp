@@ -70,7 +70,8 @@
 			<div class="top-search">
 				<div class="container">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-search"></i></span>
+						<span class="input-group-a
+						ddon"><i class="fa fa-search"></i></span>
 						<input type="text" class="form-control" placeholder="Search">
 						<span class="input-group-addon close-search"><i
 							class="fa fa-times"></i></span>
@@ -204,8 +205,12 @@
 										type="password" class="fadeIn third" name="pw"
 										placeholder="password">
 									<p id="check"></p>
+<<<<<<< HEAD
 									
 									<input type="submit" class="btn btn-primary" value="Log In">
+=======
+									<input type="submit" class="btn btn-primary" value="LogIn">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 								</form>
 								</c:if>
 									

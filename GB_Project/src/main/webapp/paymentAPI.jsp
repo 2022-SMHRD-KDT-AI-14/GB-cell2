@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%
+//세션값아닌 request가 받아온값(서브쿼리로 들어온값)은 JSP HTML태그에서 el표기법 먹히나???? param.써야할듯
+		System.out.println("paymentAPI, 게시글번호 >> "+request.getParameter("board_seq"));
+%>
+
+								
+
+<p><h1>참여자수 : ${cnt}</h1></p><br>
+<p><h1>원래가격 :</h1></p><br>
+<p><h1>1/n금액 :</h1></p><br>
+
+</div>
 입력값: 1자 아이디, 게시글번호, 금액, 참여자인원
 등록한 게시글조회보기 + 진행상태(진행 완료 취소 공백)
 								
