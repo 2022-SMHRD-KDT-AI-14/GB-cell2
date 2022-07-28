@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -41,9 +41,9 @@ p {
 }
 </style>
 </head>
-<!-- ��ũ��Ʋ�� �Ⱦ����� ���� ���۾� �ϴ°���..JSP���� �ȿ��� ���� �����ϴ� �±� ��. id�� ������ -->
-<!-- JSTL���� ������ �����ϴ� ��� var������ value��,�����ٰ�ELǥ������� �Ʊ� ���� ������ ������ �ִ´� -->
-<!-- param.num url�� �ִ� �Ķ�����߿��� num�̶�� ���� �ҷ����ڴ�.. ���⼭ ������ ������ �ڹٺ����� �ƴϴ�.EL�� �ҷ����Ⱑ�� -->
+<!-- 占쏙옙크占쏙옙틀占쏙옙 占싫억옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쌜억옙 占싹는곤옙占쏙옙..JSP占쏙옙占쏙옙 占싫울옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占승깍옙 占쏙옙. id占쏙옙 占쏙옙占쏙옙占쏙옙 -->
+<!-- JSTL占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占쏙옙占� var占쏙옙占쏙옙占쏙옙 value占쏙옙,占쏙옙占쏙옙占쌕곤옙EL표占쏙옙占쏙옙占쏙옙占� 占싣깍옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌍는댐옙 -->
+<!-- param.num url占쏙옙 占쌍댐옙 占식띰옙占쏙옙占쏙옙傷占쏙옙占� num占싱띰옙占� 占쏙옙占쏙옙 占쌀뤄옙占쏙옙占쌘댐옙.. 占쏙옙占썩서 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙 占싣니댐옙.EL占쏙옙 占쌀뤄옙占쏙옙占썩가占쏙옙 -->
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
 
@@ -56,8 +56,8 @@ p {
 	<form>
 <<<<<<< HEAD
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-			<p>${board.name}/${board.writer}</p>
-			<p id="date">�ۼ��� : ${board.uploadday}</p>
+			<p>${board.ARTICLE_TITLE}/${board.MEM_ID}</p>
+			<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
 =======
 		
 	<div>
@@ -66,10 +66,10 @@ p {
 		</div>
 <<<<<<< HEAD
 	
-		<!-- ����ۼ� -->
+		<!-- 占쏙옙占쏙옙蒡占� -->
 		<div class="card mb-2">
 			<div class="card-body">
-				<img src="img/${board.filename}">
+				<img src="img/${board.ARTICLE_FILE}">
 				<!-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> -->
 				<ul class="list-group list-group-flush">
 =======
@@ -85,7 +85,7 @@ p {
 						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
 				</ul>
 				<ul class="list-group list-group-flush" id="reply">
-					<!-- ���⸦ �ۼ��ؾ� ���ΰ�ħ�ص� �״�� �������� -->
+					<!-- 占쏙옙占썩를 占쌜쇽옙占쌔억옙 占쏙옙占싸곤옙침占쌔듸옙 占쌓댐옙占� 占쏙옙占쏙옙占쏙옙占쏙옙 -->
 					<c:forEach items="${replyList}" var = "reply">
 					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
 					</c:forEach>
@@ -95,10 +95,10 @@ p {
 			</div>
 			
 		<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
-			<h4>����</h4>
-			<h5>��ǰ��</h5>
-			<h6 id="date">�ۼ��� : ${board.ARTICLE_DATE}</h6>
-			<h6>����:${board.ARTICLE_TITLE}/����:${board.ARTICLE_CONTENT}</h6>
+			<h4>가격</h4>
+			<h5>상품명</h5>
+			<h6 id="date">작성일 : ${board.ARTICLE_DATE}</h6>
+			<h6>제목:${board.ARTICLE_TITLE}/내용:${board.ARTICLE_CONTENT}</h6>
 		</div>
 		
 		
@@ -106,23 +106,23 @@ p {
 		
 
 		
-		<!-- ����ۼ� -->
+		<!-- 댓글작성 -->
 		<div class="card mb-2">
-			<!-- �̹��� ��� �ڵ� ����  -->
+			<!-- 이미지 가운데 자동 정렬  -->
 			<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 				<p>${board.name}/${board.writer}</p>
-				<p id="date">�ۼ��� : ${board.uploadday}</p>
+				<p id="date">작성일 : ${board.uploadday}</p>
 		</div> --%>
-			<div class="card-body" ><h6>�ۼ�����<br>��ǰ��<br>��ǰȫ��</h6></div>
+			<div class="card-body" ><h6>작성문구<br>상품상세<br>제품홍보</h6></div>
 		</div>
 	
 	</form>
 	
 	
-	<!-- ������ư Ŭ���� DB���� -->
+	<!-- 참여버튼 클릭시 DB저장 -->
 	<a href="participateCons">
 	<div style="text-align: right;">
-	<button style=""><h4>��������</h4></button>
+	<button style=""><h4>참여결정</h4></button>
 	</div>
 	</a>
 	
@@ -130,25 +130,25 @@ p {
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
 		function addReply() {
-		/* �������� �򰥸����� , ��ũ��Ʈ�ȿ��� elǥ��� ����, ǥ�������� �ڹٺ����������Ⱑ�� */
+		/* 占쏙옙占쏙옙占쏙옙占쏙옙 占쏠갈몌옙占쏙옙占쏙옙 , 占쏙옙크占쏙옙트占싫울옙占쏙옙 el표占쏙옙占� 占쏙옙占쏙옙, 표占쏙옙占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙占쏙옙占쏙옙占썩가占쏙옙 */
 			let ta = $('textarea').val()
 				
 			$.ajax({
-			//��û���
+			//占쏙옙청占쏙옙占�
 			url: 'ReplyCon',
-			//��û������ (�Խù���ȣ, �ۼ����)
+			//占쏙옙청占쏙옙占쏙옙占쏙옙 (占쌉시뱄옙占쏙옙호, 占쌜쇽옙占쏙옙占�)
 			data: {
 				'boardnum':${param.num},
 				'reply':ta
 			},
-			//��û���(get,post)
+			//占쏙옙청占쏙옙占�(get,post)
 			type:'post',
-			success:function(data){ //����� ����
+			success:function(data){ //占쏙옙占쏙옙占� 占쏙옙占쏙옙
 				//alert(data) 
 				$('#reply').prepend('<li class="list-group-item"><span>'+ta+'/${loginVO.id}</span></li>')
 			},
-			error :function(){ //����� ����
-				alert('��Ž���')
+			error :function(){ //占쏙옙占쏙옙占� 占쏙옙占쏙옙
+				alert('占쏙옙탐占쏙옙占�')
 			}
 			
 			})
