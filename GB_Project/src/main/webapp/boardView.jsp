@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -41,9 +41,9 @@ p {
 }
 </style>
 </head>
-<!-- ½ºÅ©¸³Æ²¸´ ¾È¾²·Á°í Áö±İ ÀÌÀÛ¾÷ ÇÏ´Â°ÅÀÓ..JSPÆÄÀÏ ¾È¿¡¼­ º¯¼ö ¼±¾ğÇÏ´Â ÅÂ±× ÀÓ. id´Â º¯¼ö¸í -->
-<!-- JSTL¿¡¼­ º¯¼ö¸¦ ¼±¾ğÇÏ´Â ±â´É varº¯¼ö¸í value°ª,°ª¿¡´Ù°¡ELÇ¥±â¹ıÀ¸·Î ¾Æ±î À§¿¡ ¼±¾ğÇÑ º¯¼ö¸¦ ³Ö´Â´Ù -->
-<!-- param.num url¿¡ ÀÖ´Â ÆÄ¶ó¹ÌÅÍÁß¿¡¼­ numÀÌ¶ó´Â °ªÀ» ºÒ·¯¿À°Ú´Ù.. Àú±â¼­ ¼±¾ğÇÑ º¯¼ö´Â ÀÚ¹Ùº¯¼ö°¡ ¾Æ´Ï´Ù.EL·Î ºÒ·¯¿À±â°¡´É -->
+<!-- å ì™ì˜™í¬å ì™ì˜™í‹€å ì™ì˜™ å ì‹«ì–µì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ìŒœì–µì˜™ å ì‹¹ëŠ”ê³¤ì˜™å ì™ì˜™..JSPå ì™ì˜™å ì™ì˜™ å ì‹«ìš¸ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì‹¹ëŒì˜™ å ìŠ¹ê¹ì˜™ å ì™ì˜™. idå ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ -->
+<!-- JSTLå ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì‹¹ëŒì˜™ å ì™ì˜™å ï¿½ varå ì™ì˜™å ì™ì˜™å ì™ì˜™ valueå ì™ì˜™,å ì™ì˜™å ì™ì˜™å ìŒ•ê³¤ì˜™ELí‘œå ì™ì˜™å ì™ì˜™å ì™ì˜™å ï¿½ å ì‹£ê¹ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ìŒëŠ”ëŒì˜™ -->
+<!-- param.num urlå ì™ì˜™ å ìŒëŒì˜™ å ì‹ë°ì˜™å ì™ì˜™å ì™ì˜™å‚·å ì™ì˜™å ï¿½ numå ì‹±ë°ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™ å ìŒ€ë¤„ì˜™å ì™ì˜™å ìŒ˜ëŒì˜™.. å ì™ì˜™å ì©ì„œ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ìŒ˜ë°”ë¸ì˜™å ì™ì˜™å ì™ì˜™ å ì‹£ë‹ˆëŒì˜™.ELå ì™ì˜™ å ìŒ€ë¤„ì˜™å ì™ì˜™å ì©ê°€å ì™ì˜™ -->
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
 
@@ -54,22 +54,38 @@ p {
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
 	<form>
+<<<<<<< HEAD
+		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+			<p>${board.ARTICLE_TITLE}/${board.MEM_ID}</p>
+			<p id="date">ì‘ì„±ë‚ ì§œ : ${board.ARTICLE_DATE}</p>
+=======
 		
 	<div>
 		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 		</div>
+<<<<<<< HEAD
+	
+		<!-- å ì™ì˜™å ì™ì˜™è’¡å ï¿½ -->
+		<div class="card mb-2">
+			<div class="card-body">
+				<img src="img/${board.ARTICLE_FILE}">
+				<!-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> -->
+				<ul class="list-group list-group-flush">
+=======
 			<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
 				<img src="img/${board.ARTICLE_FILE}" width="auto" height="200px">
 			</div>
 				
 				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
 				<%-- <ul class="list-group list-group-flush">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 					<li class="list-group-item"><textarea class="form-control"
 							id="exampleFormControlTextarea1" rows="3"></textarea>
 						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
 				</ul>
 				<ul class="list-group list-group-flush" id="reply">
-					<!-- ¿©±â¸¦ ÀÛ¼ºÇØ¾ß »õ·Î°íÄ§ÇØµµ ±×´ë·Î ³²¾ÆÀÖÀ½ -->
+					<!-- å ì™ì˜™å ì©ë¥¼ å ìŒœì‡½ì˜™å ìŒ”ì–µì˜™ å ì™ì˜™å ì‹¸ê³¤ì˜™ì¹¨å ìŒ”ë“¸ì˜™ å ìŒ“ëŒì˜™å ï¿½ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ -->
 					<c:forEach items="${replyList}" var = "reply">
 					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
 					</c:forEach>
@@ -79,10 +95,10 @@ p {
 			</div>
 			
 		<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
-			<h4>°¡°İ</h4>
-			<h5>»óÇ°¸í</h5>
-			<h6 id="date">ÀÛ¼ºÀÏ : ${board.ARTICLE_DATE}</h6>
-			<h6>Á¦¸ñ:${board.ARTICLE_TITLE}/³»¿ë:${board.ARTICLE_CONTENT}</h6>
+			<h4>ê°€ê²©</h4>
+			<h5>ìƒí’ˆëª…</h5>
+			<h6 id="date">ì‘ì„±ì¼ : ${board.ARTICLE_DATE}</h6>
+			<h6>ì œëª©:${board.ARTICLE_TITLE}/ë‚´ìš©:${board.ARTICLE_CONTENT}</h6>
 		</div>
 		
 		
@@ -90,23 +106,23 @@ p {
 		
 
 		
-		<!-- ´ñ±ÛÀÛ¼º -->
+		<!-- ëŒ“ê¸€ì‘ì„± -->
 		<div class="card mb-2">
-			<!-- ÀÌ¹ÌÁö °¡¿îµ¥ ÀÚµ¿ Á¤·Ä  -->
+			<!-- ì´ë¯¸ì§€ ê°€ìš´ë° ìë™ ì •ë ¬  -->
 			<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 				<p>${board.name}/${board.writer}</p>
-				<p id="date">ÀÛ¼ºÀÏ : ${board.uploadday}</p>
+				<p id="date">ì‘ì„±ì¼ : ${board.uploadday}</p>
 		</div> --%>
-			<div class="card-body" ><h6>ÀÛ¼º¹®±¸<br>»óÇ°»ó¼¼<br>Á¦Ç°È«º¸</h6></div>
+			<div class="card-body" ><h6>ì‘ì„±ë¬¸êµ¬<br>ìƒí’ˆìƒì„¸<br>ì œí’ˆí™ë³´</h6></div>
 		</div>
 	
 	</form>
 	
 	
-	<!-- Âü¿©¹öÆ° Å¬¸¯½Ã DBÀúÀå -->
+	<!-- ì°¸ì—¬ë²„íŠ¼ í´ë¦­ì‹œ DBì €ì¥ -->
 	<a href="participateCons">
 	<div style="text-align: right;">
-	<button style=""><h4>Âü¿©°áÁ¤</h4></button>
+	<button style=""><h4>ì°¸ì—¬ê²°ì •</h4></button>
 	</div>
 	</a>
 	
@@ -114,25 +130,25 @@ p {
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
 		function addReply() {
-		/* Á¦ÀÌÄõ¸® Çò°¥¸®Áö¸¶ , ½ºÅ©¸³Æ®¾È¿¡¼­ elÇ¥±â¹ı °¡´É, Ç¥Çö½ÄÀ¸·Î ÀÚ¹Ùº¯¼ö°¡Á®¿À±â°¡´É */
+		/* å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì ê°ˆëªŒì˜™å ì™ì˜™å ì™ì˜™ , å ì™ì˜™í¬å ì™ì˜™íŠ¸å ì‹«ìš¸ì˜™å ì™ì˜™ elí‘œå ì™ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™, í‘œå ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ìŒ˜ë°”ë¸ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì©ê°€å ì™ì˜™ */
 			let ta = $('textarea').val()
 				
 			$.ajax({
-			//¿äÃ»°æ·Î
+			//å ì™ì˜™ì²­å ì™ì˜™å ï¿½
 			url: 'ReplyCon',
-			//¿äÃ»µ¥ÀÌÅÍ (°Ô½Ã¹°¹øÈ£, ÀÛ¼º´ñ±Û)
+			//å ì™ì˜™ì²­å ì™ì˜™å ì™ì˜™å ì™ì˜™ (å ìŒ‰ì‹œë±„ì˜™å ì™ì˜™í˜¸, å ìŒœì‡½ì˜™å ì™ì˜™å ï¿½)
 			data: {
 				'boardnum':${param.num},
 				'reply':ta
 			},
-			//¿äÃ»¹æ½Ä(get,post)
+			//å ì™ì˜™ì²­å ì™ì˜™å ï¿½(get,post)
 			type:'post',
-			success:function(data){ //Åë½ÅÀÌ ¼º°ø
+			success:function(data){ //å ì™ì˜™å ì™ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™
 				//alert(data) 
 				$('#reply').prepend('<li class="list-group-item"><span>'+ta+'/${loginVO.id}</span></li>')
 			},
-			error :function(){ //Åë½ÅÀÌ ½ÇÆĞ
-				alert('Åë½Å½ÇÆĞ')
+			error :function(){ //å ì™ì˜™å ì™ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™
+				alert('å ì™ì˜™íƒå ì™ì˜™å ï¿½')
 			}
 			
 			})
