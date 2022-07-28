@@ -109,10 +109,10 @@ public class BoardWC extends HttpServlet {
 			int cnt2 = dao2.insertAccountBoardMember(tbl_account_applicant);
 			if(cnt1>0) {
 				System.out.println("작성성공1");
-				response.sendRedirect("boardId.jsp");
+				
 			}else {
 				System.out.println("작성실패1");
-				response.sendRedirect("boardId.jsp");
+				
 			}
 			if(cnt2>0) {
 				System.out.println("작성성공2");
@@ -122,9 +122,9 @@ public class BoardWC extends HttpServlet {
 				
 			
 			
-			
 		}
 			
+			response.sendRedirect("boardId.jsp");
 			
 			
 			
@@ -144,10 +144,10 @@ public class BoardWC extends HttpServlet {
 			int cnt2 = dao2.insertArbeitBoardMember(tbl_arbeit_applicant);
 			if(cnt1>0) {
 				System.out.println("작성성공1");
-				response.sendRedirect("boardArbeit.jsp");
+				
 			}else {
 				System.out.println("작성실패1");
-				response.sendRedirect("boardArbeit.jsp");
+			
 			}
 			if(cnt2>0) {
 				System.out.println("작성성공2");
@@ -158,7 +158,7 @@ public class BoardWC extends HttpServlet {
 			
 			
 			
-			
+			response.sendRedirect("boardArbeit.jsp");
 			
 		
 		
@@ -189,7 +189,7 @@ public class BoardWC extends HttpServlet {
 		}
 		
 		
-		
+		response.sendRedirect("boardFree.jsp");
 	
 	}
 	}

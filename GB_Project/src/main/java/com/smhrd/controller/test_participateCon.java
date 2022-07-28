@@ -56,6 +56,7 @@ public class test_participateCon extends HttpServlet {
 			System.out.println("작성실패1");
 			
 		}
+		response.sendRedirect("payState.jsp");
 		}else if(category.equals("A")){
 			
 			cnt = dao2.insertAccountBoardMember(vo);
@@ -66,6 +67,7 @@ public class test_participateCon extends HttpServlet {
 				System.out.println("작성실패1");
 				
 			}
+			response.sendRedirect("payState.jsp");
 		}else if(category.equals("F")){
 			
 			cnt = dao2.insertFreeBoardMember(vo);
@@ -76,6 +78,7 @@ public class test_participateCon extends HttpServlet {
 				System.out.println("작성실패1");
 				
 			}
+			response.sendRedirect("payState.jsp");
 		}else if(category.equals("I")){
 			
 			cnt = dao2.insertAccountBoardMember(vo);
@@ -86,6 +89,7 @@ public class test_participateCon extends HttpServlet {
 				System.out.println("작성실패1");
 				
 			}
+			response.sendRedirect("payState.jsp");
 			
 		}
 		
