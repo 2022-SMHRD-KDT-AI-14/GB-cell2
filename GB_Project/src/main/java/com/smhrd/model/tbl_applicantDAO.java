@@ -13,7 +13,7 @@ public class tbl_applicantDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertBuyBoardMember", vo);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_applicantDAO.insertBuyBoardMember", vo);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
@@ -32,7 +32,7 @@ public class tbl_applicantDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertAccountBoardMember", vo);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_applicantDAO.insertAccountBoardMember", vo);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
@@ -51,7 +51,7 @@ public class tbl_applicantDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertFreeBoardMember", vo);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_applicantDAO.insertFreeBoardMember", vo);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
@@ -70,7 +70,7 @@ public class tbl_applicantDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertArbeitBoardMember", tbl_account_applicant);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_applicantDAO.insertArbeitBoardMember", tbl_account_applicant);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {

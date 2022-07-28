@@ -31,7 +31,7 @@ public class BoardWC extends HttpServlet {
 		
 		//세션 - id
 		HttpSession session = request.getSession();
-		String writer = (String)session.getAttribute("loginMember");
+		String MEM_ID = (String)session.getAttribute("loginMember");
 		
 		
 		//파일이 저장될 서버의 경로 지정
@@ -68,8 +68,8 @@ public class BoardWC extends HttpServlet {
 		if(cate.equals("a")) {
 			int buypay = Integer.parseInt(buypay2);
 			
-			tbl_share tbl_share = new tbl_share(name,content,writer,filename,"0","n","진행","B");
-			tbl_buy_applicant tbl_buy_applicant = new tbl_buy_applicant(writer,"진행","진행",buylink,buypay,"B");
+			tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","n","진행","B");
+			tbl_buy_applicant tbl_buy_applicant = new tbl_buy_applicant(MEM_ID,"진행","진행",buylink,buypay,"B");
 			
 			tbl_shareDAO dao = new tbl_shareDAO();
 			tbl_applicantDAO dao2 = new tbl_applicantDAO();
@@ -99,8 +99,8 @@ public class BoardWC extends HttpServlet {
 			
 			int idpay = Integer.parseInt(idpay2);
 			
-			tbl_share tbl_share = new tbl_share(name,content,writer,filename,"0","n","진행","I");
-			tbl_account_applicant tbl_account_applicant = new tbl_account_applicant(writer,"진행","진행",idlink,idtime,idpay,"I");
+			tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","n","진행","I");
+			tbl_account_applicant tbl_account_applicant = new tbl_account_applicant(MEM_ID,"진행","진행",idlink,idtime,idpay,"I");
 			
 			tbl_shareDAO dao = new tbl_shareDAO();
 			tbl_applicantDAO dao2 = new tbl_applicantDAO();
@@ -133,8 +133,8 @@ public class BoardWC extends HttpServlet {
 			
 			int arbeitpay = Integer.parseInt(arbeitpay2);
 			
-			tbl_share tbl_share = new tbl_share(name,content,writer,filename,"0","n","진행","A");
-			tbl_arbeit_applicant tbl_arbeit_applicant = new tbl_arbeit_applicant(writer,"진행","진행",arbeittime,arbeitsite,arbeitpay,"A");
+			tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","n","진행","A");
+			tbl_arbeit_applicant tbl_arbeit_applicant = new tbl_arbeit_applicant(MEM_ID,"진행","진행",arbeittime,arbeitsite,arbeitpay,"A");
 			
 			tbl_shareDAO dao = new tbl_shareDAO();
 			tbl_applicantDAO dao2 = new tbl_applicantDAO();
@@ -165,8 +165,8 @@ public class BoardWC extends HttpServlet {
 	}else {
 		
 		
-		tbl_share tbl_share = new tbl_share(name,content,writer,filename,"0","n","진행","A");
-		tbl_free_applicant tbl_free_applicant = new tbl_free_applicant(writer,"진행","진행","F");
+		tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","n","진행","A");
+		tbl_free_applicant tbl_free_applicant = new tbl_free_applicant(MEM_ID,"진행","진행","F");
 		
 		tbl_shareDAO dao = new tbl_shareDAO();
 		tbl_applicantDAO dao2 = new tbl_applicantDAO();

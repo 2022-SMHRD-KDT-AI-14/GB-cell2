@@ -45,7 +45,7 @@ public class tbl_shareDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertShareBuyBoard", tbl_share);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_shareDAO.insertShareBuyBoard", tbl_share);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
@@ -64,7 +64,7 @@ public class tbl_shareDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertShareArbeitBoard", tbl_share);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_shareDAO.insertShareArbeitBoard", tbl_share);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
@@ -83,7 +83,7 @@ public class tbl_shareDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertShareFreeBoard", tbl_share);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_shareDAO.insertShareFreeBoard", tbl_share);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
@@ -102,7 +102,7 @@ public class tbl_shareDAO {
 		int cnt = 0;
 		try {
 			// 실행
-			cnt = sqlSession.insert("com.smhrd.model.BoardDAO.insertShareAccountBoard", tbl_share);
+			cnt = sqlSession.insert("com.smhrd.model.tbl_shareDAO.insertShareAccountBoard", tbl_share);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {
