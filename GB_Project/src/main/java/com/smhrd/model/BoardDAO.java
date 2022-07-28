@@ -192,8 +192,8 @@ public class BoardDAO {
 	
 	
 	
-	public Board selectOne(int num) {
-		Board vo= null;
+	public tbl_share selectOne(int num) {
+		tbl_share vo= null;
 	
 	try {
 		vo = sqlSession.selectOne("com.smhrd.model.BoardDAO.selectOne",num);
@@ -206,4 +206,65 @@ public class BoardDAO {
 	
 	return vo;
 	}
+	
+	public tbl_buy_applicant selectbuyOne(int num) {
+		tbl_buy_applicant vo= null;
+	
+	try {
+		vo = sqlSession.selectOne("com.smhrd.model.BoardDAO.selectbuyOne",num);
+		// select - commit/rollback 생략
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		sqlSession.close();
+	}
+	
+	return vo;
+	}
+	
+	
+	public tbl_arbeit_applicant selectarbeitOne(int num) {
+		tbl_arbeit_applicant vo= null;
+	
+	try {
+		vo = sqlSession.selectOne("com.smhrd.model.BoardDAO.selectarbeitOne",num);
+		// select - commit/rollback 생략
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		sqlSession.close();
+	}
+	
+	return vo;
+	}
+	
+	public tbl_account_applicant selectaccountOne(int num) {
+		tbl_account_applicant vo= null;
+	
+	try {
+		vo = sqlSession.selectOne("com.smhrd.model.BoardDAO.selectaccountOne",num);
+		// select - commit/rollback 생략
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		sqlSession.close();
+	}
+	
+	return vo;
+	}
+	public tbl_free_applicant selectfreeOne(int num) {
+		tbl_free_applicant vo= null;
+	
+	try {
+		vo = sqlSession.selectOne("com.smhrd.model.BoardDAO.selectfreeOne",num);
+		// select - commit/rollback 생략
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		sqlSession.close();
+	}
+	
+	return vo;
+	}
+
 }
