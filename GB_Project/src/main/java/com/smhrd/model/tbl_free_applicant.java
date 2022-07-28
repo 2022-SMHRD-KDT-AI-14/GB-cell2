@@ -22,6 +22,16 @@ public class tbl_free_applicant {
 	private String FREE_C_STATE ;
 
 	private String CAT_NAME;
+
+	public tbl_free_applicant(String mEM_ID, String fREE_P_STATE, String fREE_C_STATE, String cAT_NAME) {
+		super();
+		MEM_ID = mEM_ID;
+		FREE_P_STATE = fREE_P_STATE;
+		FREE_C_STATE = fREE_C_STATE;
+		CAT_NAME = cAT_NAME;
+	}
+	
+	
 	
 
 }

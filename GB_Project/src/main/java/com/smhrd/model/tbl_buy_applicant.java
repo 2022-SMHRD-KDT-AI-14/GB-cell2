@@ -24,8 +24,19 @@ public class tbl_buy_applicant {
 	
 	private String BUY_LINK ;
 	
-	private String BUY_PAY;
+	private int BUY_PAY;
 	
 	private String CAT_NAME;
+
+	public tbl_buy_applicant(String mEM_ID, String bUY_P_STATE, String bUY_C_STATE, String bUY_LINK, int bUY_PAY,
+			String CAT_NAME) {
+		super();
+		MEM_ID = mEM_ID;
+		BUY_P_STATE = bUY_P_STATE;
+		BUY_C_STATE = bUY_C_STATE;
+		BUY_LINK = bUY_LINK;
+		BUY_PAY = bUY_PAY;
+		CAT_NAME = CAT_NAME;
+	}
 	
 }
