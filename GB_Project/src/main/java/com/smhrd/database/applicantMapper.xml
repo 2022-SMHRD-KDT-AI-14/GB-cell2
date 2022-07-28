@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.tbl_applicantDAO"> 
+
+<insert  id="insertBuyBoardMember" parameterType="com.smhrd.model.tbl_buy_applicant">
+		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{MEM_ID},sysdate,'N','모집중',#{BUY_LINK},#{BUY_PAY},'B',tbl_share_seq.nextval)	
+	</insert>
+	
+	<insert  id="insertArbeitBoardMember" parameterType="com.smhrd.model.tbl_arbeit_applicant">
+		insert into tbl_Arbeit_applicant values (tbl_Arbeit_applicant_seq.nextval,#{MEM_ID},sysdate,'N','모집중',#{ARBEIT_TIME},#{ARBEIT_SITE},#{ARBEIT_PAY},'A',tbl_share_seq.nextval)	
+	</insert>
+	
+	<insert  id="insertFreeBoardMember" parameterType="com.smhrd.model.tbl_free_applicant">
+		insert into tbl_Free_applicant values (tbl_Free_applicant_seq.nextval,sysdate,#{MEM_ID},'N','모집중','F',tbl_share_seq.nextval)	
+	</insert>
+	
+	<insert  id="insertAccountBoardMember" parameterType="com.smhrd.model.tbl_account_applicant">
+		insert into tbl_Account_applicant values (tbl_Account_applicant_seq.nextval,#{MEM_ID},sysdate,'N','모집중',#{ID_LINK},#{ID_TIME},#{ID_PAY},'I',tbl_share_seq.nextval)	
+	</insert>
+
+</mapper>

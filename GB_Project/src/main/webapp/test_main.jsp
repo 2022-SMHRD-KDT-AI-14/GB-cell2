@@ -23,6 +23,7 @@
 	rel="stylesheet">
 
 
+
 <link rel="stylesheet" href="assets/css/slick.css">
 <link rel="stylesheet" href="assets/css/slick-theme.css">
 <link rel="stylesheet" href="assets/css/animate.css">
@@ -43,20 +44,6 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
-
-
-	<!-- Preloader -->
-	<!-- <div id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_one"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_four"></div>
-			</div>
-		</div>
-	</div> -->
-	<!--End off Preloader -->
 
 
 	<div class="culmn">
@@ -196,12 +183,17 @@
 								<h2>로그인</h2>
 								<div class="separator_left"></div>
 								<p>회원이 아니시면 회원가입부터 해주세요</p>
+								
+								
+								
 								<form action="test_loginCon" method="post" id="loginform">
 									<input type="text" class="fadeIn second" name="id"
-										placeholder="id" style="margin-top: 30px"> <input
+										placeholder="id" style="margin-top: 30px"><input
 										type="password" class="fadeIn third" name="pw"
 										placeholder="password">
 									<p id="check"></p>
+									
+									<input type="submit" class="btn btn-primary" value="Log In">
 									<input type="submit" class="btn btn-primary" value="LogIn">
 								</form>
 								</c:if>

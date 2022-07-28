@@ -74,7 +74,7 @@ p {
 				<ul class="list-group list-group-flush">
 =======
 			<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
-				<img src="img/${board.filename}" width="auto" height="200px">
+				<img src="img/${board.ARTICLE_FILE}" width="auto" height="200px">
 			</div>
 				
 				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
@@ -93,12 +93,19 @@ p {
 		
 				</ul> --%>
 			</div>
+			
 		<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
 			<h4>가격</h4>
 			<h5>상품명</h5>
-			<h6 id="date">작성일 : ${board.uploadday}</h6>
-			<h6>${board.name}/${board.writer}</h6>
+			<h6 id="date">작성일 : ${board.ARTICLE_DATE}</h6>
+			<h6>제목:${board.ARTICLE_TITLE}/내용:${board.ARTICLE_CONTENT}</h6>
 		</div>
+		
+		
+		
+		
+
+		
 		<!-- 댓글작성 -->
 		<div class="card mb-2">
 			<!-- 이미지 가운데 자동 정렬  -->

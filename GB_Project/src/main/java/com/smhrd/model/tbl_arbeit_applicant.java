@@ -28,4 +28,18 @@ public class tbl_arbeit_applicant {
 	private int ARBEIT_PAY;
 	
 	private String CAT_NAME;
+
+	public tbl_arbeit_applicant(String mEM_ID, String aRB_P_STATE, String aRB_C_STATE, String aRBEIT_TIME,
+			String aRBEIT_SITE, int aRBEIT_PAY, String cAT_NAME) {
+		super();
+		MEM_ID = mEM_ID;
+		ARB_P_STATE = aRB_P_STATE;
+		ARB_C_STATE = aRB_C_STATE;
+		ARBEIT_TIME = aRBEIT_TIME;
+		ARBEIT_SITE = aRBEIT_SITE;
+		ARBEIT_PAY = aRBEIT_PAY;
+		CAT_NAME = cAT_NAME;
+	}
+	
+	
 }

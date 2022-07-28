@@ -16,8 +16,14 @@ import com.smhrd.model.Member;
 import com.smhrd.model.MemberDAO;
 import com.smhrd.model.Share;
 import com.smhrd.model.ShareDAO;
+import com.smhrd.model.test_participateConDAO;
+import com.smhrd.model.test_participatelistCon;
 public class test_participateCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+
+	
+
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 본래는 제2자 '참여확정'시 호출됨
@@ -26,9 +32,11 @@ public class test_participateCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		String mem_id= (String)session.getAttribute("loginMember");
 		
-		//ShareDAO daoW = new ShareDAO();
 		String writer= new ShareDAO().selectWriter(board_seq);
 		System.out.println("dao실행후 writer >> "+writer);
+//		
+		
+		
 		
 		
 		String by_p_state;

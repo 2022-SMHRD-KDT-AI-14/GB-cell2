@@ -30,4 +30,21 @@ public class tbl_share {
 	private String ARTICLE_STATE;
 	
 	private String CAT_NAME;
+
+	public tbl_share( String aRTICLE_TITLE, String aRTICLE_CONTENT, String mEM_ID,
+			String aRTICLE_FILE, String aRTICLE_LINK, String dEL_YN, String aRTICLE_STATE, String cAT_NAME) {
+		super();
+		
+		ARTICLE_TITLE = aRTICLE_TITLE;
+		ARTICLE_CONTENT = aRTICLE_CONTENT;
+		MEM_ID = mEM_ID;
+		ARTICLE_FILE = aRTICLE_FILE;
+		ARTICLE_LINK = aRTICLE_LINK;
+		DEL_YN = dEL_YN;
+		ARTICLE_STATE = aRTICLE_STATE;
+		CAT_NAME = cAT_NAME;
+	}
+	
+	
+	
 }
