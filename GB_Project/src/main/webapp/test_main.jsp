@@ -70,7 +70,8 @@
 			<div class="top-search">
 				<div class="container">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-search"></i></span>
+						<span class="input-group-a
+						ddon"><i class="fa fa-search"></i></span>
 						<input type="text" class="form-control" placeholder="Search">
 						<span class="input-group-addon close-search"><i
 							class="fa fa-times"></i></span>
@@ -105,8 +106,17 @@
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown"
 						data-out="fadeOutUp">
 						<li><a href="#hello">홈화면</a></li>
+						<c:choose>
+						<c:when test="${empty loginMember}">
 						<li><a href="#login">로그인</a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="logoutCon">로그아웃</a></li>
+						</c:otherwise>
+						</c:choose>
+						<c:if test="${empty loginMember}">
 						<li><a href="#join">회원가입</a></li>
+						</c:if>
 						<li><a href="#contact">문의하기</a></li>
 					</ul>
 				</div> -->
@@ -152,14 +162,20 @@
 							<h1 class="text-white">
 								1/n 😀 분의1 <br /> 공유 중계 서비스
 							</h1>
+									
+								
 						</div>
-
+						<div>
+								
+	
+						</div>
+					<c:if test = "${!empty loginMember}">
 						<div class="home_btns m-top-40">
 							<a href="boardCategory.jsp" target="_blank" class="btn btn-primary m-top-20">게시판이동</a>
 							<a href="payState.jsp" target="_blank" class="btn btn-primary m-top-20">결제상태</a>
 							<a href="myPage.jsp" target="_blank" class="btn btn-primary m-top-20">마이페이지</a>
 						</div>
-
+					</c:if>
 					</div>
 				</div>
 				<!--End off row-->
@@ -170,13 +186,13 @@
 
 
 		<!--About Sections-->
-		<section id="login" class="about roomy-100">
+		<section id="logine" class="about roomy-100">
 			<div class="container">
 				<div class="row">
 					<div class="main_about">
 						<div class="col-md-6">
 							<div class="about_content">
-	
+								<c:if test="${empty loginMember}">
 								<h2>로그인</h2>
 								<div class="separator_left"></div>
 								<p>회원이 아니시면 회원가입부터 해주세요</p>
@@ -186,32 +202,20 @@
 										type="password" class="fadeIn third" name="pw"
 										placeholder="password">
 									<p id="check"></p>
-									<input type="submit" class="btn btn-primary" value="Log In">
+									<input type="submit" class="btn btn-primary" value="LogIn">
 								</form>
-
+								</c:if>
+									
+								
+								
+							
 							</div>
 						</div>
 
 				
 
-						<div class="col-md-6">
-							<div class="about_accordion wow fadeIn">
-
-								<h6>
-									<i class="fa fa-angle-right"></i> 하고싶은말1제목
-								</h6>
-								<div>
-									<div class="content">
-										<p>하고싶은말1내용하고싶은말1내용하고싶은말1내용하고싶은말1내용</p>
-										
-			<c:choose>
-				<c:when test="${empty loginMember}">
-					<h1>로그인해주세용</h1>
-				</c:when>
-				<c:otherwise>
-					<h1>${loginMember}님 환영합니다😁</h1>
-				</c:otherwise>
-			</c:choose>
+				
+	
 										
 									</div>
 								</div>
@@ -239,6 +243,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="main_service roomy-100">
+				<c:if test="${empty loginMember}">
 					<h2>회원가입</h2>
 					<div class="separator_left"></div>
 					<form action="test_JoinCon" method="post">
@@ -253,6 +258,7 @@
 						<li>주민번호: <input type="text" placeholder="주민번호를 입력하세요" name="jumin"></li> 
 						<input type="submit" class="btn btn-primary" value="JoinUs" class="button fit">
 					</form>
+					</c:if>
 					<script>
 								function checkE() {
 									var inputE = $('#inputE').val()

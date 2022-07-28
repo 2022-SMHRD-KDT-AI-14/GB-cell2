@@ -14,6 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where board_seq in( select board_seq from tbl_buy_applicant where mem_id=#{loginMember})
 	</select>
 	
+	<select id="selectWriter" resultType="String" parameterType="int">
+		select mem_id from tbl_share where board_seq=#{board_seq}
+	</select>
 	
 	
 

@@ -24,6 +24,9 @@ body {
 
 .card-body {
 	background-color: whitesmoke;
+	padding-top: 10px;
+	padding-left: 10px;
+
 }
 
 p {
@@ -33,7 +36,7 @@ p {
 }
 
 #date{
-	font-size : 20px;
+	font-size : 15px;
 	text-align : right;
 }
 </style>
@@ -47,14 +50,21 @@ p {
 
 
 
-<jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean>
-<c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/>
+<%--<jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean> --%>
+<%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
 	<form>
+<<<<<<< HEAD
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 			<p>${board.name}/${board.writer}</p>
 			<p id="date">ï¿½Û¼ï¿½ï¿½ï¿½ : ${board.uploadday}</p>
+=======
+		
+	<div>
+		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 		</div>
+<<<<<<< HEAD
 	
 		<!-- ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ -->
 		<div class="card mb-2">
@@ -62,6 +72,14 @@ p {
 				<img src="img/${board.filename}">
 				<!-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> -->
 				<ul class="list-group list-group-flush">
+=======
+			<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
+				<img src="img/${board.filename}" width="auto" height="200px">
+			</div>
+				
+				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
+				<%-- <ul class="list-group list-group-flush">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 					<li class="list-group-item"><textarea class="form-control"
 							id="exampleFormControlTextarea1" rows="3"></textarea>
 						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
@@ -73,8 +91,22 @@ p {
 					</c:forEach>
 					
 		
-				</ul>
+				</ul> --%>
 			</div>
+		<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
+			<h4>°¡°Ý</h4>
+			<h5>»óÇ°¸í</h5>
+			<h6 id="date">ÀÛ¼ºÀÏ : ${board.uploadday}</h6>
+			<h6>${board.name}/${board.writer}</h6>
+		</div>
+		<!-- ´ñ±ÛÀÛ¼º -->
+		<div class="card mb-2">
+			<!-- ÀÌ¹ÌÁö °¡¿îµ¥ ÀÚµ¿ Á¤·Ä  -->
+			<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+				<p>${board.name}/${board.writer}</p>
+				<p id="date">ÀÛ¼ºÀÏ : ${board.uploadday}</p>
+		</div> --%>
+			<div class="card-body" ><h6>ÀÛ¼º¹®±¸<br>»óÇ°»ó¼¼<br>Á¦Ç°È«º¸</h6></div>
 		</div>
 	
 	</form>
@@ -82,7 +114,9 @@ p {
 	
 	<!-- Âü¿©¹öÆ° Å¬¸¯½Ã DBÀúÀå -->
 	<a href="participateCons">
-	<button><h1>Âü¿©°áÁ¤</h1></button>
+	<div style="text-align: right;">
+	<button style=""><h4>Âü¿©°áÁ¤</h4></button>
+	</div>
 	</a>
 	
 	
