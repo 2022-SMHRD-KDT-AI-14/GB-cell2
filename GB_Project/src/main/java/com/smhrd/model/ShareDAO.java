@@ -59,4 +59,19 @@ public class ShareDAO {
 		return writer;
 	}
 	
+	public int updateState(ShareForUpdate vo){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.ShareDAO.updateState", vo);
+			System.out.println("dao, UpdateState cnt >> "+cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
 }

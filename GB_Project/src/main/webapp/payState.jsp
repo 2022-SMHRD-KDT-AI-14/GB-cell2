@@ -104,7 +104,7 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="test_participateCon?board_seq=${s.board_seq}"><button>거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state='입금대기'"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>

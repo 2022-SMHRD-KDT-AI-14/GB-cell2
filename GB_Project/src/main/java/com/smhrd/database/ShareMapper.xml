@@ -18,6 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select mem_id from tbl_share where board_seq=#{board_seq}
 	</select>
 	
+	<update id="updateState" parameterType="com.smhrd.model.ShareForUpdate">
+		UPDATE tbl_share
+		SET article_state ='제발되거라'
+		WHERE board_seq = '147'
+	</update>
 	
 
 	
