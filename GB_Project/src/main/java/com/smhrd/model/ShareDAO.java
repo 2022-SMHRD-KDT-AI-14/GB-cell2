@@ -64,8 +64,15 @@ public class ShareDAO {
 		int cnt =0;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
-			cnt=sqlSession.update("com.smhrd.model.ShareDAO.updateState", vo);
+			cnt=sqlSession.update("com.smhrd.model.ShareDAO.updateState", vo); //왜 0줄이 나오?
 			System.out.println("dao, UpdateState cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

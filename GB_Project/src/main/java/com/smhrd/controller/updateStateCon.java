@@ -1,6 +1,8 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +16,8 @@ public class updateStateCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		request.setCharacterEncoding("UTF-8");
+		BigDecimal board_seq = new BigDecimal(request.getParameter("board_seq"));
 		String article_state = request.getParameter("article_state");
 		System.out.println("updateStateCon, board_seq >> "+board_seq);
 		System.out.println("updateStateCon, article_state >> "+article_state);

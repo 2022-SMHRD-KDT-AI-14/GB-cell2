@@ -22,19 +22,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert  id="insertShareBuyBoard" parameterType="com.smhrd.model.tbl_share">
-		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','진행','B')	
+		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','모집중','B')	
 	</insert>
 	
 	<insert  id="insertShareArbeitBoard" parameterType="com.smhrd.model.tbl_share">
-		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','진행','A')	
+		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','모집중','A')	
 	</insert>
 	
 	<insert  id="insertShareFreeBoard" parameterType="com.smhrd.model.tbl_share">
-		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','진행','F')	
+		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','모집중','F')	
 	</insert>
 	
 	<insert  id="insertShareAccountBoard" parameterType="com.smhrd.model.tbl_share">
-		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','진행','I')	
+		insert into tbl_share values (tbl_share_seq.nextval,#{ARTICLE_TITLE},#{ARTICLE_CONTENT},#{MEM_ID},sysdate,#{ARTICLE_FILE},'0','n','모집중','I')	
 	</insert>
 	
 	
