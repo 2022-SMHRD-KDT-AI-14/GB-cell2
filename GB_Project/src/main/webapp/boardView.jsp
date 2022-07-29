@@ -49,6 +49,18 @@ p {
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
 
+<jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num)}"/>
+
+<jsp:useBean id="WriteaccountDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num)}"/>
+
+<jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num)}"/>
+
+<jsp:useBean id="WritearbeitDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num)}"/>
+
 
 
 
@@ -56,27 +68,44 @@ p {
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
 	<form>
-<<<<<<< HEAD
+
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-			<p>${board.ARTICLE_TITLE}/${board.MEM_ID}</p>
+			<p>제목 : ${board.ARTICLE_TITLE}</p>
+			<p>작성자 : ${board.MEM_ID}</p>
 			<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
-=======
-		
-	<div>
-		
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 		</div>
-<<<<<<< HEAD
+
 	
-		<!-- 占쏙옙占쏙옙蒡占� -->
-		<div class="card mb-2">
-			<div class="card-body">
-				<img src="img/${board.ARTICLE_FILE}">
-				<!-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> -->
-				<ul class="list-group list-group-flush">
-=======
+		
+		
+			
+				
+			
+
 			<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
 				<img src="img/${board.ARTICLE_FILE}" width="auto" height="200px">
+				<c:choose>
+				<c:when test="${board.CAT_NAME=='B'}">
+					<p>구매링크 : ${boardbuy.BUY_LINK}</p>
+					<p>구매가격 : ${boardbuy.BUY_PAY}</p>
+				</c:when>
+				
+				<c:when test="${board.CAT_NAME=='A'}">
+					<p>알바시간 : ${boardarbeit.ARBEIT_TIME}</p>
+					<p>알바장소 : ${boardarbeit.ARBEIT_SITE}</p>
+					<p>알바시급 : ${boardarbeit.ARBEIT_PAY}</p>
+				</c:when>
+				
+				<c:when test="${board.CAT_NAME=='I'}">
+					<p>계정링크 : ${boardaccount.ID_LINK}</p>
+					<p>이용기간 : ${boardaccount.ID_TIME}</p>
+					<p>구매가격 : ${boardaccount.ID_PAY}</p>
+				</c:when>
+				
+				<c:otherwise>
+				
+				</c:otherwise>
+				</c:choose>
 			</div>
 				
 				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
@@ -96,12 +125,7 @@ p {
 				</ul> --%>
 			</div>
 			
-		<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
-			<h4>가격</h4>
-			<h5>상품명</h5>
-			<h6 id="date">작성일 : ${board.ARTICLE_DATE}</h6>
-			<h6>제목:${board.ARTICLE_TITLE}/내용:${board.ARTICLE_CONTENT}</h6>
-		</div>
+		
 		
 		
 		
@@ -115,7 +139,7 @@ p {
 				<p>${board.name}/${board.writer}</p>
 				<p id="date">작성일 : ${board.uploadday}</p>
 		</div> --%>
-			<div class="card-body" ><h6>작성문구<br>상품상세<br>제품홍보</h6></div>
+			<div class="card-body" ><h6>내용:${board.ARTICLE_CONTENT}</h6></div>
 		</div>
 	
 	</form>

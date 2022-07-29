@@ -9,5 +9,6 @@
 <body>
 <h1>마이페이지</h1>
 <a href="test_main.jsp">메인페이지</a>
+<a href="MyPageMemareaInput">배송지</a>
 </body>
 </html>
