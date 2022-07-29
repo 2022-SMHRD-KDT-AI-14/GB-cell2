@@ -29,5 +29,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/applicantMapper.xml"/>
 		<mapper resource="com/smhrd/database/test_participateConMapper.xml"/>
 		<mapper resource="com/smhrd/database/MyPageMemareaMapper.xml"/>
+		<mapper resource="com/smhrd/database/MyPage.xml"/>
     </mappers>
 </configuration>

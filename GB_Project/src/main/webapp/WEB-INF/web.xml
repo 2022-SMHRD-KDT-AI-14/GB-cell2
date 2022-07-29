@@ -138,6 +138,18 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPageMemareaInput</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>MyPage</servlet-name>
+  	<display-name>MyPage</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.MyPage</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MyPageCon</servlet-name>
+  	<display-name>MyPageCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.MyPageCon</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -229,6 +241,14 @@
   <servlet-mapping>
   	<servlet-name>MyPageMemareaInput</servlet-name>
   	<url-pattern>/MyPageMemareaInput</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyPage</servlet-name>
+  	<url-pattern>/MyPage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyPageCon</servlet-name>
+  	<url-pattern>/MyPageCon</url-pattern>
   </servlet-mapping>
 
 </web-app>
