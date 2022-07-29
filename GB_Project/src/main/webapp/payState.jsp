@@ -156,6 +156,9 @@
 													
 													
 													<td><c:choose>
+															<c:when test="${s.article_state =='모집중'}">
+																<a href="#"><button>입금하기</button></a>
+															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
