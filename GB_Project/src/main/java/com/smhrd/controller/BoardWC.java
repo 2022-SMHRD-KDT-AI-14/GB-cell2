@@ -48,7 +48,7 @@ public class BoardWC extends HttpServlet {
 		System.out.println(name);
 		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
 		String content = multi.getParameter("content");
-		String cate = multi.getParameter("cate");
+		String cate = multi.getParameter("radio");
 		
 		String buylink = multi.getParameter("buylink");
 		String buypay2 = multi.getParameter("buypay");
@@ -65,7 +65,7 @@ public class BoardWC extends HttpServlet {
 		
 		
 		
-		if(cate.equals("a")) {
+		if(cate.equals("4")) {
 			int buypay = Integer.parseInt(buypay2);
 			
 			tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","n","진행","B");
@@ -95,7 +95,7 @@ public class BoardWC extends HttpServlet {
 			response.sendRedirect("boardBuy.jsp");
 			
 			
-		}else if(cate.equals("b")) {
+		}else if(cate.equals("2")) {
 			
 			int idpay = Integer.parseInt(idpay2);
 			
@@ -129,7 +129,7 @@ public class BoardWC extends HttpServlet {
 			
 			
 			
-		}else if(cate.equals("c")) {
+		}else if(cate.equals("3")) {
 			
 			int arbeitpay = Integer.parseInt(arbeitpay2);
 			

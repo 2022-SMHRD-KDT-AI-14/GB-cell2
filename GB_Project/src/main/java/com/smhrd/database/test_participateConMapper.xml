@@ -10,19 +10,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert  id="insertBuyBoardMember" parameterType="com.smhrd.model.test_participatelistCon">
-		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{MEM_ID},sysdate,'N','모집중',null,null,#{CAT_NAME},#{BOARD_SEQ})	
+		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{MEM_ID},sysdate,'모집중','P',null,null,#{CAT_NAME},#{BOARD_SEQ})	
 	</insert>
 	
 	<insert  id="insertArbeitBoardMember" parameterType="com.smhrd.model.test_participatelistCon">
-		insert into tbl_buy_applicant values (tbl_Arbeit_applicant_seq.nextval,#{MEM_ID},sysdate,'N','모집중',null,null,null,#{CAT_NAME},#{BOARD_SEQ})	
+		insert into tbl_buy_applicant values (tbl_Arbeit_applicant_seq.nextval,#{MEM_ID},sysdate,'모집중','P',null,null,null,#{CAT_NAME},#{BOARD_SEQ})	
 	</insert>
 	
 	<insert  id="insertFreeBoardMember" parameterType="com.smhrd.model.test_participatelistCon">
-		insert into tbl_buy_applicant values (tbl_Free_applicant_seq.nextval,sysdate,#{MEM_ID},'N','모집중',#{CAT_NAME},#{BOARD_SEQ})	
+		insert into tbl_buy_applicant values (tbl_Free_applicant_seq.nextval,sysdate,#{MEM_ID},'모집중','P',#{CAT_NAME},#{BOARD_SEQ})	
 	</insert>
 	
 	<insert  id="insertAccountBoardMember" parameterType="com.smhrd.model.test_participatelistCon">
-		insert into tbl_buy_applicant values (tbl_Account_applicant_seq.nextval,#{MEM_ID},sysdate,'N','모집중',null,null,null,#{CAT_NAME},#{BOARD_SEQ})	
+		insert into tbl_buy_applicant values (tbl_Account_applicant_seq.nextval,#{MEM_ID},sysdate,'모집중','P',null,null,null,#{CAT_NAME},#{BOARD_SEQ})	
 	</insert>
 	
 	</mapper>
