@@ -8,36 +8,8 @@
 <script src="https://asset.talkplus.io/talkplus-js-0.2.16.js"></script>
 </head>
 <body>
-	<script>
-	const client = new TalkPlus.Client({appId: 'YOUR_APP_ID'});
-	this.loginAnonymous({
-	      userId: 'user-123',
-	      username: 'user-123',
-	      profileImageUrl: '',
-	    })
-	      .then((data) => console.log(data))
-	      .catch((err) => console.error(err));
-	      
-	// async/await
-	try {
-	    await client.loginAnonymous({
-	        userId: 'user-123',
-	        username: 'user-123',
-	        profileImageUrl: '',
-	    });
-	} catch (err) {
-	}
-
-
-	// callback
-	client.loginAnonymous({
-	    userId: 'user-123', 
-	    username: 'user-123',
-	}, function (err, data) {
-	    console.error(err);
-	    console.log(data);
-	});
-	
-	</script>
+<div class="container">
+<h4>채팅방</h4>
+<iframe src="https://service.dongledongle.com/rjsqls456" frameborder="0" width="100%" height="500"></iframe>
 </body>
 </html>
