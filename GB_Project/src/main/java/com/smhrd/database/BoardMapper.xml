@@ -51,22 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_share where BOARD_SEQ=#{num}
 	</select>
 	
-	<select id="selectbuyOne" parameterType="int" resultType="com.smhrd.model.tbl_buy_applicant">
-		select * from tbl_buy_applicant where BOARD_SEQ=#{num}
-	</select>
-	<select id="selectarbeitOne" parameterType="int" resultType="com.smhrd.model.tbl_arbeit_applicant">
-		select * from tbl_arbeit_applicant where BOARD_SEQ=#{num}
-	</select>
-	<select id="selectaccountOne" parameterType="int" resultType="com.smhrd.model.tbl_account_applicant">
-		select * from tbl_account_applicant where BOARD_SEQ=#{num}
-	</select>
-	<select id="selectfreeOne" parameterType="int" resultType="com.smhrd.model.tbl_free_applicant">
-		select * from tbl_free_applicant where BOARD_SEQ=#{num}
-	</select>
 	
-	<select id="selectAllListPage" parameterType="int" resultType="com.smhrd.model.Board">
-		select * where BOARD_SEQ >=#{num} order by BOARD_SEQ
-	</select>
 	
 	
 	

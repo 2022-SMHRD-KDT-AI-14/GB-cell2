@@ -56,20 +56,27 @@ input[type=text]{
 			<div class="card-body">
 				<input name="filename" type="file">
                     
+                    
+                    <!-- 
+                    
+                    
+                    
                     <select name="cate" >
                         <option value="a">구매</option>
                         <option value="b">계정공유</option>
                         <option value="c">알바대행</option>
                         <option value="d">자유</option>
                     </select>
+                    
+                     -->
 				<div class="mytest">		
 				<div style="width:200px;" >
                     
 				<br>
-				  <input type="radio" name="radio" id="r1" value="1" checked><label for="r1">구매</label>
+				  <input type="radio" name="radio" id="r1" value="1" checked><label for="r1">자유</label>
 				  <input type="radio" name="radio" id="r2" value="2"><label for="r2">계정공유</label>
 				  <input type="radio" name="radio" id="r3" value="3"><label for="r3">알바대행</label>
-				  <input type="radio" name="radio" id="r4" value="4"><label for="r4">자유</label>
+				  <input type="radio" name="radio" id="r4" value="4"><label for="r4">구매</label>
 				</div>
 				
 				<div class="buyForm" style="width:200px; display:none;">
@@ -96,7 +103,7 @@ input[type=text]{
 				    $("input:radio[name=radio]").click(function(){
 				 
 				        if($("input[name=radio]:checked").val() == "1"){
-				        	$(".buyForm").css('display', 'block')
+				        	$(".buyForm").css('display', 'none')
 				        	$(".accountingForm").css('display', 'none')
 				        	$(".albeitForm").css('display', 'none')
 				        	
@@ -108,7 +115,12 @@ input[type=text]{
 				        	$(".buyForm").css('display', 'none')
 				        	$(".accountingForm").css('display', 'none')
 				        	$(".albeitForm").css('display', 'block')
-				        }else{
+				        }else if($("input[name=radio]:checked").val() == "4"){
+				        	$(".buyForm").css('display', 'block')
+				        	$(".accountingForm").css('display', 'none')
+				        	$(".albeitForm").css('display', 'none')
+				        	
+				        	
 				        	
 				        }
 				    });

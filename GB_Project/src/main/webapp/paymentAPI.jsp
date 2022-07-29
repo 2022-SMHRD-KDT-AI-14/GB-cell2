@@ -13,7 +13,19 @@
 		System.out.println("paymentAPI, 게시글번호 >> "+request.getParameter("board_seq"));
 %>
 
-								
+	
+		
+  <form method="get" action="https://openapi.openbanking.or.kr/oauth/2.0/authorize" target="_blank">
+  <input type="hidden" name="response_type" value="code"/>
+  <input type="hidden" name="client_id" value="{9b7f2376-6bbc-4b51-9c71-28c0c1865615}"/>
+  <input type="hidden" name="redirect_uri" value="{https://developers.kftc.or.kr/dev/mypage/apikey}"/>
+  <input type="hidden" name="scope" value="login inquiry transfer"/>
+  <input type="hidden" name="state" value="1234567890123456789012"/>
+  <input type="hidden" name="auth_type" value="0"/>
+  <input type="submit" value="requestAuth"/>
+  </form>
+  
+							
 
 <p><h1>참여자수 : ${cnt}</h1></p><br>
 <p><h1>원래가격 :</h1></p><br>

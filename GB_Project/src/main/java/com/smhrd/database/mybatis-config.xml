@@ -29,6 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/applicantMapper.xml"/>
 		<mapper resource="com/smhrd/database/test_participateConMapper.xml"/>
 		<mapper resource="com/smhrd/database/MyPageMemareaMapper.xml"/>
+<<<<<<< HEAD
 		<mapper resource="com/smhrd/database/MyPage.xml"/>
+=======
+		<mapper resource="com/smhrd/database/shareWriteMapper.xml"/>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
     </mappers>
 </configuration>
