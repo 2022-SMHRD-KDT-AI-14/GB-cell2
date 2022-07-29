@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.tbl_shareWriteDAO"> 
+	<select id="selectBuyOne" parameterType="int" resultType="com.smhrd.model.tbl_buy_applicant">
+		select * from tbl_buy_applicant where BOARD_SEQ=#{num}
+	</select>
+	
+	<select id="selectAccountOne" parameterType="int" resultType="com.smhrd.model.tbl_account_applicant">
+		select * from tbl_account_applicant where BOARD_SEQ=#{num}
+	</select>
+	
+	<select id="selectArbeitOne" parameterType="int" resultType="com.smhrd.model.tbl_arbeit_applicant">
+		select * from tbl_arbeit_applicant where BOARD_SEQ=#{num}
+	</select>
+	
+	<select id="selectFreeOne" parameterType="int" resultType="com.smhrd.model.tbl_free_applicant">
+		select * from tbl_free_applicant where BOARD_SEQ=#{num}
+	</select>
+</mapper>
