@@ -206,6 +206,7 @@
 																value="${s.article_title}" /></a></td>
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
+													<td><a href="chatting.jsp">채팅방 참여</a></td>
 
 
 
