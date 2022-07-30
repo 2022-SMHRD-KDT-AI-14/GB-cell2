@@ -49,7 +49,8 @@
 					</c:when>
 
 					<c:otherwise>
-						<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
+						<td>희망배송지역 : 
+						${MEM_AREA}</td>
 
 					</c:otherwise>
 				</c:choose>
@@ -67,10 +68,11 @@
 			<c:otherwise>
 				<button type="button"
 					onclick="location.href='myPageMemAreainput.jsp';">희망배송지 수정</button>
-
+					
 			</c:otherwise>
 		</c:choose> </nav>
 		<a href="test_main.jsp" class="button next scrolly">되돌아가기</a>
+		
 	</div>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>

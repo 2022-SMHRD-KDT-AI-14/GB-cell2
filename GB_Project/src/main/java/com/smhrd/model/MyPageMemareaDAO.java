@@ -7,9 +7,10 @@ import com.smhrd.database.SqlSessionManager;
 
 public class MyPageMemareaDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	SqlSession sqlSession =sqlSessionFactory.openSession();
+	
 	
 	public int updateMyPageMemarea(MyPageMemarea vo) {
+		SqlSession sqlSession =sqlSessionFactory.openSession();
 		int cnt=0;
 		try {
 			 cnt =sqlSession.update("com.smhrd.model.MyPageMemareaDAO.updateMyPageMemarea",vo);
@@ -27,6 +28,7 @@ public class MyPageMemareaDAO {
 	}
 	
 	public String selectMyPageMemarea(String id) {
+		SqlSession sqlSession =sqlSessionFactory.openSession();
 		String cnt = null;
 	
 	try {
