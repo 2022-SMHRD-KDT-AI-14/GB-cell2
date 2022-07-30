@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.smhrd.model.shareDeleteConDAO">
 
 
-	<update id="shareDeleteCon" parameterType="int">
+	<update id="shareDeleteCon" parameterType="BigDecimal">
 		update tbl_share set DEL_YN='y' where BOARD_SEQ=#{BOARD_SEQ}
 	</update>
 	

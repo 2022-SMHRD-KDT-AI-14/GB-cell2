@@ -110,6 +110,7 @@
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
 																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
+																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<!-- 이체완료가 안된경우 -->

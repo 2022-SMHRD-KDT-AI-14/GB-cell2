@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.smhrd.model.ShareDAO"> 
 
 	<select id="selectAllMyList" resultType="com.smhrd.model.Share" parameterType="String">
-		select * from tbl_share where mem_id=#{loginMember}
+		select * from tbl_share where mem_id=#{loginMember} and DEL_YN = 'n'
 	</select>
 	
 	<select id="selectAllMyParList" resultType="com.smhrd.model.Share" parameterType="String">
