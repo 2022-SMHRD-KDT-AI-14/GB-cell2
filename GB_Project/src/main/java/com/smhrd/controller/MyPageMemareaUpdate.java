@@ -20,15 +20,14 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		HttpSession session = request.getSession();
 		String MEM_AREA = request.getParameter("MEM_AREA");
 		String MEM_ID = (String)session.getAttribute("loginMember");
-		
+		String xCOORDINATE = request.getParameter("MEM_xCOORDINATE");
+		String yCOORDINATE = request.getParameter("MEM_yCOORDINATE");
+		System.out.println(xCOORDINATE);
+		System.out.println(yCOORDINATE);
 		
 		MyPageMemarea vo = new MyPageMemarea(MEM_ID, MEM_AREA);
-		
-		
 		MyPageMemareaDAO dao = new MyPageMemareaDAO(); //전달자로부터받은정보를가지고 기능을 구현하는 클래스
 		int cnt= dao.updateMyPageMemarea(vo);
-		
-		//db에다 값을 저장만 한거야
 		
 		
 		if(cnt>0) {//주소 저장 성공
