@@ -99,7 +99,7 @@
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
 													<td><a
-														href="participatentCnt?board_seq=${s.board_seq}"><c:out
+														href="eachPayState.jsp?board_seq=${s.board_seq}"><c:out
 																value="${s.article_title}" /></a></td>
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
@@ -141,14 +141,16 @@
 
 									<c:if test="${!empty loginMember}">
 										<table>
+											<tr>
 											<th>게시글No.</th>
 											<th>제목</th>
 											<th>작성자</th>
 											<th>거래상태</th>
+											</tr>
 											<c:forEach items="${nShareList}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
-													<td><a href="participatentCnt?num=${s.board_seq}"><c:out
+													<td><a href="eachPayState.jsp?board_seq=${s.board_seq}"><c:out
 																value="${s.article_title}" /></a></td>
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
