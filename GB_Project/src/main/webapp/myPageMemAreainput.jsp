@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%String coordinate; 
-%>
-<form action="MyPageMemareaUpdate?coordinate=coordinate">
+<form action="MyPageMemareaUpdate">
 <input type="text" id="sample5_address" name="MEM_AREA" placeholder="주소">
+
+<input type="text" id="xCOORDINATE" name="MEM_xCOORDINATE" >
+<input type="text" id="yCOORDINATE" name="MEM_yCOORDINATE" >
 <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 <input type="submit" value="주소 보내기">
 </form>
@@ -19,6 +20,7 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1a536dfd72f9eecd78cfcd6c5b7afae8&libraries=services"></script>
 <script>
+var coordinate;
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
@@ -52,7 +54,8 @@
 
                         // 해당 주소에 대한 좌표를 받아서
                         var coords = new daum.maps.LatLng(result.y, result.x);
-                        coordinate = result.y+"/"+result.x;
+                        document.getElementById("xCOORDINATE").value = result.x;
+                        document.getElementById("yCOORDINATE").value = result.y;
                         // 지도를 보여준다.
                         mapContainer.style.display = "block";
                         map.relayout();

@@ -57,18 +57,7 @@ input[type=text]{
 				<input name="filename" type="file">
                     
                     
-                    <!-- 
-                    
-                    
-                    
-                    <select name="cate" >
-                        <option value="a">구매</option>
-                        <option value="b">계정공유</option>
-                        <option value="c">알바대행</option>
-                        <option value="d">자유</option>
-                    </select>
-                    
-                     -->
+               
 				<div class="mytest">		
 				<div style="width:200px;" >
                     
