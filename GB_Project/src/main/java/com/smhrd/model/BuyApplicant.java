@@ -17,6 +17,7 @@ public class BuyApplicant {
 	private BigDecimal buy_seq;
 	@NonNull
 	private String mem_id;
+	
 	private Timestamp buy_date;
 	@NonNull
 	private String buy_p_state; //결제상태랑 
