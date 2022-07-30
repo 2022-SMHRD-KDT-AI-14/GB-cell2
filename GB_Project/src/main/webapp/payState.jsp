@@ -1,3 +1,4 @@
+<%@page import="javax.management.Notification"%>
 <%@page import="com.smhrd.model.Share"%>
 <%@page import="com.smhrd.model.ShareDAO"%>
 <%@page import="org.apache.ibatis.scripting.xmltags.ForEachSqlNode"%>
@@ -86,8 +87,11 @@
 								<p>
 
 									<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
-									<c:set var="ShareList"
-										value="${ShareDAO.selectAllMyList(loginMember)}" />
+									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
+
+									<%-- <jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
+									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
+ --%>
 
 									<c:if test="${!empty loginMember}">
 										<table>
@@ -108,6 +112,10 @@
 																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
+																<!-- 이체완료가 안된경우 -->
+																
+																<script>new Notification("타이틀", {body:${s.board_seq}+'글이 입금대기로 상태변경되었습니다'});</script>
+															
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
 																<!-- 입금이되면 
 																	BoardApplicant의 buy_c_state 가 Y로 변경
@@ -130,6 +138,42 @@
 								</p>
 							</div>
 						</div>
+						
+						
+						
+						
+						
+						
+						<script>
+						Notification.requestPermission();
+						
+						
+						
+						function getNotificationPermission() {
+								 if (!("Notification" in window)) {        alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");    }
+								 Notification.requestPermission(function (result) {
+									if(result == 'denied') {
+										 alert('알림을 차단하셨습니다.\n브라우저의 사이트 설정에서 변경하실 수 있습니다.');
+											 return false;
+									}
+								});
+						}
+						</script>
+						
+						
+						
+						
+						
+						
+						<script>
+						new Notification("타이틀", {body:'해당글이 입금대기로 상태변경되었습니다'});
+						</script>
+						
+						
+						
+						
+						
+						
 						<div class="col-md-6">
 							<div class="skill_content wow fadeIn">
 								<h2>참여한 게시글</h2>

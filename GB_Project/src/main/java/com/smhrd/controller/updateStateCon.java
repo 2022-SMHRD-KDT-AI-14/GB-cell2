@@ -26,7 +26,7 @@ public class updateStateCon extends HttpServlet {
 		int cnt = dao.updateState(vo);
 		if(cnt>0) {
 			System.out.println("참여 성공");
-		
+		// 알람기능추가
 			response.sendRedirect("payState.jsp");
 		
 		}else {
