@@ -48,4 +48,19 @@ public class BuyApplicantDAO {
 		return cnt;
 	}
 	
+	public BuyApplicant SelectOne(int board_seq) { 
+		BuyApplicant vo =null;
+		
+		try {
+			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectOne",board_seq);
+			System.out.println("BuyApplicant selectOne >>" +vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return vo;
+	}
+	
 }
