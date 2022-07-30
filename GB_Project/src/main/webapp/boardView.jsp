@@ -73,7 +73,7 @@ p {
 			<p>제목 : ${board.ARTICLE_TITLE}</p>
 			<p>작성자 : ${board.MEM_ID}</p>
 			<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
-			<a href="ChattingCon">채팅방</a>
+			<a href="chatting.jsp">채팅방</a>
 		</div>
 
 	

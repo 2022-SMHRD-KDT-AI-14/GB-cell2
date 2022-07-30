@@ -11,6 +11,6 @@
 	<a href="boardId.jsp"><button id="writeBtn">계정공유게시판</button></a>
 	<a href="boardArbeit.jsp"><button id="writeBtn">알바게시판</button></a>
 	<a href="boardFree.jsp"><button id="writeBtn">자유게시판</button></a>
-	<a href="chatting.jsp">채팅방</a>
+	
 </body>
 </html>
