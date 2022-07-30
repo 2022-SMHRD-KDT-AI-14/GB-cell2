@@ -13,10 +13,11 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @AllArgsConstructor
 public class BuyApplicant {
-
+//
 	private BigDecimal buy_seq;
 	@NonNull
 	private String mem_id;
+//	
 	private Timestamp buy_date;
 	@NonNull
 	private String buy_p_state; //결제상태랑 
@@ -25,11 +26,10 @@ public class BuyApplicant {
 	@NonNull
 	private String buy_link;
 	@NonNull
-	private int buy_pay;
+	private BigDecimal buy_pay;
 	@NonNull
 	private String cat_name;
 	@NonNull
-	private int board_seq;
+	private BigDecimal board_seq;
 	
 }
-

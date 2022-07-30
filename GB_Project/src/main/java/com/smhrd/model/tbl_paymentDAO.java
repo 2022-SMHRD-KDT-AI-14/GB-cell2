@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -11,7 +13,6 @@ public class tbl_paymentDAO {
 	
 
 	public int insertPayment(String id){ 	//1. 회원가입시 자동으로 지불테이블 생성
-		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
@@ -37,7 +38,7 @@ public class tbl_paymentDAO {
 		tbl_payment vo= null;
 		
 		try {
-			 vo= sqlSession.selectOne("com.smhrd.model.tbl_paymentDAO.selectPayment",vo);
+			 vo= sqlSession.selectOne("com.smhrd.model.tbl_paymentDAO.selectPayment",id);
 			 System.out.println("dao, selectPayment");
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -48,8 +49,23 @@ public class tbl_paymentDAO {
 		return vo;
 	}
 	
-	
-	
-	//2. 멤버ID 지불의 멤버ID > N이면
+	public tbl_payment selectPaymentTF(int num) { 
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		BigDecimal board_seq = new BigDecimal(num);
+		tbl_payment vo= null;
+		
+		try {
+			 vo= sqlSession.selectOne("com.smhrd.model.tbl_paymentDAO.selectPaymentTF",board_seq);
+			 System.out.println("dao, selectPaymentTF");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return vo;
+	}
 
 }

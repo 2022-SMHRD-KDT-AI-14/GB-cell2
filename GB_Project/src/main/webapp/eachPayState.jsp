@@ -1,6 +1,8 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib uri ="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,16 +49,20 @@ p {
 
 <jsp:useBean id="BuyApplicantDAO" class="com.smhrd.model.BuyApplicantDAO"/>
 <c:set var="buyer" value="${BuyApplicantDAO.selectOne(param.board_seq)}"/>
+<c:set var="buyerCNT" value="${BuyApplicantDAO.SelectBuyApplicantCNT(param.board_seq)}"/>
 
+<jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
+<c:set var="payment" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
+<c:set var="paymentTF" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
+											
 	
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 			<h1>결제상태: ${buyer.buy_p_state}</h1>
 			<p>글제목: ${board.ARTICLE_TITLE}		|		작성자: ${board.MEM_ID}		|		작성일 : ${board.ARTICLE_DATE}</p>
-			
-			
 			<p>구매가격: ${buyer.buy_pay}</p>
-			<p>나의 입금여부 : ${buyer.buy_c_state}</p>
-			<p>총 참여수: </p>
+			<p>나의 입금여부 :  <c:out value="${payment.PAY_TF}" /> </p>
+			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
+			<p>입금률 : <c:out value=" ${fn:length(paymentTF)}/${buyerCNT}" /></p>
 		</div>
 	
 	

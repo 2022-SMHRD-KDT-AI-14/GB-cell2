@@ -7,8 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert  id="insertBuyApplicant" parameterType="com.smhrd.model.BuyApplicant">
-		insert into tbl_buy_applicant values (
-		tbl_buy_applicant_seq,#{mem_id},sysdate,#{buy_p_state},#{buy_c_state},#{buy_link},#{buy_pay},#{cat_name},#{board_seq})	
+		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{mem_id},sysdate,#{buy_p_state},#{buy_c_state},#{buy_link},#{buy_pay},#{cat_name},#{board_seq})	
 	</insert>
 
 	<select id="SelectBuyApplicantCNT" parameterType="int" resultType="int">
@@ -16,7 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="SelectOne" parameterType="int" resultType="com.smhrd.model.BuyApplicant">
-		select * from tbl_buy_applicant where board_seq=36
+		select * from tbl_buy_applicant where board_seq=#{board_seq}
 	</select>
+	
+	
+	
+	
 
 </mapper>

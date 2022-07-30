@@ -8,13 +8,20 @@
 
 	<select id="insertPayment" parameterType="String">
 		insert into tbl_payment values(
-		tbl_payment_seq.nextval,#{id},0,sysdate,null,'F')
+		tbl_payment_seq.nextval,#{id},0,sysdate,null,'미입금')
 	</select>
-
 
 	<select id="selectPayment" parameterType="String" resultType="com.smhrd.model.tbl_payment">
 		select * from tbl_payment where MEM_ID=#{id}
 	</select>
+
+	<select id="selectPaymentTF" parameterType="int" resultType="com.smhrd.model.tbl_payment">
+		select * from tbl_payment where MEM_ID in(
+		select MEM_ID from TBL_BUY_APPLICANT WHERE BOARD_SEQ=#{BOARD_SEQ}) AND PAY_TF='입금완료'
+		
+	</select>
+	
+
 
 
 

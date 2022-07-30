@@ -34,7 +34,7 @@ body {
 			<!-- Login Form -->
 			<form action="LoginCon" method="post" id="loginform">
 				<input type="text" class="fadeIn second" name="id" placeholder="id" style="margin-top: 30px"> 
-				<input type="password" class="fadeIn third" name="pw" placeholder="password" > 
+				<input type="password"  name="pw" placeholder="password" > 
 				<p id="check"></p>
 				<input type="submit" class="fadeIn fourth" value="Log In">
 			</form>

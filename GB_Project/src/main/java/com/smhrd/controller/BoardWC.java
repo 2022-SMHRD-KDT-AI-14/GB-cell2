@@ -92,7 +92,7 @@ public class BoardWC extends HttpServlet {
 				System.out.println("작성실패2");
 							
 			}
-			response.sendRedirect("boardBuy.jsp");
+			response.sendRedirect("tbl_boardBuy.jsp");
 			
 			
 		}else if(cate.equals("2")) {
@@ -124,7 +124,7 @@ public class BoardWC extends HttpServlet {
 			
 		}
 			
-			response.sendRedirect("boardId.jsp");
+			response.sendRedirect("tbl_boardId.jsp");
 			
 			
 			
@@ -158,7 +158,7 @@ public class BoardWC extends HttpServlet {
 			
 			
 			
-			response.sendRedirect("boardArbeit.jsp");
+			response.sendRedirect("tbl_boardArbeit.jsp");
 			
 		
 		
@@ -176,10 +176,10 @@ public class BoardWC extends HttpServlet {
 		
 		if(cnt1>0) {
 			System.out.println("작성성공1");
-			response.sendRedirect("boardFree.jsp");
+			
 		}else {
 			System.out.println("작성실패1");
-			response.sendRedirect("boardFree.jsp");
+			
 		}
 		if(cnt2>0) {
 			System.out.println("작성성공2");
@@ -189,7 +189,7 @@ public class BoardWC extends HttpServlet {
 		}
 		
 		
-		response.sendRedirect("boardFree.jsp");
+		response.sendRedirect("tbl_boardFree.jsp");
 	
 	}
 	}
