@@ -17,6 +17,7 @@ public class BuyApplicantDAO {
 	
 	
 	public int insertBuyApplicant(BuyApplicant vo){ //회원가입 메소드
+		
 		int cnt = 0;
 		try {
 			cnt = sqlSession.insert("com.smhrd.model.BuyApplicantDAO.insertBuyApplicant", vo);

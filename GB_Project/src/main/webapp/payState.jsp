@@ -109,13 +109,9 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-<<<<<<< HEAD
 																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
-=======
-																<a
-																	href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<!-- 이체완료가 안된경우 -->

@@ -19,7 +19,7 @@
  	String result = (String) request.getAttribute("MEM_AREA");
 	%>
 	<%
-	if (result != null) {
+	if (result != "earth") {
 	%>
 	<h1>
 		배송지 :

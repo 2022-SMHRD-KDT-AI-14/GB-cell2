@@ -23,7 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE tbl_share
 		SET article_state = #{article_state}
 		WHERE board_seq = #{board_seq}
-		
 	</update>
 	
 
