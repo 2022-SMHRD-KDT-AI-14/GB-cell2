@@ -29,11 +29,11 @@ public class MyPageMemareaInput extends HttpServlet {
 			
 			// my페이지에 표시 세션에 저장 왜안돼지?
 			session.setAttribute("MEM_AREA", MEM_AREA);
-			response.sendRedirect("myPageMemArea.jsp");
+			response.sendRedirect("myPage.jsp");
 		}else{
 			
-			System.out.println("배송자 실패");
-			response.sendRedirect("myPageMemArea.jsp");
+			System.out.println("희망배송지 실패");
+			response.sendRedirect("myPageMemAreainput.jsp");
 		}
 	}
 

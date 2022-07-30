@@ -33,6 +33,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		
 		if(cnt>0) {//주소 저장 성공
 			System.out.println("희망배송지 저장 성공");
+			
 		}else {//주소 저장 실패
 			System.out.println("희망배송지 저장 실패");
 	}

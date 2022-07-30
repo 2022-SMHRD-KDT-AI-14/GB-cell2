@@ -12,8 +12,8 @@ public class MyPageDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
-	public MyPage selectMyPageOne(String MEM_ID) {
-		MyPage list =null;
+	public tbl_member selectMyPageOne(String MEM_ID) {
+		tbl_member list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectOne("com.smhrd.model.MyPageDAO.selectMyPageOne",MEM_ID); 
