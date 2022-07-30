@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.model.Member;
 import com.smhrd.model.MemberDAO;
+import com.smhrd.model.tbl_paymentDAO;
 public class test_JoinCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,6 +41,10 @@ public class test_JoinCon extends HttpServlet {
 				MemberDAO dao = new MemberDAO();
 				int cnt =  dao.insertMember(vo);
 				System.out.println("test_JoincCon,cnt >> "+cnt);
+				
+				tbl_paymentDAO dao2 = new tbl_paymentDAO();
+				int cnt2 =dao2.insertPayment(id);
+				if(cnt2 >0)System.out.println("payment 테이블 생성성공");
 				
 				if(cnt>0) {
 					System.out.println("회원가입 성공");

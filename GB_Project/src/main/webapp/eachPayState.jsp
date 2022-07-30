@@ -44,6 +44,7 @@ p {
 
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.board_seq)}"/>
+
 <jsp:useBean id="BuyApplicantDAO" class="com.smhrd.model.BuyApplicantDAO"/>
 <c:set var="buyer" value="${BuyApplicantDAO.selectOne(param.board_seq)}"/>
 

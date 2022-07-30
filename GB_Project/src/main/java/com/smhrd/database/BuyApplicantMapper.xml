@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="SelectOne" parameterType="int" resultType="com.smhrd.model.BuyApplicant">
-		select * from tbl_buy_applicant where board_seq=#{board_seq}
+		select * from tbl_buy_applicant where board_seq=36
 	</select>
 
 </mapper>

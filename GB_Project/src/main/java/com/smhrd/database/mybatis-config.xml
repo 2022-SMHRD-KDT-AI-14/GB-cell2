@@ -31,5 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/MyPageMemareaMapper.xml"/>
 		<mapper resource="com/smhrd/database/shareWriteMapper.xml"/>
 		<mapper resource="com/smhrd/database/ChattingMapper.xml"/>
+		<mapper resource="com/smhrd/database/tbl_paymentMapper.xml"/>
+		<mapper resource="com/smhrd/database/test.xml"/>
     </mappers>
 </configuration>
