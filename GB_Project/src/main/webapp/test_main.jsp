@@ -206,12 +206,12 @@
 										type="password" class="fadeIn third" name="pw"
 										placeholder="password">
 									<p id="check"></p>
-<<<<<<< HEAD
+
 									
 									<input type="submit" class="btn btn-primary" value="Log In">
-=======
+
 									<input type="submit" class="btn btn-primary" value="LogIn">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 								</form>
 								</c:if>
 									

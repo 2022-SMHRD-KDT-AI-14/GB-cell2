@@ -52,11 +52,7 @@
 
                         // 해당 주소에 대한 좌표를 받아서
                         var coords = new daum.maps.LatLng(result.y, result.x);
-<<<<<<< HEAD
                         console.log("위도 : "+result.y+ "경도 : " +result.x)
-=======
-                        coordinate = result.y+"/"+result.x;
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
                         // 지도를 보여준다.
                         mapContainer.style.display = "block";
                         map.relayout();
