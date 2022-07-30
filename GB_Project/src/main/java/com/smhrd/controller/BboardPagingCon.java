@@ -41,7 +41,7 @@ public class BboardPagingCon extends HttpServlet {
 		for(tbl_share b: list) {
 			if(b.getCAT_NAME().equals("B")) {
 				
-			json.addProperty("num",b.getBOARD_SEQ());
+			json.addProperty("num",b.getBOARD_SEQ().divide(n,4,BigDecimal.ROUND_DOWN));
 					
 			json.addProperty("name", b.getARTICLE_TITLE());
 			json.addProperty("writer", b.getMEM_ID());
