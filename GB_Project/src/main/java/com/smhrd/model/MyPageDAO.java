@@ -10,9 +10,9 @@ import com.smhrd.database.SqlSessionManager;
 public class MyPageDAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	public tbl_member selectMyPageOne(String MEM_ID) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		tbl_member list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
