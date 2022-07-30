@@ -24,15 +24,15 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		String yCOORDINATE = request.getParameter("MEM_yCOORDINATE");
 		System.out.println(xCOORDINATE);
 		System.out.println(yCOORDINATE);
+		
 		MyPageMemarea vo = new MyPageMemarea(MEM_ID, MEM_AREA);
 		MyPageMemareaDAO dao = new MyPageMemareaDAO(); //전달자로부터받은정보를가지고 기능을 구현하는 클래스
 		int cnt= dao.updateMyPageMemarea(vo);
 		
-		//db에다 값을 저장만 한거야
-		
 		
 		if(cnt>0) {//주소 저장 성공
 			System.out.println("희망배송지 저장 성공");
+			
 		}else {//주소 저장 실패
 			System.out.println("희망배송지 저장 실패");
 	}

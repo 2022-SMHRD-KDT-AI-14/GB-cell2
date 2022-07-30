@@ -139,10 +139,23 @@
   	<servlet-class>com.smhrd.controller.MyPageMemareaInput</servlet-class>
   </servlet>
   <servlet>
+
+  	<servlet-name>MyPage</servlet-name>
+  	<display-name>MyPage</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.MyPage</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MyPageCon</servlet-name>
+  	<display-name>MyPageCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.MyPageCon</servlet-class>
+
   	<servlet-name>ChattingCon</servlet-name>
   	<display-name>ChattingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ChattingCon</servlet-class>
+
   </servlet>
   <servlet>
   	<servlet-name>deleteCon</servlet-name>
@@ -249,8 +262,17 @@
   	<url-pattern>/MyPageMemareaInput</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+
+  	<servlet-name>MyPage</servlet-name>
+  	<url-pattern>/MyPage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyPageCon</servlet-name>
+  	<url-pattern>/MyPageCon</url-pattern>
+
   	<servlet-name>ChattingCon</servlet-name>
   	<url-pattern>/ChattingCon</url-pattern>
+
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>deleteCon</servlet-name>
