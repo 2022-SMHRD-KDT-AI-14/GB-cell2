@@ -8,20 +8,36 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Getter
-@AllArgsConstructor
 public class tbl_payment {
 	private BigDecimal PAY_SEQ;
-	@NonNull
+	
 	private String MEM_ID ;
 	
-	private int PAY_MONEY;
+	private BigDecimal PAY_MONEY;
 	
 	private Timestamp PAY_DATE;
 	
 	private String CAT_NAME;
 	
 	private String PAY_TF;
+
+	public tbl_payment(String mEM_ID) {
+		super();
+		MEM_ID = mEM_ID;
+	}
+
+	public tbl_payment(BigDecimal pAY_SEQ, String mEM_ID, BigDecimal pAY_MONEY, Timestamp pAY_DATE, String cAT_NAME,
+			String pAY_TF) {
+		super();
+		PAY_SEQ = pAY_SEQ;
+		MEM_ID = mEM_ID;
+		PAY_MONEY = pAY_MONEY;
+		PAY_DATE = pAY_DATE;
+		CAT_NAME = cAT_NAME;
+		PAY_TF = pAY_TF;
+	}
+
+
 	
 }

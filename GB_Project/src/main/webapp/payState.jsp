@@ -90,8 +90,9 @@
 									<c:set var="ShareList"
 										value="${ShareDAO.selectAllMyList(loginMember)}" />
 									 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO" />
-									<%--<c:set var="payment"
-										value="${tbl_paymentDAO.selectPayment(loginMember)}" /> --%>
+									<c:set var="payment"
+										value="${tbl_paymentDAO.selectPayment(loginMember)}" />
+									
 
 									<c:if test="${!empty loginMember}">
 										<table>
@@ -114,12 +115,10 @@
 																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<!-- 이체완료가 안된경우 -->
-																<c:if test="${payment.PAY_TF =='F'} and $${s.article_state =='입금대기'} ">
-																<script>new Notification("타이틀", {body:${s.board_seq}+'글이 입금대기로 상태변경되었습니다'});</script>
-																</c:if>>
-
+																<!-- 지불tb에서 계좌이체 안 된 경우 -->
+																<c:if test="${payment.PAY_TF =='미입금'} ">
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
+																</c:if>
 																<!-- 입금이되면 
 																	BoardApplicant의 buy_c_state 가 Y로 변경
 																	updateStateCon?board_seq=${s.board_seq}&article_state='입금대기'
@@ -150,8 +149,6 @@
 						<script>
 						Notification.requestPermission();
 						
-						
-						
 						function getNotificationPermission() {
 								 if (!("Notification" in window)) {        alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");    }
 								 Notification.requestPermission(function (result) {
@@ -168,10 +165,7 @@
 
 
 
-						<script>
-						new Notification("타이틀", {body:'해당글이 입금대기로 상태변경되었습니다'});
-						</script>
-
+				
 
 
 
@@ -208,9 +202,13 @@
 
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="#"><button>입금하기</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
+															
+																<c:if test="${payment.PAY_TF =='F'}"><script>
+															new Notification("거래변동!",   {body:${s.board_seq}게시글+' 입금해주세요'});</script></c:if>	
+																													
+															
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
@@ -237,6 +235,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 				<!--End off row-->
 			</div>
 			<!--End off container -->
