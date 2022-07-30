@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,10 +35,10 @@ public class FoardPagingCon extends HttpServlet {
 		JsonArray jarray = new JsonArray(); //json Array
 	
 		
-		
+		BigDecimal n = new BigDecimal("2");
 		for(tbl_share b: list) {
 			if(b.getCAT_NAME().equals("F")) {
-			json.addProperty("num",b.getBOARD_SEQ());
+			json.addProperty("num",b.getBOARD_SEQ().divide(n,4,BigDecimal.ROUND_DOWN));
 			json.addProperty("name", b.getARTICLE_TITLE());
 			json.addProperty("writer", b.getMEM_ID());
 			json.addProperty("category", b.getCAT_NAME());

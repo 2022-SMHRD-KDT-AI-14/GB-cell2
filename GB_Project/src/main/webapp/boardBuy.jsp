@@ -94,6 +94,7 @@ function next_list(startRow,startPage){
 		data :{"num":startRow},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
 		success:function(data_list){
 			console.log(data_list)
+			
 			if(data_list.length<10){/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
 				list_write(data_list);
 				button_create(data_list,startPage);

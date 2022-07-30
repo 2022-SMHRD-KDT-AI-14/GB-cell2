@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectAllMyParList" resultType="com.smhrd.model.Share" parameterType="String">
-		select * from tbl_buy_applicant 
+		select * from tbl_share 
 		where board_seq in( select board_seq from tbl_buy_applicant where mem_id=#{loginMember})
 		<!-- 글작성을한 이력이 있으면 이미 buyer에 등록되었는데 보드시퀀스는 참석자로서 등록된것인지 등록자로서 원래 있는것인지 구별안됨 -->
 	</select>

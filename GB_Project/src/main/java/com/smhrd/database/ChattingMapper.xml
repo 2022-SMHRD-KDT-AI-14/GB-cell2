@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.ChattingDAO"> 
+	
+	<select id="selectchat" parameterType="int" resultType="int">
+		select chatnum from tbl_chatnum 
+	</select>
+	
+	<insert id="updatechat" parameterType="int" >
+		update tbl_chatnum set chatnum = #{chatnum}
+	</insert>
+	
+	
+</mapper> 
