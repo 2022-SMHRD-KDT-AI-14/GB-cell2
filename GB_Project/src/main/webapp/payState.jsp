@@ -74,7 +74,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 	<div class="culmn">
-	
+
 		<!--Skill Sections-->
 		<section id="skill" class="skill roomy-100">
 			<div class="container">
@@ -87,11 +87,11 @@
 								<p>
 
 									<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
-									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
-
-									<%-- <jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
-									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
- --%>
+									<c:set var="ShareList"
+										value="${ShareDAO.selectAllMyList(loginMember)}" />
+									 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO" />
+									<%--<c:set var="payment"
+										value="${tbl_paymentDAO.selectPayment(loginMember)}" /> --%>
 
 									<c:if test="${!empty loginMember}">
 										<table>
@@ -109,13 +109,15 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
+																<a
+																	href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<!-- 이체완료가 안된경우 -->
-																
+																<c:if test="${payment.PAY_TF =='F'} and $${s.article_state =='입금대기'} ">
 																<script>new Notification("타이틀", {body:${s.board_seq}+'글이 입금대기로 상태변경되었습니다'});</script>
-															
+																</c:if>>
+
 																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
 																<!-- 입금이되면 
 																	BoardApplicant의 buy_c_state 가 Y로 변경
@@ -138,12 +140,12 @@
 								</p>
 							</div>
 						</div>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
 						<script>
 						Notification.requestPermission();
 						
@@ -159,21 +161,21 @@
 								});
 						}
 						</script>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
 						<script>
 						new Notification("타이틀", {body:'해당글이 입금대기로 상태변경되었습니다'});
 						</script>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
 						<div class="col-md-6">
 							<div class="skill_content wow fadeIn">
 								<h2>참여한 게시글</h2>
@@ -186,21 +188,22 @@
 									<c:if test="${!empty loginMember}">
 										<table>
 											<tr>
-											<th>게시글No.</th>
-											<th>제목</th>
-											<th>작성자</th>
-											<th>거래상태</th>
+												<th>게시글No.</th>
+												<th>제목</th>
+												<th>작성자</th>
+												<th>거래상태</th>
 											</tr>
 											<c:forEach items="${nShareList}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
-													<td><a href="eachPayState.jsp?board_seq=${s.board_seq}"><c:out
+													<td><a
+														href="eachPayState.jsp?board_seq=${s.board_seq}"><c:out
 																value="${s.article_title}" /></a></td>
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
-													
-													
-													
+
+
+
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
 																<a href="#"><button>입금하기</button></a>
@@ -214,13 +217,13 @@
 																<a href="#?board_seq=${s.board_seq}"><button>이의제기</button></a>
 															</c:when>
 															<c:otherwise>
-															
+
 															</c:otherwise>
 														</c:choose></td>
-													
-													
-													
-													
+
+
+
+
 												</tr>
 											</c:forEach>
 										</table>
