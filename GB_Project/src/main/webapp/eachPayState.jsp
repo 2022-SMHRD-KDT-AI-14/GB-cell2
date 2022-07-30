@@ -53,7 +53,7 @@ p {
 
 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
 <c:set var="payment" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
-<c:set var="paymentTF" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
+<c:set var="paymentTF" value="${tbl_paymentDAO.selectPaymentTF(param.board_seq)}"/>
 											
 	
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
@@ -62,6 +62,23 @@ p {
 			<p>구매가격: ${buyer.buy_pay}</p>
 			<p>나의 입금여부 :  <c:out value="${payment.PAY_TF}" /> </p>
 			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
+			
+			
+			<table>
+			<c:forEach items="${paymentTF}" var="m">
+							<tr>
+								<td><c:out value="${m.MEM_ID}"/></td>
+								<td><c:out value="${m.PAY_TF}"/></td>
+								<td><c:out value="${m.PAY_MONEY}"/></td>
+							</tr>
+			</c:forEach>
+			
+			</table>
+			
+			
+			
+			
+			
 			<p>입금률 : <c:out value=" ${fn:length(paymentTF)}/${buyerCNT}" /></p>
 		</div>
 	

@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -49,23 +50,23 @@ public class tbl_paymentDAO {
 		return vo;
 	}
 	
-	public tbl_payment selectPaymentTF(int num) { 
+	public List<tbl_payment> selectPaymentTF(int num) { 
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		BigDecimal board_seq = new BigDecimal(num);
-		tbl_payment vo= null;
+		 List<tbl_payment> list= null;
 		
 		try {
-			 vo= sqlSession.selectOne("com.smhrd.model.tbl_paymentDAO.selectPaymentTF",board_seq);
-			 System.out.println("dao, selectPaymentTF");
+				list = sqlSession.selectList("com.smhrd.model.tbl_paymentDAO.selectPaymentTF", board_seq);
+				System.out.println("dao, selectPayment TF >> "+list.size());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			sqlSession.close();
 		}
 		
-		return vo;
+		return list;
 	}
 
 }

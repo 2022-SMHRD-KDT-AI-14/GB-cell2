@@ -59,11 +59,12 @@ public class test_participateCon extends HttpServlet {
 
 		
 		String buy_link = "www.coupang.com"; //form에서 받ㅋ
-		int buy_pay = 20000;//form에서 받기
+		BigDecimal buy_pay = new BigDecimal(2000);//form에서 받기
 		String cat_name = "P";//form에서 받기
 		
 		System.out.println("test_Con,board_seq >> "+board_seq);
-		BuyApplicant vo= new BuyApplicant(mem_id,by_p_state,by_c_state, buy_link, buy_pay, cat_name, board_seq);
+		BigDecimal board_seq_big = new BigDecimal(board_seq);
+		BuyApplicant vo= new BuyApplicant(mem_id,by_p_state,by_c_state, buy_link, buy_pay, cat_name, board_seq_big);
 		
 		
 		BuyApplicantDAO dao = new BuyApplicantDAO();
