@@ -48,12 +48,14 @@ public class BuyApplicantDAO {
 		return cnt;
 	}
 	
-	public BuyApplicant SelectOne(int board_seq) { 
+	public BuyApplicant selectOne(BigDecimal num) { 
+		int board_seq = num.intValue();
 		BuyApplicant vo =null;
 		
 		try {
-			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectOne",board_seq);
-			System.out.println("BuyApplicant selectOne >>" +vo);
+			System.out.println("BuyApplicant selectOne >>" +board_seq);
+			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO2.SelectOne",board_seq);
+			System.out.println("BuyApplicant selectOne >>" +board_seq);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

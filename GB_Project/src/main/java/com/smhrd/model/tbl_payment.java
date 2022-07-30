@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -12,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class tbl_payment {
 	private BigDecimal PAY_SEQ;
-
+	@NonNull
 	private String MEM_ID ;
 	
 	private int PAY_MONEY;
@@ -20,5 +21,7 @@ public class tbl_payment {
 	private Timestamp PAY_DATE;
 	
 	private String CAT_NAME;
+	
+	private String PAY_TF;
 	
 }
