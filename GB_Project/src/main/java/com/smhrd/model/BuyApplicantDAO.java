@@ -12,12 +12,12 @@ import com.smhrd.database.SqlSessionManager;
 public class BuyApplicantDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	SqlSession sqlSession = sqlSessionFactory.openSession();
+	
 	
 	
 	
 	public int insertBuyApplicant(BuyApplicant vo){ //회원가입 메소드
-		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			cnt = sqlSession.insert("com.smhrd.model.BuyApplicantDAO.insertBuyApplicant", vo);
@@ -35,6 +35,7 @@ public class BuyApplicantDAO {
 	}
 	
 	public int SelectBuyApplicantCNT(int board_seq) { //로그인 메소드
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt =0;
 		
 		try {
@@ -49,14 +50,13 @@ public class BuyApplicantDAO {
 		return cnt;
 	}
 	
-	public BuyApplicant selectOne(BigDecimal num) { 
-		int board_seq = num.intValue();
+	public BuyApplicant selectOne(int board_seq) { 
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		BuyApplicant vo =null;
-		
+
 		try {
-			System.out.println("BuyApplicant selectOne >>" +board_seq);
-			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO2.SelectOne",board_seq);
-			System.out.println("BuyApplicant selectOne >>" +board_seq);
+			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectOne",board_seq);
+			System.out.println("BuyApplicant selectOne >>" +vo.getBuy_pay());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
