@@ -49,7 +49,7 @@ public class test_JoinCon extends HttpServlet {
 				if(cnt>0) {
 					System.out.println("회원가입 성공");
 					// 포워딩 방식 joinSuccess.jsp이동, email->request영역에 저장
-					RequestDispatcher rd = request.getRequestDispatcher("test_main.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("tbl_join3.jsp");
 					request.setAttribute("id", vo.getId());
 					rd.forward(request, response);
 					
@@ -59,7 +59,7 @@ public class test_JoinCon extends HttpServlet {
 				}else {
 					System.out.println("회원가입 실패");
 					// 포워딩 방식 joinSuccess.jsp이동, email->request영역에 저장
-					response.sendRedirect("test_main.jsp");
+					response.sendRedirect("tbl_join3.jsp");
 				}
 	}
 

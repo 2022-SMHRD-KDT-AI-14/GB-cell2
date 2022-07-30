@@ -20,7 +20,7 @@ public class logoutCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		session.removeAttribute("loginMember");
-		response.sendRedirect("test_main.jsp");
+		response.sendRedirect("tbl_main.jsp");
 	}
 
 }

@@ -31,11 +31,11 @@ public class test_loginCon extends HttpServlet {
 			System.out.println("로그인 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
-			response.sendRedirect("test_main.jsp");
+			response.sendRedirect("tbl_main.jsp");
 		}else{
 			
 			System.out.println("로그인 실패");
-			response.sendRedirect("test_main.jsp");
+			response.sendRedirect("tbl_main.jsp");
 		}
 				
 				
