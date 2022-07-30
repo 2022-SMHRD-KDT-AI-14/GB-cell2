@@ -27,8 +27,9 @@ public class MyPageMemareaInput extends HttpServlet {
 			
 			System.out.println("배송지 성공");
 			
-			// my페이지에 표시 세션에 저장 왜안돼지?
-			session.setAttribute("MEM_AREA", MEM_AREA);
+			// my페이지에 표시 세션에 저장 왜안돼지? 
+			String mem_area = (String) session.getAttribute("MEM_AREA");
+		
 			response.sendRedirect("myPage.jsp");
 		}else{
 			
@@ -36,5 +37,5 @@ public class MyPageMemareaInput extends HttpServlet {
 			response.sendRedirect("myPageMemAreainput.jsp");
 		}
 	}
-
+	
 }

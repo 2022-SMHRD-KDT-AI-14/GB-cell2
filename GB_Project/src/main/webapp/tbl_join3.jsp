@@ -34,6 +34,7 @@
 					<header class="main">
 						<h1>가입을 축하드립니다!</h1>
 					</header>
+					<span class="image main"><img src="images/join.gif" alt="" /></span>
 					<p> 이제 1/n에서 다양한 서비스를 이용하실 수 있습니다.</p>
 					<table boder="" bgcolor="#ffffff" cellspacing="1" width: 100%;>
 						

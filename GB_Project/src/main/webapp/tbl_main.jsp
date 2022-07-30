@@ -27,7 +27,7 @@
 					
 						<c:choose>
 						<c:when test="${empty loginMember}">
-						<li><a href="tbl_login.jsp" class="icon solid fa-home"><span class="label">로그인</span></a></li>
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
 						</c:when>
 						<c:otherwise>
 						<li><a href="logoutCon" >로그아웃</span></a></li>

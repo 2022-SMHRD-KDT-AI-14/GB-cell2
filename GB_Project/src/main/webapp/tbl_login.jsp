@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <html>
 
 <head>
-	<title>join</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+<title>login</title>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
 <body class="is-preload">
@@ -22,69 +23,57 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
+					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
+							싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_main.jsp" class="icon solid fa-home"><span class="label">Medium</span></a></li>
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
-						</li>
-						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
+						<li><a href="tbl_main.jsp" class="icon solid fa-home"><span
+								class="label">Medium</span></a></li>
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
+								class="label">Medium</span></a></li>
+						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
+								class="label">Medium</span></a></li>
 					</ul>
 				</header>
 
-				
-                    <section>
-                    
-              
-                    
-                    
-                    
-                    
-                    
-                        <header class="major">
-                            <h2>로그인</h2>
-                        </header>
-                        <form action="test_loginCon" method="post" id="loginform">
-                        <div>
-                        </div>
-                        <div text-align="center" style="margin-bottom: 15px;">아이디 
-                        
-                            <div class="row">
-                                <div class="col-6 col-12-small">
-                                  <input type="text" class="fadeIn second" name="id"
-										placeholder="id" style="margin-top: 30px">
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    
-                                </div>
-                            </div>
-                        
-                        </div>
-                        <div text-align="center" style="margin-bottom: 15px;">비밀번호 
-                        
-                            <div class="row">
-                                <div class="col-6 col-12-small">
-                                   <input
-										type="password" class="fadeIn third" name="pw"
-										placeholder="password"> 
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    
-                                </div>
-                            </div>
-                        
-                        </div>
-                        	<input type="submit" class="btn btn-primary" value="LogIn">
-                        </form>
-                    </section>
-					
-				
-				
+				<section>
 
+					<header class="major">
+						<h2>로그인</h2>
+					</header>
+					<form action="test_loginCon" method="post" id="loginform">
+						<div></div>
+						<div text-align="center" style="margin-bottom: 15px;">
+							아이디
+							<div class="row">
+								<div class="col-6 col-12-small">
+									<input type="text" class="fadeIn second" name="id"
+										placeholder="id" style="margin-top: 15px">
+								</div>
+								<div class="col-6 col-12-small"></div>
+							</div>
+
+						</div>
+						<div text-align="center" style="margin-bottom: 15px;">
+							비밀번호
+
+							<div class="row">
+								<div class="col-6 col-12-small">
+									<input type="password" class="fadeIn third" name="pw"
+										placeholder="password">
+								</div>
+								<div class="col-6 col-12-small"></div>
+							</div>
+
+						</div>
+						
+						<div>
+							<input type="submit" class="bttn" value="로그인">
+							<a href="tbl_join2.jsp" class="button primary">회원가입</a>
+						</div>
+					</form>
+				</section>
 			</div>
 		</div>
-
-
-
 
 		<!-- Sidebar -->
 		<div id="sidebar">
@@ -105,17 +94,15 @@
 					<ul>
 						<li><a href="home.html">홈페이지</a></li>
 						<li><a href="boardwrite.html">글작성</a></li>
-						<li>
-							<span class="opener">공유하기</span>
+						<li><span class="opener">공유하기</span>
 							<ul>
 								<li><a href="#">구매 게시판</a></li>
 								<li><a href="#">계정공유 게시판</a></li>
 								<li><a href="#">알바 게시판</a></li>
 								<li><a href="#">자유 게시판</a></li>
-							</ul>
-						</li>
+							</ul></li>
 						<li><a href="#">문의하기</a></li>
-						
+
 
 					</ul>
 				</nav>
@@ -152,16 +139,18 @@
 					<ul class="contact">
 						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
 						<li class="icon solid fa-phone">연락처</li>
-						<li class="icon solid fa-home">주소<br />
-							상세주소</li>
+						<li class="icon solid fa-home">주소<br /> 상세주소
+						</li>
 					</ul>
 				</section>
 
 				<!-- Footer -->
 				<footer id="footer">
-					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
-							UP</a>.</p>
+					<p class="copyright">
+						&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a
+							href="https://html5up.net">HTML5 UP</a>.
+					</p>
 				</footer>
 
 			</div>
