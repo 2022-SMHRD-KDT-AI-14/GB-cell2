@@ -24,8 +24,8 @@
 		select * from tbl_payment where MEM_ID=#{id} and BOARD_SEQ=#{board_seq}
 	</select>
 	
-	<select id="selectPayment2" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">
-		select * from tbl_payment where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ}
+	<select id="selectPaymentAllcnt" parameterType="int" resultType="int">
+		select count(*) from tbl_payment where board_seq = #{board_seq}
 	</select>
 
 	<select id="selectPaymentTFcnt" parameterType="int" resultType="int">
@@ -36,7 +36,11 @@
 		select * from tbl_payment where board_seq = #{board_seq}
 	</select>
 
-
+	<update id="updatePayment" parameterType="com.smhrd.model.tbl_payment">
+		UPDATE tbl_payment
+		SET pay_money=#{PAY_MONEY} , pay_tf=#{PAY_TF}
+        WHERE board_seq = #{BOARD_SEQ} and mem_id =#{MEM_ID}
+	</update>
 
 
 </mapper>  

@@ -71,8 +71,33 @@
 <script src="assets/js/gmaps.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
+
+
+
 </head>
+
 <body data-spy="scroll" data-target=".navbar-collapse">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(window).load(function () {
+    	$.ajax({
+		url : 'alramCon',
+		type: 'get',
+		success : function(data){
+			
+			if(data)alert("${loginMember}님~ "+data)
+			
+		},
+		error : function(){
+			alert("로그인 안함?")
+			location.href="tbl_login.jsp";
+		}
+		})
+    });
+</script>
+
+
+
 	<div class="culmn">
 
 		<!--Skill Sections-->
@@ -85,18 +110,16 @@
 								<h2>등록한 게시글</h2>
 								<div class="separator_left"></div>
 								<p>
-
-	`								<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
-									<c:set var="ShareList"
-										value="${ShareDAO.selectAllMyList(loginMember)}" />
-									
-
+									<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
+									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
 									<c:if test="${!empty loginMember}">
 										<table>
-											<th>게시글No.</th>
-											<th>제목</th>
-											<th>작성자</th>
-											<th>거래상태</th>
+											<tr>
+												<th>게시글No.</th>
+												<th>거래현황</th>
+												<th>작성자</th>
+												<th>거래상태</th>
+											</tr>
 											<c:forEach items="${ShareList}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
@@ -107,16 +130,11 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=입금대기"><button>거래결정</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<!-- 지불tb에서 계좌이체 안 된 경우 -->
-																<!-- 입금이되면 
-																	BoardApplicant의 buy_c_state 가 Y로 변경
-																	updateStateCon?board_seq=${s.board_seq}&article_state='입금대기'
-																c_state y로 변경  -->
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -139,32 +157,6 @@
 
 
 
-
-						<script>
-						Notification.requestPermission();
-						
-						function getNotificationPermission() {
-								 if (!("Notification" in window)) {        alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");    }
-								 Notification.requestPermission(function (result) {
-									if(result == 'denied') {
-										 alert('알림을 차단하셨습니다.\n브라우저의 사이트 설정에서 변경하실 수 있습니다.');
-											 return false;
-									}
-								});
-						}
-						</script>
-
-
-
-
-
-
-				
-
-
-
-
-
 						<div class="col-md-6">
 							<div class="skill_content wow fadeIn">
 								<h2>참여한 게시글</h2>
@@ -178,7 +170,7 @@
 										<table>
 											<tr>
 												<th>게시글No.</th>
-												<th>제목</th>
+												<th>거래현황</th>
 												<th>작성자</th>
 												<th>거래상태</th>
 											</tr>
@@ -186,7 +178,7 @@
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
 													<td><a
-														href="eachPayState.jsp?board_seq=${s.board_seq}"><c:out
+														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
 																value="${s.article_title}" /></a></td>
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
@@ -196,11 +188,12 @@
 
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
+															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-															
-															
-																<a href="buyApplicantCNT?board_seq=${s.board_seq}"><button>입금하기</button></a>
+
+
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -226,8 +219,8 @@
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 				<!--End off row-->
 			</div>
 			<!--End off container -->
@@ -286,11 +279,7 @@
 	63번(smart가 작성한))게시글에서 참여확정버튼클릭! -->
 
 
-	<!-- <a href="test_participateCon?board_seq=89"><button> 89글 TEST참여확정!</button></a> -->
-	<form action="test_participateCon">
-		<input type="text" name="board_seq"> <input type="submit"
-			value="거래결정/참여결정">
-	</form>
+
 
 
 
@@ -472,6 +461,12 @@ function resize() {
 
 var paragraphText = '<p>Somebody once told me the world is gonna roll me. I ain\'t the sharpest tool in the shed. She was looking kind of dumb with her finger and her thumb in the shape of an "L" on her forehead. Well the years start coming and they don\'t stop coming. Fed to the rules and I hit the ground running. Didn\'t make sense not to live for fun. Your brain gets smart but your head gets dumb. So much to do, so much to see. So what\'s wrong with taking the back streets? You\'ll never know if you don\'t go. You\'ll never shine if you don\'t glow.</p><p>Hey now, you\'re an all-star, get your game on, go play. Hey now, you\'re a rock star, get the show on, get paid. And all that glitters is gold. Only shooting stars break the mold.</p><p>It\'s a cool place and they say it gets colder. You\'re bundled up now, wait till you get older. But the meteor men beg to differ. Judging by the hole in the satellite picture. The ice we skate is getting pretty thin. The water\'s getting warm so you might as well swim. My world\'s on fire, how about yours? That\'s the way I like it and I never get bored.</p>';
 </script>
+
+		<!-- 여기 <a href="test_participateCon?board_seq=89"><button> 89글 TEST참여확정!</button></a> -->
+	<form action="updateStateCon?board_seq=${s.board_seq}&article_state='모집중'">
+		<input type="text" name="board_seq"> <input type="submit"
+			value="참여결정">
+	</form>
 
 
 </body>

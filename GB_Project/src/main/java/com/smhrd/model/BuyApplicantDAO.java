@@ -68,12 +68,15 @@ public class BuyApplicantDAO {
 	
 	public BuyApplicant selectOnePar(String id,int num) { 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		System.out.println("진입했어?");
 		BigDecimal board_seq =new BigDecimal(num);
 		BuyApplicant vo = new BuyApplicant(id, board_seq);
 		BuyApplicant result = null;
 		try {
+			
+			System.out.println("BuyApplicant selectOnePar BOARD_SEQ >>" +vo.getBoard_seq());
 			result = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.selectOnePar",vo);
-			System.out.println("BuyApplicant selectOnePar >>" +vo.getBuy_pay());
+			System.out.println("BuyApplicant selectOnePar BUY_PAY >>" +vo.getBuy_pay());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

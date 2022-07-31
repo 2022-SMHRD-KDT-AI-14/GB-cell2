@@ -15,6 +15,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- 글작성을한 이력이 있으면 이미 buyer에 등록되었는데 보드시퀀스는 참석자로서 등록된것인지 등록자로서 원래 있는것인지 구별안됨 -->
 	</select>
 	
+	<select id="selectAllMyAlramList" resultType="com.smhrd.model.Share" parameterType="String">
+	select * from tbl_share 
+	where board_seq in
+	(select board_seq from tbl_payment where mem_id =#{loginMember} and pay_Tf ='미입금')
+
+	</select>
+	
+	
 	<select id="selectWriter" resultType="String" parameterType="int">
 		select mem_id from tbl_share where board_seq=#{board_seq}
 	</select>
