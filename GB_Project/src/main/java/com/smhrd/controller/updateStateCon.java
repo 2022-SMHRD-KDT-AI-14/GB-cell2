@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.ShareDAO;
 import com.smhrd.model.ShareForUpdate;
 import com.smhrd.model.tbl_paymentDAO;
@@ -38,11 +39,11 @@ public class updateStateCon extends HttpServlet {
 			ShareForUpdate vo= new ShareForUpdate(board_seq,"입금대기");
 			int cnt = dao.updateState(vo);
 			System.out.println("updateStateCon, 후 >> "+vo.getArticle_state());
+			//if(cat_name=='A')
 			//구매 update
+			new BuyApplicantDAO().updateState(board_seq,"입금대기");
 			//계정 update
 			//알바 update
-			ShareForUpdate pvo= new ShareForUpdate(board_seq);
-			 dao.updateStateWith(pvo);
 			System.out.println("updateStateCon, 후 >> "+vo.getArticle_state());
 			
 			

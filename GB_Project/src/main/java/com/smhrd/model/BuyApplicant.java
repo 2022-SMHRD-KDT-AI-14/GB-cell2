@@ -32,6 +32,11 @@ public class BuyApplicant {
 		this.mem_id = mem_id;
 		this.board_seq = board_seq;
 	}
+	public BuyApplicant(@NonNull BigDecimal board_seq,@NonNull String buy_p_state) {
+		super();
+		this.buy_p_state = buy_p_state;
+		this.board_seq = board_seq;
+	}
 	@NonNull
 	private String cat_name;
 	@NonNull
