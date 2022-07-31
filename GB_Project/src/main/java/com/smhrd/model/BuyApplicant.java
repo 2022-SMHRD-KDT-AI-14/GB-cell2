@@ -27,6 +27,11 @@ public class BuyApplicant {
 	private String buy_link;
 	@NonNull
 	private BigDecimal buy_pay;
+	public BuyApplicant(@NonNull String mem_id, @NonNull BigDecimal board_seq) {
+		super();
+		this.mem_id = mem_id;
+		this.board_seq = board_seq;
+	}
 	@NonNull
 	private String cat_name;
 	@NonNull

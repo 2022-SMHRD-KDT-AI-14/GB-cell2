@@ -171,6 +171,18 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.shareDeleteCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>addPaymentCon</servlet-name>
+  	<display-name>addPaymentCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.addPaymentCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>paymentCon</servlet-name>
+  	<display-name>paymentCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.paymentCon</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -283,6 +295,14 @@
   <servlet-mapping>
   	<servlet-name>shareDeleteCon</servlet-name>
   	<url-pattern>/shareDeleteCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>addPaymentCon</servlet-name>
+  	<url-pattern>/addPaymentCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>paymentCon</servlet-name>
+  	<url-pattern>/paymentCon</url-pattern>
   </servlet-mapping>
 
 </web-app>

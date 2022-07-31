@@ -66,4 +66,21 @@ public class BuyApplicantDAO {
 		return vo;
 	}
 	
+	public BuyApplicant selectOnePar(String id,int num) { 
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		BigDecimal board_seq =new BigDecimal(num);
+		BuyApplicant vo = new BuyApplicant(id, board_seq);
+		BuyApplicant result = null;
+		try {
+			result = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.selectOnePar",vo);
+			System.out.println("BuyApplicant selectOnePar >>" +vo.getBuy_pay());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+	
 }

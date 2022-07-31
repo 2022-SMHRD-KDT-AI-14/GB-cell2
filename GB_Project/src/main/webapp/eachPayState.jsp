@@ -1,8 +1,11 @@
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.model.tbl_paymentDAO"%>
+<%@page import="com.smhrd.model.tbl_payment"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ taglib uri ="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,13 +51,16 @@ p {
 <c:set var="board" value="${BoardDAO.selectOne(param.board_seq)}"/>
 
 <jsp:useBean id="BuyApplicantDAO" class="com.smhrd.model.BuyApplicantDAO"/>
-<c:set var="buyer" value="${BuyApplicantDAO.selectOne(param.board_seq)}"/>
+<c:set var="buyer" value="${BuyApplicantDAO.selectOnePar(loginMember,param.board_seq)}"/>
 <c:set var="buyerCNT" value="${BuyApplicantDAO.SelectBuyApplicantCNT(param.board_seq)}"/>
 
 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
-<c:set var="payment" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
-<c:set var="paymentTF" value="${tbl_paymentDAO.selectPaymentTF(param.board_seq)}"/>
-											
+<c:set var="payment" value="${tbl_paymentDAO.selectPayment2(loginMember,param.board_seq)}"/>
+<c:set var="paymentPar" value="${tbl_paymentDAO.selectPaymentPar(param.board_seq)}"/>
+<c:set var="paymentTFcnt" value="${tbl_paymentDAO.selectPaymentTFcnt(param.board_seq)}"/>
+
+
+										
 	
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 			<h1>결제상태: ${buyer.buy_p_state}</h1>
@@ -63,23 +69,20 @@ p {
 			<p>나의 입금여부 :  <c:out value="${payment.PAY_TF}" /> </p>
 			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
 			
-			
-			<table>
-			<c:forEach items="${paymentTF}" var="m">
+			<th>
+								<td><h3><c:out value="아이디	"/></h3></td>
+								<td><h3><c:out value="입금여부	"/></h3></td>
+								<td><h3><c:out value="입금액	"/></h3></td>
+							</th>
+			<table b>
 							<tr>
-								<td><c:out value="${m.MEM_ID}"/></td>
-								<td><c:out value="${m.PAY_TF}"/></td>
-								<td><c:out value="${m.PAY_MONEY}"/></td>
+								<td><h3><c:out value="아이디 ${m.MEM_ID}님	"/></h3></td>
+								<td><h3><c:out value="${m.PAY_TF}	"/></h3></td>
+								<td><h3><c:out value="${m.PAY_MONEY}원 입금"/></h3></td>
 							</tr>
-			</c:forEach>
-			
 			</table>
 			
-			
-			
-			
-			
-			<p>입금률 : <c:out value=" ${fn:length(paymentTF)}/${buyerCNT}" /></p>
+			<p>입금률 : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p>
 		</div>
 	
 	

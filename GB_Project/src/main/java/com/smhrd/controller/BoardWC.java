@@ -1,8 +1,10 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,8 @@ import com.smhrd.model.Member;
 import com.smhrd.model.tbl_account_applicant;
 import com.smhrd.model.tbl_buy_applicant;
 import com.smhrd.model.tbl_free_applicant;
+import com.smhrd.model.tbl_payment;
+import com.smhrd.model.tbl_paymentDAO;
 import com.smhrd.model.tbl_applicantDAO;
 import com.smhrd.model.tbl_arbeit_applicant;
 import com.smhrd.model.tbl_share;
@@ -69,6 +73,7 @@ public class BoardWC extends HttpServlet {
 			int buypay = Integer.parseInt(buypay2);
 			
 			tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","n","진행","B");
+			System.out.println("boardWC, tbl_share id >> "+tbl_share.getMEM_ID());
 			tbl_buy_applicant tbl_buy_applicant = new tbl_buy_applicant(MEM_ID,"진행","진행",buylink,buypay,"B");
 			
 			tbl_shareDAO dao = new tbl_shareDAO();
@@ -76,6 +81,17 @@ public class BoardWC extends HttpServlet {
 			
 			int cnt1 = dao.insertShareBuyBoard(tbl_share);
 			int cnt2 = dao2.insertBuyBoardMember(tbl_buy_applicant);
+			
+
+			//추가 by출출세포
+			tbl_paymentDAO dao3 = new tbl_paymentDAO();
+			int cnt3 =dao3.insertPayment(MEM_ID);
+			
+			if(cnt3>0) {
+				System.out.println("결제테이블 성공");
+			}else {
+				System.out.println("결제테이블 실패");
+			}//추가 by출출세포
 			
 			if(cnt1>0) {
 				System.out.println("작성성공1");
@@ -92,6 +108,8 @@ public class BoardWC extends HttpServlet {
 				System.out.println("작성실패2");
 							
 			}
+			
+			
 			response.sendRedirect("tbl_boardBuy.jsp");
 			
 			
@@ -107,6 +125,17 @@ public class BoardWC extends HttpServlet {
 			
 			int cnt1 = dao.insertShareAccountBoard(tbl_share);
 			int cnt2 = dao2.insertAccountBoardMember(tbl_account_applicant);
+			
+			//추가 by출출세포
+			tbl_paymentDAO dao3 = new tbl_paymentDAO();
+			int cnt3 =dao3.insertPayment(MEM_ID);
+			
+			if(cnt3>0) {
+				System.out.println("결제테이블 성공");
+			}else {
+				System.out.println("결제테이블 실패");
+			}//추가 by출출세포
+			
 			if(cnt1>0) {
 				System.out.println("작성성공1");
 				
@@ -142,6 +171,17 @@ public class BoardWC extends HttpServlet {
 			
 			int cnt1 = dao.insertShareArbeitBoard(tbl_share);
 			int cnt2 = dao2.insertArbeitBoardMember(tbl_arbeit_applicant);
+			
+			//추가 by출출세포
+			tbl_paymentDAO dao3 = new tbl_paymentDAO();
+			int cnt3 =dao3.insertPayment(MEM_ID);
+			
+			if(cnt3>0) {
+				System.out.println("결제테이블 성공");
+			}else {
+				System.out.println("결제테이블 실패");
+			}//추가 by출출세포
+			
 			if(cnt1>0) {
 				System.out.println("작성성공1");
 				
@@ -173,6 +213,17 @@ public class BoardWC extends HttpServlet {
 		
 		int cnt1 = dao.insertShareFreeBoard(tbl_share);
 		int cnt2 = dao2.insertFreeBoardMember(tbl_free_applicant);
+		
+		//추가 by출출세포
+		tbl_paymentDAO dao3 = new tbl_paymentDAO();
+		int cnt3 =dao3.insertPayment(MEM_ID);
+		
+		if(cnt3>0) {
+			System.out.println("결제테이블 성공");
+		}else {
+			System.out.println("결제테이블 실패");
+		}//추가 by출출세포
+		
 		
 		if(cnt1>0) {
 			System.out.println("작성성공1");

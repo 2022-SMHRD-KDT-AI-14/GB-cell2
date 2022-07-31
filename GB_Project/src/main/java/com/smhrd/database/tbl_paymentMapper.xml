@@ -8,20 +8,33 @@
 
 	<select id="insertPayment" parameterType="String">
 		insert into tbl_payment values(
-		tbl_payment_seq.nextval,#{id},0,sysdate,null,'미입금')
-	</select>
-
-	<select id="selectPayment" parameterType="String" resultType="com.smhrd.model.tbl_payment">
-		select * from tbl_payment where MEM_ID=#{id}
-	</select>
-
-	<select id="selectPaymentTF" parameterType="int" resultType="com.smhrd.model.tbl_payment">
-		select * from tbl_payment where MEM_ID in(
-		select MEM_ID from TBL_BUY_APPLICANT WHERE BOARD_SEQ=#{BOARD_SEQ}) AND PAY_TF='입금완료'
-		
+		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,null,'미입금',tbl_share_seq.currval)
 	</select>
 	
+	<select id="insertPaymentPar" parameterType="com.smhrd.model.tbl_payment">
+		insert into tbl_payment values(
+		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,null,'미입금',#{BOARD_SEQ})
+	</select>
+	
+	
+	
+	
 
+	<select id="selectPayment" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">
+		select * from tbl_payment where MEM_ID=#{id} and BOARD_SEQ=#{board_seq}
+	</select>
+	
+	<select id="selectPayment2" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">
+		select * from tbl_payment where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ}
+	</select>
+
+	<select id="selectPaymentTFcnt" parameterType="int" resultType="int">
+		select count(mem_id) from tbl_payment where PAY_TF='입금완료' and board_seq = #{board_seq}
+	</select>
+	
+	<select id="selectPaymentPar" parameterType="int" resultType="com.smhrd.model.tbl_payment">
+		select * from tbl_payment where board_seq = #{board_seq}
+	</select>
 
 
 
