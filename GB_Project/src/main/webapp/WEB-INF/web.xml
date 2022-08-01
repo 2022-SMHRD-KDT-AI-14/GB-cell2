@@ -189,6 +189,30 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.updateState2</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>insertStateCon</servlet-name>
+  	<display-name>insertStateCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateCona</servlet-name>
+  	<display-name>insertStateCona</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateCona</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConi</servlet-name>
+  	<display-name>insertStateConi</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConi</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConf</servlet-name>
+  	<display-name>insertStateConf</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConf</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
@@ -310,6 +334,22 @@
   <servlet-mapping>
   	<servlet-name>updateState2</servlet-name>
   	<url-pattern>/updateState2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateCon</servlet-name>
+  	<url-pattern>/insertStateCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateCona</servlet-name>
+  	<url-pattern>/insertStateCona</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConi</servlet-name>
+  	<url-pattern>/insertStateConi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConf</servlet-name>
+  	<url-pattern>/insertStateConf</url-pattern>
   </servlet-mapping>
 	<session-config>
 	<session-timeout>30</session-timeout>

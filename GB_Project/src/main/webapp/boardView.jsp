@@ -71,6 +71,7 @@ p {
 <body>
 
 
+<c:out value="${loginMember}님 맞죠?"/>
 
 
 	<form>
@@ -114,21 +115,6 @@ p {
 				</c:choose>
 			</div>
 				
-				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
-				<%-- <ul class="list-group list-group-flush">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
-					<li class="list-group-item"><textarea class="form-control"
-							id="exampleFormControlTextarea1" rows="3"></textarea>
-						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
-				</ul>
-				<ul class="list-group list-group-flush" id="reply">
-					<!-- 占쏙옙占썩를 占쌜쇽옙占쌔억옙 占쏙옙占싸곤옙침占쌔듸옙 占쌓댐옙占� 占쏙옙占쏙옙占쏙옙占쏙옙 -->
-					<c:forEach items="${replyList}" var = "reply">
-					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
-					</c:forEach>
-					
-		
-				</ul> --%>
 			</div>
 			
 		
@@ -152,15 +138,42 @@ p {
 	
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
-	<a href="updateStateCon?board_seq=${board.BOARD_SEQ}&article_state=모집중&cat_name=${board.CAT_NAME}">
-	<div style="text-align: right;">
-	<button style=""><h4>참여결정</h4></button>
-	
-	
-	
-	
-	</div>
-	</a>
+	<c:if test="${loginMember} != ${board.MEM_ID}">
+	<c:choose>
+	<c:when test="${board.CAT_NAME=='B'}">
+		<a href="insertStateConb?
+		board_seq=${board.BOARD_SEQ}&
+		buy_link=${boardbuy.BUY_LINK}&
+		buy_pay=${boardbuy.BUY_PAY}&
+		cat_name=B">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:when>
+	<c:when test="${board.CAT_NAME=='A'}">
+		<a href="insertStateCona?
+		board_seq=${board.BOARD_SEQ}&
+		arb_time=${boardarbeit.ARBEIT_TIME}&
+		arb_site=${boardarbeit.ARBEIT_SITE}&
+		arb_pay=${boardarbeit.ARBEIT_PAY}&
+		cat_name=A">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:when>
+	<c:when test="${board.CAT_NAME=='I'}">
+		<a href="insertStateConi?
+		board_seq=${board.BOARD_SEQ}&
+		acc_link=${boardaccount.ID_LINK}&
+		acc_time=${boardaccount.ID_TIME}&
+		acc_pay=${boardaccount.ID_PAY}&
+		cat_name=I">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:when>
+	<c:otherwise>	
+		<a href="insertStateConf?
+		board_seq=${board.BOARD_SEQ}&
+		cat_name=F">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:otherwise>
+	</c:choose>
+	</c:if>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

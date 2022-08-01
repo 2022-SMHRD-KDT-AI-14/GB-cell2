@@ -25,12 +25,14 @@ public class tbl_account_applicant {
 	
 	private String ID_TIME;
 	
-	private int ID_PAY;
+	private BigDecimal ID_PAY;
 	
 	private String CAT_NAME;
+	
+	private BigDecimal BOARD_SEQ;
 
 	public tbl_account_applicant(String mEM_ID, String aCCOUNT_P_STATE, String aCCOUNT_C_STATE, String iD_LINK,
-			String iD_TIME, int iD_PAY, String cAT_NAME) {
+			String iD_TIME, BigDecimal iD_PAY, String cAT_NAME, BigDecimal bOARD_SEQ) {
 		super();
 		MEM_ID = mEM_ID;
 		ACCOUNT_P_STATE = aCCOUNT_P_STATE;
@@ -39,6 +41,8 @@ public class tbl_account_applicant {
 		ID_TIME = iD_TIME;
 		ID_PAY = iD_PAY;
 		CAT_NAME = cAT_NAME;
+		BOARD_SEQ = bOARD_SEQ;
 	}
+
 	
 }
