@@ -19,6 +19,7 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+			
 
 				<!-- Header -->
 				<header id="header">
@@ -30,7 +31,7 @@
 						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
 						</c:when>
 						<c:otherwise>
-						<li><a href="logoutCon" >로그아웃</span></a></li>
+						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
 						</c:otherwise>
 						</c:choose>
 		
@@ -190,10 +191,10 @@
 						<li>
 							<span class="opener">게시판 이동</span>
 							<ul>
-                                <li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
-                                <li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
-                                <li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
-                                <li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
+                                <li><a href="boardBuy.jsp">구매 게시판</a></li>
+                                <li><a href="boardId.jsp">계정공유 게시판</a></li>
+                                <li><a href="boardArbeit.jsp">알바 게시판</a></li>
+                                <li><a href="boardFree.jsp">자유 게시판</a></li>
                             </ul>
 						</li>
 						<li><a href="#">문의하기</a></li>
