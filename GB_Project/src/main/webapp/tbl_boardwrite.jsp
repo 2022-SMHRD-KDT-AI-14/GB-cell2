@@ -22,7 +22,7 @@
                 <header id="header">
                     <a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
                     <ul class="icons">
-                        <li><a href="tbl_main.jsp" class="icon solid fa-home"><span class="label">Medium</span></a></li>
+                        <li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
                         <li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
                         </li>
                         <li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
@@ -40,10 +40,10 @@
                     <p>무엇을 공유하던 당신의 자유 입니다.<br>우리가 공유 할 수 있는 새로운 아이디어를 제시해주세요</p>
 
                     <div>
-                        <a href="tbl_write.jsp" class="button">구매 게시판</a>
-                        <a href="tbl_write.jsp" class="button">계정공유 게시판</a>
-                        <a href="tbl_write.jsp" class="button">알바 게시판</a>
-                        <a href="tbl_write.jsp" class="button">자유 게시판</a>
+                        <a href="tbl_boardBuy.jsp" class="button">구매 게시판</a>
+                        <a href="tbl_boardId.jsp" class="button">계정공유 게시판</a>
+                        <a href="tbl_boardArbeit.jsp" class="button">알바 게시판</a>
+                        <a href="tbl_boardFree.jsp" class="button">자유 게시판</a>
                         
                     </div>
                 </section>
