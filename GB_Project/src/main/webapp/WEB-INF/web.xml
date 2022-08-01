@@ -183,6 +183,18 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.paymentCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>alramCon</servlet-name>
+  	<display-name>alramCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.alramCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateState2</servlet-name>
+  	<display-name>updateState2</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.updateState2</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -304,5 +316,17 @@
   	<servlet-name>paymentCon</servlet-name>
   	<url-pattern>/paymentCon</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>alramCon</servlet-name>
+  	<url-pattern>/alramCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateState2</servlet-name>
+  	<url-pattern>/updateState2</url-pattern>
+  </servlet-mapping>
+
+	<session-config>
+	<session-timeout>30</session-timeout>
+	</session-config>
 
 </web-app>

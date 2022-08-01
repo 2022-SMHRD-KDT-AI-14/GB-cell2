@@ -18,10 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_buy_applicant where board_seq=#{board_seq}
 	</select>
 	
-	<select id="selectOnePark" parameterType="com.smhrd.model.BuyApplicant" resultType="com.smhrd.model.BuyApplicant">
+	<select id="selectOnePar" parameterType="com.smhrd.model.BuyApplicant" resultType="com.smhrd.model.BuyApplicant">
 		select * from tbl_buy_applicant where  mem_id=#{mem_id} and  board_seq=#{board_seq} 
 	</select>
 	
-	
+	<update id="updateState" parameterType="com.smhrd.model.BuyApplicant">
+		UPDATE tbl_buy_applicant
+		SET article_state = #{article_state}
+		WHERE board_seq = #{board_seq}
+	</update>
 
 </mapper>

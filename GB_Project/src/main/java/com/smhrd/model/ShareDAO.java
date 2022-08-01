@@ -27,6 +27,24 @@ public class ShareDAO {
 	}
 	
 	
+	
+	public List<Share> selectAllMyAlramList(String loginMember){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Share> list =null;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyAlramList",loginMember); 
+			System.out.println("dao,selectAllMyAlramList의 사이즈 "+list.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+	
+	
+	
 	public List<Share> selectAllMyParList(String loginMember){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<Share> list =null;
