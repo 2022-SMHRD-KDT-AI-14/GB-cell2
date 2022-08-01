@@ -33,7 +33,9 @@
 					<header class="main">
 						<h1>게시물 작성</h1>
 					</header>
-					<form action="BoardWC" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+					
+					
+					<form action="test_BoardWriteCon" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 						<div class="col-6 col-12-small">
 							<input type="text" placeholder="게시물 제목 작성" name="name">
 						</div>

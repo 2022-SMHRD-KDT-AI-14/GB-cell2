@@ -7,12 +7,13 @@ import com.smhrd.database.SqlSessionManager;
 
 public class tbl_applicantDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	SqlSession sqlSession = sqlSessionFactory.openSession();
+	
 	
 
 	
 	
 	public int insertBuyBoardMember(tbl_buy_applicant vo){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행
@@ -32,14 +33,18 @@ public class tbl_applicantDAO {
 	}
 	
 	public int insertAccountBoardMember(tbl_account_applicant vo){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행
 			cnt = sqlSession.insert("com.smhrd.model.tbl_applicantDAO.insertAccountBoardMember", vo);
+			System.out.println("작성자 글등록시 참여자 자동등록여부 확인! tbl_applicantDAO, cnt >> "+cnt);
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+				System.out.println("진짜? 작성자 글등록시 참여자 자동등록여부 확인! tbl_applicantDAO, cnt >> "+cnt);
 			} else {
 				sqlSession.rollback();
+				System.out.println("롤백.., cnt >> "+cnt);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,6 +56,7 @@ public class tbl_applicantDAO {
 	}
 	
 	public int insertFreeBoardMember(tbl_free_applicant vo){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행
@@ -70,6 +76,7 @@ public class tbl_applicantDAO {
 	}
 	
 	public int insertArbeitBoardMember(tbl_arbeit_applicant tbl_account_applicant){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행

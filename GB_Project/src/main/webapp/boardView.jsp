@@ -79,6 +79,7 @@ p {
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 			<p>제목 : ${board.ARTICLE_TITLE}</p>
 			<p>작성자 : ${board.MEM_ID}</p>
+		
 			<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
 		</div>
 
@@ -138,43 +139,42 @@ p {
 	
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
-	<c:if test="${loginMember} != ${board.MEM_ID}">
-	<c:choose>
-	<c:when test="${board.CAT_NAME=='B'}">
-		<a href="insertStateConb?
-		board_seq=${board.BOARD_SEQ}&
-		buy_link=${boardbuy.BUY_LINK}&
-		buy_pay=${boardbuy.BUY_PAY}&
-		cat_name=B">
-		<button style=""><h4>참여결정</h4></button></a>
-	</c:when>
-	<c:when test="${board.CAT_NAME=='A'}">
-		<a href="insertStateCona?
-		board_seq=${board.BOARD_SEQ}&
-		arb_time=${boardarbeit.ARBEIT_TIME}&
-		arb_site=${boardarbeit.ARBEIT_SITE}&
-		arb_pay=${boardarbeit.ARBEIT_PAY}&
-		cat_name=A">
-		<button style=""><h4>참여결정</h4></button></a>
-	</c:when>
-	<c:when test="${board.CAT_NAME=='I'}">
-		<a href="insertStateConi?
-		board_seq=${board.BOARD_SEQ}&
-		acc_link=${boardaccount.ID_LINK}&
-		acc_time=${boardaccount.ID_TIME}&
-		acc_pay=${boardaccount.ID_PAY}&
-		cat_name=I">
-		<button style=""><h4>참여결정</h4></button></a>
-	</c:when>
-	<c:otherwise>	
-		<a href="insertStateConf?
-		board_seq=${board.BOARD_SEQ}&
-		cat_name=F">
-		<button style=""><h4>참여결정</h4></button></a>
-	</c:otherwise>
-	</c:choose>
-	</c:if>
 	
+	<h1>작성자가 아닌자만 참여버튼 나온다!</h1><a href="#"><button style=""><h4>참여결정</h4></button></a>
+	<c:if test="${loginMember} != ${board.MEM_ID}">
+		<c:if test="${board.CAT_NAME=='B'}">
+			<a href="insertStateConb?
+			board_seq=${board.BOARD_SEQ}&
+			buy_link=${boardbuy.BUY_LINK}&
+			buy_pay=${boardbuy.BUY_PAY}&
+			cat_name=B">
+			<button style=""><h4>참여결정</h4></button></a>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='A'}">
+			<a href="insertStateCona?
+			board_seq=${board.BOARD_SEQ}&
+			arb_time=${boardarbeit.ARBEIT_TIME}&
+			arb_site=${boardarbeit.ARBEIT_SITE}&
+			arb_pay=${boardarbeit.ARBEIT_PAY}&
+			cat_name=A">
+			<button style=""><h4>참여결정</h4></button></a>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='I'}">
+			<a href="insertStateConi?
+			board_seq=${board.BOARD_SEQ}&
+			acc_link=${boardaccount.ID_LINK}&
+			acc_time=${boardaccount.ID_TIME}&
+			acc_pay=${boardaccount.ID_PAY}&
+			cat_name=I">
+			<button style=""><h4>참여결정</h4></button></a>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='F'}">	
+			<a href="insertStateConf?
+			board_seq=${board.BOARD_SEQ}&
+			cat_name=F">
+			<button style=""><h4>참여결정</h4></button></a>
+		</c:if>
+	</c:if>
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
