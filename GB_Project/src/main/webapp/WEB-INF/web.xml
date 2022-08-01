@@ -1,10 +1,8 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  
   <servlet>
   	<servlet-name>ReplyCon</servlet-name>
   	<display-name>ReplyCon</display-name>
@@ -17,7 +15,6 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.boardPagingCon</servlet-class>
   </servlet>
-
   <servlet>
   	<servlet-name>test_JoinCon</servlet-name>
   	<display-name>test_JoinCon</display-name>
@@ -139,13 +136,11 @@
   	<servlet-class>com.smhrd.controller.MyPageMemareaInput</servlet-class>
   </servlet>
   <servlet>
-
   	<servlet-name>MyPage</servlet-name>
   	<display-name>MyPage</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPage</servlet-class>
   </servlet>
-  
   <servlet>
   	<servlet-name>MyPageCon</servlet-name>
   	<display-name>MyPageCon</display-name>
@@ -157,7 +152,6 @@
   	<display-name>ChattingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ChattingCon</servlet-class>
-
   </servlet>
   <servlet>
   	<servlet-name>deleteCon</servlet-name>
@@ -172,12 +166,6 @@
   	<servlet-class>com.smhrd.controller.shareDeleteCon</servlet-class>
   </servlet>
   <servlet>
-<<<<<<< HEAD
-  	<servlet-name>MyPageCon1</servlet-name>
-  	<display-name>MyPageCon1</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.MyPageCon1</servlet-class>
-=======
   	<servlet-name>addPaymentCon</servlet-name>
   	<display-name>addPaymentCon</display-name>
   	<description></description>
@@ -200,10 +188,7 @@
   	<display-name>updateState2</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.updateState2</servlet-class>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
   </servlet>
-  
-  
   <servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
@@ -212,8 +197,6 @@
   	<servlet-name>boardPagingCon</servlet-name>
   	<url-pattern>/boardPagingCon</url-pattern>
   </servlet-mapping>
-
-  
   <servlet-mapping>
   	<servlet-name>test_JoinCon</servlet-name>
   	<url-pattern>/test_JoinCon</url-pattern>
@@ -295,17 +278,14 @@
   	<url-pattern>/MyPageMemareaInput</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-
   	<servlet-name>MyPage</servlet-name>
   	<url-pattern>/MyPage</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>MyPageCon</servlet-name>
   	<url-pattern>/MyPageCon</url-pattern>
-
   	<servlet-name>ChattingCon</servlet-name>
   	<url-pattern>/ChattingCon</url-pattern>
-
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>deleteCon</servlet-name>
@@ -316,11 +296,6 @@
   	<url-pattern>/shareDeleteCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
-  	<servlet-name>MyPageCon1</servlet-name>
-  	<url-pattern>/MyPageCon1</url-pattern>
-  </servlet-mapping>
-=======
   	<servlet-name>addPaymentCon</servlet-name>
   	<url-pattern>/addPaymentCon</url-pattern>
   </servlet-mapping>
@@ -336,10 +311,7 @@
   	<servlet-name>updateState2</servlet-name>
   	<url-pattern>/updateState2</url-pattern>
   </servlet-mapping>
-
 	<session-config>
 	<session-timeout>30</session-timeout>
 	</session-config>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
-
 </web-app>
