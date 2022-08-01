@@ -30,7 +30,7 @@ public class MyPageMemareaInput extends HttpServlet {
 			
 			// my페이지에 표시 세션에 저장 왜안돼지? 
 			String mem_area = (String) session.getAttribute("MEM_AREA");
-			String mem_id = request.getParameter("loginMember");
+			String mem_id = request.getParameter("loginMember"); //이부분이 아닐 수 도 있음
 			
 			response.sendRedirect("myPage.jsp");
 		}else{
