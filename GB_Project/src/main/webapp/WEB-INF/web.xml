@@ -171,6 +171,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.shareDeleteCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>MyPageCon1</servlet-name>
+  	<display-name>MyPageCon1</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.MyPageCon1</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -283,6 +289,10 @@
   <servlet-mapping>
   	<servlet-name>shareDeleteCon</servlet-name>
   	<url-pattern>/shareDeleteCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyPageCon1</servlet-name>
+  	<url-pattern>/MyPageCon1</url-pattern>
   </servlet-mapping>
 
 </web-app>

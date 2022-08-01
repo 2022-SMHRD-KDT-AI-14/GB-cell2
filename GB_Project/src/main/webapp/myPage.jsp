@@ -18,8 +18,7 @@
 </head>
 
 <jsp:useBean id="MyPageDAO" class="com.smhrd.model.MyPageDAO" />
-<c:set var="MyPageList"
-	value="${MyPageDAO.selectMyPageOne(param.MEM_ID)}" />
+<c:set var="MyPageList" value="${MyPageDAO.selectMyPageOne(param.MEM_ID)}" />
 
 <body style="text-align: center;">
 	<!-- Wrapper -->
