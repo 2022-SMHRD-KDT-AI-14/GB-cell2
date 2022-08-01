@@ -172,10 +172,35 @@
   	<servlet-class>com.smhrd.controller.shareDeleteCon</servlet-class>
   </servlet>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>MyPageCon1</servlet-name>
   	<display-name>MyPageCon1</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPageCon1</servlet-class>
+=======
+  	<servlet-name>addPaymentCon</servlet-name>
+  	<display-name>addPaymentCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.addPaymentCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>paymentCon</servlet-name>
+  	<display-name>paymentCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.paymentCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>alramCon</servlet-name>
+  	<display-name>alramCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.alramCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateState2</servlet-name>
+  	<display-name>updateState2</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.updateState2</servlet-class>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
   </servlet>
   
   
@@ -291,8 +316,30 @@
   	<url-pattern>/shareDeleteCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+<<<<<<< HEAD
   	<servlet-name>MyPageCon1</servlet-name>
   	<url-pattern>/MyPageCon1</url-pattern>
   </servlet-mapping>
+=======
+  	<servlet-name>addPaymentCon</servlet-name>
+  	<url-pattern>/addPaymentCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>paymentCon</servlet-name>
+  	<url-pattern>/paymentCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>alramCon</servlet-name>
+  	<url-pattern>/alramCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateState2</servlet-name>
+  	<url-pattern>/updateState2</url-pattern>
+  </servlet-mapping>
+
+	<session-config>
+	<session-timeout>30</session-timeout>
+	</session-config>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 
 </web-app>

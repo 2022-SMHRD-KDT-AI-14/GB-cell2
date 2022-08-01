@@ -100,7 +100,7 @@
 											<input type="text" placeholder="전화번호를 입력하세요" name="phone">
 										</div>
 										<div>
-											<input type="button" name="certification" value="인증받기">
+											<a href="paymentAPI.jsp"><input type="button" name="certification" value="인증받기"></a>
 										</div>
 									</div>
 									
@@ -154,11 +154,12 @@
 							<br />
 							</td>
 							</tr>
-							<input type="submit" class="btn btn-primary" value="회원가입" class="button fit">
+							
 						</form>
 					</table>
 					<div style="text-align: center;">
 						<a href="tbl_main.jsp" class="button">메인으로 가기</a></li>
+					<input type="submit" class="btn btn-primary" value="회원가입" class="button fit">
 						
 					</div>
 					

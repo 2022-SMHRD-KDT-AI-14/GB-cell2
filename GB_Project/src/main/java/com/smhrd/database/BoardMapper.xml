@@ -51,6 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_share where BOARD_SEQ=#{num}
 	</select>
 	
+		<select id="selectOnePar" parameterType="com.smhrd.model.tbl_share" resultType="com.smhrd.model.tbl_share">
+		select * from tbl_share where MEM_ID=#{mem_id} and BOARD_SEQ=#{board_seq} 
+	</select>
 	
 	
 	

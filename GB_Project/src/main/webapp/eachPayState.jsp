@@ -1,8 +1,11 @@
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.model.tbl_paymentDAO"%>
+<%@page import="com.smhrd.model.tbl_payment"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" isELIgnored="false"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ taglib uri ="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +40,9 @@ p {
 
 </style>
 </head>
-<!-- ½ºÅ©¸³Æ²¸´ ¾È¾²·Á°í Áö±İ ÀÌÀÛ¾÷ ÇÏ´Â°ÅÀÓ..JSPÆÄÀÏ ¾È¿¡¼­ º¯¼ö ¼±¾ğÇÏ´Â ÅÂ±× ÀÓ. id´Â º¯¼ö¸í -->
-<!-- JSTL¿¡¼­ º¯¼ö¸¦ ¼±¾ğÇÏ´Â ±â´É varº¯¼ö¸í value°ª,°ª¿¡´Ù°¡ELÇ¥±â¹ıÀ¸·Î ¾Æ±î À§¿¡ ¼±¾ğÇÑ º¯¼ö¸¦ ³Ö´Â´Ù -->
-<!-- param.num url¿¡ ÀÖ´Â ÆÄ¶ó¹ÌÅÍÁß¿¡¼­ numÀÌ¶ó´Â °ªÀ» ºÒ·¯¿À°Ú´Ù.. Àú±â¼­ ¼±¾ğÇÑ º¯¼ö´Â ÀÚ¹Ùº¯¼ö°¡ ¾Æ´Ï´Ù.EL·Î ºÒ·¯¿À±â°¡´É -->
+<!-- ìŠ¤í¬ë¦½í‹€ë¦¿ ì•ˆì“°ë ¤ê³  ì§€ê¸ˆ ì´ì‘ì—… í•˜ëŠ”ê±°ì„..JSPíŒŒì¼ ì•ˆì—ì„œ ë³€ìˆ˜ ì„ ì–¸í•˜ëŠ” íƒœê·¸ ì„. idëŠ” ë³€ìˆ˜ëª… -->
+<!-- JSTLì—ì„œ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ëŠ” ê¸°ëŠ¥ varë³€ìˆ˜ëª… valueê°’,ê°’ì—ë‹¤ê°€ELí‘œê¸°ë²•ìœ¼ë¡œ ì•„ê¹Œ ìœ„ì— ì„ ì–¸í•œ ë³€ìˆ˜ë¥¼ ë„£ëŠ”ë‹¤ -->
+<!-- param.num urlì— ìˆëŠ” íŒŒë¼ë¯¸í„°ì¤‘ì—ì„œ numì´ë¼ëŠ” ê°’ì„ ë¶ˆëŸ¬ì˜¤ê² ë‹¤.. ì €ê¸°ì„œ ì„ ì–¸í•œ ë³€ìˆ˜ëŠ” ìë°”ë³€ìˆ˜ê°€ ì•„ë‹ˆë‹¤.ELë¡œ ë¶ˆëŸ¬ì˜¤ê¸°ê°€ëŠ¥ -->
 
 
 <body>
@@ -48,21 +51,47 @@ p {
 <c:set var="board" value="${BoardDAO.selectOne(param.board_seq)}"/>
 
 <jsp:useBean id="BuyApplicantDAO" class="com.smhrd.model.BuyApplicantDAO"/>
-<c:set var="buyer" value="${BuyApplicantDAO.selectOne(param.board_seq)}"/>
+<c:set var="buyer" value="${BuyApplicantDAO.selectOnePar(loginMember,param.board_seq)}"/>
 <c:set var="buyerCNT" value="${BuyApplicantDAO.SelectBuyApplicantCNT(param.board_seq)}"/>
 
 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
-<c:set var="payment" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
-<c:set var="paymentTF" value="${tbl_paymentDAO.selectPayment(param.board_seq)}"/>
-											
+<%-- <c:set var="paymentResult" value="${tbl_paymentDAO.selectPayment2(loginMember,param.board_seq)}"/> --%>
+<c:set var="paymentPar" value="${tbl_paymentDAO.selectPaymentPar(param.board_seq)}"/>
+<c:set var="paymentTFcnt" value="${tbl_paymentDAO.selectPaymentTFcnt(param.board_seq)}"/>
+
+
+										
 	
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-			<h1>°áÁ¦»óÅÂ: ${buyer.buy_p_state}</h1>
-			<p>±ÛÁ¦¸ñ: ${board.ARTICLE_TITLE}		|		ÀÛ¼ºÀÚ: ${board.MEM_ID}		|		ÀÛ¼ºÀÏ : ${board.ARTICLE_DATE}</p>
-			<p>±¸¸Å°¡°İ: ${buyer.buy_pay}</p>
-			<p>³ªÀÇ ÀÔ±İ¿©ºÎ :  <c:out value="${payment.PAY_TF}" /> </p>
-			<p>ÃÑ Âü¿©¼ö: <c:out value="${buyerCNT}" /></p>
-			<p>ÀÔ±İ·ü : <c:out value=" ${fn:length(paymentTF)}/${buyerCNT}" /></p>
+			<h1>ê²°ì œìƒíƒœ: ${buyer.buy_p_state} , <a href=#>í•´ë‹¹ê¸€ ë³´ëŸ¬ê°€ê¸°</a></h1>
+			<p>ê¸€ì œëª©: ${board.ARTICLE_TITLE}		<br>		ì‘ì„±ì: ${board.MEM_ID}		|		ì‘ì„±ì¼ : ${board.ARTICLE_DATE}</p>
+			<p>êµ¬ë§¤ê°€ê²©: ${buyer.buy_pay} </p>
+			<%-- <p>ë‚˜ì˜ ì…ê¸ˆì—¬ë¶€ : <c:out value="${paymentResult.PAY_TF}"/></p> --%>
+			<p>ì´ ì°¸ì—¬ìˆ˜: <c:out value="${buyerCNT}" /></p>
+			<p><table>
+			<tr>
+								<th><h1><c:out value="ì•„ì´ë””"/>ã…¤ </h1></th>
+								<th><h1><c:out value="ì…ê¸ˆì—¬ë¶€"/>ã…¤ </h1></th>
+								<th><h1><c:out value="ì…ê¸ˆí˜„í™©"/>ã…¤ </h1></th>
+								<th><h1><c:out value="1/n ê¸ˆì•¡"/>ã…¤ </h1></th>
+			</tr>
+			<c:forEach items="${paymentPar}" var="m">
+							<tr>
+								<td><h3><c:out value="${m.MEM_ID}ë‹˜"/>	</h3></td>
+								<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
+								<td><h3><c:out value="${m.PAY_MONEY}ì› ì…ê¸ˆ"/>	</h3></td>
+								 <td><h3><c:out value="${buyer.buy_pay/buyerCNT} ì›"/>	</h3></td>	
+								<c:if test ="${loginMember == m.MEM_ID and s.article_state =='ì…ê¸ˆëŒ€ê¸°'}">
+								
+								<td>	
+								<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>ì…ê¸ˆí•˜ê¸°</button></a>
+								</td>
+								</c:if>
+							</tr>
+			</c:forEach>
+			</table>
+			<p>
+			<p>ì…ê¸ˆë¥  : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p>
 		</div>
 	
 	

@@ -27,7 +27,7 @@
 					
 						<c:choose>
 						<c:when test="${empty loginMember}">
-						<li><a href="tbl_login.jsp" class="icon solid fa-home"><span class="label">로그인</span></a></li>
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
 						</c:when>
 						<c:otherwise>
 						<li><a href="logoutCon" >로그아웃</span></a></li>
@@ -53,7 +53,7 @@
 						<c:if test="${!empty loginMember}">
 							<li><a href="tbl_boardwrite.jsp" class="button big">게시물 작성</a></li>
 							<li><a href="payState.jsp" class="button big">결제상태</a></li>
-							<li><a href="myPage.jsp" class="button big">마이페이지</a></li>
+							<li><a href="myPage.jsp?MEM_ID=${loginMember}" class="button big">마이페이지</a></li>
 						</c:if>
 						</ul>
 					</div>
@@ -190,10 +190,10 @@
 						<li>
 							<span class="opener">게시판 이동</span>
 							<ul>
-                                <li><a href="boardBuy.jsp">구매 게시판</a></li>
-                                <li><a href="boardId.jsp">계정공유 게시판</a></li>
-                                <li><a href="boardArbeit.jsp">알바 게시판</a></li>
-                                <li><a href="boardFree.jsp">자유 게시판</a></li>
+                                <li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
+                                <li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
+                                <li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
+                                <li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
                             </ul>
 						</li>
 						<li><a href="#">문의하기</a></li>
