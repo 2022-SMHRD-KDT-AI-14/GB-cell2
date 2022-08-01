@@ -116,10 +116,10 @@ public class tbl_paymentDAO {
 		int cnt = 0;
 		BigDecimal money = new BigDecimal(pay);
 		BigDecimal board_seq = new BigDecimal(num);
-		tbl_payment vo = new tbl_payment(id, money, state,board_seq);
-				
+		tbl_payment vo = new tbl_payment(id, money, state, board_seq);
+
 		try {
-			cnt = sqlSession.update("com.smhrd.model.tbl_paymentDAO.updatePayment", vo); 
+			cnt = sqlSession.update("com.smhrd.model.tbl_paymentDAO.updatePayment", vo);
 			System.out.println("dao, updatePaymen >> " + cnt);
 
 			if (cnt > 0) {
@@ -136,27 +136,31 @@ public class tbl_paymentDAO {
 		return cnt;
 	}
 
-}
+	public tbl_payment selectPayment2(String MEM_ID, int intNum) { // 1개의 참여한
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		BigDecimal BOARD_SEQ = new BigDecimal(intNum);
+		tbl_payment vo = new tbl_payment(MEM_ID, BOARD_SEQ);
+		tbl_payment result = null;
 
-/*
- * public tbl_payment selectPayment2(String MEM_ID, int intNum) { // 로그인회원의 특정
- * 게시글의 지불테이블 생성 SqlSession sqlSession = sqlSessionFactory.openSession();
- * BigDecimal BOARD_SEQ = new BigDecimal(intNum); tbl_payment vo = new
- * tbl_payment(MEM_ID, BOARD_SEQ); tbl_payment result= null;
- * 
- * try { System.out.println("dao, selectPayment2 vo mem_id >> "
- * +vo.getMEM_ID()); System.out.println("dao, selectPayment2 vo mem_bOARDSEQ>> "
- * +vo.getBOARD_SEQ()); vo=
- * sqlSession.selectOne("com.smhrd.model.tbl_paymentDAO.selectPayment2",vo);
- * 
- * 
- * if (vo != null) { sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
- * System.out.println("dao, selectPayment2 vo mem_id >> " +vo.getMEM_ID());
- * System.out.println("dao, selectPayment2 vo PAY_TF >> " +vo.getPAY_TF());
- * 
- * } else { sqlSession.rollback(); }
- * 
- * }catch(Exception e) { e.printStackTrace(); }finally { sqlSession.close(); }
- * 
- * return result; }
- */
+		try {
+			System.out.println("dao, selectPayment2 vo mem_id >> " + vo.getMEM_ID());
+			System.out.println("dao, selectPayment2 vo mem_bOARDSEQ>> " + vo.getBOARD_SEQ());
+			vo = sqlSession.selectOne("com.smhrd.model.tbl_paymentDAO.selectPayment2", vo);
+
+			if (vo != null) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+				System.out.println("dao, selectPayment2 vo mem_id >> " + vo.getMEM_ID());
+				System.out.println("dao, selectPayment2 vo PAY_TF >> " + vo.getPAY_TF());
+			} else {
+				sqlSession.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+
+}
