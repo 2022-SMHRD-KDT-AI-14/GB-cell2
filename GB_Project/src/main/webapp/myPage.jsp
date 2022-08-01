@@ -49,10 +49,7 @@
 
 					<c:otherwise>
 
-						<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
-
-						희망배송지역 : 
-						${MEM_AREA}<br>
+						<td>희망배송지역 : ${MyPageList.MEM_AREA}</td><br>
 
 
 					</c:otherwise>

@@ -39,7 +39,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		}else {//주소 저장 실패
 			System.out.println("희망배송지 저장 실패");
 	}
-		response.sendRedirect("myPage.jsp");
+		response.sendRedirect("tbl_main.jsp");
 
 	}
 }
