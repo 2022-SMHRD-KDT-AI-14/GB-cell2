@@ -7,6 +7,10 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 	<style>
 		* {
 			margin: 0;
@@ -221,9 +225,10 @@
 						<c:forEach begin="0" end="10" step="1" varStatus="status">
 						
 							<article>
-								<a href="#" class="image"><img src="images/pic0${status}.jpg" alt="" /></a>
-								<h3>제목<td id="name${status.index}"></td></h3>
-								<p>작성자<td id="writer${status.index}"></td></p>
+								<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+								제목<td id="name${status.index}"></td><br>
+								작성자<td id="writer${status.index}"></td>
+								
 								<ul class="actions">
 									<li><a href="#" class="button">공유참여</a></li>
 								</ul>
@@ -231,6 +236,9 @@
 							
 						
 						</c:forEach>
+						<tr>
+	  <td colspan="3" id="controller"></td>
+  </tr>
 						</div>
 					</section>
 					<!-- Section -->
@@ -413,6 +421,7 @@
 			data :{"num":startRow},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
 			success:function(data_list){
 				console.log(data_list)
+				
 				if(data_list.length<10){/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
 					list_write(data_list);
 					button_create(data_list,startPage);
