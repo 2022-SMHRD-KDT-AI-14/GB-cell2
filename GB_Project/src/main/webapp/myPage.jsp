@@ -18,8 +18,7 @@
 </head>
 
 <jsp:useBean id="MyPageDAO" class="com.smhrd.model.MyPageDAO" />
-<c:set var="MyPageList"
-	value="${MyPageDAO.selectMyPageOne(param.MEM_ID)}" />
+<c:set var="MyPageList" value="${MyPageDAO.selectMyPageOne(param.MEM_ID)}" />
 
 <body style="text-align: center;">
 	<!-- Wrapper -->
@@ -49,13 +48,17 @@
 					</c:when>
 
 					<c:otherwise>
+
+						<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
+
 						희망배송지역 : 
 						${MEM_AREA}<br>
+
 
 					</c:otherwise>
 				</c:choose>
 			
-
+				<a href="tbl_coordiante.jsp">추천배송지</a>
 	
 
 

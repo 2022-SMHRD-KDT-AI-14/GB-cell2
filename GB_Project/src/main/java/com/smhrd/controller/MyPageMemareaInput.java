@@ -23,13 +23,15 @@ public class MyPageMemareaInput extends HttpServlet {
 		String MEM_AREA = dao.selectMyPageMemarea(MEM_ID);
 		System.out.println(MEM_AREA);
 		
+		
 		if(MEM_AREA != null) {
 			
 			System.out.println("배송지 성공");
 			
 			// my페이지에 표시 세션에 저장 왜안돼지? 
 			String mem_area = (String) session.getAttribute("MEM_AREA");
-		
+			String mem_id = request.getParameter("loginMember");
+			
 			response.sendRedirect("myPage.jsp");
 		}else{
 			
