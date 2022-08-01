@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,7 @@ body {
 	padding-left: 200px;
 	padding-right: 200px;
 	font-family: 'Do Hyeon', sans-serif;
+	
 }
 
 .card-body {
@@ -67,6 +69,10 @@ p {
 <%--<jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean> --%>
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
+
+
+
+
 	<form>
 
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
@@ -146,9 +152,13 @@ p {
 	
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
-	<a href="participateCons">
+	<a href="updateStateCon?board_seq=${board.BOARD_SEQ}&article_state=모집중&cat_name=${board.CAT_NAME}">
 	<div style="text-align: right;">
 	<button style=""><h4>참여결정</h4></button>
+	
+	
+	
+	
 	</div>
 	</a>
 	

@@ -77,11 +77,13 @@ p {
 			</tr>
 			<c:forEach items="${paymentPar}" var="m">
 							<tr>
-								<td><h3><c:out value="${m.MEM_ID}님"/>	</h3></td>
+								<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
 								<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
 								<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
 								 <td><h3><c:out value="${buyer.buy_pay/buyerCNT} 원"/>	</h3></td>	
-								<c:if test ="${loginMember == m.MEM_ID and s.article_state =='입금대기'}">
+								 
+								<%-- <c:if test ="${loginMember == m.MEM_ID and s.article_state =='입금대기'}"> --%>
+								<c:if test ="${loginMember == m.MEM_ID}"> //입금여부 미입금 
 								
 								<td>	
 								<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>

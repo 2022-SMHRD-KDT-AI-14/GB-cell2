@@ -25,36 +25,41 @@
 	<div id="wrapper">
 		<!-- Menu -->
 		<nav id="MyPage">
-		<table>
+		
 
 
 			<caption>
 				<h2>마이페이지</h2>
 			</caption>
 
-			<tr>
-				<td>아이디 : ${MyPageList.MEM_ID}</td>
-				<td>비밀번호 : ${MyPageList.MEM_PW}</td>
-				<td>닉네임 : ${MyPageList.MEM_NICK}</td>
-				<td>이름 : ${MyPageList.MEM_NAME}</td>
-				<td>핸드폰번호 : ${MyPageList.MEM_PHONE}</td>
-				<td>계좌번호 : ${MyPageList.MEM_BANK_NUM}</td>
-				<td>주민번호 : ${MyPageList.MEM_JUMIN}</td>
-				<td>회원온도 : ${MyPageList.MEM_TEMPER}</td>
+			
+				아이디 : ${MyPageList.MEM_ID}<br>
+				비밀번호 : ${MyPageList.MEM_PW}<br>
+				닉네임 : ${MyPageList.MEM_NICK}<br>
+				이름 : ${MyPageList.MEM_NAME}<br>
+				핸드폰번호 : ${MyPageList.MEM_PHONE}<br>
+				계좌번호 : ${MyPageList.MEM_BANK_NUM}<br>
+				주민번호 : ${MyPageList.MEM_JUMIN}<br>
+				회원온도 : ${MyPageList.MEM_TEMPER}<br>
 
 				<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-						<td>희망배송지역 없음</td>
+						희망배송지역 없음<br>
 					</c:when>
 
 					<c:otherwise>
+
 						<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
+
+						희망배송지역 : 
+						${MEM_AREA}<br>
+
 
 					</c:otherwise>
 				</c:choose>
-			</tr>
+			
 
-		</table>
+	
 
 
 		<c:choose>
