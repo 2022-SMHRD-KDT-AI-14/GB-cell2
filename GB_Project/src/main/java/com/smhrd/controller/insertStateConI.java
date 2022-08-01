@@ -45,7 +45,7 @@ public class insertStateConI extends HttpServlet {
 		 }else {
 			 System.out.println("AccountApplicant 참석자 추가 실패");
 		 }
-			response.sendRedirect("boardView.jsp?num="+board_seq);
-	}
+//		response.sendRedirect("boardView.jsp?num="+board_seq);
+		response.sendRedirect("boardView.jsp?num="+board_seq/2);	}
 
 }

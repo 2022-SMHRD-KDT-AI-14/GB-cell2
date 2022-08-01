@@ -45,8 +45,8 @@ public class insertStateConB extends HttpServlet {
 		 }else {
 			 System.out.println("buyApllicant 참석자 추가 실패");
 		 }
-			response.sendRedirect("boardView.jsp?num="+board_seq);
-		 
+//		response.sendRedirect("boardView.jsp?num="+board_seq);
+		response.sendRedirect("boardView.jsp?num="+board_seq/2);		 
 	}
 
 }

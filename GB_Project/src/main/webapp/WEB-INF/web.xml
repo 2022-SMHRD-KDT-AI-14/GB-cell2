@@ -222,24 +222,24 @@
   </servlet>
   
   <servlet>
-  	<servlet-name>insertStateCona</servlet-name>
-  	<display-name>insertStateCona</display-name>
+  	<servlet-name>insertStateConA</servlet-name>
+  	<display-name>insertStateConA</display-name>
   	<description></description>
-  	<servlet-class>com.smhrd.controller.insertStateCona</servlet-class>
+  	<servlet-class>com.smhrd.controller.insertStateConA</servlet-class>
   </servlet>
   
   <servlet>
-  	<servlet-name>insertStateConi</servlet-name>
-  	<display-name>insertStateConi</display-name>
+  	<servlet-name>insertStateConI</servlet-name>
+  	<display-name>insertStateConI</display-name>
   	<description></description>
-  	<servlet-class>com.smhrd.controller.insertStateConi</servlet-class>
+  	<servlet-class>com.smhrd.controller.insertStateConI</servlet-class>
   </servlet>
   
   <servlet>
-  	<servlet-name>insertStateConf</servlet-name>
-  	<display-name>insertStateConf</display-name>
+  	<servlet-name>insertStateConF</servlet-name>
+  	<display-name>insertStateConF</display-name>
   	<description></description>
-  	<servlet-class>com.smhrd.controller.insertStateConf</servlet-class>
+  	<servlet-class>com.smhrd.controller.insertStateConF</servlet-class>
    </servlet>
 
   <servlet>
@@ -255,6 +255,7 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.tbl_coordinateCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>test_BoardWriteCon</servlet-name>
   	<display-name>test_BoardWriteCon</display-name>
@@ -418,21 +419,21 @@
   </servlet-mapping>
  
   <servlet-mapping>
-  	<servlet-name>insertStateCona</servlet-name>
-  	<url-pattern>/insertStateCona</url-pattern>
+  	<servlet-name>insertStateConA</servlet-name>
+  	<url-pattern>/insertStateConA</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>insertStateConi</servlet-name>
-  	<url-pattern>/insertStateConi</url-pattern>
+  	<servlet-name>insertStateConI</servlet-name>
+  	<url-pattern>/insertStateConI</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>insertStateConf</servlet-name>
-  	<url-pattern>/insertStateConf</url-pattern>
+  	<servlet-name>insertStateConF</servlet-name>
+  	<url-pattern>/insertStateConF</url-pattern>
   </servlet-mapping>
   
-<servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>coordinateCon</servlet-name>
   	<url-pattern>/coordinateCon</url-pattern>
   </servlet-mapping>

@@ -140,10 +140,10 @@ p {
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
 	
-	<h1>작성자가 아닌자만 참여버튼 나온다!</h1><a href="#"><button style=""><h4>참여결정</h4></button></a>
-	<c:if test="${loginMember} != ${board.MEM_ID}">
+	<h1>여기 카테고리는 ${board.CAT_NAME}, 작성자가 아닌자만 참여버튼 나온다! </h1>
+	<c:if test="${loginMember != board.MEM_ID}">
 		<c:if test="${board.CAT_NAME=='B'}">
-			<a href="insertStateConb?
+			<a href="test?
 			board_seq=${board.BOARD_SEQ}&
 			buy_link=${boardbuy.BUY_LINK}&
 			buy_pay=${boardbuy.BUY_PAY}&
@@ -151,7 +151,7 @@ p {
 			<button style=""><h4>참여결정</h4></button></a>
 		</c:if>
 		<c:if test="${board.CAT_NAME=='A'}">
-			<a href="insertStateCona?
+			<a href="insertStateConA?
 			board_seq=${board.BOARD_SEQ}&
 			arb_time=${boardarbeit.ARBEIT_TIME}&
 			arb_site=${boardarbeit.ARBEIT_SITE}&
@@ -160,7 +160,7 @@ p {
 			<button style=""><h4>참여결정</h4></button></a>
 		</c:if>
 		<c:if test="${board.CAT_NAME=='I'}">
-			<a href="insertStateConi?
+			<a href="insertStateConI?
 			board_seq=${board.BOARD_SEQ}&
 			acc_link=${boardaccount.ID_LINK}&
 			acc_time=${boardaccount.ID_TIME}&
@@ -169,7 +169,7 @@ p {
 			<button style=""><h4>참여결정</h4></button></a>
 		</c:if>
 		<c:if test="${board.CAT_NAME=='F'}">	
-			<a href="insertStateConf?
+			<a href="insertStateConF?
 			board_seq=${board.BOARD_SEQ}&
 			cat_name=F">
 			<button style=""><h4>참여결정</h4></button></a>

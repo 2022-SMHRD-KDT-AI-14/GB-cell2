@@ -43,8 +43,8 @@ public class insertStateConA extends HttpServlet {
 		 }else {
 			 System.out.println("ArbeitApplicant 참석자 추가 실패");
 		 }
-			response.sendRedirect("boardView.jsp?num="+board_seq);
-		 
+//		response.sendRedirect("boardView.jsp?num="+board_seq);
+		response.sendRedirect("boardView.jsp?num="+board_seq/2);		 
 	
 	
 	
