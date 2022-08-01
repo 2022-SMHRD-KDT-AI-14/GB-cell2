@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="updateState" parameterType="com.smhrd.model.BuyApplicant">
 		UPDATE tbl_buy_applicant
-		SET article_state = #{article_state}
+		SET buy_p_state = #{buy_p_state}
 		WHERE board_seq = #{board_seq}
 	</update>
 

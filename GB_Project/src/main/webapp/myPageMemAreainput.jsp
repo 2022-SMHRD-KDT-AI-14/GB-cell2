@@ -16,7 +16,7 @@
 
 </div>
 <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
-<input type="submit" value="주소 보내기">
+<input type="submit" value="주소 보내기" >
 </form>
 <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
 

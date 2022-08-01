@@ -27,6 +27,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		
 		MyPageMemarea vo = new MyPageMemarea(MEM_ID, MEM_AREA);
 		MyPageMemareaDAO dao = new MyPageMemareaDAO(); //전달자로부터받은정보를가지고 기능을 구현하는 클래스
+		
 		int cnt= dao.updateMyPageMemarea(vo);
 		
 		
