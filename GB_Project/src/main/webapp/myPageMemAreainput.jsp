@@ -10,16 +10,13 @@
 <form action="MyPageMemareaUpdate">
 <input type="text" id="sample5_address" name="MEM_AREA" placeholder="주소">
 <div style='display:none;'>
-
 <input type="text" id="xCOORDINATE" name="MEM_xCOORDINATE" >
 <input type="text" id="yCOORDINATE" name="MEM_yCOORDINATE" >
-
 </div>
 <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 <input type="submit" value="주소 보내기">
 </form>
 <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1a536dfd72f9eecd78cfcd6c5b7afae8&libraries=services"></script>
 <script>

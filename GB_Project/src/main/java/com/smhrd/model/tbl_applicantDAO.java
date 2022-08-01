@@ -9,6 +9,9 @@ public class tbl_applicantDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
+
+	
+	
 	public int insertBuyBoardMember(tbl_buy_applicant vo){
 		int cnt = 0;
 		try {

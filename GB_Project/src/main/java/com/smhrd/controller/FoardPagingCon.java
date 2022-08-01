@@ -34,11 +34,11 @@ public class FoardPagingCon extends HttpServlet {
 		JsonObject json = new JsonObject(); //json객체
 		JsonArray jarray = new JsonArray(); //json Array
 	
-		
+		// .divide(n,4,BigDecimal.ROUND_DOWN)
 		BigDecimal n = new BigDecimal("2");
 		for(tbl_share b: list) {
 			if(b.getCAT_NAME().equals("F")) {
-			json.addProperty("num",b.getBOARD_SEQ().divide(n,4,BigDecimal.ROUND_DOWN));
+			json.addProperty("num",b.getBOARD_SEQ().divide(n));
 			json.addProperty("name", b.getARTICLE_TITLE());
 			json.addProperty("writer", b.getMEM_ID());
 			json.addProperty("category", b.getCAT_NAME());

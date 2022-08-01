@@ -17,7 +17,9 @@
 	</select>
 	
 	
-	
+	<select id="selectPayment2" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">
+		select * from tbl_payment where MEM_ID=#{id} and BOARD_SEQ=#{board_seq}
+	</select>
 	
 
 	<select id="selectPayment" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">

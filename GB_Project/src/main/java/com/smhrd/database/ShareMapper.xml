@@ -23,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<select id="selectWriter" resultType="String" parameterType="int">
-		select mem_id from tbl_share where board_seq=#{board_seq}
+	<select id="selectOne" resultType="com.smhrd.model.Share" parameterType="int"> <!-- shareWriter 에서 바뀜 -->
+		select * from tbl_share where board_seq=#{board_seq}
 	</select>
 	
 	<update id="updateState" parameterType="com.smhrd.model.ShareForUpdate">

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,7 @@ body {
 	padding-left: 200px;
 	padding-right: 200px;
 	font-family: 'Do Hyeon', sans-serif;
+	
 }
 
 .card-body {
@@ -47,19 +49,19 @@ p {
 <!-- JSTL占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占쏙옙占� var占쏙옙占쏙옙占쏙옙 value占쏙옙,占쏙옙占쏙옙占쌕곤옙EL표占쏙옙占쏙옙占쏙옙占� 占싣깍옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌍는댐옙 -->
 <!-- param.num url占쏙옙 占쌍댐옙 占식띰옙占쏙옙占쏙옙傷占쏙옙占� num占싱띰옙占� 占쏙옙占쏙옙 占쌀뤄옙占쏙옙占쌘댐옙.. 占쏙옙占썩서 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙 占싣니댐옙.EL占쏙옙 占쌀뤄옙占쏙옙占썩가占쏙옙 -->
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
-<c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
+<c:set var="board" value="${BoardDAO.selectOne(param.num*2)}"/>
 
 <jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num)}"/>
+<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num*2)}"/>
 
 <jsp:useBean id="WriteaccountDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num)}"/>
+<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num*2)}"/>
 
 <jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num)}"/>
+<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num*2)}"/>
 
 <jsp:useBean id="WritearbeitDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num)}"/>
+<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num*2)}"/>
 
 
 
@@ -67,6 +69,11 @@ p {
 <%--<jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean> --%>
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
+
+
+<c:out value="${loginMember}님 맞죠?"/>
+
+
 	<form>
 
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
@@ -108,21 +115,6 @@ p {
 				</c:choose>
 			</div>
 				
-				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
-				<%-- <ul class="list-group list-group-flush">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
-					<li class="list-group-item"><textarea class="form-control"
-							id="exampleFormControlTextarea1" rows="3"></textarea>
-						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
-				</ul>
-				<ul class="list-group list-group-flush" id="reply">
-					<!-- 占쏙옙占썩를 占쌜쇽옙占쌔억옙 占쏙옙占싸곤옙침占쌔듸옙 占쌓댐옙占� 占쏙옙占쏙옙占쏙옙占쏙옙 -->
-					<c:forEach items="${replyList}" var = "reply">
-					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
-					</c:forEach>
-					
-		
-				</ul> --%>
 			</div>
 			
 		
@@ -146,11 +138,42 @@ p {
 	
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
-	<a href="participateCons">
-	<div style="text-align: right;">
-	<button style=""><h4>참여결정</h4></button>
-	</div>
-	</a>
+	<c:if test="${loginMember} != ${board.MEM_ID}">
+	<c:choose>
+	<c:when test="${board.CAT_NAME=='B'}">
+		<a href="insertStateConb?
+		board_seq=${board.BOARD_SEQ}&
+		buy_link=${boardbuy.BUY_LINK}&
+		buy_pay=${boardbuy.BUY_PAY}&
+		cat_name=B">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:when>
+	<c:when test="${board.CAT_NAME=='A'}">
+		<a href="insertStateCona?
+		board_seq=${board.BOARD_SEQ}&
+		arb_time=${boardarbeit.ARBEIT_TIME}&
+		arb_site=${boardarbeit.ARBEIT_SITE}&
+		arb_pay=${boardarbeit.ARBEIT_PAY}&
+		cat_name=A">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:when>
+	<c:when test="${board.CAT_NAME=='I'}">
+		<a href="insertStateConi?
+		board_seq=${board.BOARD_SEQ}&
+		acc_link=${boardaccount.ID_LINK}&
+		acc_time=${boardaccount.ID_TIME}&
+		acc_pay=${boardaccount.ID_PAY}&
+		cat_name=I">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:when>
+	<c:otherwise>	
+		<a href="insertStateConf?
+		board_seq=${board.BOARD_SEQ}&
+		cat_name=F">
+		<button style=""><h4>참여결정</h4></button></a>
+	</c:otherwise>
+	</c:choose>
+	</c:if>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

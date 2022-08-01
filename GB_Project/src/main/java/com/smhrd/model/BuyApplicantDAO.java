@@ -37,7 +37,7 @@ public class BuyApplicantDAO {
 		return cnt;
 	}
 	
-	public int insertBuyApplicant(BuyApplicant vo){ //회원가입 메소드
+	public int insertBuyApplicant(BuyApplicant vo){ // 참여결정시 추가~
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
@@ -77,7 +77,7 @@ public class BuyApplicantDAO {
 
 		try {
 			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectOne",board_seq);
-			System.out.println("BuyApplicant selectOne >>" +vo.getBuy_pay());
+			System.out.println("BuyApplicant selectOne dao 작성자? >>" +vo.getMem_id());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

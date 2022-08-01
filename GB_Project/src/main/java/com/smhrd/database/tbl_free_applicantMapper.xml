@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.tbl_free_applicantDAO"> 
+
+<insert  id="insertFreeApplicant" parameterType="com.smhrd.model.tbl_free_applicant">
+		insert into tbl_free_applicant values (tbl_free_applicant_seq.nextval,#{MEM_ID},sysdate,#{FREE_P_STATE},#{FREE_C_STATE},#{CAT_NAME},#{BOARD_SEQ})	
+	</insert>
+</mapper>

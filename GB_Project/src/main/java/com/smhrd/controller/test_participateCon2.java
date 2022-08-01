@@ -33,7 +33,7 @@ public class test_participateCon2 extends HttpServlet {
 		String mem_id= (String)session.getAttribute("loginMember");
 		
 		//ShareDAO daoW = new ShareDAO();
-		String writer= new ShareDAO().selectWriter(board_seq);
+		String writer= new ShareDAO().selectOne(board_seq).getMem_id();
 		System.out.println("dao실행후 writer >> "+writer);
 		
 		test_participateConDAO dao = new test_participateConDAO();

@@ -54,7 +54,7 @@
 						<c:if test="${!empty loginMember}">
 							<li><a href="tbl_boardwrite.jsp" class="button big">게시물 작성</a></li>
 							<li><a href="payState.jsp" class="button big">결제상태</a></li>
-							<li><a href="myPage.jsp" class="button big">마이페이지</a></li>
+							<li><a href="myPage.jsp?MEM_ID=${loginMember}" class="button big">마이페이지</a></li>
 						</c:if>
 						</ul>
 					</div>
@@ -180,7 +180,6 @@
 				</section>
 
 				<!-- Menu -->
-				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
@@ -260,6 +259,5 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
-</body>
 </body>
 </html>

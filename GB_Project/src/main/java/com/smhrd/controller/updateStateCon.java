@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smhrd.model.BuyApplicant;
 import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.ShareDAO;
 import com.smhrd.model.ShareForUpdate;
@@ -17,26 +18,44 @@ public class updateStateCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String String = null;
 
+	
+	//업데이트 하려면 boared_seq,state,cat_name 필요
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		//t이거안되면 세션으로가자~
 		String loginMember = request.getParameter("loginMember");
+		System.out.println("updateStateCon, 로그인아이디 >> "+loginMember);
+		String cat_name = request.getParameter("cat_name");
+		System.out.println("updateStateCon, 카테고리 >> "+cat_name);
 		BigDecimal board_seq = new BigDecimal(request.getParameter("board_seq"));
 		//String article_state = request.getParameter("article_state");
 		String article_state =null;
-		if( request.getParameter("article_state") !=null) {
-			 article_state = request.getParameter("article_state");
-		}else {
+		
+		//보드시퀀스로 작성자 찾기
+		BuyApplicant buyApplicant = new BuyApplicantDAO().selectOne(board_seq.intValue());
+		String writer = buyApplicant.getMem_id();
+		System.out.println("Con도 작성자 잘 받아와? >> "+writer);
+		
+		
+		
+		
+		if( loginMember.equals(writer) ) { //호출자가 작성자인 경우. 업데이트
+			 article_state = request.getParameter("article_state"); //
+		}else { //호출자가 작성자가 아닌 경우
 			article_state="모집중";
+			System.out.println("참여자가 호출했으니 인설트해야함");
+			//참여자 인설트하는
+			response.sendRedirect("insertStateCon");
 		}
 		
 		System.out.println("updateStateCon, 전>> "+article_state);
 	
 		
-		// case1 : 작성자가 거래결정시 >> 참석자전원 입금대기로 상태변화, buter
-		if(article_state.equals("모집중")) {
+		// case1 : 작성자가 거래결정시 >> 참석자전원 입금대기로 상태변화, 
+		if(article_state.equals("모집중") &(cat_name.equals("B"))) {
 			ShareDAO dao = new ShareDAO();
-			ShareForUpdate vo= new ShareForUpdate(board_seq,"입금대기");
+			ShareForUpdate vo= new ShareForUpdate(board_seq,"입금대기",cat_name);
 			int cnt = dao.updateState(vo);
 			System.out.println("updateStateCon, 후 >> "+vo.getArticle_state());
 			//if(cat_name=='A')
@@ -70,7 +89,7 @@ public class updateStateCon extends HttpServlet {
 			//전원입금완료시 >> share테이블 거래중으로 상태변화
 			if(TFcnt == Allcnt) {
 				ShareDAO dao = new ShareDAO();
-				ShareForUpdate vo= new ShareForUpdate(board_seq,"거래중");
+				ShareForUpdate vo= new ShareForUpdate(board_seq,"입금대기",cat_name);
 				cnt = dao.updateState(vo);
 				System.out.println("updateStateCon, 후 >> "+vo.getArticle_state());
 			}		
@@ -88,7 +107,7 @@ public class updateStateCon extends HttpServlet {
 		// case3 : 참석자가 거래확정시 >> 
 		}else if(article_state.equals("거래중")) {
 			ShareDAO dao = new ShareDAO();
-			ShareForUpdate vo= new ShareForUpdate(board_seq,"거래완료");
+			ShareForUpdate vo= new ShareForUpdate(board_seq,"입금대기",cat_name);
 			int cnt = dao.updateState(vo);
 			System.out.println("updateStateCon, 후 >> "+vo.getArticle_state());
 			
