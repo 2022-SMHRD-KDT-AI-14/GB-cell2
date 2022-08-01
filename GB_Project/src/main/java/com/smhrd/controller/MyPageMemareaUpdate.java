@@ -24,8 +24,11 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		String MEM_ID = (String)session.getAttribute("loginMember");
 		float xCOORDINATE = Float.parseFloat(request.getParameter("MEM_xCOORDINATE"));
 		float yCOORDINATE = Float.parseFloat(request.getParameter("MEM_yCOORDINATE"));
-		System.out.println(xCOORDINATE);
-		System.out.println(yCOORDINATE);
+		int ixCOORDINATE = (int)xCOORDINATE;
+		int iyCOORDINATE = (int)yCOORDINATE;		
+				
+		System.out.println(ixCOORDINATE);
+		System.out.println(iyCOORDINATE);
 		
 		
 		
@@ -34,10 +37,10 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		int cnt= dao.updateMyPageMemarea(vo);
 		
 		
-		tbl_coordinate vo2 = new tbl_coordinate(MEM_ID,xCOORDINATE,yCOORDINATE);
+		tbl_coordinate vo2 = new tbl_coordinate(MEM_ID,ixCOORDINATE,iyCOORDINATE);
 		tbl_coordinateDAO dao2 = new tbl_coordinateDAO();
 		
-		int cnt2 = dao2.insertcoordinate(vo2);
+		int cnt2 = dao2.updatecoordinate(vo2);
 		
 		if(cnt>0) {//주소 저장 성공
 			System.out.println("희망배송지 저장 성공");

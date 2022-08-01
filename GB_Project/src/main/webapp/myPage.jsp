@@ -55,7 +55,7 @@
 					</c:otherwise>
 				</c:choose>
 			
-				<a href="tbl_coordiante.jsp">추천배송지</a>
+				<a href="tbl_coordinateCon">추천배송지</a>
 	
 
 

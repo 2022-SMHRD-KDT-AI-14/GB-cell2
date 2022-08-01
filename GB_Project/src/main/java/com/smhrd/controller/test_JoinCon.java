@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.model.Member;
 import com.smhrd.model.MemberDAO;
+import com.smhrd.model.tbl_coordinateDAO;
 import com.smhrd.model.tbl_paymentDAO;
 public class test_JoinCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,7 +46,8 @@ public class test_JoinCon extends HttpServlet {
 				tbl_paymentDAO dao2 = new tbl_paymentDAO();
 				int cnt2 =dao2.insertPayment(id);
 				if(cnt2 >0)System.out.println("payment 테이블 생성성공");
-				
+				tbl_coordinateDAO dao3 = new tbl_coordinateDAO();
+				dao3.insertcoordinate(id);
 				if(cnt>0) {
 					System.out.println("회원가입 성공");
 					// 포워딩 방식 joinSuccess.jsp이동, email->request영역에 저장

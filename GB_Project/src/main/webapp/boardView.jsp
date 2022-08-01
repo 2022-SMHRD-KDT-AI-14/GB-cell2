@@ -49,19 +49,19 @@ p {
 <!-- JSTL占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占쏙옙占� var占쏙옙占쏙옙占쏙옙 value占쏙옙,占쏙옙占쏙옙占쌕곤옙EL표占쏙옙占쏙옙占쏙옙占� 占싣깍옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌍는댐옙 -->
 <!-- param.num url占쏙옙 占쌍댐옙 占식띰옙占쏙옙占쏙옙傷占쏙옙占� num占싱띰옙占� 占쏙옙占쏙옙 占쌀뤄옙占쏙옙占쌘댐옙.. 占쏙옙占썩서 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙 占싣니댐옙.EL占쏙옙 占쌀뤄옙占쏙옙占썩가占쏙옙 -->
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
-<c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
+<c:set var="board" value="${BoardDAO.selectOne(param.num*2)}"/>
 
 <jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num)}"/>
+<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num*2)}"/>
 
 <jsp:useBean id="WriteaccountDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num)}"/>
+<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num*2)}"/>
 
 <jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num)}"/>
+<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num*2)}"/>
 
 <jsp:useBean id="WritearbeitDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num)}"/>
+<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num*2)}"/>
 
 
 
