@@ -56,6 +56,7 @@ p {
 
 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
 <%-- <c:set var="paymentResult" value="${tbl_paymentDAO.selectPayment2(loginMember,param.board_seq)}"/> --%>
+<c:set var="payment" value="${tbl_paymentDAO.selectPayment2(loginMember,param.board_seq)}"/>
 <c:set var="paymentPar" value="${tbl_paymentDAO.selectPaymentPar(param.board_seq)}"/>
 <c:set var="paymentTFcnt" value="${tbl_paymentDAO.selectPaymentTFcnt(param.board_seq)}"/>
 
@@ -65,7 +66,7 @@ p {
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 			<h1>결제상태: ${buyer.buy_p_state} , <a href=#>해당글 보러가기</a></h1>
 			<p>글제목: ${board.ARTICLE_TITLE}		<br>		작성자: ${board.MEM_ID}		|		작성일 : ${board.ARTICLE_DATE}</p>
-			<p>구매가격: ${buyer.buy_pay} </p>
+			<p>구매가격: ${buyer.buy_pay} 원</p>
 			<%-- <p>나의 입금여부 : <c:out value="${paymentResult.PAY_TF}"/></p> --%>
 			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
 			<p><table>

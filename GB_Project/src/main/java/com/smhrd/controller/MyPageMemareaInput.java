@@ -23,6 +23,7 @@ public class MyPageMemareaInput extends HttpServlet {
 		String MEM_AREA = dao.selectMyPageMemarea(MEM_ID);
 		System.out.println(MEM_AREA);
 		
+		
 		if(MEM_AREA != null) {
 			
 			System.out.println("배송지 성공");

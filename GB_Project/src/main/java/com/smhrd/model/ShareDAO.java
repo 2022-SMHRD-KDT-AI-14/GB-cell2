@@ -11,8 +11,8 @@ public class ShareDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
+	SqlSession sqlSession = sqlSessionFactory.openSession();
 	public List<Share> selectAllMyList(String loginMember){
-		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<Share> list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
@@ -29,7 +29,7 @@ public class ShareDAO {
 	
 	
 	public List<Share> selectAllMyAlramList(String loginMember){
-		SqlSession sqlSession = sqlSessionFactory.openSession();
+
 		List<Share> list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
