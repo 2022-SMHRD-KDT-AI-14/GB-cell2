@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultType="com.smhrd.model.tbl_share">
-		select * from tbl_share where BOARD_SEQ=#{num}
+		select * from tbl_share where BOARD_SEQ=#{num} 
 	</select>
 	
 		<select id="selectOnePar" parameterType="com.smhrd.model.tbl_share" resultType="com.smhrd.model.tbl_share">
