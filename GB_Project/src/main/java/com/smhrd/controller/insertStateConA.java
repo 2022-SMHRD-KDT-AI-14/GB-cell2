@@ -14,7 +14,7 @@ import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.tbl_arbeit_applicant;
 import com.smhrd.model.tbl_arbeit_applicantDAO;
 
-public class insertStateCona extends HttpServlet {
+public class insertStateConA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

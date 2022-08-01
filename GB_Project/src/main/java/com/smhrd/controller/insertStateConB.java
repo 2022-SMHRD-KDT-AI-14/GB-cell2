@@ -14,7 +14,7 @@ import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.Share;
 import com.smhrd.model.ShareDAO;
 
-public class insertStateConb extends HttpServlet {
+public class insertStateConB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -542,10 +542,8 @@ var paragraphText = '<p>Somebody once told me the world is gonna roll me. I ain\
 </script>
 
 		<!-- 여기 <a href="test_participateCon?board_seq=89"><button> 89글 TEST참여확정!</button></a> -->
-	<a href="updateStateCon?board_seq=178&article_state=모집중&cat_name=B">
-		<input type="text" name="board_seq"> 
-		<input type="submit" value="참여결정">
-	</a>
+	<a href="updateStateCon?board_seq=214&article_state=모집중&cat_name=F">
+	214예시</a>
 
 
 </body>
