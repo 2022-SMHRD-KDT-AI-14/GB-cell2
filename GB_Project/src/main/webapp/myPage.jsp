@@ -71,7 +71,7 @@
 					
 			</c:otherwise>
 		</c:choose> </nav>
-		<a href="test_main.jsp" class="button next scrolly">되돌아가기</a>
+		<a href="tbl_main.jsp" class="button next scrolly">되돌아가기</a>
 		
 	</div>
 	<!-- Scripts -->
