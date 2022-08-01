@@ -100,7 +100,7 @@
 											<input type="text" placeholder="전화번호를 입력하세요" name="phone">
 										</div>
 										<div>
-											<a href="paymentAPI.jsp"><input type="button" name="certification" value="인증받기"></a>
+											<a href="mobilePhoneAPI.jsp"><input type="button" name="certification" value="인증받기"></a>
 										</div>
 									</div>
 									

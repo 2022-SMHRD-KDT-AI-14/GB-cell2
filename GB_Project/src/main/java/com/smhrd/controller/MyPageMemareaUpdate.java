@@ -47,9 +47,9 @@ public class MyPageMemareaUpdate extends HttpServlet {
 		}else {//주소 저장 실패
 			System.out.println("희망배송지 저장 실패");
 	}
-<<<<<<< HEAD
+
 		response.sendRedirect("tbl_main.jsp");
-=======
+
 		
 		if(cnt2>0) {//주소 저장 성공
 			System.out.println("희망배송지 위도경도 저장 성공");
@@ -60,7 +60,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 	}
 		
 		response.sendRedirect("myPage.jsp");
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 
 	}
 }
