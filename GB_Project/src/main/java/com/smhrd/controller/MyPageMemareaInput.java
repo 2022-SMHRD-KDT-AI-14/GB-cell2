@@ -22,10 +22,7 @@ public class MyPageMemareaInput extends HttpServlet {
 		MyPageMemareaDAO dao = new MyPageMemareaDAO();
 		String MEM_AREA = dao.selectMyPageMemarea(MEM_ID);
 		System.out.println(MEM_AREA);
-		String xCOORDINATE = request.getParameter("MEM_xCOORDINATE");
-		String yCOORDINATE = request.getParameter("MEM_yCOORDINATE");
-		System.out.println(xCOORDINATE);
-		System.out.println(yCOORDINATE);
+		
 		
 		if(MEM_AREA != null) {
 			

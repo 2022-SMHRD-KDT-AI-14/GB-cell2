@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.tbl_coordinateDAO"> 
+
+<insert  id="insertcoordinate" parameterType="com.smhrd.model.tbl_coordinate">
+		insert into tbl_coordinate values (#{MEM_ID},#{MEM_LATITUDE},#{MEM_LONGITUDE})	
+	</insert>
+	
+
+</mapper>

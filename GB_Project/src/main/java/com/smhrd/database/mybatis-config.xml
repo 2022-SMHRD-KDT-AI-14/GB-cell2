@@ -35,5 +35,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/tbl_paymentMapper.xml"/>
 		<mapper resource="com/smhrd/database/test.xml"/>
 		<mapper resource="com/smhrd/database/shareDeleteConMapper.xml"/>
+		<mapper resource="com/smhrd/database/tbl_coordinateMapper.xml"/>
     </mappers>
 </configuration>
