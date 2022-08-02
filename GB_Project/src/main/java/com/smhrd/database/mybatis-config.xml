@@ -36,5 +36,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/test.xml"/>
 		<mapper resource="com/smhrd/database/shareDeleteConMapper.xml"/>
 		<mapper resource="com/smhrd/database/tbl_coordinateMapper.xml"/>
+		<mapper resource="com/smhrd/database/myPagePWMapper.xml"/>
     </mappers>
 </configuration>

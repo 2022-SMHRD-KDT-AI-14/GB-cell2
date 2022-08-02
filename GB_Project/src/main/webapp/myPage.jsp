@@ -35,6 +35,8 @@
 			
 				아이디 : ${MyPageList.MEM_ID}<br>
 				비밀번호 : ${MyPageList.MEM_PW}<br>
+				<button type="button"
+					onclick="location.href='myPagePW.jsp';">비밀번호 변경</button>
 				닉네임 : ${MyPageList.MEM_NICK}<br>
 				이름 : ${MyPageList.MEM_NAME}<br>
 				핸드폰번호 : ${MyPageList.MEM_PHONE}<br>
