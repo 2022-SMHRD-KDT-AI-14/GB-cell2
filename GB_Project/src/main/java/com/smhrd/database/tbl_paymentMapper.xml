@@ -11,6 +11,9 @@
 		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,null,'미입금',tbl_share_seq.currval)
 	</select>
 	
+	
+	
+	
 	<select id="insertPaymentPar" parameterType="com.smhrd.model.tbl_payment">
 		insert into tbl_payment values(
 		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,null,'미입금',#{BOARD_SEQ})
@@ -18,12 +21,12 @@
 	
 	
 	<select id="selectPayment2" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">
-		select * from tbl_payment where MEM_ID=#{id} and BOARD_SEQ=#{board_seq}
+		select * from tbl_payment where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ}
 	</select>
 	
 
 	<select id="selectPayment" parameterType="com.smhrd.model.tbl_payment" resultType="com.smhrd.model.tbl_payment">
-		select * from tbl_payment where MEM_ID=#{id} and BOARD_SEQ=#{board_seq}
+		select * from tbl_payment where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ}
 	</select>
 	
 	<select id="selectPaymentAllcnt" parameterType="int" resultType="int">

@@ -55,6 +55,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_share where MEM_ID=#{mem_id} and BOARD_SEQ=#{board_seq} 
 	</select>
 	
+		
+	
 	
 	
 	

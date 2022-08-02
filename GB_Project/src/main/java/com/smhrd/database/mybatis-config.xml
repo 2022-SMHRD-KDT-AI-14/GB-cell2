@@ -38,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/tbl_arbeit_applicantMapper.xml"/>
 		<mapper resource="com/smhrd/database/tbl_account_applicantMapper.xml"/>
 		<mapper resource="com/smhrd/database/tbl_free_applicantMapper.xml"/>
+		<mapper resource="com/smhrd/database/tbl_coordinateMapper.xml"/>
 		
 		
 		

@@ -20,11 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 	
 	
-	<select id="selectme" parameterType="String" resultType="com.smhrd.model.tbl_coordinate">
-		select * from tbl_coordinate where MEM_ID =#{MEM_ID}
+	<select id="selectOneme" parameterType="String" resultType="com.smhrd.model.tbl_coordinate">
+		select * from tbl_coordinate where MEM_ID = #{id}
 	</select>
 	
-	<select id="selectlistshare" parameterType="String" resultType="com.smhrd.model.tbl_share">
+	<select id="selectListshare" parameterType="String" resultType="com.smhrd.model.tbl_share">
 		select * from tbl_share where MEM_ID =#{MEM_ID}
 	</select>
 	

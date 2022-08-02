@@ -137,7 +137,7 @@
 				</nav>
 			</div>
 		</div>
-
+<a href="tbl_coordinateCon">추천게시글</a>
 		<!-- Sidebar -->
 		<div id="sidebar" class="inactive">
 			<div class="inner">
