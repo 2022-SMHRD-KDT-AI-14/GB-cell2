@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.smhrd.model.tbl_coordinateDAO"> 
 
 	<insert  id="insertcoordinate" parameterType="String">
-		insert into tbl_coordinate values (#{id},null,null)	
+		insert into tbl_coordinate values (#{id},126,35)	
 	</insert>
 	
 	<update  id="updatecoordinate" parameterType="com.smhrd.model.tbl_coordinate">
