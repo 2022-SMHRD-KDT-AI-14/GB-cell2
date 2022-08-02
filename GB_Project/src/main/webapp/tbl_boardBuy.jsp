@@ -1,138 +1,134 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 
 <head>
-	<title>boardBuy</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
+<title>boardBuy</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
-		}
+/* Slideshow container */
+.slideshow-container {
+	max-width: 1200px;
+	max-height: 750px;
+	position: relative;
+	margin: auto;
+}
 
-		/* Slideshow container */
-		.slideshow-container {
-			max-width: 1200px;
-			max-height: 750px;
-			position: relative;
-			margin: auto;
+.slideshow-container .mySlides img {
+	height: 500px;
+	border-radius: 0.375em;
+}
 
-		}
+/* Hide the images by default */
+.mySlides {
+	display: none;
+}
 
-		.slideshow-container .mySlides img {
-			height: 500px;
-			border-radius: 0.375em;
-		}
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
 
-		/* Hide the images by default */
-		.mySlides {
-			display: none;
-		}
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
 
-		/* Next & previous buttons */
-		.prev,
-		.next {
-			cursor: pointer;
-			position: absolute;
-			top: 50%;
-			width: auto;
-			margin-top: -22px;
-			padding: 16px;
-			color: white;
-			font-weight: bold;
-			font-size: 18px;
-			transition: 0.6s ease;
-			border-radius: 0 3px 3px 0;
-			user-select: none;
-		}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
 
-		/* Position the "next button" to the right */
-		.next {
-			right: 0;
-			border-radius: 3px 0 0 3px;
-		}
+/* Caption text */
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
 
-		/* On hover, add a black background color with a little bit see-through */
-		.prev:hover,
-		.next:hover {
-			background-color: rgba(0, 0, 0, 0.8);
-		}
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
 
-		/* Caption text */
-		.text {
-			color: #f2f2f2;
-			font-size: 15px;
-			padding: 8px 12px;
-			position: absolute;
-			bottom: 8px;
-			width: 100%;
-			text-align: center;
-		}
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
 
-		/* Number text (1/3 etc) */
-		.numbertext {
-			color: #f2f2f2;
-			font-size: 12px;
-			padding: 8px 12px;
-			position: absolute;
-			top: 0;
-		}
+.active, .dot:hover {
+	background-color: #717171;
+}
 
-		/* The dots/bullets/indicators */
-		.dot {
-			cursor: pointer;
-			height: 15px;
-			width: 15px;
-			margin: 0 2px;
-			background-color: #bbb;
-			border-radius: 50%;
-			display: inline-block;
-			transition: background-color 0.6s ease;
-		}
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
 
-		.active,
-		.dot:hover {
-			background-color: #717171;
-		}
+@
+-webkit-keyframes fade {from { opacity:.4
+	
+}
 
-		/* Fading animation */
-		.fade {
-			-webkit-animation-name: fade;
-			-webkit-animation-duration: 1.5s;
-			animation-name: fade;
-			animation-duration: 1.5s;
-		}
+to {
+	opacity: 1
+}
 
-		@-webkit-keyframes fade {
-			from {
-				opacity: .4
-			}
+}
+@
+keyframes fade {from { opacity:.4
+	
+}
 
-			to {
-				opacity: 1
-			}
-		}
-
-		@keyframes fade {
-			from {
-				opacity: .4
-			}
-
-			to {
-				opacity: 1
-			}
-		}
-	</style>
+to {
+	opacity: 1
+}
+}
+</style>
 </head>
 
 <body class="is-preload">
-
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -142,57 +138,54 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
+					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
+							싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
-						</li>
+					
+						<c:choose>
+						<c:when test="${empty loginMember}">
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
+						</c:otherwise>
+						</c:choose>
+		
+					
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
 					</ul>
-
 				</header>
-
-
-
 				<section>
 					<header class="major">
-
 						<h2>구매 게시판</h2>
 					</header>
 					<!-- 슬라이드쇼 컨테이너 -->
-
 					<div class="slideshow-container">
-
 						<!-- 숫자와 캡션이 있는 이미지 -->
 						<div class="mySlides fade">
 							<div class="numbertext">1 / 3</div>
-							<img src="images/pic14.png" style="width:100%">
+							<img src="images/pic14.png" style="width: 100%">
 						</div>
-
 						<div class="mySlides fade">
 							<div class="numbertext">2 / 3</div>
-							<img src="images/pic15.png" style="width:100%">
+							<img src="images/pic15.png" style="width: 100%">
 						</div>
-
 						<div class="mySlides fade">
 							<div class="numbertext">3 / 3</div>
-							<img src="images/pic16.png" style="width:100%">
+							<img src="images/pic16.png" style="width: 100%">
 						</div>
-
 						<!-- 다음, 이전 이미지 버튼 -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+						<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
+							class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
 					<br>
-
 					<!-- 현재 이미지를 알려주는 하단의 점 -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
+					<div style="text-align: center">
+						<span class="dot" onclick="currentSlide(1)"></span> <span
+							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+							onclick="currentSlide(3)"></span>
 					</div>
-
-
 					<!-- Section -->
 					<section>
 						<header class="major">
@@ -205,100 +198,23 @@
 							<br>
 						</article>
 						<div class="posts">
-							<article>
-								<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
+							<table class="table">
+								<c:forEach begin="0" end="10" step="1" varStatus="status">
+									<article>
+										<a href="#" class="image"><img src="images/pic01.jpg"
+											alt="" /></a>
+										<p id="name${status.index}"></p>
+										<p id="writer${status.index}"></p>
+										<div style="text-align: right;"><button>공유참여</button> </div>
+										<!-- <ul class="actions">
+											<li><a href="#" class="button">공유참여</a></li>
+										</ul> -->
+									</article>
+								</c:forEach>
+							</table>
 						</div>
 					</section>
-					<!-- Section -->
-					<section>
-						<header class="major">
-							<h2>팀원소개</h2>
-						</header>
-						<div class="features">
-							<article>
-								<span class="icon solid fa-desktop"></span>
-								<div class="content">
-									<h3>김건빈</h3>
-									<p>팀원을 소개합니다!</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-gem"></span>
-								<div class="content">
-									<h3>김윤주</h3>
-									<p>팀원을 소개합니다!</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-database"></span>
-								<div class="content">
-									<h3>박성결</h3>
-									<p>팀원을 소개합니다!</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-map"></span>
-								<div class="content">
-									<h3>임다영</h3>
-									<p>팀원을 소개합니다!</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-dollar-sign"></span>
-								<div class="content">
-									<h3>최훈철</h3>
-									<p>팀원을 소개합니다!</p>
-								</div>
-							</article>
-						</div>
 					</section>
-
 			</div>
 		</div>
 
@@ -321,18 +237,14 @@
 					<ul>
 						<li><a href="tbl_main.jsp">홈페이지</a></li>
 						<li><a href="tbl_boardwrite.jsp">글작성</a></li>
-						<li>
-							<span class="opener">공유하기</span>
+						<li><span class="opener">공유하기</span>
 							<ul>
 								<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
 								<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
 								<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
 								<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
-							</ul>
-						</li>
+							</ul></li>
 						<li><a href="#">문의하기</a></li>
-
-
 					</ul>
 				</nav>
 
@@ -369,16 +281,18 @@
 					<ul class="contact">
 						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
 						<li class="icon solid fa-phone">연락처</li>
-						<li class="icon solid fa-home">주소<br />
-							상세주소</li>
+						<li class="icon solid fa-home">주소<br /> 상세주소
+						</li>
 					</ul>
 				</section>
 
 				<!-- Footer -->
 				<footer id="footer">
-					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
-							UP</a>.</p>
+					<p class="copyright">
+						&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a
+							href="https://html5up.net">HTML5 UP</a>.
+					</p>
 				</footer>
 
 			</div>
