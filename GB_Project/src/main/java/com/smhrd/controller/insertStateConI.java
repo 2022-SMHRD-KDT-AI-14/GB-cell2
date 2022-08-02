@@ -26,8 +26,8 @@ public class insertStateConI extends HttpServlet {
 		  request.setCharacterEncoding("UTF-8"); HttpSession session =  request.getSession(); 
 		  String loginMember = (String)session.getAttribute("loginMember");
 		  String acc_link =	  request.getParameter("acc_link");
-		  String acc_time =  request.getParameter("arb_site"); 
-		  int acc_pay= Integer.parseInt( request.getParameter("arb_pay"));
+		  String acc_time =  request.getParameter("acc_time"); 
+		  int acc_pay= Integer.parseInt(request.getParameter("acc_pay"));
 		  String cat_name =  request.getParameter("cat_name");
 		  int board_seq =  Integer.parseInt(request.getParameter("board_seq"));
 		  

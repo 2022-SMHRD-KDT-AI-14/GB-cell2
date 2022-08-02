@@ -108,7 +108,7 @@ p {
 			</c:when> 
 		
 			<c:when test ="${board.CAT_NAME =='A'}">
-			<h1>결제상태ㅋㅋㅋㅋㅋㅋ: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
+			<h1>결제상태ㅋㅋㅋㅋㅋㅋ: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq}/2'>해당글 보러가기</a></h1>
 			<p>알바수당: ${arbeit2.ARBEIT_PAY} 원</p>
 			<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 			<p><table>

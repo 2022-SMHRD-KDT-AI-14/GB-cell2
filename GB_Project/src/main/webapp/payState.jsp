@@ -132,10 +132,14 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}?" ><button id="decision" onclick="decision()">거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
+																
+																<script>
+																
+																</script>
 																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
