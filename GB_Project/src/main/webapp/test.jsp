@@ -307,7 +307,7 @@ to {
 	<script src="assets/js/main.js"></script>
 	<script type="text/javascript">
 		//게시물요청
-				var slideIndex = 0; //slide index
+		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
 		window.onload = function () {
