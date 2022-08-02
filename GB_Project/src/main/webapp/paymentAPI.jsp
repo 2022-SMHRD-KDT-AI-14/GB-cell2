@@ -17,7 +17,7 @@
 	입금액<input type="text" name="input">
 	<input type="submit" value="이체API 되었다 하고 상태변화하러가기">
 	</form>
-
+	<script>alert('dkssud')</script>
 
 
 

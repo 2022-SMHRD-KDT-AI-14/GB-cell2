@@ -143,7 +143,7 @@ p {
 	<h1>여기 카테고리는 ${board.CAT_NAME}, 작성자가 아닌자만 참여버튼 나온다! </h1>
 	<c:if test="${loginMember != board.MEM_ID}">
 		<c:if test="${board.CAT_NAME=='B'}">
-			<a href="test?
+			<a href="insertStateConB?
 			board_seq=${board.BOARD_SEQ}&
 			buy_link=${boardbuy.BUY_LINK}&
 			buy_pay=${boardbuy.BUY_PAY}&
@@ -175,6 +175,14 @@ p {
 			<button style=""><h4>참여결정</h4></button></a>
 		</c:if>
 	</c:if>
+	
+
+
+<script>
+
+</script>
+	
+	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>

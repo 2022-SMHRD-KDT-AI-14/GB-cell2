@@ -13,6 +13,8 @@ import com.smhrd.model.BuyApplicant;
 import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.Share;
 import com.smhrd.model.ShareDAO;
+import com.smhrd.model.tbl_payment;
+import com.smhrd.model.tbl_paymentDAO;
 
 public class insertStateConB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,6 +32,19 @@ public class insertStateConB extends HttpServlet {
 		int buy_pay= Integer.parseInt( request.getParameter("buy_pay"));
 		String cat_name = request.getParameter("cat_name");
 		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		
+		
+		//추가 by성결
+		tbl_payment vo2= new tbl_payment(loginMember, new BigDecimal(board_seq));
+		tbl_paymentDAO dao3 = new tbl_paymentDAO();
+		int cnt3 =dao3.insertPaymentPar(vo2);
+		
+		if(cnt3>0) {
+			System.out.println("결제테이블 성공");
+		}else {
+			System.out.println("결제테이블 실패");
+		}//추가 by성결
+		
 		
 		System.out.println("insertUpdateConb, mem_id >> "+loginMember);
 		System.out.println("updateStateConb, 링크 >> "+buy_link);

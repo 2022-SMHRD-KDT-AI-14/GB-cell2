@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.model.tbl_account_applicant;
 import com.smhrd.model.tbl_account_applicantDAO;
 import com.smhrd.model.tbl_arbeit_applicant;
+import com.smhrd.model.tbl_payment;
+import com.smhrd.model.tbl_paymentDAO;
 
 public class insertStateConI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,19 @@ public class insertStateConI extends HttpServlet {
 		int acc_pay= Integer.parseInt( request.getParameter("arb_pay"));
 		String cat_name = request.getParameter("cat_name");
 		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		
+		//추가 by성결
+		tbl_payment vo2= new tbl_payment(loginMember, new BigDecimal(board_seq));
+		tbl_paymentDAO dao3 = new tbl_paymentDAO();
+		int cnt3 =dao3.insertPaymentPar(vo2);
+		
+		if(cnt3>0) {
+			System.out.println("결제테이블 성공");
+		}else {
+			System.out.println("결제테이블 실패");
+		}//추가 by성결
+		
+		
 		
 		System.out.println("insertUpdateConi, mem_id >> "+loginMember);
 		System.out.println("insertUpdateConi, 링크 >> "+acc_link);
