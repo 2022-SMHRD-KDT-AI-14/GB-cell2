@@ -47,7 +47,7 @@ input[type=text]{
 </head>
 <body>
 	<!-- form action="BoardWC" method="post" enctype="multipart/form-data" accept-charset="UTF-8"> -->
-	 <form action="BoardWC" method="post" enctype="multipart/form-data" accept-charset="UTF-8"> 
+	 <form action="test_BoardWriteCon" method="post" enctype="multipart/form-data" accept-charset="UTF-8"> 
 	
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 50px">
 			<input type="text" placeholder="게시물 제목 작성" name="name">

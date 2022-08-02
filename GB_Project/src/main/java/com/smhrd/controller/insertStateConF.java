@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.tbl_free_applicant;
 import com.smhrd.model.tbl_free_applicantDAO;
+import com.smhrd.model.tbl_payment;
+import com.smhrd.model.tbl_paymentDAO;
 
 public class insertStateConF extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +24,18 @@ public class insertStateConF extends HttpServlet {
 		String loginMember = (String)session.getAttribute("loginMember");
 		String cat_name = request.getParameter("cat_name");
 		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		
+		//추가 by성결
+		tbl_payment vo2= new tbl_payment(loginMember, new BigDecimal(board_seq));
+		tbl_paymentDAO dao3 = new tbl_paymentDAO();
+		int cnt3 =dao3.insertPaymentPar(vo2);
+		
+		if(cnt3>0) {
+			System.out.println("결제테이블 성공");
+		}else {
+			System.out.println("결제테이블 실패");
+		}//추가 by성결
+		
 		
 		System.out.println("insertStateConf, mem_id >> "+loginMember);
 		System.out.println("insertStateConf, 카테고리 >> "+cat_name);
