@@ -3,8 +3,10 @@ package com.smhrd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +29,8 @@ public class checkPay extends HttpServlet {
 		/* DB상태 모두 입금시 거래상태변화 */
 		List<tbl_payment>  list =null; 
 		List<tbl_payment>list2 =null; 
+		ArrayList<Integer> nList = new ArrayList<Integer>();
+		
 		tbl_paymentDAO dao = new tbl_paymentDAO();
 	
 		String cat_name =null;
@@ -41,31 +45,21 @@ public class checkPay extends HttpServlet {
 			BigDecimal unPar = new BigDecimal(list2.size());
 			
 			
-//			System.out.println("--------------------------------------------------------------------");
 			System.out.println("board_seq >> "+board_seq);
 			System.out.println("참가수 >> "+unPar);
 			System.out.println("입금한 사람 수 >> "+compPar);
-			
-			
 			if(compPar.intValue() == unPar.intValue() ) {	// 입금대기에서 거래중으로 상태변화
-				System.out.println("------------------------------------------------------------------");
-				String state="입금대기";
-				System.out.println("카테고리 >> "+cat_name);
-				String url = "updateStateCon?board_seq="+board_seq+"&article_state="+state+"&cat_name="+cat_name;
-				System.out.println("경로 >> "+url);
-				
-				response.sendRedirect(url);
-//				PrintWriter out = response.getWriter();
-	//			out.print(url);
-		//		request.setAttribute("update", url);
+				System.out.println("동일 하잖아 !? ");
+				System.out.println("포워딩해야지~");
+				nList.add(board_seq.intValue());
 			}
+			
 		}
+		request.setAttribute("bList", nList);
+		RequestDispatcher rd = request.getRequestDispatcher("updateStateConp");
+		rd.forward(request, response);
 		
-//		System.out.println("test1 >>"+list.get(0).getBOARD_SEQ());
-//		System.out.println("test1 >>"+list.get(0).getPAY_MONEY());
-//		System.out.println("test2 >>"+list.get(1).getBOARD_SEQ());
-//		System.out.println("test2 >>"+list.get(1).getPAY_MONEY());
-		
+			
 		
 		
 		

@@ -16,7 +16,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @AllArgsConstructor
 public class Share {
- private BigDecimal board_seq;
+
+private BigDecimal board_seq;
  private String  article_title;
  private String  article_content;
  @NonNull
@@ -27,4 +28,13 @@ public class Share {
  private String  del_YN;  //대문자로 Y/N
  private String  article_state;
  private String  cat_name;
+public Share(BigDecimal board_seq, String article_state) {
+	super();
+	this.board_seq = board_seq;
+	this.article_state = article_state;
+}
+
+
+
+
 }

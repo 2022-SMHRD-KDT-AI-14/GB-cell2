@@ -299,6 +299,12 @@
   	<display-name>checkPay</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.checkPay</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateStateConp</servlet-name>
+  	<display-name>updateStateConp</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.updateStateConp</servlet-class>
   </servlet><servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
@@ -505,6 +511,10 @@
   <servlet-mapping>
   	<servlet-name>checkPay</servlet-name>
   	<url-pattern>/checkPay</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateStateConp</servlet-name>
+  	<url-pattern>/updateStateConp</url-pattern>
   </servlet-mapping>
   
 
