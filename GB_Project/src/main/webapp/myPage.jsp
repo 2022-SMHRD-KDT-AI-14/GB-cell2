@@ -55,19 +55,11 @@
 							class="label">Medium</span></a></li>
 				</ul>
 				</header>
-
-
-			
-		
-
 				<section>
 				<h2 style="text-align: center;">마이페이지</h2>
 				</section>
-
-
-
-				<div style="text-align: center;" class="table-wrapper">
-					<table class="alt" >
+				<div  class="table-wrapper">
+					<table class="alt">
 						<thead>
 							<tr>
 								<th width="200px"></th>
@@ -75,86 +67,86 @@
 							</tr>
 						</thead>
 						<tbody>
+							<table class="alt">
+								<thead>
+									<tr>
+										<th width="200px"></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tr>
+									<td>아이디</td>
+									<td>${MyPageList.MEM_ID}</td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td>
+									<div class="row gtr-uniform">
+									<div class="col-6 col-12-xsmall">
+										<input class type="password" value="${MyPageList.MEM_PW}">
+									</div>
+									<div class="col-6 col-12-xsmall">
+										<button type="button" onclick="location.href='myPagePW.jsp';"> 비밀번호 변경 </button>
+									</div>
+									
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<td>닉네임</td>
+									<td>${MyPageList.MEM_NICK}</td>
+
+								</tr>
+								<tr>
+									<td>이름</td>
+									<td>${MyPageList.MEM_NAME}</td>
+
+								</tr>
+								<tr>
+									<td>핸드폰번호</td>
+									<td>${MyPageList.MEM_PHONE}</td>
+
+								</tr>
+								<tr>
+									<td>계좌번호</td>
+									<td>${MyPageList.MEM_BANK_NUM}</td>
+
+								</tr>
+								<tr>
+									<td>주민번호</td>
+									<td>${MyPageList.MEM_JUMIN}</td>
+
+								</tr>
+								<tr>
+									<td>회원온도</td>
+									<td>${MyPageList.MEM_TEMPER}</td>
+
+								</tr>
+								<tr>
+									<td>희망배송지역</td>
+									<td>${MyPageList.MEM_AREA}</td>
+								</tr>
+							</table>
+
+
+							<c:choose>
+								<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+									<td>희망배송지역 없음</td>
+								</c:when>
+
+								<c:otherwise>
+									<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
+								</c:otherwise>
+							</c:choose>
+							</tr>
+
 							<tr>
-						<td>아이디 :</td>
-						<td>${MyPageList.MEM_ID}</td>
-
-				<table>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>아이디 :${MyPageList.MEM_ID}</td>
-						
-
-					</tr>
-					<tr>
-						<td>비밀번호 :${MyPageList.MEM_PW}    <button type="button"
-					onclick="location.href='myPagePW.jsp';">비밀번호 변경</button></td>
-						
-					</tr>
-					
-					<tr>
-						<td>닉네임 :${MyPageList.MEM_NICK}</td>
-						
-					</tr>
-					<tr>
-						<td>이름 :${MyPageList.MEM_NAME}</td>
-						
-					</tr>
-					<tr>
-						<td>핸드폰번호 :${MyPageList.MEM_PHONE}</td>
-						
-					</tr>
-					<tr>
-						<td>계좌번호 :${MyPageList.MEM_BANK_NUM}</td>
-						
-					</tr>
-					<tr>
-						<td>주민번호 : ${MyPageList.MEM_JUMIN}</td>
-						
-					</tr>
-					<tr>
-						<td>회원온도 :${MyPageList.MEM_TEMPER}</td>
-						
-					</tr>
-
-
-					<c:choose>
-						<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-							<td>희망배송지역 없음</td>
-						</c:when>
-
-						<c:otherwise>
-							<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
-						</c:otherwise>
-					</c:choose>
-					</tr>
-
-					<tr>
-						<c:choose>
-					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-                        희망배송지역 없음<br>
-					</c:when>
-				</c:choose>
-				<%-- <c:choose>
-					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-						<button type="button"
-							onclick="location.href='myPageMemAreainput.jsp';">희망배송지
-							설정</button>
-					</c:when>
-
-					<c:otherwise>
-						<div style="text-align: center;">
-							<button type="button" class="button primary"
-								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
-								수정</button>
-							<a href="tbl_main.jsp" class="button">되돌아가기</a>
-						</div>
-					</c:otherwise>
-				</c:choose> --%>
-					</tr>
+								<c:choose>
+									<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+										희망배송지역 없음<br>
+									</c:when>
+								</c:choose>
+							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
@@ -164,18 +156,12 @@
 						</tfoot>
 					</table>
 				</div>
-				
 				<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
                         희망배송지역 없음<br>
 					</c:when>
-					<%-- <c:otherwise>
-                        <td>희망배송지역 : ${MyPageList.MEM_AREA}</td><br>
-                    </c:otherwise> --%>
+					
 				</c:choose>
-
-				<!-- <a href="tbl_coordinateCon">추천배송지</a> -->
-
 				<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
 						<button type="button"
