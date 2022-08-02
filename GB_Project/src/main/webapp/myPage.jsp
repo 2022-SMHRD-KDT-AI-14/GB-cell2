@@ -56,7 +56,7 @@
 				</ul>
 				</header>
 
-<<<<<<< HEAD
+
 			
 				아이디 : ${MyPageList.MEM_ID}<br>
 				비밀번호 : ${MyPageList.MEM_PW}<br>
@@ -68,11 +68,11 @@
 				계좌번호 : ${MyPageList.MEM_BANK_NUM}<br>
 				주민번호 : ${MyPageList.MEM_JUMIN}<br>
 				회원온도 : ${MyPageList.MEM_TEMPER}<br>
-=======
+
 				<section>
 				<h2 style="text-align: center;">마이페이지</h2>
 				</section>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 
 
 				<div style="text-align: center;" class="table-wrapper">
@@ -237,7 +237,7 @@
 				</nav>
 
 				<!-- Section -->
-<<<<<<< HEAD
+
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
@@ -254,7 +254,7 @@
 						<article>
 							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>상품3</p>
-=======
+
 				<%if(session.getAttribute("MEM_ID")!=null){ 
 				
 					
