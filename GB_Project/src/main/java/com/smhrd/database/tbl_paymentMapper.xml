@@ -40,6 +40,13 @@
 	<select id="selectPaymentPar" parameterType="int" resultType="com.smhrd.model.tbl_payment">
 		select * from tbl_payment where board_seq = #{board_seq}
 	</select>
+	
+	<select id="payComplete"  resultType="com.smhrd.model.tbl_payment">
+		select count(*),board_seq from tbl_payment
+		where pay_tf ='입금완료'
+		group by board_seq
+	</select>
+	
 
 	<update id="updatePayment" parameterType="com.smhrd.model.tbl_payment">
 		UPDATE tbl_payment

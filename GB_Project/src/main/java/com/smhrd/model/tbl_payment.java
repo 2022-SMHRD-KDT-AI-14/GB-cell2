@@ -62,6 +62,12 @@ public class tbl_payment {
 		BOARD_SEQ = bOARD_SEQ;
 	}
 
+	public tbl_payment(BigDecimal pAY_MONEY, BigDecimal bOARD_SEQ) {
+		super();
+		PAY_MONEY = pAY_MONEY;
+		BOARD_SEQ = bOARD_SEQ;
+	}
+
 
 	
 }

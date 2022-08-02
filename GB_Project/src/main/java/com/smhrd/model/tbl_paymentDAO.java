@@ -95,15 +95,34 @@ public class tbl_paymentDAO {
 		return result;
 	}
 
+	
+	public List<tbl_payment> payComplete() { // jsp가서 리스트 사이즈 고민하지말고 애초에 db에서 카운트한값을 뽑아내자!!!
+
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<tbl_payment> list = null;
+
+		try {
+			list = sqlSession.selectList("com.smhrd.model.tbl_paymentDAO.payComplete");
+			//System.out.println("payCompleteDAO, 리스트(게시글) 수 >>"+list.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+
+		return list;
+	}
+	
+	
 	public List<tbl_payment> selectPaymentPar(int board_seq) { // jsp가서 리스트 사이즈 고민하지말고 애초에 db에서 카운트한값을 뽑아내자!!!
 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<tbl_payment> list = null;
 
 		try {
-			System.out.println("tbl_paymentDAO.selectPaymentPar board_seq >>"+board_seq);
+			//System.out.println("tbl_paymentDAO.selectPaymentPar board_seq >>"+board_seq);
 			list = sqlSession.selectList("com.smhrd.model.tbl_paymentDAO.selectPaymentPar", board_seq);
-			System.out.println("tbl_paymentDAO.selectPaymentPar list size >>"+ list.size());
+			//System.out.println("tbl_paymentDAO.selectPaymentPar list size >>"+ list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
