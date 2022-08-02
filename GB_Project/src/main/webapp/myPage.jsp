@@ -55,14 +55,11 @@
 							class="label">Medium</span></a></li>
 				</ul>
 				</header>
-
 				<section>
 				<h2 style="text-align: center;">마이페이지</h2>
 				</section>
-
-
-				<div style="text-align: center;" class="table-wrapper">
-					<table class="alt" >
+				<div  class="table-wrapper">
+					<table class="alt">
 						<thead>
 							<tr>
 								<th width="200px"></th>
@@ -70,84 +67,86 @@
 							</tr>
 						</thead>
 						<tbody>
+							<table class="alt">
+								<thead>
+									<tr>
+										<th width="200px"></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tr>
+									<td>아이디</td>
+									<td>${MyPageList.MEM_ID}</td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td>
+									<div class="row gtr-uniform">
+									<div class="col-6 col-12-xsmall">
+										<input class type="password" value="${MyPageList.MEM_PW}">
+									</div>
+									<div class="col-6 col-12-xsmall">
+										<button type="button" onclick="location.href='myPagePW.jsp';"> 비밀번호 변경 </button>
+									</div>
+									
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<td>닉네임</td>
+									<td>${MyPageList.MEM_NICK}</td>
+
+								</tr>
+								<tr>
+									<td>이름</td>
+									<td>${MyPageList.MEM_NAME}</td>
+
+								</tr>
+								<tr>
+									<td>핸드폰번호</td>
+									<td>${MyPageList.MEM_PHONE}</td>
+
+								</tr>
+								<tr>
+									<td>계좌번호</td>
+									<td>${MyPageList.MEM_BANK_NUM}</td>
+
+								</tr>
+								<tr>
+									<td>주민번호</td>
+									<td>${MyPageList.MEM_JUMIN}</td>
+
+								</tr>
+								<tr>
+									<td>회원온도</td>
+									<td>${MyPageList.MEM_TEMPER}</td>
+
+								</tr>
+								<tr>
+									<td>희망배송지역</td>
+									<td>${MyPageList.MEM_AREA}</td>
+								</tr>
+							</table>
+
+
+							<c:choose>
+								<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+									<td>희망배송지역 없음</td>
+								</c:when>
+
+								<c:otherwise>
+									<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
+								</c:otherwise>
+							</c:choose>
+							</tr>
+
 							<tr>
-						<td>아이디 :</td>
-						<td>${MyPageList.MEM_ID}</td>
-
-				<table>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>아이디 :${MyPageList.MEM_ID}</td>
-						
-
-					</tr>
-					<tr>
-						<td>비밀번호 :${MyPageList.MEM_PW}</td>
-						
-					</tr>
-					<tr>
-						<td>닉네임 :${MyPageList.MEM_NICK}</td>
-						
-					</tr>
-					<tr>
-						<td>이름 :${MyPageList.MEM_NAME}</td>
-						
-					</tr>
-					<tr>
-						<td>핸드폰번호 :${MyPageList.MEM_PHONE}</td>
-						
-					</tr>
-					<tr>
-						<td>계좌번호 :${MyPageList.MEM_BANK_NUM}</td>
-						
-					</tr>
-					<tr>
-						<td>주민번호 : ${MyPageList.MEM_JUMIN}</td>
-						
-					</tr>
-					<tr>
-						<td>회원온도 :${MyPageList.MEM_TEMPER}</td>
-						
-					</tr>
-
-
-					<c:choose>
-						<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-							<td>희망배송지역 없음</td>
-						</c:when>
-
-						<c:otherwise>
-							<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
-						</c:otherwise>
-					</c:choose>
-					</tr>
-
-					<tr>
-						<c:choose>
-					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-                        희망배송지역 없음<br>
-					</c:when>
-				</c:choose>
-				<%-- <c:choose>
-					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-						<button type="button"
-							onclick="location.href='myPageMemAreainput.jsp';">희망배송지
-							설정</button>
-					</c:when>
-
-					<c:otherwise>
-						<div style="text-align: center;">
-							<button type="button" class="button primary"
-								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
-								수정</button>
-							<a href="tbl_main.jsp" class="button">되돌아가기</a>
-						</div>
-					</c:otherwise>
-				</c:choose> --%>
-					</tr>
+								<c:choose>
+									<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+										희망배송지역 없음<br>
+									</c:when>
+								</c:choose>
+							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
@@ -157,18 +156,12 @@
 						</tfoot>
 					</table>
 				</div>
-				
 				<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
                         희망배송지역 없음<br>
 					</c:when>
-					<%-- <c:otherwise>
-                        <td>희망배송지역 : ${MyPageList.MEM_AREA}</td><br>
-                    </c:otherwise> --%>
+					
 				</c:choose>
-
-				<!-- <a href="tbl_coordinateCon">추천배송지</a> -->
-
 				<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
 						<button type="button"
@@ -223,7 +216,7 @@
 				</nav>
 
 				<!-- Section -->
-<<<<<<< HEAD
+
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
@@ -240,8 +233,9 @@
 						<article>
 							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>상품3</p>
-=======
-				<%if(session.getAttribute("MEM_ID")!=null){ 
+
+				<!-- Section -->
+				<%if(session.getAttribute("MEM_ID")!=null&&session.getAttribute("loginMember")!=null){ 
 				
 					
 						String MEM_ID = (String)session.getAttribute("MEM_ID");
@@ -256,6 +250,7 @@
 							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
 							
 							int cnt = 0;
+							
 						for(int i = 0 ; i<tbl_coordinate.size();i++){
 							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
 							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
@@ -265,22 +260,43 @@
 							}
 							}
 						}
-						  Random r = new Random();
-						  int num1 = r.nextInt(id.size());
-						  int num2 = r.nextInt(id.size());
-						  int num3 = r.nextInt(id.size());
-						  List<tbl_share> list1 = dao.selectListshare(id.get(num1));
-						  List<tbl_share> list2 = dao.selectListshare(id.get(num2));
-						  List<tbl_share> list3 = dao.selectListshare(id.get(num3));
-						  int num11 = r.nextInt(list1.size());
-						  int num22 = r.nextInt(list2.size());
-						  int num33 = r.nextInt(list3.size());
+							
+						int num1 = 0;
+						int num2 = 0;
+						int num3 = 0;
+						int num11 = 0;
+						int num22 = 0;
+						int num33 = 0;
+						int a = 0;
+						int b = 0;
+						int c = 0;
+						List<tbl_share> list1 = new ArrayList<tbl_share>();
+						List<tbl_share> list2 = new ArrayList<tbl_share>();
+						List<tbl_share> list3 = new ArrayList<tbl_share>();
 						
+						  Random r = new Random();
+						  if(id.size()>0){
+						  num1 = r.nextInt(id.size());
+						  num2 = r.nextInt(id.size());
+						  num3 = r.nextInt(id.size());
+						  list1 = dao.selectListshare(id.get(num1));
+						  list2 = dao.selectListshare(id.get(num2));
+						  list3 = dao.selectListshare(id.get(num3));
+						  }
+						  if(list1.size()>0){
+						  num11 = r.nextInt(list1.size());
+						  a = list1.get(num11).getBOARD_SEQ().intValue();
+						  }
+						  if(list2.size()>0){
+						  num22 = r.nextInt(list2.size());
+						  b = list2.get(num22).getBOARD_SEQ().intValue();
+						  }
+						  if(list3.size()>0){
+						 num33 = r.nextInt(list3.size());
+						  c = list3.get(num33).getBOARD_SEQ().intValue();
 						  
-						  int a = list1.get(num11).getBOARD_SEQ().intValue();
-						  int b = list2.get(num22).getBOARD_SEQ().intValue();
-						  int c = list3.get(num33).getBOARD_SEQ().intValue();
-						  
+						  }
+						 
 						 int board_seq1 =a/2;
 						  int board_seq2 = b/2;
 						  int board_seq3 = c/2;
@@ -288,6 +304,7 @@
 						  session.setAttribute("board_seq1", board_seq1);
 						  session.setAttribute("board_seq2", board_seq2);
 						  session.setAttribute("board_seq3", board_seq3);
+							
 				
 				%>
 				
@@ -296,30 +313,33 @@
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
+						<%if(list1.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
 							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
-							
+							<%} %>
 						</article>
+						<%if(list2.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
 							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
+							<%} %>
 						</article>
+						<%if(list3.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
-
 						</article>
+							<%} %>
 					</div>
 					<ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
 					</ul>
 				</section>
 				<%} %>
-
 				<!-- Section -->
 				<section>
 					<header class="major">
@@ -329,11 +349,10 @@
 					<ul class="contact">
 						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
 						<li class="icon solid fa-phone">연락처</li>
-						<li class="icon solid fa-home">주소<br /> 상세주소
-						</li>
+						<li class="icon solid fa-home">주소<br />
+							상세주소</li>
 					</ul>
 				</section>
-
 				<!-- Footer -->
 				<footer id="footer">
 					<p class="copyright">
