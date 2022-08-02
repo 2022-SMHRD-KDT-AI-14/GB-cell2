@@ -109,7 +109,7 @@ public class BuyApplicantDAO {
 	
 	public BuyApplicant selectOnePar2(String id,int num) { 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		System.out.println("BuyApplicantDAO.selectOnePar2 진입했어");
+		//System.out.println("BuyApplicantDAO.selectOnePar2 진입했어");
 		BigDecimal board_seq =new BigDecimal(num);
 		BuyApplicant vo = new BuyApplicant(id, board_seq);
 		BuyApplicant result = null;

@@ -44,24 +44,26 @@ public class updateStateCon extends HttpServlet {
 		
 		
 		
-		if( loginMember.equals(writer) ) { //호출자가 작성자인 경우. 업데이트
-			 article_state = request.getParameter("article_state"); //
-		}else { //호출자가 작성자가 아닌 경우
-			article_state="모집중";
-			System.out.println("참여자가 호출했으니 인설트해야함");
-			//참여자 인설트하는         insertStateConF
-			String url = "insertStateCon"+cat_name;
-			RequestDispatcher rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);
-			
-			response.sendRedirect("insertStateCon"+cat_name);
-		}
-		
-		System.out.println("updateStateCon, 전>> "+article_state);
+//		if( loginMember.equals(writer) ) { //호출자가 작성자인 경우. 업데이트
+//			 article_state = request.getParameter("article_state"); //
+//		}else { //호출자가 작성자가 아닌 경우
+//			article_state="모집중";
+//			System.out.println("참여자가 호출했으니 인설트해야함");
+//			//참여자 인설트하는         insertStateConF
+//			String url = "insertStateCon"+cat_name;
+//			RequestDispatcher rd = request.getRequestDispatcher(url);
+//			rd.forward(request, response);
+//			
+//			response.sendRedirect("insertStateCon"+cat_name);
+//		}
+//		
+//		System.out.println("updateStateCon, 전>> "+article_state);
 	
 		
 		// case1 : 작성자가 거래결정시 >> 참석자전원 입금대기로 상태변화, 
-		if(article_state.equals("모집중") &(cat_name.equals("B"))) {
+//		if(article_state.equals("모집중") &(cat_name.equals("B"))) {  왜 카테고리 b제약을 주었지?
+		if(article_state.equals("모집중") ) { 
+		
 			ShareDAO dao = new ShareDAO();
 			ShareForUpdate vo= new ShareForUpdate(board_seq,"입금대기",cat_name);
 			int cnt = dao.updateState(vo);

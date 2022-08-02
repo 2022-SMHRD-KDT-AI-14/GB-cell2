@@ -32,6 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
+	
 	<select id="selectAllMyAlramList" resultType="com.smhrd.model.Share" parameterType="String">
 		select * from tbl_share where article_state='입금대기' and board_seq in
 		(select board_seq from tbl_payment where mem_id =#{loginMember} and pay_tf ='미입금')

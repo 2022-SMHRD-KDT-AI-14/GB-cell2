@@ -78,8 +78,8 @@
 
 <body data-spy="scroll" data-target=".navbar-collapse">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
-    $(window).load(function () {
+  <script> // 작성자의 거래결정 후 참석자의 미입금 상태
+    $(window).load(function () { 
     	$.ajax({
 		url : 'alramCon',
 		type: 'get',
@@ -96,6 +96,21 @@
     });
 </script>
 
+<!--   <script>
+    $(window).load(function () { //입금자 전원 입금시 상태변화 
+    	$.ajax({
+		url : 'checkPay',
+		type: 'get',
+		success : function(data){
+			location.href=data
+		},
+		error : function(){
+			alert("로그인 안함?")
+			location.href="tbl_login.jsp";
+		}
+		})
+    });
+</script> -->
 
 
 	<div class="culmn">
@@ -132,7 +147,7 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}?" ><button id="decision" onclick="decision()">거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}" ><button id="decision" onclick="decision()">거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
@@ -150,6 +165,11 @@
 															</c:otherwise>
 														</c:choose></td>
 												</tr>
+												
+												
+												
+												
+												
 											</c:forEach>
 										</table>
 									</c:if>

@@ -113,7 +113,7 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			result=sqlSession.selectOne("com.smhrd.model.ShareDAO.selectOne",board_seq); 
-			System.out.println("selectWriter, dao의 writer >> : "+result.getMem_id());
+			//System.out.println("selectWriter, dao의 writer >> : "+result.getMem_id());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
