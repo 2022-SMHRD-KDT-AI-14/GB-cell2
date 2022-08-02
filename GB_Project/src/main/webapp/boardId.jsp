@@ -27,20 +27,26 @@
 </head>
 <body>
 <h1>계정공유게시판</h1>
-<div class="container">
+<div>
 <a href="boardWrite.jsp"><button id="writeBtn">글작성</button></a>
 <table class="table">
-  <tr>
+  <!-- <tr>
       <th>글 제목</th>
       <th>작성자</th>
       <th>조회수</th>
-  </tr>
+  </tr> -->
   <c:forEach begin="0" end="10" step="1" varStatus="status">
-  <tr>
+  <%-- <tr>
 	  <td id="name${status.index}"></td>
 	  <td id="writer${status.index}"></td>
 	  <td id="views${status.index}"></td>
-  </tr>
+  </tr> --%>
+  
+  <p id="name${status.index}"></p>
+  <p id="writer${status.index}"></p>
+  <p id="views${status.index}"></p>
+	 
+  
   </c:forEach>
   <tr>
 	  <td colspan="3" id="controller"></td>

@@ -101,7 +101,9 @@ public class tbl_paymentDAO {
 		List<tbl_payment> list = null;
 
 		try {
+			System.out.println("tbl_paymentDAO.selectPaymentPar board_seq >>"+board_seq);
 			list = sqlSession.selectList("com.smhrd.model.tbl_paymentDAO.selectPaymentPar", board_seq);
+			System.out.println("tbl_paymentDAO.selectPaymentPar list size >>"+ list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

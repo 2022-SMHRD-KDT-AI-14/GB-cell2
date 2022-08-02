@@ -14,11 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert  id="insertFreeBoardMember" parameterType="com.smhrd.model.tbl_free_applicant">
-		insert into tbl_Free_applicant values (tbl_Free_applicant_seq.nextval,sysdate,#{MEM_ID},'모집중,'W','F',tbl_share_seq.currval)	
+		insert into tbl_Free_applicant values (tbl_Free_applicant_seq.nextval,sysdate,#{MEM_ID},'모집중','W','F',tbl_share_seq.currval)	
 	</insert>
-	
+
 	<insert  id="insertAccountBoardMember" parameterType="com.smhrd.model.tbl_account_applicant">
-		insert into tbl_Account_applicant values (tbl_Account_applicant_seq.nextval,#{MEM_ID},sysdate,'모집중,'W',#{ID_LINK},#{ID_TIME},#{ID_PAY},'I',tbl_share_seq.currval)	
+		insert into tbl_Account_applicant values (tbl_Account_applicant_seq.nextval,#{MEM_ID},sysdate,'모집중','W',#{ID_LINK},#{ID_TIME},#{ID_PAY},'I',tbl_share_seq.currval)	
 	</insert>
+
 
 </mapper>

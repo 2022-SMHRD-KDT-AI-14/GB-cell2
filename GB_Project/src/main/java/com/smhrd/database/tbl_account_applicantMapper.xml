@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.tbl_account_applicantDAO"> 
+
+
+
+<insert  id="insertAccountApplicant" parameterType="com.smhrd.model.tbl_account_applicant">
+	insert into tbl_account_applicant values (tbl_account_applicant_seq.nextval,#{MEM_ID},sysdate,#{ACCOUNT_P_STATE},#{ACCOUNT_C_STATE},#{ID_LINK},#{ID_TIME},#{ID_PAY},#{CAT_NAME},#{BOARD_SEQ})	
+</insert>
+
+	<select id="selectOnePar2" parameterType="com.smhrd.model.tbl_account_applicant" resultType="com.smhrd.model.tbl_account_applicant">
+		select * from tbl_account_applicant where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ} 
+	</select>
+
+</mapper>

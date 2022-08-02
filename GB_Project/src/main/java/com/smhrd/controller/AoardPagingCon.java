@@ -40,7 +40,7 @@ public class AoardPagingCon extends HttpServlet {
 		BigDecimal n = new BigDecimal("2");
 		for(tbl_share b: list) {
 			if(b.getCAT_NAME().equals("A")) {
-			json.addProperty("num",b.getBOARD_SEQ());
+			json.addProperty("num",b.getBOARD_SEQ().divide(n));
 			json.addProperty("name", b.getARTICLE_TITLE());
 			json.addProperty("writer", b.getMEM_ID());
 			json.addProperty("category", b.getCAT_NAME());

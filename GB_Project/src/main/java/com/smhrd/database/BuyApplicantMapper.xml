@@ -5,6 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.BuyApplicantDAO"> 
 
+	
+
 
 	<insert  id="insertBuyApplicant" parameterType="com.smhrd.model.BuyApplicant">
 		insert into tbl_buy_applicant values (tbl_buy_applicant_seq.nextval,#{mem_id},sysdate,#{buy_p_state},#{buy_c_state},#{buy_link},#{buy_pay},#{cat_name},#{board_seq})	
@@ -27,5 +29,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SET buy_p_state = #{buy_p_state}
 		WHERE board_seq = #{board_seq}
 	</update>
+	
+	
+	<select id="selectOnePar2" parameterType="com.smhrd.model.BuyApplicant" resultType="com.smhrd.model.BuyApplicant">
+		select * from tbl_buy_applicant where MEM_ID=#{mem_id} and BOARD_SEQ=#{board_seq} 
+	</select>
+				
+	<select id="selectOnePar3" parameterType="com.smhrd.model.BuyApplicant" resultType="com.smhrd.model.BuyApplicant">
+		select * from tbl_buy_applicant where MEM_ID=#{mem_id} and BOARD_SEQ=#{board_seq} and buy_c_state='P'
+	</select>
+
+	
 
 </mapper>

@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.tbl_applicantselectDAO"%>
+<%@page import="com.smhrd.model.tbl_applicantDAO"%>
+<%@page import="com.smhrd.model.tbl_applicantselect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 
@@ -48,20 +51,25 @@ p {
 <!-- 占쏙옙크占쏙옙틀占쏙옙 占싫억옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쌜억옙 占싹는곤옙占쏙옙..JSP占쏙옙占쏙옙 占싫울옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占승깍옙 占쏙옙. id占쏙옙 占쏙옙占쏙옙占쏙옙 -->
 <!-- JSTL占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占쏙옙占� var占쏙옙占쏙옙占쏙옙 value占쏙옙,占쏙옙占쏙옙占쌕곤옙EL표占쏙옙占쏙옙占쏙옙占� 占싣깍옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌍는댐옙 -->
 <!-- param.num url占쏙옙 占쌍댐옙 占식띰옙占쏙옙占쏙옙傷占쏙옙占� num占싱띰옙占� 占쏙옙占쏙옙 占쌀뤄옙占쏙옙占쌘댐옙.. 占쏙옙占썩서 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙 占싣니댐옙.EL占쏙옙 占쌀뤄옙占쏙옙占썩가占쏙옙 -->
+
+
+
+
+
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
-<c:set var="board" value="${BoardDAO.selectOne(param.num)}"/>
+<c:set var="board" value="${BoardDAO.selectOne(param.num*2)}"/>
 
 <jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num)}"/>
+<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num*2)}"/>
 
 <jsp:useBean id="WriteaccountDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num)}"/>
+<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num*2)}"/>
 
 <jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num)}"/>
+<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num*2)}"/>
 
 <jsp:useBean id="WritearbeitDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num)}"/>
+<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num*2)}"/>
 
 
 
@@ -70,7 +78,16 @@ p {
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
 
+<%
+int num = Integer.parseInt(request.getParameter("num"));
+int real_num = num*2;
+String MEM_ID = (String)session.getAttribute("loginMember");
+tbl_applicantselect vo = new tbl_applicantselect(MEM_ID,real_num);
+tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
+%>
 
+
+<c:out value="${loginMember}님 맞죠?"/>
 
 
 	<form>
@@ -78,6 +95,7 @@ p {
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 			<p>제목 : ${board.ARTICLE_TITLE}</p>
 			<p>작성자 : ${board.MEM_ID}</p>
+		
 			<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
 		</div>
 
@@ -114,21 +132,6 @@ p {
 				</c:choose>
 			</div>
 				
-				<%-- <img src="img/${BoardDAO.selectOne(param.num).filename}"> --%>
-				<%-- <ul class="list-group list-group-flush">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
-					<li class="list-group-item"><textarea class="form-control"
-							id="exampleFormControlTextarea1" rows="3"></textarea>
-						<button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button></li>
-				</ul>
-				<ul class="list-group list-group-flush" id="reply">
-					<!-- 占쏙옙占썩를 占쌜쇽옙占쌔억옙 占쏙옙占싸곤옙침占쌔듸옙 占쌓댐옙占� 占쏙옙占쏙옙占쏙옙占쏙옙 -->
-					<c:forEach items="${replyList}" var = "reply">
-					<li class="list-group-item"><span>${reply.content}/${reply.writer}</span></li>
-					</c:forEach>
-					
-		
-				</ul> --%>
 			</div>
 			
 		
@@ -152,15 +155,65 @@ p {
 	
 	
 	<!-- 참여버튼 클릭시 DB저장 -->
-	<a href="updateStateCon?board_seq=${board.BOARD_SEQ}&article_state=모집중&cat_name=${board.CAT_NAME}">
-	<div style="text-align: right;">
-	<button style=""><h4>참여결정</h4></button>
 	
+	<h1>여기 카테고리는 ${board.CAT_NAME}, 작성자가 아닌자만 참여버튼 나온다! </h1>
+
+	<c:if test="${loginMember != board.MEM_ID}">
+		<c:if test="${board.CAT_NAME=='B'}">
+		<%if(dao.selectB(vo)!=null){%>
+			<%}else{%>
+			<a href="insertStateConB?
+			board_seq=${board.BOARD_SEQ}&
+			buy_link=${boardbuy.BUY_LINK}&
+			buy_pay=${boardbuy.BUY_PAY}&
+			cat_name=B">
+			<button style="" onclick="B()"><h4>참여결정</h4></button></a>
+			<%} %>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='A'}">
+		<%if(dao.selectA(vo)!=null){%>
+			<%}else{%>
+			<a href="insertStateConA?
+			board_seq=${board.BOARD_SEQ}&
+			arb_time=${boardarbeit.ARBEIT_TIME}&
+			arb_site=${boardarbeit.ARBEIT_SITE}&
+			arb_pay=${boardarbeit.ARBEIT_PAY}&
+			cat_name=A">
+			<button style="" onclick="A()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='I'}">
+		<%if(dao.selectI(vo)!=null){%>
+			<%}else{%>
+			<a href="insertStateConI?
+			board_seq=${board.BOARD_SEQ}&
+			acc_link=${boardaccount.ID_LINK}&
+			acc_time=${boardaccount.ID_TIME}&
+			acc_pay=${boardaccount.ID_PAY}&
+			cat_name=I">
+			<button style="" onclick="I()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='F'}">
+		<%if(dao.selectF(vo)!=null){%>	
+			<%}else{%>
+			<a href="insertStateConF?
+			board_seq=${board.BOARD_SEQ}&
+			cat_name=F">
+			<button style="" onclick="F()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
+		</c:if>
+	</c:if>
 	
+
+
+<script>
+
+</script>
 	
-	
-	</div>
-	</a>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -190,6 +243,22 @@ p {
 			})
 		
 		
+		}
+		
+		function B() {
+			alert("참석완료!")
+		}
+		
+		function I() {
+			alert("참석완료!")
+		}
+		
+		function A() {
+			alert("참석완료!")
+		}
+		
+		function F() {
+			alert("참석완료!")
 		}
 	</script>	
 	

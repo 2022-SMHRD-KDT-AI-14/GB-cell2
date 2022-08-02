@@ -51,24 +51,34 @@ p {
 <c:set var="board" value="${BoardDAO.selectOne(param.board_seq)}"/>
 
 <jsp:useBean id="BuyApplicantDAO" class="com.smhrd.model.BuyApplicantDAO"/>
-<c:set var="buyer" value="${BuyApplicantDAO.selectOnePar(loginMember,param.board_seq)}"/>
+<c:set var="buyer2" value="${BuyApplicantDAO.selectOnePar2(loginMember,param.board_seq)}"/>
+
+<jsp:useBean id="tbl_arbeit_applicantDAO" class="com.smhrd.model.tbl_arbeit_applicantDAO"/>
+<c:set var="arbeit2" value="${tbl_arbeit_applicantDAO.selectOnePar2(loginMember,param.board_seq)}"/>
+
+<jsp:useBean id="tbl_account_applicantDAO" class="com.smhrd.model.tbl_account_applicantDAO"/>
+<c:set var="account2" value="${tbl_account_applicantDAO.selectOnePar2(loginMember,param.board_seq)}"/>
+
 <c:set var="buyerCNT" value="${BuyApplicantDAO.SelectBuyApplicantCNT(param.board_seq)}"/>
 
 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
-<%-- <c:set var="paymentResult" value="${tbl_paymentDAO.selectPayment2(loginMember,param.board_seq)}"/> --%>
 <c:set var="payment" value="${tbl_paymentDAO.selectPayment2(loginMember,param.board_seq)}"/>
 <c:set var="paymentPar" value="${tbl_paymentDAO.selectPaymentPar(param.board_seq)}"/>
 <c:set var="paymentTFcnt" value="${tbl_paymentDAO.selectPaymentTFcnt(param.board_seq)}"/>
 
 
-										
-	
+			<div>							
+	<%-- 
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-			<h1>결제상태: ${buyer.buy_p_state} , <a href=#>해당글 보러가기</a></h1>
-			<p>글제목: ${board.ARTICLE_TITLE}		<br>		작성자: ${board.MEM_ID}		|		작성일 : ${board.ARTICLE_DATE}</p>
-			<p>구매가격: ${buyer.buy_pay} 원</p>
-			<%-- <p>나의 입금여부 : <c:out value="${paymentResult.PAY_TF}"/></p> --%>
-			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
+			<p>글제목(카테고리): ${ board.ARTICLE_TITLE } (${board.CAT_NAME })<br>		작성자: ${board.MEM_ID}		|		작성일 : ${board.ARTICLE_DATE}</p>
+			
+		 --%>	
+			
+			<c:choose>
+ 			<c:when test ="${board.CAT_NAME =='B'}">
+			<h1>결제상태: ${buyer2.buy_p_state} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
+			<p>구매가격: ${buyer2.buy_pay} 원</p>
+			<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 			<p><table>
 			<tr>
 								<th><h1><c:out value="아이디"/>ㅤ </h1></th>
@@ -81,22 +91,90 @@ p {
 								<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
 								<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
 								<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
-								 <td><h3><c:out value="${buyer.buy_pay/buyerCNT} 원"/>	</h3></td>	
+								 <td><h3><c:out value="${buyer2.buy_pay/buyerCNT} 원"/>	</h3></td>	
 								 
-								<%-- <c:if test ="${loginMember == m.MEM_ID and s.article_state =='입금대기'}"> --%>
-								<c:if test ="${loginMember == m.MEM_ID}"> //입금여부 미입금 
+								<c:if test ="${loginMember == m.MEM_ID}"> 
 								
 								<td>	
-								<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+								<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																
 								</td>
 								</c:if>
 							</tr>
 			</c:forEach>
 			</table>
 			<p>
-			<p>입금률 : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p>
+			<p>입금률 : <c:out value=" ${paymentTFcnt}/${paymentPar.size()} = " /><c:out value="${(paymentTFcnt/paymentPar.size())*100}"/>%</p>
+			</c:when> 
+		
+			<c:when test ="${board.CAT_NAME =='A'}">
+			<h1>결제상태ㅋㅋㅋㅋㅋㅋ: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
+			<p>알바수당: ${arbeit2.ARBEIT_PAY} 원</p>
+			<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
+			<p><table>
+			<tr>
+								<th><h1><c:out value="아이디"/>ㅤ </h1></th>
+								<th><h1><c:out value="입금여부"/>ㅤ </h1></th>
+								<th><h1><c:out value="입금현황"/>ㅤ </h1></th>
+								<th><h1><c:out value="1/n 금액"/>ㅤ </h1></th>
+			</tr>
+			<c:forEach items="${paymentPar}" var="m">
+							<tr>
+								<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
+								<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
+								<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
+								 <td><h3><c:out value="${arbeit2.ARBEIT_PAY/paymentPar.size()} 원"/>	</h3></td>	
+								 
+								<c:if test ="${loginMember == m.MEM_ID}">
+								
+								<td>	
+								<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																
+								</td>
+								</c:if>
+							</tr>
+			</c:forEach></table>
+			<p>
+			<p>입금률 : <c:out value=" ${paymentTFcnt}/${paymentPar.size()} = " /><c:out value="${(paymentTFcnt/paymentPar.size())*100}"/>%</p>
+			<%-- <p>입금률 : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p> --%>
+			</c:when> 
+		<c:when test ="${board.CAT_NAME =='I'}">
+			<h1>결제상태: ${account2.ACCOUNT_P_STATE} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
+			<p>구매가격: ${account2.ID_PAY} 원</p>
+			<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
+			<p><table>
+			<tr>
+								<th><h1><c:out value="아이디"/>ㅤ </h1></th>
+								<th><h1><c:out value="입금여부"/>ㅤ </h1></th>
+								<th><h1><c:out value="입금현황"/>ㅤ </h1></th>
+								<th><h1><c:out value="1/n 금액"/>ㅤ </h1></th>
+			</tr>
+			<c:forEach items="${paymentPar}" var="m">
+							<tr>
+								<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
+								<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
+								<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
+								 <td><h3><c:out value="${account2.ID_PAY/paymentPar.size()} 원"/>	</h3></td>	
+								 
+								<c:if test ="${loginMember == m.MEM_ID}"> //입금여부 미입금 
+								
+								<td>	
+								<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																
+								</td>
+								</c:if>
+							</tr>
+			</c:forEach>
+			</table>
+			<p>
+			
+			<p>입금률 : <c:out value=" ${paymentTFcnt}/${paymentPar.size()} = " /><c:out value="${(paymentTFcnt/paymentPar.size())*100}"/>%</p>
+		</c:when>
+		<c:otherwise>
+			<h1> 모집상태: ${buyer2.buy_p_state} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
+		</c:otherwise>
+		</c:choose>
 		</div>
-	
 	
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

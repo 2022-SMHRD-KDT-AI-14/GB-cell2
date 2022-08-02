@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Getter
 @AllArgsConstructor
 public class BuyApplicant {
@@ -27,6 +26,12 @@ public class BuyApplicant {
 	private String buy_link;
 	@NonNull
 	private BigDecimal buy_pay;
+	@NonNull
+	private String cat_name;
+	@NonNull
+	private BigDecimal board_seq;
+
+	
 	public BuyApplicant(@NonNull String mem_id, @NonNull BigDecimal board_seq) {
 		super();
 		this.mem_id = mem_id;
@@ -37,9 +42,19 @@ public class BuyApplicant {
 		this.buy_p_state = buy_p_state;
 		this.board_seq = board_seq;
 	}
-	@NonNull
-	private String cat_name;
-	@NonNull
-	private BigDecimal board_seq;
+	public BuyApplicant(@NonNull String mem_id, @NonNull String buy_p_state, @NonNull String buy_c_state,
+			@NonNull String buy_link, @NonNull BigDecimal buy_pay, @NonNull String cat_name,
+			@NonNull BigDecimal board_seq) {
+		super();
+		this.mem_id = mem_id;
+		this.buy_p_state = buy_p_state;
+		this.buy_c_state = buy_c_state;
+		this.buy_link = buy_link;
+		this.buy_pay = buy_pay;
+		this.cat_name = cat_name;
+		this.board_seq = board_seq;
+	}
+	
+	
 	
 }

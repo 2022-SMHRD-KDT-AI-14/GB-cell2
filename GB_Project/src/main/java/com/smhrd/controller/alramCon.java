@@ -37,16 +37,13 @@ public class alramCon extends HttpServlet {
 		PrintWriter out = response.getWriter(); // 서버와 클라이언트 연결해주는통로
 		if (list.size() > 0) { 
 			for (Share s : list) {
-				// cnt= new
-				// BuyApplicantDAO().SelectBuyApplicantCNT(s.getBoard_seq().intValue());
-				if(!(s.getMem_id().equals(loginMember) & s.getArticle_state().equals("모집중"))) {
-					
+				//if(!(s.getMem_id().equals(loginMember) & s.getArticle_state().equals("모집중"))) {
+				//}
 					out.println("\n"+ s.getMem_id()+"님의 "+ s.getBoard_seq() + "번글 거래결정!!\n입금해주세요😊");
-				}
 			}
 		} else { // 댓글작성실패 동기방식: 다른페이지로 이동/비동기통신: 원래페이지의 일부분만 변경
 			// out.print("fail");
-			System.out.println("리스트없음");
+			System.out.println("alramCon, 입금알람 받을 리스트없음");
 		}
 	}
 

@@ -23,8 +23,8 @@ public class Share {
  private String  mem_id;
  private Timestamp article_date;
  private String  article_file;
- private String  article_link;
- private String  del_YN;
+ private String  article_link; //사장화됨,, 문자열 "0"
+ private String  del_YN;  //대문자로 Y/N
  private String  article_state;
  private String  cat_name;
 }

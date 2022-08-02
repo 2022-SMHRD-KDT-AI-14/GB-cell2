@@ -3,325 +3,497 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
   <servlet>
   	<servlet-name>ReplyCon</servlet-name>
   	<display-name>ReplyCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ReplyCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>boardPagingCon</servlet-name>
   	<display-name>boardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.boardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>test_JoinCon</servlet-name>
   	<display-name>test_JoinCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.test_JoinCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>test_idCheckCon</servlet-name>
   	<display-name>test_idCheckCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.test_idCheckCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>test</servlet-name>
   	<display-name>test</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.test</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>test_loginCon</servlet-name>
   	<display-name>test_loginCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.test_loginCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>BoardWC</servlet-name>
   	<display-name>BoardWC</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.BoardWC</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>AboardPagingCon</servlet-name>
   	<display-name>AboardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.AboardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>FboardPagingCon</servlet-name>
   	<display-name>FboardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.FboardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>IboardPagingCon</servlet-name>
   	<display-name>IboardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.IboardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>BboardPagingCon</servlet-name>
   	<display-name>BboardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.BboardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>AoardPagingCon</servlet-name>
   	<display-name>AoardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.AoardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>FoardPagingCon</servlet-name>
   	<display-name>FoardPagingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.FoardPagingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>logoutCon</servlet-name>
   	<display-name>logoutCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.logoutCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>TestCon</servlet-name>
   	<display-name>TestCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.TestCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>participateCon</servlet-name>
   	<display-name>participateCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.participateCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>test_participateCon</servlet-name>
   	<display-name>test_participateCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.test_participateCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>participatentCnt</servlet-name>
   	<display-name>participatentCnt</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.participatentCnt</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>buyApplicantCNT</servlet-name>
   	<display-name>buyApplicantCNT</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.buyApplicantCNT</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>updateStateCon</servlet-name>
   	<display-name>updateStateCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.updateStateCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>MyPageMemareaUpdate</servlet-name>
   	<display-name>MyPageMemareaUpdate</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPageMemareaUpdate</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>MyPageMemareaInput</servlet-name>
   	<display-name>MyPageMemareaInput</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPageMemareaInput</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>MyPage</servlet-name>
   	<display-name>MyPage</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPage</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>MyPageCon</servlet-name>
   	<display-name>MyPageCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.MyPageCon</servlet-class>
  </servlet>
+ 
   <servlet>
   	<servlet-name>ChattingCon</servlet-name>
   	<display-name>ChattingCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ChattingCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>deleteCon</servlet-name>
   	<display-name>deleteCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.deleteCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>shareDeleteCon</servlet-name>
   	<display-name>shareDeleteCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.shareDeleteCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>addPaymentCon</servlet-name>
   	<display-name>addPaymentCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.addPaymentCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>paymentCon</servlet-name>
   	<display-name>paymentCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.paymentCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>alramCon</servlet-name>
   	<display-name>alramCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.alramCon</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>updateState2</servlet-name>
   	<display-name>updateState2</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.updateState2</servlet-class>
   </servlet>
+<<<<<<< HEAD
   <servlet>
   	<servlet-name>myPagePWCon</servlet-name>
   	<display-name>myPagePWCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.myPagePWCon</servlet-class>
   </servlet>
+=======
+  
+
+
+
+
+  <servlet>
+  	<servlet-name>coordinateCon</servlet-name>
+  	<display-name>coordinateCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.coordinateCon</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>tbl_coordinateCon</servlet-name>
+  	<display-name>tbl_coordinateCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.tbl_coordinateCon</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>test_BoardWriteCon</servlet-name>
+  	<display-name>test_BoardWriteCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.test_BoardWriteCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConA</servlet-name>
+  	<display-name>insertStateConA</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConA</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConB</servlet-name>
+  	<display-name>insertStateConB</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConB</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConF</servlet-name>
+  	<display-name>insertStateConF</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConF</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConI</servlet-name>
+  	<display-name>insertStateConI</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConI</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertStateConI2</servlet-name>
+  	<display-name>insertStateConI2</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertStateConI2</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertConStateI3</servlet-name>
+  	<display-name>insertConStateI3</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertConStateI3</servlet-class>
+  </servlet>
+  
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
   <servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>boardPagingCon</servlet-name>
   	<url-pattern>/boardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>test_JoinCon</servlet-name>
   	<url-pattern>/test_JoinCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>test_idCheckCon</servlet-name>
   	<url-pattern>/test_idCheckCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>test</servlet-name>
   	<url-pattern>/test</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>test_loginCon</servlet-name>
   	<url-pattern>/test_loginCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>BoardWC</servlet-name>
   	<url-pattern>/BoardWC</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>AboardPagingCon</servlet-name>
   	<url-pattern>/AboardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>FboardPagingCon</servlet-name>
   	<url-pattern>/FboardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>IboardPagingCon</servlet-name>
   	<url-pattern>/IboardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>BboardPagingCon</servlet-name>
   	<url-pattern>/BboardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>AoardPagingCon</servlet-name>
   	<url-pattern>/AoardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>FoardPagingCon</servlet-name>
   	<url-pattern>/FoardPagingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>logoutCon</servlet-name>
   	<url-pattern>/logoutCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>TestCon</servlet-name>
   	<url-pattern>/TestCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>participateCon</servlet-name>
   	<url-pattern>/participateCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>test_participateCon</servlet-name>
   	<url-pattern>/test_participateCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>participatentCnt</servlet-name>
   	<url-pattern>/participatentCnt</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>buyApplicantCNT</servlet-name>
   	<url-pattern>/buyApplicantCNT</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>updateStateCon</servlet-name>
   	<url-pattern>/updateStateCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>MyPageMemareaUpdate</servlet-name>
   	<url-pattern>/MyPageMemareaUpdate</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>MyPageMemareaInput</servlet-name>
   	<url-pattern>/MyPageMemareaInput</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>MyPage</servlet-name>
   	<url-pattern>/MyPage</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>MyPageCon</servlet-name>
   	<url-pattern>/MyPageCon</url-pattern>
+  	  </servlet-mapping>
+  	
+    <servlet-mapping>	
   	<servlet-name>ChattingCon</servlet-name>
   	<url-pattern>/ChattingCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>deleteCon</servlet-name>
   	<url-pattern>/deleteCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>shareDeleteCon</servlet-name>
   	<url-pattern>/shareDeleteCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>addPaymentCon</servlet-name>
   	<url-pattern>/addPaymentCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>paymentCon</servlet-name>
   	<url-pattern>/paymentCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>alramCon</servlet-name>
   	<url-pattern>/alramCon</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>updateState2</servlet-name>
   	<url-pattern>/updateState2</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
   <servlet-mapping>
   	<servlet-name>myPagePWCon</servlet-name>
   	<url-pattern>/myPagePWCon</url-pattern>
   </servlet-mapping>
+=======
+ 
+
+  <servlet-mapping>
+  	<servlet-name>coordinateCon</servlet-name>
+  	<url-pattern>/coordinateCon</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>tbl_coordinateCon</servlet-name>
+  	<url-pattern>/tbl_coordinateCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>test_BoardWriteCon</servlet-name>
+  	<url-pattern>/test_BoardWriteCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConA</servlet-name>
+  	<url-pattern>/insertStateConA</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConB</servlet-name>
+  	<url-pattern>/insertStateConB</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConF</servlet-name>
+  	<url-pattern>/insertStateConF</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConI</servlet-name>
+  	<url-pattern>/insertStateConI</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertStateConI2</servlet-name>
+  	<url-pattern>/insertStateConI2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertConStateI3</servlet-name>
+  	<url-pattern>/insertConStateI3</url-pattern>
+  </servlet-mapping>
+  
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 	<session-config>
 	<session-timeout>30</session-timeout>
 	</session-config>
+
 </web-app>

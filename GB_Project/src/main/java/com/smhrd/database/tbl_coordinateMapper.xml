@@ -5,9 +5,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.tbl_coordinateDAO"> 
 
-<insert  id="insertcoordinate" parameterType="com.smhrd.model.tbl_coordinate">
-		insert into tbl_coordinate values (#{MEM_ID},#{MEM_LATITUDE},#{MEM_LONGITUDE})	
+	<insert  id="insertcoordinate" parameterType="String">
+		insert into tbl_coordinate values (#{id},126,35)	
 	</insert>
 	
-
+	<update  id="updatecoordinate" parameterType="com.smhrd.model.tbl_coordinate">
+		update tbl_coordinate set MEM_LATITUDE = #{MEM_LATITUDE}, MEM_LONGITUDE = #{MEM_LONGITUDE} where MEM_ID = #{MEM_ID}	
+	</update>
+	
+	
+	
+	<select id="selectAllList" resultType="com.smhrd.model.tbl_coordinate">
+      	select * from tbl_coordinate 
+    </select>
+	
+	
+	<select id="selectOneme" parameterType="String" resultType="com.smhrd.model.tbl_coordinate">
+		select * from tbl_coordinate where MEM_ID = #{id}
+	</select>
+	
+	<select id="selectListshare" parameterType="String" resultType="com.smhrd.model.tbl_share">
+		select * from tbl_share where MEM_ID =#{MEM_ID}
+	</select>
+	
 </mapper>
