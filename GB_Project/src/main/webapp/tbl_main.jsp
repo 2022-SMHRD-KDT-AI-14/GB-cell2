@@ -230,7 +230,7 @@
 							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
 							
 							int cnt = 0;
-							if(tbl_coordinate.size()>0){
+							
 						for(int i = 0 ; i<tbl_coordinate.size();i++){
 							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
 							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
@@ -308,11 +308,11 @@
 							<%} %>
 						</article>
 						<article>
-						<%if(list2.size()>0) {%>
+						<%if(list3.size()>0) {%>
 							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
-							<%} }%>
+							<%} %>
 						</article>
 					</div>
 					<ul class="actions">

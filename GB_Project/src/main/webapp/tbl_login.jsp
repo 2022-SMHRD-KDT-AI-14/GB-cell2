@@ -206,7 +206,7 @@
 							<%} %>
 						</article>
 						<article>
-						<%if(list2.size()>0) {%>
+						<%if(list3.size()>0) {%>
 							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
