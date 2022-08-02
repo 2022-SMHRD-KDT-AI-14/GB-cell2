@@ -321,17 +321,31 @@
 							}
 							}
 						}
+						int num1 = 0;
+						int num2 = 0;
+						int num3 = 0;
+						int num11 = 0;
+						int num22 = 0;
+						int num33 = 0;
+						
 						  Random r = new Random();
-						  int num1 = r.nextInt(id.size());
-						  int num2 = r.nextInt(id.size());
-						  int num3 = r.nextInt(id.size());
+						  if(id.size()>0){
+						  num1 = r.nextInt(id.size());
+						  num2 = r.nextInt(id.size());
+						  num3 = r.nextInt(id.size());
+						  }
 						  List<tbl_share> list1 = dao.selectListshare(id.get(num1));
 						  List<tbl_share> list2 = dao.selectListshare(id.get(num2));
 						  List<tbl_share> list3 = dao.selectListshare(id.get(num3));
-						  int num11 = r.nextInt(list1.size());
-						  int num22 = r.nextInt(list2.size());
-						  int num33 = r.nextInt(list3.size());
-						
+						  if(list1.size()>0){
+						  num11 = r.nextInt(list1.size());
+						  }
+						  if(list2.size()>0){
+						  num22 = r.nextInt(list2.size());
+						  }
+						  if(list3.size()>0){
+						 num33 = r.nextInt(list3.size());
+						  }
 						  
 						  int a = list1.get(num11).getBOARD_SEQ().intValue();
 						  int b = list2.get(num22).getBOARD_SEQ().intValue();
