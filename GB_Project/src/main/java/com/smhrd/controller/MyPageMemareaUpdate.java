@@ -51,7 +51,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 			System.out.println("희망배송지 저장 실패");
 	}
 
-		response.sendRedirect("tbl_main.jsp");
+		
 
 		
 		if(cnt2>0) {//주소 저장 성공
@@ -62,7 +62,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 			System.out.println("희망배송지 위도경도 저장 실패");
 	}
 		
-		response.sendRedirect("myPage.jsp");
+		response.sendRedirect("tbl_main.jsp");
 
 
 	}

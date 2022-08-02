@@ -15,8 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
-	<select id="selectyou" resultType="com.smhrd.model.tbl_coordinate">
-      	select * from tbl_coordinate
+	<select id="selectAllList" resultType="com.smhrd.model.tbl_coordinate">
+      	select * from tbl_coordinate 
     </select>
 	
 	
