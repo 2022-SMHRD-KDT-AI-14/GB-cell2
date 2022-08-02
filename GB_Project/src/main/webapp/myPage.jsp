@@ -61,36 +61,36 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td>아이디 :</td>
-						<td>${MyPageList.MEM_ID}</td>
+						<td>아이디 :${MyPageList.MEM_ID}</td>
+						
 					</tr>
 					<tr>
-						<td>비밀번호 :</td>
-						<td>${MyPageList.MEM_PW}</td>
+						<td>비밀번호 :${MyPageList.MEM_PW}</td>
+						
 					</tr>
 					<tr>
-						<td>닉네임 :</td>
-						<td>${MyPageList.MEM_NICK}</td>
+						<td>닉네임 :${MyPageList.MEM_NICK}</td>
+						
 					</tr>
 					<tr>
-						<td>이름 :</td>
-						<td>${MyPageList.MEM_NAME}</td>
+						<td>이름 :${MyPageList.MEM_NAME}</td>
+						
 					</tr>
 					<tr>
-						<td>핸드폰번호 :</td>
-						<td>${MyPageList.MEM_PHONE}</td>
+						<td>핸드폰번호 :${MyPageList.MEM_PHONE}</td>
+						
 					</tr>
 					<tr>
-						<td>계좌번호 :</td>
-						<td>${MyPageList.MEM_BANK_NUM}</td>
+						<td>계좌번호 :${MyPageList.MEM_BANK_NUM}</td>
+						
 					</tr>
 					<tr>
 						<td>주민번호 : ${MyPageList.MEM_JUMIN}</td>
-						<td>${MyPageList.MEM_JUMIN}</td>
+						
 					</tr>
 					<tr>
-						<td>회원온도 :</td>
-						<td>${MyPageList.MEM_TEMPER}</td>
+						<td>회원온도 :${MyPageList.MEM_TEMPER}</td>
+						
 					</tr>
 					<c:choose>
 						<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
@@ -98,7 +98,7 @@
 						</c:when>
 
 						<c:otherwise>
-							<td>희망배송지역 : ${MEM_AREA}</td>
+							<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
 						</c:otherwise>
 					</c:choose>
 					</tr>
@@ -131,13 +131,16 @@
 								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
 								수정</button>
 							<a href="tbl_main.jsp" class="button">되돌아가기</a>
+							<a href="tbl_coordinateCon">추천게시글</a>
 						</div>
+						
+					
 					</c:otherwise>
 				</c:choose>
 				</nav>
 			</div>
 		</div>
-<a href="tbl_coordinateCon">추천게시글</a>
+
 		<!-- Sidebar -->
 		<div id="sidebar" class="inactive">
 			<div class="inner">

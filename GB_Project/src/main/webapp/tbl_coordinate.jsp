@@ -47,6 +47,7 @@ for(int i = 0 ; i<tbl_coordinate.size();i++){
  작성자 : <%=list.get(i).getMEM_ID() %><br>
  제목 : <%=list.get(i).getARTICLE_TITLE() %><br>
  종류 : <%=list.get(i).getCAT_NAME() %><br>
+ <br>
 	<%} %>
 </body>
 </html>
