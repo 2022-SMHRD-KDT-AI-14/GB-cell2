@@ -29,11 +29,11 @@ public class tbl_coordinateCon extends HttpServlet {
 		System.out.println(selectme.getMEM_ID());
 		System.out.println(selectme.getMEM_LATITUDE());
 		
-		List<tbl_coordinate> tbl_coordinate = dao.selectyou();
+		List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
 	
-	
+	System.out.println(tbl_coordinate.get(0).getMEM_ID());
 		
-		response.sendRedirect("tbl_coordinate.jsp?MEM_ID=REAL_ID");
+		response.sendRedirect("tbl_coordinate.jsp");
 		
 	}
 

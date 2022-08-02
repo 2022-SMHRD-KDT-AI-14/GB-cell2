@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -32,6 +34,7 @@ public class tbl_coordinateDAO {
 	
 	public int updatecoordinate(tbl_coordinate vo){
 		int cnt = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			// 실행
 			cnt = sqlSession.update("com.smhrd.model.tbl_coordinateDAO.updatecoordinate", vo);
@@ -52,10 +55,11 @@ public class tbl_coordinateDAO {
 	
 	
 	
-	public List<tbl_coordinate> selectyou() {
-		List<tbl_coordinate> list = null;
+	public List<tbl_coordinate> selectAllList() {
+		List<tbl_coordinate> list =null;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			list = sqlSession.selectList("com.smhrd.model.tbl_coordinateDAO.selectyou");
+			list = sqlSession.selectList("com.smhrd.model.tbl_coordinateDAO.selectAllList");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -64,9 +68,10 @@ public class tbl_coordinateDAO {
 		return list;
 	}
 	
+
 	public tbl_coordinate selectme(String MEM_ID) {
 		tbl_coordinate vo= null;
-	
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 	try {
 		vo= sqlSession.selectOne("com.smhrd.model.tbl_coordinateDAO.selectme",MEM_ID);
 		// select - commit/rollback 생략
@@ -81,6 +86,7 @@ public class tbl_coordinateDAO {
 	
 	public List<tbl_share> selectlistshare(String MEM_ID) {
 		List<tbl_share> vo= null;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	try {
 		vo= sqlSession.selectList("com.smhrd.model.tbl_coordinateDAO.selectlistshare",MEM_ID);
