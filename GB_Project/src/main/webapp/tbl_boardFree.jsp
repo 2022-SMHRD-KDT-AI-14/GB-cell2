@@ -209,54 +209,19 @@
 							<br>
 						</article>
 						<div class="posts">
-							<article>
-								<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
+							<table class="table">
+							<c:forEach begin="0" end="9" step="1" varStatus="status">
+								<article>
+									<a href="#" class="image"><img src="images/pic01.jpg"
+										alt="" /></a>
+									<p id="name${status.index}"></p>
+									<p id="writer${status.index}"></p>
+									<div style="text-align: right;">
+										<button>공유참여</button>
+									</div>
+								</article>
+							</c:forEach>
+						</table>
 						</div>
 					</section>
 					<!-- Section -->
@@ -391,12 +356,14 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script>
+	<script type="text/javascript">
 		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
@@ -449,6 +416,7 @@
 			dots[n].className += " active";
 		}
 		
+		//게시물요청
 		next_list(1,1);
 
 		var arr=null;
@@ -587,8 +555,6 @@
 				$('#views'+i).text(data_list[i].views);
 			}
 		}
-		
-		
 	</script>
 
 </body>
