@@ -21,4 +21,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into tbl_Account_applicant values (tbl_Account_applicant_seq.nextval,#{MEM_ID},sysdate,'모집중','W',#{ID_LINK},#{ID_TIME},#{ID_PAY},'I',tbl_share_seq.currval)	
 	</insert>
 
+
 </mapper>

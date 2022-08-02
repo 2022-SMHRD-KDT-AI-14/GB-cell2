@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.tbl_applicantselectDAO"%>
+<%@page import="com.smhrd.model.tbl_applicantDAO"%>
+<%@page import="com.smhrd.model.tbl_applicantselect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 
@@ -50,6 +53,9 @@ p {
 <!-- param.num url占쏙옙 占쌍댐옙 占식띰옙占쏙옙占쏙옙傷占쏙옙占� num占싱띰옙占� 占쏙옙占쏙옙 占쌀뤄옙占쏙옙占쌘댐옙.. 占쏙옙占썩서 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙 占싣니댐옙.EL占쏙옙 占쌀뤄옙占쏙옙占썩가占쏙옙 -->
 
 
+
+
+
 <jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
 <c:set var="board" value="${BoardDAO.selectOne(param.num*2)}"/>
 
@@ -71,6 +77,14 @@ p {
 <%--<jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean> --%>
 <%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
 <body>
+
+<%
+int num = Integer.parseInt(request.getParameter("num"));
+int real_num = num*2;
+String MEM_ID = (String)session.getAttribute("loginMember");
+tbl_applicantselect vo = new tbl_applicantselect(MEM_ID,real_num);
+tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
+%>
 
 
 <c:out value="${loginMember}님 맞죠?"/>
@@ -143,38 +157,54 @@ p {
 	<!-- 참여버튼 클릭시 DB저장 -->
 	
 	<h1>여기 카테고리는 ${board.CAT_NAME}, 작성자가 아닌자만 참여버튼 나온다! </h1>
+
 	<c:if test="${loginMember != board.MEM_ID}">
 		<c:if test="${board.CAT_NAME=='B'}">
+		<%if(dao.selectB(vo)!=null){%>
+			<%}else{%>
 			<a href="insertStateConB?
 			board_seq=${board.BOARD_SEQ}&
 			buy_link=${boardbuy.BUY_LINK}&
 			buy_pay=${boardbuy.BUY_PAY}&
 			cat_name=B">
-			<button style=""><h4>참여결정</h4></button></a>
+			<button style="" onclick="B()"><h4>참여결정</h4></button></a>
+			<%} %>
 		</c:if>
 		<c:if test="${board.CAT_NAME=='A'}">
+		<%if(dao.selectA(vo)!=null){%>
+			<%}else{%>
 			<a href="insertStateConA?
 			board_seq=${board.BOARD_SEQ}&
 			arb_time=${boardarbeit.ARBEIT_TIME}&
 			arb_site=${boardarbeit.ARBEIT_SITE}&
 			arb_pay=${boardarbeit.ARBEIT_PAY}&
 			cat_name=A">
-			<button style=""><h4>참여결정</h4></button></a>
+			<button style="" onclick="A()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
 		</c:if>
 		<c:if test="${board.CAT_NAME=='I'}">
+		<%if(dao.selectI(vo)!=null){%>
+			<%}else{%>
 			<a href="insertStateConI?
 			board_seq=${board.BOARD_SEQ}&
 			acc_link=${boardaccount.ID_LINK}&
 			acc_time=${boardaccount.ID_TIME}&
 			acc_pay=${boardaccount.ID_PAY}&
 			cat_name=I">
-			<button style=""><h4>참여결정</h4></button></a>
+			<button style="" onclick="I()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
 		</c:if>
-		<c:if test="${board.CAT_NAME=='F'}">	
+		<c:if test="${board.CAT_NAME=='F'}">
+		<%if(dao.selectF(vo)!=null){%>	
+			<%}else{%>
 			<a href="insertStateConF?
 			board_seq=${board.BOARD_SEQ}&
 			cat_name=F">
-			<button style=""><h4>참여결정</h4></button></a>
+			<button style="" onclick="F()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
 		</c:if>
 	</c:if>
 	
@@ -213,6 +243,22 @@ p {
 			})
 		
 		
+		}
+		
+		function B() {
+			alert("참석완료!")
+		}
+		
+		function I() {
+			alert("참석완료!")
+		}
+		
+		function A() {
+			alert("참석완료!")
+		}
+		
+		function F() {
+			alert("참석완료!")
 		}
 	</script>	
 	

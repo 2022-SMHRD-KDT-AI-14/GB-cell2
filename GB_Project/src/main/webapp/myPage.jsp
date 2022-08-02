@@ -60,7 +60,7 @@
 				<h2 style="text-align: center;">마이페이지</h2>
 				</section>
 
-<<<<<<< HEAD
+
 				<div style="text-align: center;" class="table-wrapper">
 					<table class="alt" >
 						<thead>
@@ -73,7 +73,7 @@
 							<tr>
 						<td>아이디 :</td>
 						<td>${MyPageList.MEM_ID}</td>
-=======
+
 				<table>
 					<tr>
 						<td></td>
@@ -82,7 +82,7 @@
 					<tr>
 						<td>아이디 :${MyPageList.MEM_ID}</td>
 						
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 					</tr>
 					<tr>
 						<td>비밀번호 :${MyPageList.MEM_PW}</td>
@@ -112,8 +112,8 @@
 						<td>회원온도 :${MyPageList.MEM_TEMPER}</td>
 						
 					</tr>
-<<<<<<< HEAD
-=======
+
+
 					<c:choose>
 						<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
 							<td>희망배송지역 없음</td>
@@ -124,7 +124,7 @@
 						</c:otherwise>
 					</c:choose>
 					</tr>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 					<tr>
 						<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
@@ -182,7 +182,7 @@
 								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
 								수정</button>
 							<a href="tbl_main.jsp" class="button">되돌아가기</a>
-							<a href="tbl_coordinateCon">추천게시글</a>
+						
 						</div>
 						
 					
@@ -311,7 +311,7 @@
 							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 						</article>
 					</div>
 					<ul class="actions">
