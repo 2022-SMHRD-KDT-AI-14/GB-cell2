@@ -116,6 +116,7 @@
 										<table>
 											<tr>
 												<th>게시글No.</th>
+												<th>카테고리</th>
 												<th>거래현황</th>
 												<th>작성자</th>
 												<th>거래상태</th>
@@ -123,6 +124,7 @@
 											<c:forEach items="${ShareList}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.cat_name}" /></td>
 													<td><a
 														href="eachPayState.jsp?board_seq=${s.board_seq}"><c:out
 																value="${s.article_title}" /></a></td>
@@ -130,11 +132,11 @@
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -172,13 +174,15 @@
 										<table>
 											<tr>
 												<th>게시글No.</th>
+												<th>카테고리</th>
 												<th>거래현황</th>
 												<th>작성자</th>
 												<th>거래상태</th>
 											</tr>
 											<c:forEach items="${nShareListA}" var="s">
 												<tr>
-													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.board_seq }" /></td>
+													<td><c:out value="${s.cat_name }" /></td>
 													<td><a
 														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
 																value="${s.article_title}" /></a></td>
@@ -190,7 +194,7 @@
 															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -206,6 +210,7 @@
 											<c:forEach items="${nShareListB}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.cat_name }" /></td>
 													<td><a
 														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
 																value="${s.article_title}" /></a></td>
@@ -217,7 +222,7 @@
 															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -233,6 +238,7 @@
 											<c:forEach items="${nShareListF}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.cat_name }" /></td>
 													<td><a
 														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
 																value="${s.article_title}" /></a></td>
@@ -244,7 +250,7 @@
 															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -260,6 +266,7 @@
 											<c:forEach items="${nShareListI}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
+													<td><c:out value="${s.cat_name }" /></td>
 													<td><a
 														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
 																value="${s.article_title}" /></a></td>
@@ -271,7 +278,7 @@
 															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">

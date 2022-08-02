@@ -10,8 +10,7 @@
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body> 	
-
-	<form action="updateStateCon?board_seq=${board_seq}&article_state=${article_state}">
+	<form action="updateStateCon?board_seq=${board_seq}&article_state=${article_state}$cat_name=${cat_name}">
 	${board_seq}는 ${article_state} 상태임
 	<c:out value=" ${board_seq}"/>는 ${article_state} 상태임
 	입금액<input type="text" name="input">
