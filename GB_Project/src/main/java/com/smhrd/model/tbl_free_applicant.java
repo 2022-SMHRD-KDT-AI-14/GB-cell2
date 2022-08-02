@@ -43,6 +43,12 @@ public class tbl_free_applicant {
 		CAT_NAME = cAT_NAME;
 	}
 
+	public tbl_free_applicant(String mEM_ID, BigDecimal bOARD_SEQ) {
+		super();
+		MEM_ID = mEM_ID;
+		BOARD_SEQ = bOARD_SEQ;
+	}
+
 	
 
 	

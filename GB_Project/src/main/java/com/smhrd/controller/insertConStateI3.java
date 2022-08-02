@@ -11,19 +11,15 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.tbl_account_applicant;
 import com.smhrd.model.tbl_account_applicantDAO;
-import com.smhrd.model.tbl_arbeit_applicant;
 import com.smhrd.model.tbl_payment;
 import com.smhrd.model.tbl_paymentDAO;
 
-public class insertStateConI extends HttpServlet {
+public class insertConStateI3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	System.out.println("이상해");
-		
-		
-		  request.setCharacterEncoding("UTF-8"); HttpSession session =  request.getSession(); 
+
+		request.setCharacterEncoding("UTF-8"); HttpSession session =  request.getSession(); 
 		  String loginMember = (String)session.getAttribute("loginMember");
 		  String acc_link =	  request.getParameter("acc_link");
 		  String acc_time =  request.getParameter("arb_site"); 
@@ -62,6 +58,8 @@ public class insertStateConI extends HttpServlet {
 		  
 		  response.sendRedirect("boardView.jsp?num="+board_seq/2);
 		 
+	
+	
 	}
 
 }

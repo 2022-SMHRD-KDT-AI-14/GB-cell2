@@ -97,7 +97,7 @@
                     </ul>
                 </nav>
                 <!-- Section -->
-               <%if(session.getAttribute("MEM")!=null){ 
+				<%if(session.getAttribute("MEM_ID")!=null&&session.getAttribute("loginMember")!=null){ 
 				
 					
 						String MEM_ID = (String)session.getAttribute("MEM_ID");
@@ -112,6 +112,7 @@
 							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
 							
 							int cnt = 0;
+							
 						for(int i = 0 ; i<tbl_coordinate.size();i++){
 							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
 							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
@@ -121,22 +122,43 @@
 							}
 							}
 						}
-						  Random r = new Random();
-						  int num1 = r.nextInt(id.size());
-						  int num2 = r.nextInt(id.size());
-						  int num3 = r.nextInt(id.size());
-						  List<tbl_share> list1 = dao.selectListshare(id.get(num1));
-						  List<tbl_share> list2 = dao.selectListshare(id.get(num2));
-						  List<tbl_share> list3 = dao.selectListshare(id.get(num3));
-						  int num11 = r.nextInt(list1.size());
-						  int num22 = r.nextInt(list2.size());
-						  int num33 = r.nextInt(list3.size());
+							
+						int num1 = 0;
+						int num2 = 0;
+						int num3 = 0;
+						int num11 = 0;
+						int num22 = 0;
+						int num33 = 0;
+						int a = 0;
+						int b = 0;
+						int c = 0;
+						List<tbl_share> list1 = new ArrayList<tbl_share>();
+						List<tbl_share> list2 = new ArrayList<tbl_share>();
+						List<tbl_share> list3 = new ArrayList<tbl_share>();
 						
+						  Random r = new Random();
+						  if(id.size()>0){
+						  num1 = r.nextInt(id.size());
+						  num2 = r.nextInt(id.size());
+						  num3 = r.nextInt(id.size());
+						  list1 = dao.selectListshare(id.get(num1));
+						  list2 = dao.selectListshare(id.get(num2));
+						  list3 = dao.selectListshare(id.get(num3));
+						  }
+						  if(list1.size()>0){
+						  num11 = r.nextInt(list1.size());
+						  a = list1.get(num11).getBOARD_SEQ().intValue();
+						  }
+						  if(list2.size()>0){
+						  num22 = r.nextInt(list2.size());
+						  b = list2.get(num22).getBOARD_SEQ().intValue();
+						  }
+						  if(list3.size()>0){
+						 num33 = r.nextInt(list3.size());
+						  c = list3.get(num33).getBOARD_SEQ().intValue();
 						  
-						  int a = list1.get(num11).getBOARD_SEQ().intValue();
-						  int b = list2.get(num22).getBOARD_SEQ().intValue();
-						  int c = list3.get(num33).getBOARD_SEQ().intValue();
-						  
+						  }
+						 
 						 int board_seq1 =a/2;
 						  int board_seq2 = b/2;
 						  int board_seq3 = c/2;
@@ -144,6 +166,7 @@
 						  session.setAttribute("board_seq1", board_seq1);
 						  session.setAttribute("board_seq2", board_seq2);
 						  session.setAttribute("board_seq3", board_seq3);
+							
 				
 				%>
 				
@@ -152,42 +175,46 @@
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
+						<%if(list1.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
 							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
-							
+							<%} %>
 						</article>
+						<%if(list2.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
 							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
+							<%} %>
 						</article>
+						<%if(list3.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
+							<%} %>
 					</div>
 					<ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
 					</ul>
 				</section>
 				<%} %>
-
-                <!-- Section -->
-                <section>
-                    <header class="major">
-                        <h2>문의주세요</h2>
-                    </header>
-                    <p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
-                    <ul class="contact">
-                        <li class="icon solid fa-envelope"><a href="#">이메일</a></li>
-                        <li class="icon solid fa-phone">연락처</li>
-                        <li class="icon solid fa-home">주소<br />
-                            상세주소</li>
-                    </ul>
-                </section>
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>문의주세요</h2>
+					</header>
+					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
+						<li class="icon solid fa-phone">연락처</li>
+						<li class="icon solid fa-home">주소<br />
+							상세주소</li>
+					</ul>
+				</section>
 
                 <!-- Footer -->
                 <footer id="footer">

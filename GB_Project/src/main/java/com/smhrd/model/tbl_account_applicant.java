@@ -56,5 +56,11 @@ public class tbl_account_applicant {
 		CAT_NAME = cAT_NAME;
 	}
 
+	public tbl_account_applicant(String mEM_ID, BigDecimal bOARD_SEQ) {
+		super();
+		MEM_ID = mEM_ID;
+		BOARD_SEQ = bOARD_SEQ;
+	}
+
 	
 }
