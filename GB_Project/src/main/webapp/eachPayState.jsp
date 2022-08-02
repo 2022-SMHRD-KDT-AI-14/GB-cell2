@@ -105,9 +105,9 @@ p {
 			</table>
 			<p>
 			<p>입금률 : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p>
-			</c:when> --%>
+			</c:when> 
 		
-<%-- 			<c:when test ="${board.CAT_NAME =='A'}">
+			<c:when test ="${board.CAT_NAME =='A'}">
 			<h1>결제상태ㅋㅋㅋㅋㅋㅋ: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
 			<p>구매가격: ${arbeit2.ARBEIT_PAY} 원</p>
 			<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
@@ -138,7 +138,7 @@ p {
 			<p>입금률 : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p>
 			</c:when> --%>
 		<c:when test ="${board.CAT_NAME =='I'}">
-			<h1>결제상태하하하하: ${buyer2.buy_p_state} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
+			<h1>결제상태: ${buyer2.buy_p_state} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
 			<p>구매가격: ${buyer2.buy_pay} 원</p>
 			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
 			<p><table>
