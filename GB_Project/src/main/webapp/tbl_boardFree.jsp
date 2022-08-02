@@ -144,9 +144,18 @@
 				<header id="header">
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
-						</li>
+					
+						<c:choose>
+						<c:when test="${empty loginMember}">
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
+						</c:otherwise>
+						</c:choose>
+		
+					
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
 					</ul>
 
@@ -183,7 +192,8 @@
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					<br>
+				</section>
+				<br>
 
 					<!-- 현재 이미지를 알려주는 하단의 점 -->
 					<div style="text-align:center">
@@ -191,25 +201,25 @@
 						<span class="dot" onclick="currentSlide(2)"></span>
 						<span class="dot" onclick="currentSlide(3)"></span>
 					</div>
-					<section>
+					<div>
 						<p>이곳은 자유 게시판 입니다.</p>
 						<p>기존 게시판과는 다른 새로운 거래가 이어집니다. 저희 사이트의 목적은 '사람을 모으는' 공간 입니다. 이 사이트를 통해 물건, 계정 뿐만이 아닌 많은 것들을 공유 할 수도
 							있습니다.
 						</p>
-					</section>
-					<!-- Section -->
+					</div>
+					<br>
 					<section>
-						<header class="major">
-							<h2>신규 게시물</h2>
+					<header class="major">
+						<h2>신규 게시물</h2>
+					</header>
+					<article>
+						<header class="main" style="text-align: right;">
+							<a href="tbl_write.jsp" class="button big">게시물 작성</a>
 						</header>
-						<article>
-							<header class="main" style="text-align: right;">
-								<a href="tbl_write.jsp" class="button big">게시물 작성</a>
-							</header>
-							<br>
-						</article>
-						<div class="posts">
-							<table class="table">
+						<br>
+					</article>
+					<div class="posts">
+						<table class="table">
 							<c:forEach begin="0" end="9" step="1" varStatus="status">
 								<article>
 									<a href="#" class="image"><img src="images/pic01.jpg"
@@ -222,8 +232,8 @@
 								</article>
 							</c:forEach>
 						</table>
-						</div>
-					</section>
+					</div>
+				</section>
 					<!-- Section -->
 					<section>
 						<header class="major">

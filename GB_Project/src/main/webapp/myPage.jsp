@@ -55,12 +55,16 @@
 				<h2 style="text-align: center;">마이페이지</h2>
 				</section>
 
-				<table>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
+				<div style="text-align: center;" class="table-wrapper">
+					<table class="alt" >
+						<thead>
+							<tr>
+								<th width="200px"></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
 						<td>아이디 :</td>
 						<td>${MyPageList.MEM_ID}</td>
 					</tr>
@@ -92,21 +96,39 @@
 						<td>회원온도 :</td>
 						<td>${MyPageList.MEM_TEMPER}</td>
 					</tr>
-					<c:choose>
-						<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-							<td>희망배송지역 없음</td>
-						</c:when>
-
-						<c:otherwise>
-							<td>희망배송지역 : ${MEM_AREA}</td>
-						</c:otherwise>
-					</c:choose>
-					</tr>
 					<tr>
-						<td></td>
-						<td></td>
+						<c:choose>
+					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+                        희망배송지역 없음<br>
+					</c:when>
+				</c:choose>
+				<%-- <c:choose>
+					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+						<button type="button"
+							onclick="location.href='myPageMemAreainput.jsp';">희망배송지
+							설정</button>
+					</c:when>
+
+					<c:otherwise>
+						<div style="text-align: center;">
+							<button type="button" class="button primary"
+								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
+								수정</button>
+							<a href="tbl_main.jsp" class="button">되돌아가기</a>
+						</div>
+					</c:otherwise>
+				</c:choose> --%>
 					</tr>
-				</table>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				
 				<c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
                         희망배송지역 없음<br>
@@ -134,95 +156,100 @@
 						</div>
 					</c:otherwise>
 				</c:choose>
-				</nav>
+				
 			</div>
 		</div>
-<a href="tbl_coordinateCon">추천게시글</a>
+
 		<!-- Sidebar -->
-		<div id="sidebar" class="inactive">
+		<div id="sidebar">
 			<div class="inner">
 
 				<!-- Search -->
 				<section id="search" class="alt">
-				<form method="post" action="#">
-					<input type="text" name="query" id="query" placeholder="Search" />
-				</form>
+					<form method="post" action="#">
+						<input type="text" name="query" id="query" placeholder="Search" />
+					</form>
 				</section>
 
 				<!-- Menu -->
-				<nav id="menu"> <header class="major">
-				<h2>Menu</h2>
-				</header>
-				<ul>
-					<li><a href="tbl_main.jsp">홈페이지</a></li>
-					<li><a href="tbl_boardwrite.jsp">글작성</a></li>
-					<li><span class="opener">게시판 이동</span>
-						<ul>
-							<li><a href="boardBuy.jsp">구매 게시판</a></li>
-							<li><a href="boardId.jsp">계정공유 게시판</a></li>
-							<li><a href="boardArbeit.jsp">알바 게시판</a></li>
-							<li><a href="boardFree.jsp">자유 게시판</a></li>
-						</ul></li>
-					<li><a href="#">문의하기</a></li>
-				</ul>
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="tbl_main.jsp">홈페이지</a></li>
+						<li><a href="tbl_boardwrite.jsp">글작성</a></li>
+						<li><span class="opener">공유하기</span>
+							<ul>
+								<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
+								<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
+								<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
+								<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
+							</ul></li>
+						<li><a href="#">문의하기</a></li>
+					</ul>
 				</nav>
 
 				<!-- Section -->
-				<section> <header class="major">
-				<h2>추천상품</h2>
-				</header>
-				<div class="mini-posts">
-					<article> <a href="#" class="image"><img
-						src="images/pic07.jpg" alt="" /></a>
-					<p>상품1</p>
-					</article>
-					<article> <a href="#" class="image"><img
-						src="images/pic08.jpg" alt="" /></a>
-					<p>상품2</p>
-					</article>
-					<article> <a href="#" class="image"><img
-						src="images/pic09.jpg" alt="" /></a>
-					<p>상품3</p>
-					</article>
-				</div>
-				<ul class="actions">
-					<li><a href="#" class="button">공유참여</a></li>
-				</ul>
+				<section>
+					<header class="major">
+						<h2>추천상품</h2>
+					</header>
+					<div class="mini-posts">
+						<article>
+							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+							<p>상품1</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+							<p>상품2</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+							<p>상품3</p>
+						</article>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button">공유참여</a></li>
+					</ul>
 				</section>
 
 				<!-- Section -->
-				<section> <header class="major">
-				<h2>문의주세요</h2>
-				</header>
-				<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
-				<ul class="contact">
-					<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
-					<li class="icon solid fa-phone">연락처</li>
-					<li class="icon solid fa-home">주소<br /> 상세주소
-					</li>
-				</ul>
+				<section>
+					<header class="major">
+						<h2>문의주세요</h2>
+					</header>
+					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
+						<li class="icon solid fa-phone">연락처</li>
+						<li class="icon solid fa-home">주소<br /> 상세주소
+						</li>
+					</ul>
 				</section>
 
 				<!-- Footer -->
 				<footer id="footer">
-				<p class="copyright">
-					&copy; Untitled. All rights reserved. Demo Images: <a
-						href="https://unsplash.com">Unsplash</a>. Design: <a
-						href="https://html5up.net">HTML5 UP</a>.
-				</p>
+					<p class="copyright">
+						&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a
+							href="https://html5up.net">HTML5 UP</a>.
+					</p>
 				</footer>
+
 			</div>
 		</div>
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script type="text/javascript"></script>
 </body>
 </html>
 

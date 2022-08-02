@@ -188,17 +188,17 @@ to {
 
 
 				<!-- 현재 이미지를 알려주는 하단의 점 -->
-				<div style="text-align: center">
-					<span class="dot" onclick="currentSlide(1)"></span>
-					<span class="dot" onclick="currentSlide(2)"></span>
-					<span class="dot" onclick="currentSlide(3)"></span>
-				</div>
-				<section>
-						<p>이곳은 계정 게시판 입니다.</p>
+				<div style="text-align:center">
+						<span class="dot" onclick="currentSlide(1)"></span>
+						<span class="dot" onclick="currentSlide(2)"></span>
+						<span class="dot" onclick="currentSlide(3)"></span>
+					</div>
+					<div>
+						<p>이곳은 자유 게시판 입니다.</p>
 						<p>기존 게시판과는 다른 새로운 거래가 이어집니다. 저희 사이트의 목적은 '사람을 모으는' 공간 입니다. 이 사이트를 통해 물건, 계정 뿐만이 아닌 많은 것들을 공유 할 수도
 							있습니다.
 						</p>
-					</section>
+					</div>
 
 				<!-- Section -->
 				<br>

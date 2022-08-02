@@ -144,9 +144,18 @@
 				<header id="header">
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
-						</li>
+					
+						<c:choose>
+						<c:when test="${empty loginMember}">
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
+						</c:otherwise>
+						</c:choose>
+		
+					
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
 					</ul>
 				</header>
@@ -179,13 +188,19 @@
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					<br>
+				</section>
+				<br>
 
 					<!-- 현재 이미지를 알려주는 하단의 점 -->
 					<div style="text-align:center">
 						<span class="dot" onclick="currentSlide(1)"></span>
 						<span class="dot" onclick="currentSlide(2)"></span>
 						<span class="dot" onclick="currentSlide(3)"></span>
+					</div>
+					<div>
+						<p>이곳은 알바 게시판 입니다.</p>
+						<p>원하는 일을 분담하여 나눌 수 있고 기존 하던 일의 대타를 구할 수도 있습니다.
+						</p>
 					</div>
 
 

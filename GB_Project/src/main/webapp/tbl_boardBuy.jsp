@@ -141,19 +141,20 @@ to {
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
 							싶어?</strong> 1/N !</a>
 					<ul class="icons">
-					
 						<c:choose>
-						<c:when test="${empty loginMember}">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
-						</c:when>
-						<c:otherwise>
-						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
-						</c:otherwise>
+							<c:when test="${empty loginMember}">
+								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
+										class="label">로그인</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
+										class="label">Medium</span></a></li>
+							</c:otherwise>
 						</c:choose>
-		
-					
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
-						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
+								class="label">Medium</span></a></li>
+						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
+								class="label">Medium</span></a></li>
 					</ul>
 				</header>
 				<section>
@@ -179,25 +180,30 @@ to {
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
 							class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					<br>
-					<!-- 현재 이미지를 알려주는 하단의 점 -->
-					<div style="text-align: center">
-						<span class="dot" onclick="currentSlide(1)"></span> <span
-							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
-							onclick="currentSlide(3)"></span>
-					</div>
-					<!-- Section -->
-					<section>
-						<header class="major">
-							<h2>신규 게시물</h2>
-						</header>
-						<article>
+				</section>
+				<br>
+				<!-- 현재 이미지를 알려주는 하단의 점 -->
+				<div style="text-align: center">
+					<span class="dot" onclick="currentSlide(1)"></span> <span
+						class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+						onclick="currentSlide(3)"></span>
+				</div>
+				<div>
+					<p>이곳은 구매 게시판 입니다.</p>
+					<p>다양한 상품을 나눠 공유 할 수 있습니다.</p>
+				</div>
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>신규 게시물</h2>
+					</header>
+					<article>
 						<header class="main" style="text-align: right;">
 							<a href="tbl_write.jsp" class="button big">게시물 작성</a>
 						</header>
 						<br>
 					</article>
-						<div class="posts">
+					<div class="posts">
 						<table class="table">
 							<c:forEach begin="0" end="9" step="1" varStatus="status">
 								<article>
@@ -212,8 +218,7 @@ to {
 							</c:forEach>
 						</table>
 					</div>
-					</section>
-					</section>
+				</section>
 			</div>
 		</div>
 
@@ -300,7 +305,7 @@ to {
 	</div>
 
 	<!-- Scripts -->
-	
+
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
@@ -313,18 +318,17 @@ to {
 		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
-		window.onload = function () {
+		window.onload = function() {
 			showSlides(slideIndex);
 
 			// Auto Move Slide
 			var sec = 3000;
-			setInterval(function () {
+			setInterval(function() {
 				slideIndex++;
 				showSlides(slideIndex);
 
 			}, sec);
 		}
-
 
 		// Next/previous controls
 		function moveSlides(n) {
@@ -345,7 +349,8 @@ to {
 			var size = slides.length;
 
 			if ((n + 1) > size) {
-				slideIndex = 0; n = 0;
+				slideIndex = 0;
+				n = 0;
 			} else if (n < 0) {
 				slideIndex = (size - 1);
 				n = (size - 1);
@@ -361,9 +366,7 @@ to {
 			slides[n].style.display = "block";
 			dots[n].className += " active";
 		}
-		
-		
-		
+
 		next_list(1, 1);
 
 		var arr = null;
