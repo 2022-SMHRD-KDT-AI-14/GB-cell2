@@ -19,6 +19,7 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+			
 
 				<!-- Header -->
 				<header id="header">
@@ -30,7 +31,7 @@
 						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
 						</c:when>
 						<c:otherwise>
-						<li><a href="logoutCon" >로그아웃</span></a></li>
+						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
 						</c:otherwise>
 						</c:choose>
 		
@@ -179,7 +180,6 @@
 				</section>
 
 				<!-- Menu -->
-				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
@@ -259,6 +259,5 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
-</body>
 </body>
 </html>

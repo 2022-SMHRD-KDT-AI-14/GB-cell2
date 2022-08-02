@@ -9,11 +9,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_share where mem_id=#{loginMember} and DEL_YN = 'n'
 	</select>
 	
-	<select id="selectAllMyParList" resultType="com.smhrd.model.Share" parameterType="String">
-		select * from tbl_share 
-		where board_seq in( select board_seq from tbl_buy_applicant where mem_id=#{loginMember})
+	<select id="selectAllMyParListB" resultType="com.smhrd.model.Share" parameterType="String">
+		select * from tbl_share where board_seq in (select board_seq from tbl_buy_applicant where mem_id=#{loginMember})
 		<!-- 글작성을한 이력이 있으면 이미 buyer에 등록되었는데 보드시퀀스는 참석자로서 등록된것인지 등록자로서 원래 있는것인지 구별안됨 -->
 	</select>
+	
+	<select id="selectAllMyParListI" resultType="com.smhrd.model.Share" parameterType="String">
+		select * from tbl_share where board_seq in (select board_seq from tbl_account_applicant where mem_id=#{loginMember})
+		<!-- 글작성을한 이력이 있으면 이미 buyer에 등록되었는데 보드시퀀스는 참석자로서 등록된것인지 등록자로서 원래 있는것인지 구별안됨 -->
+	</select>
+	
+	<select id="selectAllMyParListA" resultType="com.smhrd.model.Share" parameterType="String">
+		select * from tbl_share where board_seq in (select board_seq from tbl_arbeit_applicant where mem_id=#{loginMember})
+		<!-- 글작성을한 이력이 있으면 이미 buyer에 등록되었는데 보드시퀀스는 참석자로서 등록된것인지 등록자로서 원래 있는것인지 구별안됨 -->
+	</select>
+	
+	<select id="selectAllMyParListF" resultType="com.smhrd.model.Share" parameterType="String">
+		select * from tbl_share where board_seq in (select board_seq from tbl_free_applicant where mem_id=#{loginMember})
+		<!-- 글작성을한 이력이 있으면 이미 buyer에 등록되었는데 보드시퀀스는 참석자로서 등록된것인지 등록자로서 원래 있는것인지 구별안됨 -->
+	</select>
+	
+	
+	
 	
 	<select id="selectAllMyAlramList" resultType="com.smhrd.model.Share" parameterType="String">
 	select * from tbl_share 
@@ -23,8 +40,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<select id="selectWriter" resultType="String" parameterType="int">
-		select mem_id from tbl_share where board_seq=#{board_seq}
+	<select id="selectOne" resultType="com.smhrd.model.Share" parameterType="int"> <!-- shareWriter 에서 바뀜 -->
+		select * from tbl_share where board_seq=#{board_seq}
 	</select>
 	
 	<update id="updateState" parameterType="com.smhrd.model.ShareForUpdate">

@@ -163,8 +163,10 @@
 								<div class="separator_left"></div>
 
 								<p>
-									<c:set var="nShareList"
-										value="${ShareDAO.selectAllMyParList(loginMember)}" />
+									<c:set var="nShareListA"	value="${ShareDAO.selectAllMyParListA(loginMember)}" />
+									<c:set var="nShareListB"	value="${ShareDAO.selectAllMyParListB(loginMember)}" />
+									<c:set var="nShareListF"	value="${ShareDAO.selectAllMyParListF(loginMember)}" />
+									<c:set var="nShareListI"	value="${ShareDAO.selectAllMyParListI(loginMember)}" />
 
 									<c:if test="${!empty loginMember}">
 										<table>
@@ -174,7 +176,7 @@
 												<th>작성자</th>
 												<th>거래상태</th>
 											</tr>
-											<c:forEach items="${nShareList}" var="s">
+											<c:forEach items="${nShareListA}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
 													<td><a
@@ -183,16 +185,11 @@
 													<td><c:out value="${s.mem_id}" /></td>
 													<td><c:out value="${s.article_state}" /></td>
 													<td><a href="chatting.jsp">채팅방 참여</a></td>
-
-
-
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
 															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-
-
 																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
@@ -201,16 +198,98 @@
 																<a href="#?board_seq=${s.board_seq}"><button>이의제기</button></a>
 															</c:when>
 															<c:otherwise>
-
 															</c:otherwise>
 														</c:choose></td>
-
-
-
-
 												</tr>
 											</c:forEach>
+											
+											<c:forEach items="${nShareListB}" var="s">
+												<tr>
+													<td><c:out value="${s.board_seq}" /></td>
+													<td><a
+														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
+																value="${s.article_title}" /></a></td>
+													<td><c:out value="${s.mem_id}" /></td>
+													<td><c:out value="${s.article_state}" /></td>
+													<td><a href="chatting.jsp">채팅방 참여</a></td>
+													<td><c:choose>
+															<c:when test="${s.article_state =='모집중'}">
+															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+															</c:when>
+															<c:when test="${s.article_state =='입금대기'}">
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="#"><button>거래취소</button></a>
+															</c:when>
+															<c:when test="${s.article_state =='거래중'}">
+																<a href="#?board_seq=${s.board_seq}"><button>거래확정</button></a>
+																<a href="#?board_seq=${s.board_seq}"><button>이의제기</button></a>
+															</c:when>
+															<c:otherwise>
+															</c:otherwise>
+														</c:choose></td>
+												</tr>
+											</c:forEach>
+											
+											<c:forEach items="${nShareListF}" var="s">
+												<tr>
+													<td><c:out value="${s.board_seq}" /></td>
+													<td><a
+														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
+																value="${s.article_title}" /></a></td>
+													<td><c:out value="${s.mem_id}" /></td>
+													<td><c:out value="${s.article_state}" /></td>
+													<td><a href="chatting.jsp">채팅방 참여</a></td>
+													<td><c:choose>
+															<c:when test="${s.article_state =='모집중'}">
+															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+															</c:when>
+															<c:when test="${s.article_state =='입금대기'}">
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="#"><button>거래취소</button></a>
+															</c:when>
+															<c:when test="${s.article_state =='거래중'}">
+																<a href="#?board_seq=${s.board_seq}"><button>거래확정</button></a>
+																<a href="#?board_seq=${s.board_seq}"><button>이의제기</button></a>
+															</c:when>
+															<c:otherwise>
+															</c:otherwise>
+														</c:choose></td>
+												</tr>
+											</c:forEach>
+											
+											<c:forEach items="${nShareListI}" var="s">
+												<tr>
+													<td><c:out value="${s.board_seq}" /></td>
+													<td><a
+														href="eachPayState.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><c:out
+																value="${s.article_title}" /></a></td>
+													<td><c:out value="${s.mem_id}" /></td>
+													<td><c:out value="${s.article_state}" /></td>
+													<td><a href="chatting.jsp">채팅방 참여</a></td>
+													<td><c:choose>
+															<c:when test="${s.article_state =='모집중'}">
+															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+															</c:when>
+															<c:when test="${s.article_state =='입금대기'}">
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}"><button>입금하기</button></a>
+																<a href="#"><button>거래취소</button></a>
+															</c:when>
+															<c:when test="${s.article_state =='거래중'}">
+																<a href="#?board_seq=${s.board_seq}"><button>거래확정</button></a>
+																<a href="#?board_seq=${s.board_seq}"><button>이의제기</button></a>
+															</c:when>
+															<c:otherwise>
+															</c:otherwise>
+														</c:choose></td>
+												</tr>
+											</c:forEach>
+											
+											
+											
 										</table>
+										
+										
+										
 									</c:if>
 
 								</p>
@@ -463,10 +542,8 @@ var paragraphText = '<p>Somebody once told me the world is gonna roll me. I ain\
 </script>
 
 		<!-- 여기 <a href="test_participateCon?board_seq=89"><button> 89글 TEST참여확정!</button></a> -->
-	<a href="updateStateCon?board_seq=178&article_state=모집중&cat_name=B">
-		<input type="text" name="board_seq"> 
-		<input type="submit" value="참여결정">
-	</a>
+	<a href="updateStateCon?board_seq=214&article_state=모집중&cat_name=F">
+	214예시</a>
 
 
 </body>

@@ -25,12 +25,28 @@ public class tbl_arbeit_applicant {
 	
 	private String ARBEIT_SITE;
 	
-	private int ARBEIT_PAY;
+	private BigDecimal ARBEIT_PAY;
+//	private int ARBEIT_PAY;
 	
 	private String CAT_NAME;
 
+	private BigDecimal  BOARD_SEQ;
+
 	public tbl_arbeit_applicant(String mEM_ID, String aRB_P_STATE, String aRB_C_STATE, String aRBEIT_TIME,
-			String aRBEIT_SITE, int aRBEIT_PAY, String cAT_NAME) {
+			String aRBEIT_SITE, BigDecimal aRBEIT_PAY, String cAT_NAME, BigDecimal bOARD_SEQ) {
+		super();
+		MEM_ID = mEM_ID;
+		ARB_P_STATE = aRB_P_STATE;
+		ARB_C_STATE = aRB_C_STATE;
+		ARBEIT_TIME = aRBEIT_TIME;
+		ARBEIT_SITE = aRBEIT_SITE;
+		ARBEIT_PAY = aRBEIT_PAY;
+		CAT_NAME = cAT_NAME;
+		BOARD_SEQ = bOARD_SEQ;
+	}
+
+	public tbl_arbeit_applicant(String mEM_ID, String aRB_P_STATE, String aRB_C_STATE, String aRBEIT_TIME,
+			String aRBEIT_SITE, BigDecimal aRBEIT_PAY, String cAT_NAME) {
 		super();
 		MEM_ID = mEM_ID;
 		ARB_P_STATE = aRB_P_STATE;
@@ -40,6 +56,8 @@ public class tbl_arbeit_applicant {
 		ARBEIT_PAY = aRBEIT_PAY;
 		CAT_NAME = cAT_NAME;
 	}
+
+	
 	
 	
 }

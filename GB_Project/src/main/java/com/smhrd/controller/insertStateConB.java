@@ -11,19 +11,18 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.BuyApplicant;
 import com.smhrd.model.BuyApplicantDAO;
+import com.smhrd.model.Share;
+import com.smhrd.model.ShareDAO;
 
-/**
- * Servlet implementation class test
- */
-public class test extends HttpServlet {
+public class insertStateConB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//시퀀스 받는다.
+		//참석자 입장이다. 시퀀스에 접근해서 share table에 간다
+		// 필요한정보꺼낸다
+		 
 		
-		System.out.println("test.java파일입니다.");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String loginMember = (String)session.getAttribute("loginMember");
@@ -46,9 +45,8 @@ public class test extends HttpServlet {
 		 }else {
 			 System.out.println("buyApllicant 참석자 추가 실패");
 		 }
-//			response.sendRedirect("boardView.jsp?num="+board_seq);
-			response.sendRedirect("boardView.jsp?num="+board_seq/2);
-		
+//		response.sendRedirect("boardView.jsp?num="+board_seq);
+		response.sendRedirect("boardView.jsp?num="+board_seq/2);		 
 	}
 
 }

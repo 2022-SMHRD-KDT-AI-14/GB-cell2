@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
+
 <head>
-	<title>boardId</title>
+	<title>boardBuy</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -131,27 +132,35 @@
 </head>
 
 <body class="is-preload">
+
 	<!-- Wrapper -->
 	<div id="wrapper">
+
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
+					<a href="home.html" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
+						<li><a href="home.html" class="icon solid fa-home"><span class="label">Medium</span></a></li>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
 						</li>
-						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
+						<li><a href="join.html" class="icon solid fa-user"><span class="label">Medium</span></a></li>
 					</ul>
+
 				</header>
+
+
+
 				<section>
 					<header class="major">
 
 						<h2>계정공유 게시판</h2>
 					</header>
 					<!-- 슬라이드쇼 컨테이너 -->
+
 					<div class="slideshow-container">
 
 						<!-- 숫자와 캡션이 있는 이미지 -->
@@ -174,62 +183,121 @@
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					</section>
 					<br>
+
 					<!-- 현재 이미지를 알려주는 하단의 점 -->
 					<div style="text-align:center">
 						<span class="dot" onclick="currentSlide(1)"></span>
 						<span class="dot" onclick="currentSlide(2)"></span>
 						<span class="dot" onclick="currentSlide(3)"></span>
 					</div>
+
+
 					<!-- Section -->
-					<br>
 					<section>
 						<header class="major">
 							<h2>신규 게시물</h2>
 						</header>
-						
-						<table border = 1>
-	<tr>
-	<th>제목1
-	</th>
-	<th>제목2
-	</th>
-	<th>제목3
-	</th>
-	</tr>
-	<c:forEach begin="0" end="10" step="1" varStatus="status">
-	<tr>
-		<td>
-			<div id="name${status.index}"></div>
-			<div id="writer${status.index}"></div>
-			<div id="views${status.index}"></div>
-		</td>
-	</tr>
-	</c:forEach>
-	</table>
-						
-						
-						<table class="table">
-							<c:forEach begin="0" end="10" step="1" varStatus="status">
-								<tr id="name${status.index}"></tr>
-							  	<tr id="writer${status.index}"></tr>
-							  	<tr id="views${status.index}"></tr>
-							</c:forEach>
-						</table>
 						<article>
 							<header class="main" style="text-align: right;">
-								<a href="tbl_write.jsp" class="button big">게시물 작성</a>
+								<a href="write.html" class="button big">게시물 작성</a>
 							</header>
 							<br>
 						</article>
 						<div class="posts">
-								<%-- <c:forEach begin="0" end="10" step="1" varStatus="status"> --%>
-							
+							<article>
+								<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+								<h3>제품명</h3>
+								<p>가격</p>
+								<ul class="actions">
+									<li><a href="#" class="button">공유참여</a></li>
+								</ul>
+							</article>
+							<article>
+								<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+								<h3>제품명</h3>
+								<p>가격</p>
+								<ul class="actions">
+									<li><a href="#" class="button">공유참여</a></li>
+								</ul>
+							</article>
+							<article>
+								<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+								<h3>제품명</h3>
+								<p>가격</p>
+								<ul class="actions">
+									<li><a href="#" class="button">공유참여</a></li>
+								</ul>
+							</article>
+							<article>
+								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+								<h3>제품명</h3>
+								<p>가격</p>
+								<ul class="actions">
+									<li><a href="#" class="button">공유참여</a></li>
+								</ul>
+							</article>
+							<article>
+								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+								<h3>제품명</h3>
+								<p>가격</p>
+								<ul class="actions">
+									<li><a href="#" class="button">공유참여</a></li>
+								</ul>
+							</article>
+							<article>
+								<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+								<h3>제품명</h3>
+								<p>가격</p>
+								<ul class="actions">
+									<li><a href="#" class="button">공유참여</a></li>
+								</ul>
+							</article>
 						</div>
 					</section>
 					<!-- Section -->
-					
+					<section>
+						<header class="major">
+							<h2>팀원소개</h2>
+						</header>
+						<div class="features">
+							<article>
+								<span class="icon solid fa-desktop"></span>
+								<div class="content">
+									<h3>김건빈</h3>
+									<p>팀원을 소개합니다!</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-gem"></span>
+								<div class="content">
+									<h3>김윤주</h3>
+									<p>팀원을 소개합니다!</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-database"></span>
+								<div class="content">
+									<h3>박성결</h3>
+									<p>팀원을 소개합니다!</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-map"></span>
+								<div class="content">
+									<h3>임다영</h3>
+									<p>팀원을 소개합니다!</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-dollar-sign"></span>
+								<div class="content">
+									<h3>최훈철</h3>
+									<p>팀원을 소개합니다!</p>
+								</div>
+							</article>
+						</div>
+					</section>
 
 			</div>
 		</div>
@@ -246,23 +314,26 @@
 				</section>
 
 				<!-- Menu -->
+				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
 					</header>
 					<ul>
-						<li><a href="tbl_main.jsp">홈페이지</a></li>
-						<li><a href="tbl_boardwrite.jsp">글작성</a></li>
+						<li><a href="home.html">홈페이지</a></li>
+						<li><a href="boardwrite.html">글작성</a></li>
 						<li>
 							<span class="opener">공유하기</span>
 							<ul>
-								<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
-								<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
-								<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
-								<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
+								<li><a href="boardBuy.html">구매 게시판</a></li>
+								<li><a href="boardId.html">계정공유 게시판</a></li>
+								<li><a href="boardArbeit.html">알바 게시판</a></li>
+								<li><a href="boardFree.html">자유 게시판</a></li>
 							</ul>
 						</li>
 						<li><a href="#">문의하기</a></li>
+
+
 					</ul>
 				</nav>
 
@@ -310,8 +381,10 @@
 							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
 							UP</a>.</p>
 				</footer>
+
 			</div>
 		</div>
+
 	</div>
 
 	<!-- Scripts -->
@@ -373,7 +446,6 @@
 			dots[n].className += " active";
 		}
 		
-		<!--게시물 불러오기-->
 		next_list(1,1);
 
 		var arr=null;
@@ -434,7 +506,9 @@
 
 		//jsonArray타입의 객체의 갯수가 10개보다 적을경우 객체를 매개변수로 받아 출력하는 함수이다.
 		function list_write(data_list){
+			
 			for(var i =0 ; i<data_list.length;i++){//jquery 문을통해 태그안의 내용을 바꾸어준다 --> .text()사용
+				
 				$('#name'+i).html("<a href='boardView.jsp?num="+data_list[i].num+"'>"+data_list[i].name+"</a>");
 				$('#writer'+i).text(data_list[i].writer);
 				$('#views'+i).text(data_list[i].views);
@@ -513,5 +587,7 @@
 		
 		
 	</script>
-	</body>
+
+</body>
+
 </html>

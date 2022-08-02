@@ -26,7 +26,7 @@
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
 							싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_main.jsp" class="icon solid fa-home"><span
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
 								class="label">Medium</span></a></li>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
 								class="label">Medium</span></a></li>
@@ -68,7 +68,7 @@
 						
 						<div>
 							<input type="submit" class="bttn" value="로그인">
-							<a href="tbl_join2.jsp" class="button primary">회원가입</a>
+							<a href="tbl_join.jsp" class="button primary">회원가입</a>
 						</div>
 					</form>
 				</section>

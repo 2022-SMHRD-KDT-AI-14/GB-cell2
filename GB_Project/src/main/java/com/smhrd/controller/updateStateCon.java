@@ -3,11 +3,14 @@ package com.smhrd.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.smhrd.model.BuyApplicant;
 import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.ShareDAO;
 import com.smhrd.model.ShareForUpdate;
@@ -22,16 +25,36 @@ public class updateStateCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		String loginMember = request.getParameter("loginMember");
+		//t이거안되면 세션으로가자~
+		//String loginMember = request.getParameter("loginMember");
+		HttpSession session = request.getSession();
+		String loginMember = (String)session.getAttribute("loginMember");
+		System.out.println("updateStateCon, 로그인아이디 >> "+loginMember);
 		String cat_name = request.getParameter("cat_name");
-		System.out.println("updateStateCon, 카테고리 전>> "+cat_name);
+		System.out.println("updateStateCon, 카테고리 >> "+cat_name);
 		BigDecimal board_seq = new BigDecimal(request.getParameter("board_seq"));
+		System.out.println("updateStateCon, 게시글번호 >> "+board_seq);
 		//String article_state = request.getParameter("article_state");
 		String article_state =null;
-		if( request.getParameter("article_state") !=null) {
-			 article_state = request.getParameter("article_state");
-		}else {
+		
+		//보드시퀀스로 작성자 찾기
+		String writer = new ShareDAO().selectOne(board_seq.intValue()).getMem_id();
+		System.out.println("updateStateCon, 작성자 >> "+writer);
+		
+		
+		
+		
+		if( loginMember.equals(writer) ) { //호출자가 작성자인 경우. 업데이트
+			 article_state = request.getParameter("article_state"); //
+		}else { //호출자가 작성자가 아닌 경우
 			article_state="모집중";
+			System.out.println("참여자가 호출했으니 인설트해야함");
+			//참여자 인설트하는         insertStateConF
+			String url = "insertStateCon"+cat_name;
+			RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);
+			
+			response.sendRedirect("insertStateCon"+cat_name);
 		}
 		
 		System.out.println("updateStateCon, 전>> "+article_state);

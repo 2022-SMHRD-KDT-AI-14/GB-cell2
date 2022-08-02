@@ -22,7 +22,7 @@
 				<header id="header">
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_main.jsp" class="icon solid fa-home"><span class="label">Medium</span></a></li>
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
 						</li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
@@ -159,7 +159,7 @@
 					</table>
 					<div style="text-align: center;">
 						<a href="tbl_main.jsp" class="button">메인으로 가기</a></li>
-					<input type="submit" class="btn btn-primary" value="회원가입" class="button fit">
+					<input type="submit" class="button primary" value="회원가입" class="button fit">
 						
 					</div>
 					

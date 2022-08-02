@@ -42,7 +42,7 @@ public class test_participateCon extends HttpServlet {
 		int board_seq=Integer.parseInt(request.getParameter("board_seq"));//form에서 받기
 		String mem_id= (String)session.getAttribute("loginMember");
 		
-		String writer= new ShareDAO().selectWriter(board_seq);
+		String writer= new ShareDAO().selectOne(board_seq).getMem_id();
 		System.out.println("dao실행후 writer >> "+writer);
 //		
 		
