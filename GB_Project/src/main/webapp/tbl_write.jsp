@@ -164,7 +164,7 @@
 				</nav>
 
 				<!-- Section -->
-				<%if(session.getAttribute("MEM_ID")!=null){ 
+				<%if(session.getAttribute("MEM")!=null){ 
 				
 					
 						String MEM_ID = (String)session.getAttribute("MEM_ID");
