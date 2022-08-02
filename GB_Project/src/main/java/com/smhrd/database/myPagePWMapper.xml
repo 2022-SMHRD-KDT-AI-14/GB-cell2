@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="com.smhrd.model.myPagePWDAO">
+	<update id="updateMyPagePW" parameterType="com.smhrd.model.myPagePW">
+		update tbl_member set mem_pw=#{MEM_PW} where mem_id=#{MEM_ID}
+	</update>
+ </mapper>

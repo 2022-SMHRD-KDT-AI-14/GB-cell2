@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </insert>
 
 	<select id="selectOnePar2" parameterType="com.smhrd.model.tbl_account_applicant" resultType="com.smhrd.model.tbl_account_applicant">
-		select * from tbl_buy_applicant where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ} 
+		select * from tbl_account_applicant where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ} 
 	</select>
 
 </mapper>
