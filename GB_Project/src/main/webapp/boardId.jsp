@@ -42,9 +42,9 @@
 	  <td id="views${status.index}"></td>
   </tr> --%>
   
-  <tr id="name${status.index}"></tr>
-  <tr id="writer${status.index}"></tr>
-  <tr id="views${status.index}"></tr>
+  <p id="name${status.index}"></p>
+  <p id="writer${status.index}"></p>
+  <p id="views${status.index}"></p>
 	 
   
   </c:forEach>
