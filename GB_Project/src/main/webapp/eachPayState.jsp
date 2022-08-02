@@ -51,7 +51,7 @@ p {
 <c:set var="board" value="${BoardDAO.selectOne(param.board_seq)}"/>
 
 <jsp:useBean id="BuyApplicantDAO" class="com.smhrd.model.BuyApplicantDAO"/>
-<c:set var="buyer3" value="${BuyApplicantDAO.selectOnePar3(loginMember,param.board_seq)}"/>
+<c:set var="buyer2" value="${BuyApplicantDAO.selectOnePar2(loginMember,param.board_seq)}"/>
 <c:set var="buyerCNT" value="${BuyApplicantDAO.SelectBuyApplicantCNT(param.board_seq)}"/>
 
 <jsp:useBean id="tbl_paymentDAO" class="com.smhrd.model.tbl_paymentDAO"/>
@@ -64,11 +64,11 @@ p {
 										
 	
 		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-			<h1>결제상태: ${buyer3.buy_p_state} , <a href=#>해당글 보러가기</a></h1>
+			<h1>결제상태: ${buyer2.buy_p_state} , <a href='boardView.jsp?num=${param.board_seq/2}'>해당글 보러가기</a></h1>
 			<p>글제목: ${board.ARTICLE_TITLE}		<br>		작성자: ${board.MEM_ID}		|		작성일 : ${board.ARTICLE_DATE}</p>
-			<p>구매가격: ${buyer3.buy_pay} 원</p>
+			<p>구매가격: ${buyer2.buy_pay} 원</p>
 			<%-- <p>나의 입금여부 : <c:out value="${paymentResult.PAY_TF}"/></p> --%>
-			<p>총 참여수: <c:out value="${buyerCNT -1 }" /></p>
+			<p>총 참여수: <c:out value="${buyerCNT}" /></p>
 			<p><table>
 			<tr>
 								<th><h1><c:out value="아이디"/>ㅤ </h1></th>
@@ -81,7 +81,7 @@ p {
 								<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
 								<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
 								<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
-								 <td><h3><c:out value="${buyer3.buy_pay/buyerCNT} 원"/>	</h3></td>	
+								 <td><h3><c:out value="${buyer2.buy_pay/buyerCNT} 원"/>	</h3></td>	
 								 
 								<%-- <c:if test ="${loginMember == m.MEM_ID and s.article_state =='입금대기'}"> --%>
 								<c:if test ="${loginMember == m.MEM_ID}"> //입금여부 미입금 

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 
@@ -201,54 +201,19 @@
 							<br>
 						</article>
 						<div class="posts">
-							<article>
-								<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
+							<table class="table">
+							<c:forEach begin="0" end="9" step="1" varStatus="status">
+								<article>
+									<a href="#" class="image"><img src="images/pic01.jpg"
+										alt="" /></a>
+									<p id="name${status.index}"></p>
+									<p id="writer${status.index}"></p>
+									<div style="text-align: right;">
+										<button>공유참여</button>
+									</div>
+								</article>
+							</c:forEach>
+						</table>
 						</div>
 					</section>
 					<!-- Section -->
@@ -383,12 +348,15 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script>
+	<script type="text/javascript">
+		//게시물요청
 		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
@@ -396,7 +364,7 @@
 			showSlides(slideIndex);
 
 			// Auto Move Slide
-			var sec = 5000;
+			var sec = 3000;
 			setInterval(function () {
 				slideIndex++;
 				showSlides(slideIndex);
@@ -441,6 +409,8 @@
 			dots[n].className += " active";
 		}
 		
+		
+		
 		next_list(1,1);
 
 		var arr=null;
@@ -474,7 +444,7 @@
 		function next_list(startRow,startPage){
 			$.ajax({
 				/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
-				url:'FoardPagingCon',
+				url:'AoardPagingCon',
 				method:'post',
 				dataType :'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
 				data :{"num":startRow},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
@@ -579,10 +549,6 @@
 				$('#views'+i).text(data_list[i].views);
 			}
 		}
-		
-		
 	</script>
-
-</body>
 
 </html>

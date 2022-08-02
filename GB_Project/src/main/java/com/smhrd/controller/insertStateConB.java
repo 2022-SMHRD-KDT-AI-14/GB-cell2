@@ -23,7 +23,7 @@ public class insertStateConB extends HttpServlet {
 		//시퀀스 받는다.
 		//참석자 입장이다. 시퀀스에 접근해서 share table에 간다
 		// 필요한정보꺼낸다
-		 
+		System.out.println("ㅅㅂ");
 		
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
