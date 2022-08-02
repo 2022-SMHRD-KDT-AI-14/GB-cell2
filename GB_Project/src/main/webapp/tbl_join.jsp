@@ -1,3 +1,9 @@
+<%@page import="com.smhrd.model.tbl_share"%>
+<%@page import="java.util.Random"%>
+<%@page import="com.smhrd.model.tbl_coordinate"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -295,28 +301,83 @@
 					</ul>
 				</nav>
 				<!-- Section -->
+				<%if(session.getAttribute("MEM_ID")!=null){ 
+				
+					
+						String MEM_ID = (String)session.getAttribute("MEM_ID");
+						int MEM_LATITUDE = (int)session.getAttribute("MEM_LATITUDE");
+						int MEM_LONGITUDE = (int)session.getAttribute("MEM_LONGITUDE");
+
+
+
+						tbl_coordinateDAO dao = new tbl_coordinateDAO();
+
+							ArrayList<String> id = new ArrayList<String>();
+							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
+							
+							int cnt = 0;
+						for(int i = 0 ; i<tbl_coordinate.size();i++){
+							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
+							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
+								&&tbl_coordinate.get(i).getMEM_LONGITUDE()<MEM_LONGITUDE+3&&tbl_coordinate.get(i).getMEM_LONGITUDE()>MEM_LONGITUDE-3){
+								id.add(cnt, tbl_coordinate.get(i).getMEM_ID());
+								cnt++;
+							}
+							}
+						}
+						  Random r = new Random();
+						  int num1 = r.nextInt(id.size());
+						  int num2 = r.nextInt(id.size());
+						  int num3 = r.nextInt(id.size());
+						  List<tbl_share> list1 = dao.selectListshare(id.get(num1));
+						  List<tbl_share> list2 = dao.selectListshare(id.get(num2));
+						  List<tbl_share> list3 = dao.selectListshare(id.get(num3));
+						  int num11 = r.nextInt(list1.size());
+						  int num22 = r.nextInt(list2.size());
+						  int num33 = r.nextInt(list3.size());
+						
+						  
+						  int a = list1.get(num11).getBOARD_SEQ().intValue();
+						  int b = list2.get(num22).getBOARD_SEQ().intValue();
+						  int c = list3.get(num33).getBOARD_SEQ().intValue();
+						  
+						 int board_seq1 =a/2;
+						  int board_seq2 = b/2;
+						  int board_seq3 = c/2;
+						  
+						  session.setAttribute("board_seq1", board_seq1);
+						  session.setAttribute("board_seq2", board_seq2);
+						  session.setAttribute("board_seq3", board_seq3);
+				
+				%>
+				
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
 						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>상품1</p>
+							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
+							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
+							
 						</article>
 						<article>
-							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-							<p>상품2</p>
+							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
+							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
 						</article>
 						<article>
-							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-							<p>상품3</p>
+							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
+							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
 					</div>
 					<ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
 					</ul>
 				</section>
+				<%} %>
 
 				<!-- Section -->
 				<section>
