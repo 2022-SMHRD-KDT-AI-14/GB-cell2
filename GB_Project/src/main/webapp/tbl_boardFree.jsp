@@ -1,3 +1,9 @@
+<%@page import="com.smhrd.model.tbl_share"%>
+<%@page import="java.util.Random"%>
+<%@page import="com.smhrd.model.tbl_coordinate"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
@@ -144,9 +150,18 @@
 				<header id="header">
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
-						</li>
+					
+						<c:choose>
+						<c:when test="${empty loginMember}">
+						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
+						</c:otherwise>
+						</c:choose>
+		
+					
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
 					</ul>
 
@@ -183,7 +198,8 @@
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					<br>
+				</section>
+				<br>
 
 					<!-- 현재 이미지를 알려주는 하단의 점 -->
 					<div style="text-align:center">
@@ -191,74 +207,39 @@
 						<span class="dot" onclick="currentSlide(2)"></span>
 						<span class="dot" onclick="currentSlide(3)"></span>
 					</div>
-					<section>
+					<div>
 						<p>이곳은 자유 게시판 입니다.</p>
 						<p>기존 게시판과는 다른 새로운 거래가 이어집니다. 저희 사이트의 목적은 '사람을 모으는' 공간 입니다. 이 사이트를 통해 물건, 계정 뿐만이 아닌 많은 것들을 공유 할 수도
 							있습니다.
 						</p>
-					</section>
-					<!-- Section -->
+					</div>
+					<br>
 					<section>
-						<header class="major">
-							<h2>신규 게시물</h2>
+					<header class="major">
+						<h2>신규 게시물</h2>
+					</header>
+					<article>
+						<header class="main" style="text-align: right;">
+							<a href="tbl_write.jsp" class="button big">게시물 작성</a>
 						</header>
-						<article>
-							<header class="main" style="text-align: right;">
-								<a href="tbl_write.jsp" class="button big">게시물 작성</a>
-							</header>
-							<br>
-						</article>
-						<div class="posts">
-							<article>
-								<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-								<h3>제품명</h3>
-								<p>가격</p>
-								<ul class="actions">
-									<li><a href="#" class="button">공유참여</a></li>
-								</ul>
-							</article>
-						</div>
-					</section>
+						<br>
+					</article>
+					<div class="posts">
+						<table class="table">
+							<c:forEach begin="0" end="9" step="1" varStatus="status">
+								<article>
+									<a href="#" class="image"><img src="images/pic01.jpg"
+										alt="" /></a>
+									<p id="name${status.index}"></p>
+									<p id="writer${status.index}"></p>
+									<div style="text-align: right;">
+										<button>공유참여</button>
+									</div>
+								</article>
+							</c:forEach>
+						</table>
+					</div>
+				</section>
 					<!-- Section -->
 					<section>
 						<header class="major">
@@ -341,28 +322,83 @@
 				</nav>
 
 				<!-- Section -->
+				<%if(session.getAttribute("MEM_ID")!=null){ 
+				
+					
+						String MEM_ID = (String)session.getAttribute("MEM_ID");
+						int MEM_LATITUDE = (int)session.getAttribute("MEM_LATITUDE");
+						int MEM_LONGITUDE = (int)session.getAttribute("MEM_LONGITUDE");
+
+
+
+						tbl_coordinateDAO dao = new tbl_coordinateDAO();
+
+							ArrayList<String> id = new ArrayList<String>();
+							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
+							
+							int cnt = 0;
+						for(int i = 0 ; i<tbl_coordinate.size();i++){
+							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
+							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
+								&&tbl_coordinate.get(i).getMEM_LONGITUDE()<MEM_LONGITUDE+3&&tbl_coordinate.get(i).getMEM_LONGITUDE()>MEM_LONGITUDE-3){
+								id.add(cnt, tbl_coordinate.get(i).getMEM_ID());
+								cnt++;
+							}
+							}
+						}
+						  Random r = new Random();
+						  int num1 = r.nextInt(id.size());
+						  int num2 = r.nextInt(id.size());
+						  int num3 = r.nextInt(id.size());
+						  List<tbl_share> list1 = dao.selectListshare(id.get(num1));
+						  List<tbl_share> list2 = dao.selectListshare(id.get(num2));
+						  List<tbl_share> list3 = dao.selectListshare(id.get(num3));
+						  int num11 = r.nextInt(list1.size());
+						  int num22 = r.nextInt(list2.size());
+						  int num33 = r.nextInt(list3.size());
+						
+						  
+						  int a = list1.get(num11).getBOARD_SEQ().intValue();
+						  int b = list2.get(num22).getBOARD_SEQ().intValue();
+						  int c = list3.get(num33).getBOARD_SEQ().intValue();
+						  
+						 int board_seq1 =a/2;
+						  int board_seq2 = b/2;
+						  int board_seq3 = c/2;
+						  
+						  session.setAttribute("board_seq1", board_seq1);
+						  session.setAttribute("board_seq2", board_seq2);
+						  session.setAttribute("board_seq3", board_seq3);
+				
+				%>
+				
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
 						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>상품1</p>
+							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
+							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
+							
 						</article>
 						<article>
-							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-							<p>상품2</p>
+							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
+							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
 						</article>
 						<article>
-							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-							<p>상품3</p>
+							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
+							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
 					</div>
 					<ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
 					</ul>
 				</section>
+				<%} %>
 
 				<!-- Section -->
 				<section>
@@ -391,12 +427,14 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script>
+	<script type="text/javascript">
 		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
@@ -449,6 +487,7 @@
 			dots[n].className += " active";
 		}
 		
+		//게시물요청
 		next_list(1,1);
 
 		var arr=null;
@@ -587,8 +626,6 @@
 				$('#views'+i).text(data_list[i].views);
 			}
 		}
-		
-		
 	</script>
 
 </body>

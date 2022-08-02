@@ -4,139 +4,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>boardBuy</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-/* Slideshow container */
-.slideshow-container {
-	max-width: 1200px;
-	max-height: 750px;
-	position: relative;
-	margin: auto;
-}
-
-.slideshow-container .mySlides img {
-	height: 500px;
-	border-radius: 0.375em;
-}
-
-/* Hide the images by default */
-.mySlides {
-	display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-	cursor: pointer;
-	position: absolute;
-	top: 50%;
-	width: auto;
-	margin-top: -22px;
-	padding: 16px;
-	color: white;
-	font-weight: bold;
-	font-size: 18px;
-	transition: 0.6s ease;
-	border-radius: 0 3px 3px 0;
-	user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-	right: 0;
-	border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-	background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Caption text */
-.text {
-	color: #f2f2f2;
-	font-size: 15px;
-	padding: 8px 12px;
-	position: absolute;
-	bottom: 8px;
-	width: 100%;
-	text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-	cursor: pointer;
-	height: 15px;
-	width: 15px;
-	margin: 0 2px;
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-	background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 1.5s;
-	animation-name: fade;
-	animation-duration: 1.5s;
-}
-
-@
--webkit-keyframes fade {from { opacity:.4
-	
-}
-
-to {
-	opacity: 1
-}
-
-}
-@
-keyframes fade {from { opacity:.4
-	
-}
-
-to {
-	opacity: 1
-}
-}
-</style>
-
+	<title>1/N 😎분의 1 공유 중계 서비스</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body class="is-preload">
+	<!-- Wrapper -->
 	<div id="wrapper">
+
+		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+
 				<!-- Header -->
 				<header id="header">
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
 							싶어?</strong> 1/N !</a>
 					<ul class="icons">
-
 						<c:choose>
 							<c:when test="${empty loginMember}">
 								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
@@ -147,7 +34,6 @@ to {
 										class="label">Medium</span></a></li>
 							</c:otherwise>
 						</c:choose>
-
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
 								class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
@@ -155,149 +41,109 @@ to {
 					</ul>
 				</header>
 				<section>
-				<header class="major">
-						<h2>구매 게시판</h2>
-					</header>
-					<!-- 슬라이드쇼 컨테이너 -->
-					<div class="slideshow-container">
-						<!-- 숫자와 캡션이 있는 이미지 -->
-						<div class="mySlides fade">
-							<div class="numbertext">1 / 3</div>
-							<img src="images/pic14.png" style="width: 100%">
-						</div>
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/pic15.png" style="width: 100%">
-						</div>
-						<div class="mySlides fade">
-							<div class="numbertext">3 / 3</div>
-							<img src="images/pic16.png" style="width: 100%">
-						</div>
-						<!-- 다음, 이전 이미지 버튼 -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
-							class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					<!-- 현재 이미지를 알려주는 하단의 점 -->
-					<div style="text-align: center">
-						<span class="dot" onclick="currentSlide(1)"></span> <span
-							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
-							onclick="currentSlide(3)"></span>
-					</div>
-				<section>
-					<header class="major">
-						<h2>신규 게시물</h2>
-					</header>
-					<article>
-						<header class="main" style="text-align: right;">
-							<a href="tbl_write.jsp" class="button big">게시물 작성</a>
-						</header>
-						<br>
-					</article>
-					<div class="posts">
-						<table class="table">
-							<c:forEach begin="0" end="9" step="1" varStatus="status">
-								<article>
-									<a href="#" class="image"><img src="images/pic01.jpg"
-										alt="" /></a>
-									<p id="name${status.index}"></p>
-									<p id="writer${status.index}"></p>
-									<div style="text-align: right;">
-										<button>공유참여</button>
-									</div>
-								</article>
-							</c:forEach>
-						</table>
-					</div>
+                    <!-- Content -->
+                    <section>
+                        <!-- 이미지 삽입란 -->
+                        <span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                        <header class="main">
+                            <h2>구매 게시판</h2>
+                        </header>
+                        <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+                        <hr class="major" />
+                    </section>
+					
+					
 				</section>
-				</section>
+				<br>
 
-
-				<!-- Sidebar -->
-				<div id="sidebar">
-					<div class="inner">
-
-						<!-- Search -->
-						<section id="search" class="alt">
-							<form method="post" action="#">
-								<input type="text" name="query" id="query" placeholder="Search" />
-							</form>
-						</section>
-
-						<!-- Menu -->
-						<nav id="menu">
-							<header class="major">
-								<h2>Menu</h2>
-							</header>
-							<ul>
-								<li><a href="tbl_main.jsp">홈페이지</a></li>
-								<li><a href="tbl_boardwrite.jsp">글작성</a></li>
-								<li><span class="opener">공유하기</span>
-									<ul>
-										<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
-										<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
-										<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
-										<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
-									</ul></li>
-								<li><a href="#">문의하기</a></li>
-							</ul>
-						</nav>
-
-						<!-- Section -->
-						<section>
-							<header class="major">
-								<h2>추천상품</h2>
-							</header>
-							<div class="mini-posts">
-								<article>
-									<a href="#" class="image"><img src="images/pic07.jpg"
-										alt="" /></a>
-									<p>상품1</p>
-								</article>
-								<article>
-									<a href="#" class="image"><img src="images/pic08.jpg"
-										alt="" /></a>
-									<p>상품2</p>
-								</article>
-								<article>
-									<a href="#" class="image"><img src="images/pic09.jpg"
-										alt="" /></a>
-									<p>상품3</p>
-								</article>
-							</div>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</section>
-
-						<!-- Section -->
-						<section>
-							<header class="major">
-								<h2>문의주세요</h2>
-							</header>
-							<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
-							<ul class="contact">
-								<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
-								<li class="icon solid fa-phone">연락처</li>
-								<li class="icon solid fa-home">주소<br /> 상세주소
-								</li>
-							</ul>
-						</section>
-
-						<!-- Footer -->
-						<footer id="footer">
-							<p class="copyright">
-								&copy; Untitled. All rights reserved. Demo Images: <a
-									href="https://unsplash.com">Unsplash</a>. Design: <a
-									href="https://html5up.net">HTML5 UP</a>.
-							</p>
-						</footer>
-					</div>
-				</div>
 			</div>
 		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+				<!-- Search -->
+				<section id="search" class="alt">
+					<form method="post" action="#">
+						<input type="text" name="query" id="query" placeholder="Search" />
+					</form>
+				</section>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="tbl_main.jsp">홈페이지</a></li>
+						<li><a href="tbl_boardwrite.jsp">글작성</a></li>
+						<li><span class="opener">공유하기</span>
+							<ul>
+								<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
+								<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
+								<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
+								<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
+							</ul></li>
+						<li><a href="#">문의하기</a></li>
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>추천상품</h2>
+					</header>
+					<div class="mini-posts">
+						<article>
+							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+							<p>상품1</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+							<p>상품2</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+							<p>상품3</p>
+						</article>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button">공유참여</a></li>
+					</ul>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>문의주세요</h2>
+					</header>
+					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
+						<li class="icon solid fa-phone">연락처</li>
+						<li class="icon solid fa-home">주소<br /> 상세주소
+						</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">
+						&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a
+							href="https://html5up.net">HTML5 UP</a>.
+					</p>
+				</footer>
+
+			</div>
+		</div>
+
 	</div>
 
+	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
@@ -310,18 +156,17 @@ to {
 		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
-		window.onload = function () {
+		window.onload = function() {
 			showSlides(slideIndex);
 
 			// Auto Move Slide
 			var sec = 3000;
-			setInterval(function () {
+			setInterval(function() {
 				slideIndex++;
 				showSlides(slideIndex);
 
 			}, sec);
 		}
-
 
 		// Next/previous controls
 		function moveSlides(n) {
@@ -342,7 +187,8 @@ to {
 			var size = slides.length;
 
 			if ((n + 1) > size) {
-				slideIndex = 0; n = 0;
+				slideIndex = 0;
+				n = 0;
 			} else if (n < 0) {
 				slideIndex = (size - 1);
 				n = (size - 1);
@@ -358,9 +204,7 @@ to {
 			slides[n].style.display = "block";
 			dots[n].className += " active";
 		}
-		
-		
-		
+
 		next_list(1, 1);
 
 		var arr = null;
@@ -505,5 +349,7 @@ to {
 			}
 		}
 	</script>
+
 </body>
+
 </html>

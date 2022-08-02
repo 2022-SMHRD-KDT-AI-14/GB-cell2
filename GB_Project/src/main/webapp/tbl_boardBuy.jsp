@@ -1,3 +1,9 @@
+<%@page import="com.smhrd.model.tbl_share"%>
+<%@page import="java.util.Random"%>
+<%@page import="com.smhrd.model.tbl_coordinate"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -141,19 +147,20 @@ to {
 					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
 							싶어?</strong> 1/N !</a>
 					<ul class="icons">
-					
 						<c:choose>
-						<c:when test="${empty loginMember}">
-						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">로그인</span></a></li>
-						</c:when>
-						<c:otherwise>
-						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
-						</c:otherwise>
+							<c:when test="${empty loginMember}">
+								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
+										class="label">로그인</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
+										class="label">Medium</span></a></li>
+							</c:otherwise>
 						</c:choose>
-		
-					
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
-						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
+								class="label">Medium</span></a></li>
+						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
+								class="label">Medium</span></a></li>
 					</ul>
 				</header>
 				<section>
@@ -179,25 +186,30 @@ to {
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
 							class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
-					<br>
-					<!-- 현재 이미지를 알려주는 하단의 점 -->
-					<div style="text-align: center">
-						<span class="dot" onclick="currentSlide(1)"></span> <span
-							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
-							onclick="currentSlide(3)"></span>
-					</div>
-					<!-- Section -->
-					<section>
-						<header class="major">
-							<h2>신규 게시물</h2>
-						</header>
-						<article>
+				</section>
+				<br>
+				<!-- 현재 이미지를 알려주는 하단의 점 -->
+				<div style="text-align: center">
+					<span class="dot" onclick="currentSlide(1)"></span> <span
+						class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+						onclick="currentSlide(3)"></span>
+				</div>
+				<div>
+					<p>이곳은 구매 게시판 입니다.</p>
+					<p>다양한 상품을 나눠 공유 할 수 있습니다.</p>
+				</div>
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>신규 게시물</h2>
+					</header>
+					<article>
 						<header class="main" style="text-align: right;">
 							<a href="tbl_write.jsp" class="button big">게시물 작성</a>
 						</header>
 						<br>
 					</article>
-						<div class="posts">
+					<div class="posts">
 						<table class="table">
 							<c:forEach begin="0" end="9" step="1" varStatus="status">
 								<article>
@@ -212,8 +224,7 @@ to {
 							</c:forEach>
 						</table>
 					</div>
-					</section>
-					</section>
+				</section>
 			</div>
 		</div>
 
@@ -248,28 +259,83 @@ to {
 				</nav>
 
 				<!-- Section -->
+				<%if(session.getAttribute("MEM_ID")!=null){ 
+				
+					
+						String MEM_ID = (String)session.getAttribute("MEM_ID");
+						int MEM_LATITUDE = (int)session.getAttribute("MEM_LATITUDE");
+						int MEM_LONGITUDE = (int)session.getAttribute("MEM_LONGITUDE");
+
+
+
+						tbl_coordinateDAO dao = new tbl_coordinateDAO();
+
+							ArrayList<String> id = new ArrayList<String>();
+							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
+							
+							int cnt = 0;
+						for(int i = 0 ; i<tbl_coordinate.size();i++){
+							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
+							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
+								&&tbl_coordinate.get(i).getMEM_LONGITUDE()<MEM_LONGITUDE+3&&tbl_coordinate.get(i).getMEM_LONGITUDE()>MEM_LONGITUDE-3){
+								id.add(cnt, tbl_coordinate.get(i).getMEM_ID());
+								cnt++;
+							}
+							}
+						}
+						  Random r = new Random();
+						  int num1 = r.nextInt(id.size());
+						  int num2 = r.nextInt(id.size());
+						  int num3 = r.nextInt(id.size());
+						  List<tbl_share> list1 = dao.selectListshare(id.get(num1));
+						  List<tbl_share> list2 = dao.selectListshare(id.get(num2));
+						  List<tbl_share> list3 = dao.selectListshare(id.get(num3));
+						  int num11 = r.nextInt(list1.size());
+						  int num22 = r.nextInt(list2.size());
+						  int num33 = r.nextInt(list3.size());
+						
+						  
+						  int a = list1.get(num11).getBOARD_SEQ().intValue();
+						  int b = list2.get(num22).getBOARD_SEQ().intValue();
+						  int c = list3.get(num33).getBOARD_SEQ().intValue();
+						  
+						 int board_seq1 =a/2;
+						  int board_seq2 = b/2;
+						  int board_seq3 = c/2;
+						  
+						  session.setAttribute("board_seq1", board_seq1);
+						  session.setAttribute("board_seq2", board_seq2);
+						  session.setAttribute("board_seq3", board_seq3);
+				
+				%>
+				
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
 						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>상품1</p>
+							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
+							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
+							
 						</article>
 						<article>
-							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-							<p>상품2</p>
+							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
+							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
 						</article>
 						<article>
-							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-							<p>상품3</p>
+							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
+							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
 					</div>
 					<ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
 					</ul>
 				</section>
+				<%} %>
 
 				<!-- Section -->
 				<section>
@@ -300,7 +366,7 @@ to {
 	</div>
 
 	<!-- Scripts -->
-	
+
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
@@ -313,18 +379,17 @@ to {
 		var slideIndex = 0; //slide index
 
 		// HTML 로드가 끝난 후 동작
-		window.onload = function () {
+		window.onload = function() {
 			showSlides(slideIndex);
 
 			// Auto Move Slide
 			var sec = 3000;
-			setInterval(function () {
+			setInterval(function() {
 				slideIndex++;
 				showSlides(slideIndex);
 
 			}, sec);
 		}
-
 
 		// Next/previous controls
 		function moveSlides(n) {
@@ -345,7 +410,8 @@ to {
 			var size = slides.length;
 
 			if ((n + 1) > size) {
-				slideIndex = 0; n = 0;
+				slideIndex = 0;
+				n = 0;
 			} else if (n < 0) {
 				slideIndex = (size - 1);
 				n = (size - 1);
@@ -361,9 +427,7 @@ to {
 			slides[n].style.display = "block";
 			dots[n].className += " active";
 		}
-		
-		
-		
+
 		next_list(1, 1);
 
 		var arr = null;
