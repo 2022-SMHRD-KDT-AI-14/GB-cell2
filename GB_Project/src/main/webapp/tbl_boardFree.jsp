@@ -337,7 +337,7 @@
 							List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
 							
 							int cnt = 0;
-							if(tbl_coordinate.size()>0){
+							
 						for(int i = 0 ; i<tbl_coordinate.size();i++){
 							if(!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)){
 							if(tbl_coordinate.get(i).getMEM_LATITUDE()<MEM_LATITUDE+3&&tbl_coordinate.get(i).getMEM_LATITUDE()>MEM_LATITUDE-3
@@ -400,27 +400,27 @@
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
-						<article>
 						<%if(list1.size()>0) {%>
+						<article>
 							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
 							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
 							<%} %>
 						</article>
-						<article>
 						<%if(list2.size()>0) {%>
+						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
 							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
 							<%} %>
 						</article>
+						<%if(list3.size()>0) {%>
 						<article>
-						<%if(list2.size()>0) {%>
 							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
-							<%} }%>
 						</article>
+							<%} %>
 					</div>
 					<ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
