@@ -168,7 +168,7 @@
 
 				<section>
 					<header class="major">
-						<h2>계정공유 게시판</h2>
+						<h2>알바 게시판</h2>
 					</header>
 					
 					<!-- 슬라이드쇼 컨테이너 -->

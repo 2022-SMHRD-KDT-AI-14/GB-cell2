@@ -249,7 +249,7 @@
 						</table>
 						<div style="text-align: center;">
 							<a href="tbl_main.jsp" class="button">메인으로 가기</a>
-							<a href="tbl_join2.jsp" class="button primary">회원가입</a></li>
+							<a href="tbl_join2.jsp" class="button primary">회원가입</a>
 						</div>
 					</form>
 				</section>
@@ -260,12 +260,8 @@
 				<br>
 				<br>
 				<br>
-
 			</div>
 		</div>
-
-
-
 
 		<!-- Sidebar -->
 		<div id="sidebar">
