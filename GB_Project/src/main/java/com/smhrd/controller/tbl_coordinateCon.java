@@ -25,13 +25,15 @@ public class tbl_coordinateCon extends HttpServlet {
 		
 		tbl_coordinateDAO dao = new tbl_coordinateDAO();
 		
-		tbl_coordinate selectme = dao.selectme(MEM_ID);
+		tbl_coordinate selectme = dao.selectOneme(MEM_ID);
 		System.out.println(selectme.getMEM_ID());
 		System.out.println(selectme.getMEM_LATITUDE());
+		System.out.println(selectme.getMEM_LONGITUDE());
 		
-		List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
-	
-	System.out.println(tbl_coordinate.get(0).getMEM_ID());
+		
+		session.setAttribute("MEM_ID", selectme.getMEM_ID());
+		session.setAttribute("MEM_LATITUDE", selectme.getMEM_LATITUDE());
+		session.setAttribute("MEM_LONGITUDE", selectme.getMEM_LONGITUDE());
 		
 		response.sendRedirect("tbl_coordinate.jsp");
 		

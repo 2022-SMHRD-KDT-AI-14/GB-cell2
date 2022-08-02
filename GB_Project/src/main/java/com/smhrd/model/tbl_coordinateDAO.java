@@ -33,8 +33,8 @@ public class tbl_coordinateDAO {
 	}
 	
 	public int updatecoordinate(tbl_coordinate vo){
-		int cnt = 0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt = 0;
 		try {
 			// 실행
 			cnt = sqlSession.update("com.smhrd.model.tbl_coordinateDAO.updatecoordinate", vo);
@@ -56,8 +56,8 @@ public class tbl_coordinateDAO {
 	
 	
 	public List<tbl_coordinate> selectAllList() {
-		List<tbl_coordinate> list =null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<tbl_coordinate> list =null;
 		try {
 			list = sqlSession.selectList("com.smhrd.model.tbl_coordinateDAO.selectAllList");
 		}catch(Exception e) {
@@ -69,11 +69,11 @@ public class tbl_coordinateDAO {
 	}
 	
 
-	public tbl_coordinate selectme(String MEM_ID) {
-		tbl_coordinate vo= null;
+	public tbl_coordinate selectOneme(String id){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		tbl_coordinate vo= null;
 	try {
-		vo= sqlSession.selectOne("com.smhrd.model.tbl_coordinateDAO.selectme",MEM_ID);
+		vo= sqlSession.selectOne("com.smhrd.model.tbl_coordinateDAO.selectOneme",id);
 		// select - commit/rollback 생략
 	}catch(Exception e) {
 		e.printStackTrace();
@@ -84,12 +84,12 @@ public class tbl_coordinateDAO {
 	return vo;
 	}
 	
-	public List<tbl_share> selectlistshare(String MEM_ID) {
-		List<tbl_share> vo= null;
+	public List<tbl_share> selectListshare(String MEM_ID) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<tbl_share> vo= null;
 	
 	try {
-		vo= sqlSession.selectList("com.smhrd.model.tbl_coordinateDAO.selectlistshare",MEM_ID);
+		vo= sqlSession.selectList("com.smhrd.model.tbl_coordinateDAO.selectListshare",MEM_ID);
 		// select - commit/rollback 생략
 	}catch(Exception e) {
 		e.printStackTrace();
