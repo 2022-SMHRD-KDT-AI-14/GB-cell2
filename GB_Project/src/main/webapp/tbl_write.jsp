@@ -38,14 +38,11 @@
 					<header class="main">
 						<h1>게시물 작성</h1>
 					</header>
-					
-					
 					<form action="test_BoardWriteCon" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 						<div class="col-6 col-12-small">
 							<input type="text" placeholder="게시물 제목 작성" name="name">
 						</div>
 						<br>
-
 						<!-- 게시물 작성 -->
 						<div class="col-6 col-12-small">
 							<div class="col-6 col-12-small">
@@ -84,7 +81,6 @@
 								</div>
 								<script>
 									$(document).ready(function () {
-
 										// 라디오버튼 클릭시 이벤트 발생
 										$("input:radio[name=radio]").click(function () {
 
@@ -105,40 +101,27 @@
 												$(".buyForm").css('display', 'block')
 												$(".accountingForm").css('display', 'none')
 												$(".albeitForm").css('display', 'none')
-
-
-
 											}
 										});
 									});
 								</script>
-
 								<textarea name="content" rows="10" style="width : 100%;"></textarea><br>
-								
 								<input type="submit" value="작성완료">
-								
 							</div>
 						</div>
 					</form>
 				</section>
-
-
 			</div>
 		</div>
-
-		<!-- Sidebar -->
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
-
 				<!-- Search -->
 				<section id="search" class="alt">
 					<form method="post" action="#">
 						<input type="text" name="query" id="query" placeholder="Search" />
 					</form>
 				</section>
-
-				<!-- Menu -->
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
@@ -157,11 +140,9 @@
                             </ul>
 						</li>
 						<li><a href="#">문의하기</a></li>
-						
-
 					</ul>
 				</nav>
-<!-- Section -->
+				<!-- Section -->
 				<%if(session.getAttribute("MEM_ID")!=null&&session.getAttribute("loginMember")!=null){ 
 				
 					
