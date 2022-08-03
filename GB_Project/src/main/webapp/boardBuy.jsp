@@ -119,7 +119,7 @@ function list_write(data_list){
 	
 	for(var i =0 ; i<data_list.length;i++){//jquery 문을통해 태그안의 내용을 바꾸어준다 --> .text()사용
 		
-		$('#name'+i).html("<a href='boardView.jsp?num="+data_list[i].num+"'>"+data_list[i].name+"</a>");
+		$('#name'+i).html("<a href='boardview.jsp?num="+data_list[i].num+"'>"+data_list[i].name+"</a>");
 		$('#writer'+i).text(data_list[i].writer);
 		$('#views'+i).text(data_list[i].views);
 	}
