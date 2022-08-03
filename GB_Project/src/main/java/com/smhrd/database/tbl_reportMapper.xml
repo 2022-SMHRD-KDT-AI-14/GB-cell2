@@ -19,7 +19,7 @@
 	</update>
 	
 	<select id="selectreportcount" parameterType="String" resultType="int">
-		select COUNT(*) from tbl_report where R_MEM_ID = #{MEM_ID}
+		select COUNT(*) from tbl_report where R_MEM_ID = #{MEM_ID} and R_STATE = '확정'
 	</select>
 	
 </mapper>  
