@@ -5,7 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.BuyApplicantDAO"> 
 
-	
+	<select id="SelectOneB" parameterType="String" resultType="com.smhrd.model.BuyApplicant">
+		select * from tbl_buy_applicant where mem_id=#{loginMember}
+	</select>
 
 
 	<insert  id="insertBuyApplicant" parameterType="com.smhrd.model.BuyApplicant">

@@ -63,7 +63,7 @@ request.setCharacterEncoding("UTF-8");
 			
 			tbl_share tbl_share = new tbl_share(name,content,MEM_ID,filename,"0","N","모집중","B");
 			
-			System.out.println("boardWC, tbl_share id >> "+tbl_share.getMEM_ID());
+			System.out.println("test_BoardWriteCon, tbl_share id >> "+tbl_share.getMEM_ID());
 			tbl_buy_applicant tbl_buy_applicant = new tbl_buy_applicant(MEM_ID,"모집중","W",buylink,buypay,"B");
 			
 			tbl_shareDAO dao = new tbl_shareDAO();

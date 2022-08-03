@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -35,13 +36,13 @@ public class tbl_account_applicantDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		System.out.println("tbl_account_applicantDAO.selectOnePar2 진입했어");
 		BigDecimal board_seq =new BigDecimal(num);
-		tbl_account_applicant vo = new tbl_account_applicant(id, board_seq);
+		tbl_account_applicant vo = new tbl_account_applicant(id,"I",board_seq);
 		tbl_account_applicant result = null;
 		try {
-			
-			System.out.println("dao tbl_account_applicant selectOnePar2 BOARD_SEQ >>" +vo.getBOARD_SEQ());
+			System.out.println("dao tbl_account_applicant selectOnePar2 전 BOARD_SEQ >>" +vo.getBOARD_SEQ());
+			//여기가 문제다
 			result = sqlSession.selectOne("com.smhrd.model.tbl_account_applicantDAO.selectOnePar2",vo);
-			System.out.println("dao tbl_account_applicant selectOnePar2 BUY_PAY >>" +vo.getID_PAY());
+			System.out.println("dao tbl_account_applicant selectOnePar2 후 BUY_PAY >>" +result.getID_PAY());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -51,7 +52,19 @@ public class tbl_account_applicantDAO {
 		return result;
 	}
 	
+	public List<tbl_account_applicant> selectOneI(String loginMember) { 
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<tbl_account_applicant> result =null;
+
+		try {
+			result = sqlSession.selectList("com.smhrd.model.tbl_account_applicantDAO.SelectOneI",loginMember);
+			System.out.println("I 게시글 크기 >>" +result.size());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return result;
 	
-	
-	
+	}
 }

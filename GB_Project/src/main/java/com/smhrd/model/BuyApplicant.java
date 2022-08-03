@@ -54,6 +54,9 @@ public class BuyApplicant {
 		this.cat_name = cat_name;
 		this.board_seq = board_seq;
 	}
+	public BuyApplicant() {
+		super();
+	}
 	
 	
 	

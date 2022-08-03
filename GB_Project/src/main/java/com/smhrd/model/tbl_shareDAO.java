@@ -9,12 +9,13 @@ import com.smhrd.database.SqlSessionManager;
 
 public class tbl_shareDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	SqlSession sqlSession = sqlSessionFactory.openSession();
+	
 	
 	
 	
 	
 	public List<tbl_share> selectAllList() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<tbl_share> list =null;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
@@ -29,6 +30,7 @@ public class tbl_shareDAO {
 	
 	
 	public List<tbl_share> selectAllListPage(int num) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<tbl_share> list =null;
 		try {
 			list=sqlSession.selectList("com.smhrd.model.tbl_shareDAO.selectAllListPage",num); 
@@ -42,6 +44,7 @@ public class tbl_shareDAO {
 	}
 	
 	public int insertShareBuyBoard(tbl_share tbl_share){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행
@@ -61,6 +64,7 @@ public class tbl_shareDAO {
 	}
 	
 	public int insertShareArbeitBoard(tbl_share tbl_share){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행
@@ -80,6 +84,7 @@ public class tbl_shareDAO {
 	}
 	
 	public int insertShareFreeBoard(tbl_share tbl_share){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행
@@ -99,6 +104,7 @@ public class tbl_shareDAO {
 	}
 	
 	public int insertShareAccountBoard(tbl_share tbl_share){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
 		try {
 			// 실행

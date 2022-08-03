@@ -7,4 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <insert  id="insertFreeApplicant" parameterType="com.smhrd.model.tbl_free_applicant">
 		insert into tbl_free_applicant values (tbl_free_applicant_seq.nextval,#{MEM_ID},sysdate,#{FREE_P_STATE},#{FREE_C_STATE},#{CAT_NAME},#{BOARD_SEQ})	
 	</insert>
+
+<select id="SelectOneF" parameterType="String" resultType="com.smhrd.model.tbl_free_applicant">
+		select * from tbl_free_applicant where mem_id=#{loginMember}
+</select>
+
 </mapper>

@@ -4,7 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.tbl_arbeit_applicantDAO"> 
 
-
+<select id="SelectOneA" parameterType="String" resultType="com.smhrd.model.tbl_arbeit_applicant">
+		select * from tbl_arbeit_applicant where mem_id=#{loginMember}
+</select>
 
 <insert  id="insertArbeitApplicant" parameterType="com.smhrd.model.tbl_arbeit_applicant">
 	insert into tbl_arbeit_applicant values (tbl_arbeit_applicant_seq.nextval,#{MEM_ID},sysdate,#{ARB_P_STATE},#{ARB_C_STATE},#{ARBEIT_TIME},#{ARBEIT_SITE},#{ARBEIT_PAY},#{CAT_NAME},#{BOARD_SEQ})	

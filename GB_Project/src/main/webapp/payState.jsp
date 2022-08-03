@@ -82,9 +82,11 @@
 
 
 
-
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script> // 작성자의 거래결정 후 참석자의 미입금 상태
+  
+  
+
+  <script> // 작성자의 거래결정 후 참석자의 미입금 상태 알람
     $(window).load(function () { 
     	$.ajax({
 		url : 'alramCon',
@@ -101,13 +103,14 @@
 		})
     });
 </script>
-<script> //결제현황 자동 업데이트
+
+<script> //입금모두 되면 조건 변경하여 자동 업데이트
     $(window).load(function () { 
     	$.ajax({
 		url : 'checkPay',
 		type: 'get',
 		success : function(data){
-			alert(data)			
+			/* alert(data)	 */		
 			
 		},
 		error : function(){
@@ -115,8 +118,24 @@
 		}
 		})
     });
-</script>
+</script> 
 
+<script> //게시글테이블 거래상태를 참석자 테이블에도 동기화
+ 
+$(window).load(function () { 
+    	$.ajax({
+		url : 'ShareToApplicantCon',
+		type: 'get',
+		success : function(data){
+			/* alert(data)	 */		
+			
+		},
+		error : function(){
+			alert("왕리스트 통신실패")
+		}
+		})
+    });
+</script>
 
 
 

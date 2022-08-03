@@ -15,12 +15,12 @@ import com.smhrd.model.ShareDAO;
 import com.smhrd.model.tbl_arbeit_applicantDAO;
 import com.smhrd.model.updateStatepDAO;
 
-public class updateStateConp extends HttpServlet {
+public class updateStateConpAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+System.out.println("all");
 //		request.setCharacterEncoding("UTF-8");
 //		HttpSession session = request.getSession();
 //		String loginMember = (String)session.getAttribute("loginMember");
@@ -28,21 +28,13 @@ public class updateStateConp extends HttpServlet {
 		List<Integer> bList = (List<Integer>) request.getAttribute("bList");
 		System.out.println("여기까지 오면 반은 성공!!");
 		ShareDAO dao = new ShareDAO();
-		String cat_name = null;
-		String board_state = "거랭ㅋ";
-		for (Integer i : bList) {
-
-			Share vo = new Share( new BigDecimal(i), board_state);
-			dao.selectOne(i).getCat_name();
-			int cnt = dao.updateStatep(vo);
-			if (cnt > 0) {
-				System.out.println("share 테이블 거래중으로 성공!");
-			} else {
-				System.out.println("share 테이블 거래중으로 실패..");
-			}
 			
-			updateStatepDAO	dao2=new updateStatepDAO();
+		String cat_name = null;
+		String board_state = null;
+		updateStatepDAO	dao2=new updateStatepDAO();
+		for (Integer i : bList) {
 			cat_name = dao.selectOne(i).getCat_name();
+			board_state = dao.selectOne(i).getArticle_state();
 			int cnt2 = 0;
 			if(cat_name.equals("A")) {
 				cnt2 = dao2.updateStatepA( new BigDecimal(i), board_state);
@@ -55,14 +47,14 @@ public class updateStateConp extends HttpServlet {
 			}	
 			
 			if (cnt2 > 0) {
-				System.out.println(cat_name+" 테이블은 거래중으로 성공!");
+				System.out.println(cat_name+" 테이블은"+board_state+" 로 성공!");
 			} else {
-				System.out.println(cat_name+" 테이블은 거래중으로 실패..");
+				System.out.println(cat_name+" 테이블은"+board_state+" 로 실패!");
 			}
 			
 		}
 
-		response.sendRedirect("payState.jsp");
+response.sendRedirect("payState.jsp");
 	}
 
 }
