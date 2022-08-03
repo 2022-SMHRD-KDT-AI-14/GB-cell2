@@ -28,6 +28,20 @@ public class tbl_shareDAO {
 		return list;
 	}
 	
+	public String selectreportOne(int BOARD_SEQ) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		String list =null;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			list=sqlSession.selectOne("com.smhrd.model.tbl_shareDAO.selectreportOne",BOARD_SEQ); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+	
 	
 	public List<tbl_share> selectAllListPage(int num) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();

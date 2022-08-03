@@ -62,7 +62,7 @@ public class MyPageMemareaUpdate extends HttpServlet {
 			System.out.println("희망배송지 위도경도 저장 실패");
 	}
 		
-		response.sendRedirect("tbl_main.jsp");
+		response.sendRedirect("close.jsp");
 
 
 	}

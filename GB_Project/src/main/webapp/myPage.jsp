@@ -58,7 +58,7 @@
 				<section>
 				<h2 style="text-align: center;">마이페이지</h2>
 				</section>
-				<div  class="table-wrapper">
+				<div class="table-wrapper">
 					<table class="alt">
 						<thead>
 							<tr>
@@ -81,72 +81,64 @@
 								<tr>
 									<td>비밀번호</td>
 									<td>
-									<div class="row gtr-uniform">
-									<div class="col-6 col-12-xsmall">
-										<input class type="password" value="${MyPageList.MEM_PW}">
-									</div>
-									<div class="col-6 col-12-xsmall">
-										<button type="button" onclick="location.href='myPagePW.jsp';"> 비밀번호 변경 </button>
-									</div>
-									
-									</div>
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall">
+												<form action="myPagePWCon">
+													<input type="password" placeholder="변경하실 PW를 입력하세요"
+														name="pw">
+											</div>
+											<!-- con으로 보내는 값-->
+											<div class="col-6 col-12-xsmall">
+												<input type="submit" class="btn btnprimary" value="비밀번호 수정">
+											</div>
+											<%-- <input class type="password" value="${MyPageList.MEM_PW}"> --%>
+											<!-- <button type="button"
+													onclick="location.href='myPagePW.jsp';">비밀번호 변경</button> -->
+											</form>
+										</div>
+										</div>
 									</td>
 								</tr>
 								<tr>
 									<td>닉네임</td>
 									<td>${MyPageList.MEM_NICK}</td>
-
 								</tr>
 								<tr>
 									<td>이름</td>
 									<td>${MyPageList.MEM_NAME}</td>
-
 								</tr>
 								<tr>
 									<td>핸드폰번호</td>
 									<td>${MyPageList.MEM_PHONE}</td>
-
 								</tr>
 								<tr>
 									<td>계좌번호</td>
 									<td>${MyPageList.MEM_BANK_NUM}</td>
-
 								</tr>
 								<tr>
 									<td>주민번호</td>
 									<td>${MyPageList.MEM_JUMIN}</td>
-
 								</tr>
 								<tr>
 									<td>회원온도</td>
 									<td>${MyPageList.MEM_TEMPER}</td>
-
 								</tr>
 								<tr>
-									<td>희망배송지역</td>
-									<td>${MyPageList.MEM_AREA}</td>
+									<c:choose>
+										<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
+											<td>희망배송지역</td>
+											<td>희망배송지역 없음</td>
+											<!-- <td><button type="button"
+													onclick="location.href='myPageMemAreainput.jsp';">희망배송지
+													설정</button></td> -->
+										</c:when>
+										<c:otherwise>
+											<td>희망배송지역</td>
+											<td>${MyPageList.MEM_AREA}</td>
+										</c:otherwise>
+									</c:choose>
 								</tr>
 							</table>
-
-
-							<c:choose>
-								<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-									<td>희망배송지역 없음</td>
-								</c:when>
-
-								<c:otherwise>
-									<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
-								</c:otherwise>
-							</c:choose>
-							</tr>
-
-							<tr>
-								<c:choose>
-									<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-										희망배송지역 없음<br>
-									</c:when>
-								</c:choose>
-							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
@@ -156,85 +148,59 @@
 						</tfoot>
 					</table>
 				</div>
-				<c:choose>
+				<%-- <c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
                         희망배송지역 없음<br>
 					</c:when>
-					
-				</c:choose>
-				<c:choose>
+				</c:choose> --%>
+				<%-- <c:choose>
 					<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
 						<button type="button"
 							onclick="location.href='myPageMemAreainput.jsp';">희망배송지
 							설정</button>
 					</c:when>
-
 					<c:otherwise>
-						<div style="text-align: center;">
-							<button type="button" class="button primary"
-								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
-								수정</button>
-							<a href="tbl_main.jsp" class="button">되돌아가기</a>
-						
-						</div>
-						
-					
 					</c:otherwise>
-				</c:choose>
-				
+				</c:choose> --%>
+						<div style="text-align: center;">
+							<!-- 추가 수정 -->
+							<input type="button" class="button primary" value="희망배송지 수정"
+								onclick="new_window();">
+
+							<!-- <button type="button" class="button primary"
+								onclick="location.href='myPageMemAreainput.jsp';">희망배송지
+								수정</button> -->
+							<a href="tbl_main.jsp" class="button">되돌아가기</a>
+						</div>
 			</div>
 		</div>
-
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
-
 				<!-- Search -->
 				<section id="search" class="alt">
-					<form method="post" action="#">
-						<input type="text" name="query" id="query" placeholder="Search" />
-					</form>
+				<form method="post" action="#">
+					<input type="text" name="query" id="query" placeholder="Search" />
+				</form>
 				</section>
-
 				<!-- Menu -->
-				<nav id="menu">
-					<header class="major">
-						<h2>Menu</h2>
-					</header>
-					<ul>
-						<li><a href="tbl_main.jsp">홈페이지</a></li>
-						<li><a href="tbl_boardwrite.jsp">글작성</a></li>
-						<li><span class="opener">공유하기</span>
-							<ul>
-								<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
-								<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
-								<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
-								<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
-							</ul></li>
-						<li><a href="#">문의하기</a></li>
-					</ul>
+				<nav id="menu"> <header class="major">
+				<h2>Menu</h2>
+				</header>
+				<ul>
+					<li><a href="tbl_main.jsp">홈페이지</a></li>
+					<li><a href="tbl_boardwrite.jsp">글작성</a></li>
+					<li><span class="opener">공유하기</span>
+						<ul>
+							<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
+							<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
+							<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
+							<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
+						</ul></li>
+					<li><a href="#">문의하기</a></li>
+				</ul>
 				</nav>
-
-				<!-- Section -->
-
-				<section>
-					<header class="major">
-						<h2>추천상품</h2>
-					</header>
-					<div class="mini-posts">
-						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>상품1</p>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-							<p>상품2</p>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-							<p>상품3</p>
-
-				<!-- Section -->
+<!-- Section -->
 				<%if(session.getAttribute("MEM_ID")!=null&&session.getAttribute("loginMember")!=null){ 
 				
 					
@@ -353,15 +319,13 @@
 							상세주소</li>
 					</ul>
 				</section>
+
 				<!-- Footer -->
 				<footer id="footer">
-					<p class="copyright">
-						&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
-					</p>
+					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
 				</footer>
-
 			</div>
 		</div>
 	</div>
@@ -375,6 +339,12 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script type="text/javascript"></script>
+	<script>
+			function new_window() {
+				window.open("child.jsp", "Child",
+						"width=500, height=400 top=50, left=50");
+			}
+		</script>
 </body>
 </html>
 

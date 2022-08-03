@@ -1,24 +1,64 @@
+<%@page import="com.smhrd.model.tbl_share"%>
+<%@page import="java.util.Random"%>
+<%@page import="com.smhrd.model.tbl_coordinate"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.tbl_coordinateDAO"%>
+<%@page import="com.smhrd.model.MyPage"%>
+<%@page import="com.smhrd.model.MyPageDAO"%>
+<%@page import="com.smhrd.model.Member"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Insert title here</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-	<form action="MyPageMemareaUpdate">
-		<input type="text" id="sample5_address" name="MEM_AREA"
-			placeholder="주소">
-		<div style='display: none;'>
-			<input type="text" id="xCOORDINATE" name="MEM_xCOORDINATE">
-			<input type="text" id="yCOORDINATE" name="MEM_yCOORDINATE">
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<header id="header">
+					<header class="main">
+						<h1>배송지수정</h1>
+					</header>
+				</header>
+				<section>
+
+
+					<form action="MyPageMemareaUpdate">
+						<input type="text" id="sample5_address" name="MEM_AREA"
+							placeholder="주소 검색을 통해서 입력하세요.">
+						<div style='display: none;'>
+							<input type="text" id="xCOORDINATE" name="MEM_xCOORDINATE">
+							<input type="text" id="yCOORDINATE" name="MEM_yCOORDINATE">
+						</div><br>
+						<div style="text-align: center;">
+						<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"> 
+						<input class="button primary" type="submit" value="주소 보내기">
+						</div>
+					</form>
+					<div style="text-align: center;">
+					<div id="map" style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+					
+					</div>
+				</section>
+				
+				
+				
+			</div>
 		</div>
-		<input type="button" onclick="sample5_execDaumPostcode()"
-			value="주소 검색"><br> <input type="submit" value="주소 보내기">
-	</form>
-	<div id="map"
-		style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+	</div>
+
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
@@ -78,5 +118,14 @@
 					}).open();
 		}
 	</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script type="text/javascript"></script>
+
 </body>
 </html>

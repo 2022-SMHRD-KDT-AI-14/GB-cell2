@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+       "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.smhrd.model.tbl_reportDAO">
+
+	<insert  id="insertreport" parameterType="com.smhrd.model.tbl_report">
+		insert into tbl_report values (tbl_report_seq.nextval,#{R_TITLE},#{R_CONTENT},sysdate,#{MEM_ID},'미정',#{BOARD_SEQ},#{R_MEM_ID}) 
+	</insert>
+	
+	<select id="selectAllListPage" resultType="com.smhrd.model.tbl_report">
+		select * from tbl_report
+	</select>
+	
+	<update id="updatereport" parameterType="int">
+		update  tbl_report set R_STATE='확정' where BOARD_SEQ=#{BOARD_SEQ}
+	</update>
+	
+</mapper>  
