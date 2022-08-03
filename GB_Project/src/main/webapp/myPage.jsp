@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.tbl_reportDAO"%>
 <%@page import="com.smhrd.model.tbl_share"%>
 <%@page import="java.util.Random"%>
 <%@page import="com.smhrd.model.tbl_coordinate"%>
@@ -27,6 +28,13 @@
 	value="${MyPageDAO.selectMyPageOne(param.MEM_ID)}" />
 
 <body class="is-preload">
+
+	<%
+	String t = (String)session.getAttribute("loginMember");
+	tbl_reportDAO dao3 = new tbl_reportDAO();
+	int number = dao3.selectreportcount(t);
+	
+	%>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -122,6 +130,10 @@
 								<tr>
 									<td>회원온도</td>
 									<td>${MyPageList.MEM_TEMPER}</td>
+								</tr>
+								<tr>
+									<td>신고게시글수</td>
+									<td><%=number %>개</td>
 								</tr>
 								<tr>
 									<c:choose>

@@ -22,7 +22,7 @@
 			<div id="wrapper">
 				<!-- Menu -->
 					<nav id="Update">	
-						<table>
+						<table >
 							<caption><h2>회원관리페이지</h2></caption>
 								<tr>
 									<td>제목</td>
@@ -46,8 +46,8 @@
 							<%} %>						
 							
 						</table>
-					</nav>		
 					<a href="tbl_main.jsp" class="button next scrolly">되돌아가기</a>	
+					</nav>		
 			</div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
