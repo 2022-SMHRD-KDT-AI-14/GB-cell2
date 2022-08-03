@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.tbl_report;
 import com.smhrd.model.tbl_reportDAO;
+import com.smhrd.model.tbl_shareDAO;
 
 public class tbl_reportCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,16 +18,18 @@ public class tbl_reportCon extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
+		tbl_shareDAO dao2 = new tbl_shareDAO();
+		
 		HttpSession session = request.getSession();
 		String MEM_ID = (String)session.getAttribute("loginMember");
 		String num = (String)session.getAttribute("num");
 		int BOARD_SEQ = Integer.parseInt(num);
 		String R_TITLE = request.getParameter("name"); 
 		String R_CONTENT = request.getParameter("content"); 
+		String R_MEM_ID = dao2.selectreportOne(BOARD_SEQ);
 		
 		
-		
-		tbl_report vo = new tbl_report(0,R_TITLE,R_CONTENT,MEM_ID,"미정",BOARD_SEQ);
+		tbl_report vo = new tbl_report(0,R_TITLE,R_CONTENT,MEM_ID,"미정",BOARD_SEQ,R_MEM_ID);
 		tbl_reportDAO dao = new tbl_reportDAO();
 				int cnt = dao.insertreport(vo);
 				

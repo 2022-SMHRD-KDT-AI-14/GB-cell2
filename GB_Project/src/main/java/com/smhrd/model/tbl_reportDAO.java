@@ -44,4 +44,22 @@ public class tbl_reportDAO {
 		return list;
 	}
 	
+	public int updatereport(int BOARD_SEQ) {
+		SqlSession sqlSession =sqlSessionFactory.openSession();
+		int cnt=0;
+		try {
+			 cnt =sqlSession.update("com.smhrd.model.tbl_reportDAO.updatereport",BOARD_SEQ);
+			if(cnt>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
 }
