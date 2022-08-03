@@ -54,12 +54,8 @@
 	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
 	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 
-	int board_num = Integer.parseInt(request.getParameter("num"));
-	int board = board_num * 2;
+	
 
-	BoardDAO dao3 = new BoardDAO();
-	tbl_reportDAO dao2 = new tbl_reportDAO();
-	int r_num = dao2.selectreportcount(MEM_ID);
 	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -117,11 +113,9 @@
 							<header class="major">
 								<p>제목 : ${board.ARTICLE_TITLE}</p>
 							</header>
-							<p onclick="R()">작성자 : ${board.MEM_ID}</p>
+							<p><a onclick="new_window();" >작성자 : ${board.MEM_ID}</a></p>
 							<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
-							<p>
-								신고당한 게시물수 :
-								<%=r_num%></p>
+							
 							<c:choose>
 								<c:when test="${board.CAT_NAME=='B'}">
 									<p>구매링크 : ${boardbuy.BUY_LINK}</p>
@@ -598,6 +592,11 @@
 			
 			function R() {
 				alert("신고당한 횟수 : "+r_num)
+			}
+			
+			function new_window() {
+				window.open("report.jsp?R_MEM_ID=${board.MEM_ID}", "report",
+						"width=500, height=400 top=50, left=50");
 			}
 	</script>
 
