@@ -67,6 +67,9 @@
 							<li><a href="tbl_boardwrite.jsp" class="button big">게시물 작성</a></li>
 							<li><a href="payState.jsp" class="button big">결제상태</a></li>
 							<li><a href="myPage.jsp?MEM_ID=${loginMember}" class="button big">마이페이지</a></li>
+						<c:if test="${loginMember=='admin'}">
+							<li><a href="tbl_reportview.jsp" class="button big">신고내역확인</a></li>
+						</c:if>
 						</c:if>
 						</ul>
 					</div>
