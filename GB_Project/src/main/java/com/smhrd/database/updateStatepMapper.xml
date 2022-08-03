@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="updateStatepF" parameterType="com.smhrd.model.tbl_free_applicant">
 		UPDATE tbl_free_applicant
-		SET free_p_state = #{FREE_P_STATE}
+		SET free_p_state = #{MEM_ID}
 		WHERE board_seq = #{BOARD_SEQ}
 	</update>
 	

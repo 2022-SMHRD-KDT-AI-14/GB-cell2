@@ -35,17 +35,17 @@ public class ShareToApplicantCon extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String loginMember = (String)session.getAttribute("loginMember");
-
 		
 		tbl_arbeit_applicantDAO daoA =new tbl_arbeit_applicantDAO();
 		BuyApplicantDAO daoB = new BuyApplicantDAO();
 		tbl_free_applicantDAO daoF = new tbl_free_applicantDAO();
 		tbl_account_applicantDAO daoI =new tbl_account_applicantDAO();
 
-		tbl_arbeit_applicant voA = new tbl_arbeit_applicant();
-		BuyApplicant voB = new BuyApplicant();
-		tbl_free_applicant voF = new tbl_free_applicant();
-		tbl_account_applicant voI = new tbl_account_applicant();
+		/*
+		 * tbl_arbeit_applicant voA = new tbl_arbeit_applicant(); BuyApplicant voB = new
+		 * BuyApplicant(); tbl_free_applicant voF = new tbl_free_applicant();
+		 * tbl_account_applicant voI = new tbl_account_applicant();
+		 */
 		
 		ArrayList<Integer> ListBoard = new ArrayList<Integer>(); 
 
@@ -87,32 +87,34 @@ public class ShareToApplicantCon extends HttpServlet {
 		
 		
 		
-		System.out.println("여기까지 오면 반은 성공!!");
+		//System.out.println("여기까지 오면 반은 성공!!");
 		ShareDAO dao = new ShareDAO();
 			
 		String cat_name = null;
-		String board_state = null;
+		String state = null;
 		updateStatepDAO	dao2=new updateStatepDAO();
 		for (Integer i : ListBoard) {
 			System.out.println(i+"게시글의 상태를 참석자 테이블의 상태로 연동해보자");
-			cat_name = dao.selectOne(i).getCat_name();
-			board_state = dao.selectOne(i).getArticle_state();
+			cat_name = dao.selectOne(i).getCat_name(); //게시글의 카테고리
+			state = dao.selectOne(i).getArticle_state();
 			int cnt2 = 0;
 			if(cat_name.equals("A")) {
-				cnt2 = dao2.updateStatepA( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepA( new BigDecimal(i), state);
 			}else if(cat_name.equals("B")) {
-				cnt2 = dao2.updateStatepB( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepB( new BigDecimal(i), state);
 			}else if(cat_name.equals("I")) {
-				cnt2 = dao2.updateStatepI( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepI( new BigDecimal(i), state);
 			}else {
-				cnt2 = dao2.updateStatepF( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepF( new BigDecimal(i), state);
 			}	
 			
 			if (cnt2 > 0) {
-				System.out.println(cat_name+" 테이블은"+board_state+" 로 성공!");
+				System.out.println(i+"번 "+cat_name+" 테이블<"+state+">으로 성공!");
 			} else {
-				System.out.println(cat_name+" 테이블은"+board_state+" 로 실패!");
+				System.out.println(i+"번 "+cat_name+" 테이블<"+state+">으로 성공!");
 			}
+			
+			
 			
 		}
 		System.out.println("연동성공^^");

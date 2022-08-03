@@ -82,7 +82,7 @@ public class updateStatepDAO {
 	
 	public int updateStatepF(BigDecimal num, String state){  //복붙하면됨이제.
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		BuyApplicant vo = new BuyApplicant(num,state);
+		tbl_free_applicant vo = new tbl_free_applicant(state,num);
 		int cnt =0;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
