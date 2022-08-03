@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -50,5 +51,22 @@ public class tbl_arbeit_applicantDAO {
 		}
 		
 		return result;
+	}
+	
+	
+	public List<tbl_arbeit_applicant> selectOneA(String loginMember) { 
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<tbl_arbeit_applicant> result =null;
+
+		try {
+			result = sqlSession.selectList("com.smhrd.model.tbl_arbeit_applicantDAO.SelectOneA",loginMember);
+			System.out.println("A 게시글 크기 >>" +result.size());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return result;
+	
 	}
 }

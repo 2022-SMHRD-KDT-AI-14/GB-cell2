@@ -17,6 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_share where BOARD_SEQ= #{num} and del_yn='n'
 	</select>
 	
+	<select id="selectreportOne" parameterType="int" resultType="String">
+		select MEM_ID from tbl_share where BOARD_SEQ= #{BOARD_SEQ} 
+	</select>
+	
 	<select id="selectAllListPage" parameterType="int" resultType="com.smhrd.model.tbl_share">
 		select * from tbl_share where BOARD_SEQ >= #{num} and del_yn='n' order by BOARD_SEQ 
 	</select>

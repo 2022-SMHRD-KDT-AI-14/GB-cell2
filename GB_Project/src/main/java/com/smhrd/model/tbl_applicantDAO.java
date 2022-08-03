@@ -17,7 +17,9 @@ public class tbl_applicantDAO {
 		int cnt = 0;
 		try {
 			// 실행
+			System.out.println("여기가?");
 			cnt = sqlSession.insert("com.smhrd.model.tbl_applicantDAO.insertBuyBoardMember", vo);
+			System.out.println("여기가 문제구만");
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
 			} else {

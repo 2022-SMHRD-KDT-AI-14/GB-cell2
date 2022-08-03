@@ -22,26 +22,32 @@
 			<div id="wrapper">
 				<!-- Menu -->
 					<nav id="Update">	
-						<table>
+						<table >
 							<caption><h2>회원관리페이지</h2></caption>
 								<tr>
 									<td>제목</td>
 									<td>내용</td>
+									<td>신고자</td>
 									<td>작성자</td>
+									<td>신고상태</td>
 								</tr>
 									
 							<%for(int i = 0 ; i<list.size();i++){ %>
 								<tr>
 									<td><%=list.get(i).getR_TITLE() %></td>
 									<td><%=list.get(i).getR_CONTENT() %></td>
-									<td><%=list.get(i).getMEM_ID() %></td>	
-									<td><a href="tbl_reportDeleteCon?BOARD_SEQ=<%=list.get(i).getBOARD_SEQ()%>">삭제</a></td>
+									<td><%=list.get(i).getMEM_ID() %></td>
+									<td><%=list.get(i).getR_MEM_ID() %></td>
+									<td><%=list.get(i).getR_STATE() %></td>	
+									<%if(list.get(i).getR_STATE().equals("미정")){%>
+									<td><a href="tbl_reportDeleteCon?BOARD_SEQ=<%=list.get(i).getBOARD_SEQ()%>">신고확정</a></td>
+									<%} %>
 								</tr>
 							<%} %>						
 							
 						</table>
-					</nav>		
 					<a href="tbl_main.jsp" class="button next scrolly">되돌아가기</a>	
+					</nav>		
 			</div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

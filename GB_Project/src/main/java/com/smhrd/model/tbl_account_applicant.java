@@ -56,11 +56,26 @@ public class tbl_account_applicant {
 		CAT_NAME = cAT_NAME;
 	}
 
-	public tbl_account_applicant(String mEM_ID, BigDecimal bOARD_SEQ) {
+	/*
+	 * public tbl_account_applicant(String mEM_ID, BigDecimal bOARD_SEQ) {
+	 * super(); MEM_ID = mEM_ID; BOARD_SEQ = bOARD_SEQ; }
+	 */
+
+
+	public tbl_account_applicant(String aCCOUNT_P_STATE, BigDecimal bOARD_SEQ) {
 		super();
-		MEM_ID = mEM_ID;
+		ACCOUNT_P_STATE = aCCOUNT_P_STATE;
 		BOARD_SEQ = bOARD_SEQ;
 	}
+
+	public tbl_account_applicant(String mEM_ID, String cAT_NAME, BigDecimal bOARD_SEQ) {
+		super();
+		MEM_ID = mEM_ID;
+		CAT_NAME = cAT_NAME;
+		BOARD_SEQ = bOARD_SEQ;
+	}
+
+	
 
 	
 }

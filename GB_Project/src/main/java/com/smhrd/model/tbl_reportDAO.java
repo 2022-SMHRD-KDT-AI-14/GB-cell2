@@ -44,4 +44,35 @@ public class tbl_reportDAO {
 		return list;
 	}
 	
+	public int updatereport(int BOARD_SEQ) {
+		SqlSession sqlSession =sqlSessionFactory.openSession();
+		int cnt=0;
+		try {
+			 cnt =sqlSession.update("com.smhrd.model.tbl_reportDAO.updatereport",BOARD_SEQ);
+			if(cnt>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int selectreportcount(String MEM_ID) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int list = 0;
+		try {
+			list=sqlSession.selectOne("com.smhrd.model.tbl_reportDAO.selectreportcount",MEM_ID); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+	
 }

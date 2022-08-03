@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -26,6 +28,23 @@ public class tbl_free_applicantDAO {
 			sqlSession.close();
 		}
 		return cnt;
+	}
+	
+	
+	public List<tbl_free_applicant> selectOneF(String loginMember) { 
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<tbl_free_applicant> result =null;
+
+		try {
+			result = sqlSession.selectList("com.smhrd.model.tbl_free_applicantDAO.SelectOneF",loginMember);
+			System.out.println("F 게시글 크기 >>" +result.size());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return result;
+	
 	}
 	
 }

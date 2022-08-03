@@ -23,4 +23,6 @@ public class tbl_report {
 	
 	private int BOARD_SEQ;
 	
+	private String R_MEM_ID;
+	
 }
