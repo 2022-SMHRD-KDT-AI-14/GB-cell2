@@ -62,4 +62,17 @@ public class tbl_reportDAO {
 		return cnt;
 	}
 	
+	public int selectreportcount(String MEM_ID) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int list = 0;
+		try {
+			list=sqlSession.selectOne("com.smhrd.model.tbl_reportDAO.selectreportcount",MEM_ID); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+	
 }
