@@ -1,4 +1,3 @@
-<%@page import="com.smhrd.model.tbl_shareDAO"%>
 <%@page import="com.smhrd.model.tbl_applicantselectDAO"%>
 <%@page import="com.smhrd.model.tbl_applicantDAO"%>
 <%@page import="com.smhrd.model.tbl_applicantselect"%>
@@ -137,13 +136,11 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 							<br>
 							<div style="text-align: center;">
 								<button>
-								
-									<img 
-										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbBJREFUeNrsls9LAkEcxb+au+JSGIEQyGbBdg881CmConsE9Qd07S/p0qG69RcUdOzSoUt0UujS3c0kEQULU7R17c2wyhazNbvaesgHH9xZh3kzb35tpNfrUV/5fJ7+Stls9ks5FqCNKTDv/L6AjyAdiUrWi4AdcAXewDMwwTu4AQdAHbXxCrh3TJm55vpPAVvgHDyC7VEZM6M7sCbRlgGuwaGM8U9zvAkunbn0M/8nzvNpkBHr4MKnqVvHYDWI8RGY84wpFiNFUX5L8sxZlNJRL4E9UeVkMknpdJoSiQQvt9ttKpfLVK1WhVsXbIBb2RHvi96nUikyDGNgyhSPxymTyZCu614D2/UT9bqooqZpnrm6OyNYoNLGy6KKxWKRR/td3W6XCoWCV/sLfoyFJ5Bt29zAfbb3O9TpdLzaZzFND3NkcjUaDapUKoNyvV6nWq0ms7eHM2YqlUrUarXIsiwyTTPwbeX7dmJRs8hVVeXmoRkzNZtNzjCK0pg0MQ5NosX1BKwRetjCb6lcLje2ES+GHDk72G1m/MCu2hCNZ8HrZDv9j33MVtlMiJ58X38KMADfFnDPWur9bAAAAABJRU5ErkJggg=="
-										width="15" height="15">
-										
 								<a href="tbl_reportWrite.jsp?num=${board.BOARD_SEQ}">
-										신고하기
+								
+									<img
+										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbBJREFUeNrsls9LAkEcxb+au+JSGIEQyGbBdg881CmConsE9Qd07S/p0qG69RcUdOzSoUt0UujS3c0kEQULU7R17c2wyhazNbvaesgHH9xZh3kzb35tpNfrUV/5fJ7+Stls9ks5FqCNKTDv/L6AjyAdiUrWi4AdcAXewDMwwTu4AQdAHbXxCrh3TJm55vpPAVvgHDyC7VEZM6M7sCbRlgGuwaGM8U9zvAkunbn0M/8nzvNpkBHr4MKnqVvHYDWI8RGY84wpFiNFUX5L8sxZlNJRL4E9UeVkMknpdJoSiQQvt9ttKpfLVK1WhVsXbIBb2RHvi96nUikyDGNgyhSPxymTyZCu614D2/UT9bqooqZpnrm6OyNYoNLGy6KKxWKRR/td3W6XCoWCV/sLfoyFJ5Bt29zAfbb3O9TpdLzaZzFND3NkcjUaDapUKoNyvV6nWq0ms7eHM2YqlUrUarXIsiwyTTPwbeX7dmJRs8hVVeXmoRkzNZtNzjCK0pg0MQ5NosX1BKwRetjCb6lcLje2ES+GHDk72G1m/MCu2hCNZ8HrZDv9j33MVtlMiJ58X38KMADfFnDPWur9bAAAAABJRU5ErkJggg=="
+										width="15" height="15"> 신고하기
 								</a>
 								</button>
 									<c:if test="${loginMember != board.MEM_ID}">
@@ -202,9 +199,44 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 					</div>
 					<br>
 				</section>
-				
-				
-				
+				<header class="major">
+					<h4>작성자 게시물</h4>
+				</header>
+				<section>
+					<div class="row">
+						<div class="col-3 col-12-small">
+							<article>
+								<img alt="" src="">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+						<div class="col-3 col-12-small">
+							<article>
+								<img alt="" src="">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+						<div class="col-3 col-12-small">
+							<article>
+								<img alt="" src="">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+						<div class="col-3 col-12-small">
+							<article>
+								<img alt="" src="">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+					</div>
+				</section>
+				<section>
+					<p>글내용작성</p>
+				</section>
 			</div>
 		</div>
 		<!-- Sidebar -->
@@ -238,7 +270,6 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 				</nav>
 
 				<!-- Section -->
-				
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>

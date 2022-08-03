@@ -2,414 +2,266 @@
 <%@page import="com.smhrd.model.tbl_applicantDAO"%>
 <%@page import="com.smhrd.model.tbl_applicantselect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE HTML>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
 <html>
-
 <head>
-<title>boardBuy</title>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+	integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+	crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+	rel="stylesheet">
+<style>
+body {
+	background-image: url('asset/img/bg.jpg');
+	padding-left: 200px;
+	padding-right: 200px;
+	font-family: 'Do Hyeon', sans-serif;
+	
+}
+
+.card-body {
+	background-color: whitesmoke;
+	padding-top: 10px;
+	padding-left: 10px;
+
+}
+
+p {
+	padding-top: 5px;
+	padding-left: 20px;
+	font-size: 30px;
+}
+
+#date{
+	font-size : 15px;
+	text-align : right;
+}
+</style>
 </head>
+<!-- 占쏙옙크占쏙옙틀占쏙옙 占싫억옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쌜억옙 占싹는곤옙占쏙옙..JSP占쏙옙占쏙옙 占싫울옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占승깍옙 占쏙옙. id占쏙옙 占쏙옙占쏙옙占쏙옙 -->
+<!-- JSTL占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙 占쏙옙占� var占쏙옙占쏙옙占쏙옙 value占쏙옙,占쏙옙占쏙옙占쌕곤옙EL표占쏙옙占쏙옙占쏙옙占� 占싣깍옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌍는댐옙 -->
+<!-- param.num url占쏙옙 占쌍댐옙 占식띰옙占쏙옙占쏙옙傷占쏙옙占� num占싱띰옙占� 占쏙옙占쏙옙 占쌀뤄옙占쏙옙占쌘댐옙.. 占쏙옙占썩서 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙 占싣니댐옙.EL占쏙옙 占쌀뤄옙占쏙옙占썩가占쏙옙 -->
 
-<body class="is-preload">
-	<!-- Wrapper -->
-	<div id="wrapper">
 
-		<!-- Main -->
-		<div id="main">
-			<div class="inner">
 
-				<!-- Header -->
-				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
-							싶어?</strong> 1/N !</a>
-					<ul class="icons">
-						<c:choose>
-							<c:when test="${empty loginMember}">
-								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
-										class="label">로그인</span></a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
-										class="label">Medium</span></a></li>
-							</c:otherwise>
-						</c:choose>
-						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
-								class="label">Medium</span></a></li>
-						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
-								class="label">Medium</span></a></li>
-					</ul>
-				</header>
-				<section>
-					<img
-						src="https://m.bunjang.co.kr/pc-static/resource/f1f8a93028f0f6305a87.png"
-						width="15" height="15"> <img
-						src="https://m.bunjang.co.kr/pc-static/resource/c5ce9d5a172b0744e630.png"
-						width="6" height="10"> 게시판 이동 <img
-						src="https://m.bunjang.co.kr/pc-static/resource/c5ce9d5a172b0744e630.png"
-						width="6" height="10"> 구매/계정/알바/자유 <img
-						src="https://m.bunjang.co.kr/pc-static/resource/c5ce9d5a172b0744e630.png"
-						width="6" height="10"> 공유하기
-				</section>
-				<section>
-					<div class="row">
-						<div class="col-6 col-12-small">
-							<img src="images/pic01.jpg" />
-						</div>
-						<div class="col-6 col-12-small">
-							<header class="major">
-								<p>상품명</p>
-							</header>
-							<p>가격</p>
-							<p>작성일자</p>
-							<p>배송지</p>
-							<br>
-							<div style="text-align: center;">
-								<button>
-									<img href="#"
-										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbBJREFUeNrsls9LAkEcxb+au+JSGIEQyGbBdg881CmConsE9Qd07S/p0qG69RcUdOzSoUt0UujS3c0kEQULU7R17c2wyhazNbvaesgHH9xZh3kzb35tpNfrUV/5fJ7+Stls9ks5FqCNKTDv/L6AjyAdiUrWi4AdcAXewDMwwTu4AQdAHbXxCrh3TJm55vpPAVvgHDyC7VEZM6M7sCbRlgGuwaGM8U9zvAkunbn0M/8nzvNpkBHr4MKnqVvHYDWI8RGY84wpFiNFUX5L8sxZlNJRL4E9UeVkMknpdJoSiQQvt9ttKpfLVK1WhVsXbIBb2RHvi96nUikyDGNgyhSPxymTyZCu614D2/UT9bqooqZpnrm6OyNYoNLGy6KKxWKRR/td3W6XCoWCV/sLfoyFJ5Bt29zAfbb3O9TpdLzaZzFND3NkcjUaDapUKoNyvV6nWq0ms7eHM2YqlUrUarXIsiwyTTPwbeX7dmJRs8hVVeXmoRkzNZtNzjCK0pg0MQ5NosX1BKwRetjCb6lcLje2ES+GHDk72G1m/MCu2hCNZ8HrZDv9j33MVtlMiJ58X38KMADfFnDPWur9bAAAAABJRU5ErkJggg=="
-										width="15" height="15"> 신고
-								</button>
-								<a href="#" class="button">찜하기</a> <a href="#"
-									class="button primary">공유참여</a>
 
-							</div>
-						</div>
-					</div>
-					<br>
-				</section>
-				<header class="major">
-					<h4>작성자 게시물</h4>
-				</header>
-				<section>
-					<div class="row">
-						<div class="col-3 col-12-small">
-							<article>
-								<img alt="" src="">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
-						<div class="col-3 col-12-small">
-							<article>
-								<img alt="" src="">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
-						<div class="col-3 col-12-small">
-							<article>
-								<img alt="" src="">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
-						<div class="col-3 col-12-small">
-							<article>
-								<img alt="" src="">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
-					</div>
-				</section>
-				<section>
-					<p>글내용작성</p>
-				</section>
-			</div>
+
+<jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
+<c:set var="board" value="${BoardDAO.selectOne(param.num*2)}"/>
+
+<jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num*2)}"/>
+
+<jsp:useBean id="WriteaccountDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num*2)}"/>
+
+<jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num*2)}"/>
+
+<jsp:useBean id="WritearbeitDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
+<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num*2)}"/>
+
+
+
+
+<%--<jsp:useBean id="ReplyDAO" class="com.smhrd.model.ReplyDAO"></jsp:useBean> --%>
+<%-- <c:set var="replyList" value="${ReplyDAO.selectReply(param.num)}"/> --%>
+<body>
+
+<%
+int num = Integer.parseInt(request.getParameter("num"));
+int real_num = num*2;
+String MEM_ID = (String)session.getAttribute("loginMember");
+tbl_applicantselect vo = new tbl_applicantselect(MEM_ID,real_num);
+tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
+%>
+
+
+<c:out value="${loginMember}님 맞죠?"/>
+
+
+	<form>
+
+		<div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+			<p>제목 : ${board.ARTICLE_TITLE}</p>
+			<p>작성자 : ${board.MEM_ID}</p>
+		
+			<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
 		</div>
-		<!-- Sidebar -->
-		<div id="sidebar">
-			<div class="inner">
 
-				<!-- Search -->
-				<section id="search" class="alt">
-					<form method="post" action="#">
-						<input type="text" name="query" id="query" placeholder="Search" />
-					</form>
-				</section>
+	
+		
+		
+			
+				
+			
 
-				<!-- Menu -->
-				<nav id="menu">
-					<header class="major">
-						<h2>Menu</h2>
-					</header>
-					<ul>
-						<li><a href="tbl_main.jsp">홈페이지</a></li>
-						<li><a href="tbl_boardwrite.jsp">글작성</a></li>
-						<li><span class="opener">공유하기</span>
-							<ul>
-								<li><a href="tbl_boardBuy.jsp">구매 게시판</a></li>
-								<li><a href="tbl_boardId.jsp">계정공유 게시판</a></li>
-								<li><a href="tbl_boardArbeit.jsp">알바 게시판</a></li>
-								<li><a href="tbl_boardFree.jsp">자유 게시판</a></li>
-							</ul></li>
-						<li><a href="#">문의하기</a></li>
-					</ul>
-				</nav>
-
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>추천상품</h2>
-					</header>
-					<div class="mini-posts">
-						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>상품1</p>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-							<p>상품2</p>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-							<p>상품3</p>
-						</article>
-					</div>
-					<ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
-				</section>
-
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>문의주세요</h2>
-					</header>
-					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
-					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
-						<li class="icon solid fa-phone">연락처</li>
-						<li class="icon solid fa-home">주소<br /> 상세주소
-						</li>
-					</ul>
-				</section>
-
-				<!-- Footer -->
-				<footer id="footer">
-					<p class="copyright">
-						&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
-					</p>
-				</footer>
+			<div class="card-body" style="margin-top: 20px; margin-bottom: 5px;">
+				<img src="img/${board.ARTICLE_FILE}" width="auto" height="200px">
+				<c:choose>
+				<c:when test="${board.CAT_NAME=='B'}">
+					<p>구매링크 : ${boardbuy.BUY_LINK}</p>
+					<p>구매가격 : ${boardbuy.BUY_PAY}</p>
+				</c:when>
+				
+				<c:when test="${board.CAT_NAME=='A'}">
+					<p>알바시간 : ${boardarbeit.ARBEIT_TIME}</p>
+					<p>알바장소 : ${boardarbeit.ARBEIT_SITE}</p>
+					<p>알바시급 : ${boardarbeit.ARBEIT_PAY}</p>
+				</c:when>
+				
+				<c:when test="${board.CAT_NAME=='I'}">
+					<p>계정링크 : ${boardaccount.ID_LINK}</p>
+					<p>이용기간 : ${boardaccount.ID_TIME}</p>
+					<p>구매가격 : ${boardaccount.ID_PAY}</p>
+				</c:when>
+				
+				<c:otherwise>
+				
+				</c:otherwise>
+				</c:choose>
 			</div>
+				
+			</div>
+			
+		
+		
+		
+		
+		
+
+		
+		<!-- 댓글작성 -->
+		<div class="card mb-2">
+			<!-- 이미지 가운데 자동 정렬  -->
+			<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+				<p>${board.name}/${board.writer}</p>
+				<p id="date">작성일 : ${board.uploadday}</p>
+		</div> --%>
+			<div class="card-body" ><h6>내용:${board.ARTICLE_CONTENT}</h6></div>
 		</div>
-	</div>
+	
+	</form>
+	
+	
+	<!-- 참여버튼 클릭시 DB저장 -->
+	
+	<h1>여기 카테고리는 ${board.CAT_NAME}, 작성자가 아닌자만 참여버튼 나온다! </h1>
 
-	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.6.0.js"
-		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-		crossorigin="anonymous"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script type="text/javascript">
-		//게시물요청
-		var slideIndex = 0; //slide index
+	<c:if test="${loginMember != board.MEM_ID}">
+		<c:if test="${board.CAT_NAME=='B'}">
+		<%if(dao.selectB(vo)!=null){%>
+			<%}else{%>
+			<a href="insertStateConB?
+			board_seq=${board.BOARD_SEQ}&
+			buy_link=${boardbuy.BUY_LINK}&
+			buy_pay=${boardbuy.BUY_PAY}&
+			cat_name=B">
+			<button style="" onclick="B()"><h4>참여결정</h4></button></a>
+			<%} %>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='A'}">
+		<%if(dao.selectA(vo)!=null){%>
+			<%}else{%>
+			<a href="insertStateConA?
+			board_seq=${board.BOARD_SEQ}&
+			arb_time=${boardarbeit.ARBEIT_TIME}&
+			arb_site=${boardarbeit.ARBEIT_SITE}&
+			arb_pay=${boardarbeit.ARBEIT_PAY}&
+			cat_name=A">
+			<button style="" onclick="A()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='I'}">
+		<%if(dao.selectI(vo)!=null){%>
+			<%}else{%>
+			<a href="insertStateConI?
+			board_seq=${board.BOARD_SEQ}&
+			acc_link=${boardaccount.ID_LINK}&
+			acc_time=${boardaccount.ID_TIME}&
+			acc_pay=${boardaccount.ID_PAY}&
+			cat_name=I">
+			<button style="" onclick="I()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
+		</c:if>
+		<c:if test="${board.CAT_NAME=='F'}">
+		<%if(dao.selectF(vo)!=null){%>	
+			<%}else{%>
+			<a href="insertStateConF?
+			board_seq=${board.BOARD_SEQ}&
+			cat_name=F">
+			<button style="" onclick="F()"><h4>참여결정</h4></button></a>
+			
+			<%} %>
+		</c:if>
+	</c:if>
+	
+<a href="tbl_reportWrite.jsp?num=${board.BOARD_SEQ}">신고버튼</a>
 
-		// HTML 로드가 끝난 후 동작
-		window.onload = function() {
-			showSlides(slideIndex);
+<script>
 
-			// Auto Move Slide
-			var sec = 3000;
-			setInterval(function() {
-				slideIndex++;
-				showSlides(slideIndex);
-
-			}, sec);
-		}
-
-		// Next/previous controls
-		function moveSlides(n) {
-			slideIndex = slideIndex + n
-			showSlides(slideIndex);
-		}
-
-		// Thumbnail image controls
-		function currentSlide(n) {
-			slideIndex = n;
-			showSlides(slideIndex);
-		}
-
-		function showSlides(n) {
-
-			var slides = document.getElementsByClassName("mySlides");
-			var dots = document.getElementsByClassName("dot");
-			var size = slides.length;
-
-			if ((n + 1) > size) {
-				slideIndex = 0;
-				n = 0;
-			} else if (n < 0) {
-				slideIndex = (size - 1);
-				n = (size - 1);
-			}
-
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-			for (i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(" active", "");
-			}
-
-			slides[n].style.display = "block";
-			dots[n].className += " active";
-		}
-
-		next_list(1, 1);
-
-		var arr = null;
-		var pageSize = 3;
-		var maxRow = 10;
-
-		function button_create(data_list, startPage) {
-
-			var pageNum = null;
-
-			if (data_list.length % maxRow == 0) {
-				pageNum = data_list.length / maxRow;
-			}
-
-			else {
-				pageNum = Math.floor(data_list.length / maxRow) + 1;
-			}
-
-			var currentPage = startPage;
-
-			for (var i = 0; i < pageNum; i++) {
-				arr = data_list;
-				$('#controller').append(
-						'<button onclick="page(' + currentPage + ')" id="'
-								+ currentPage + '" class="button">'
-								+ currentPage + '</button>');
-				currentPage = currentPage + 1;
-			}
-		}
-
-		//다음 버튼이 눌린다면 그에 맞는 버튼들이 생성, 삭제 와 해당 리스트가 출력되기 위한 메소드 
-		function next_list(startRow, startPage) {
+</script>
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script>
+		function addReply() {
+		/* 占쏙옙占쏙옙占쏙옙占쏙옙 占쏠갈몌옙占쏙옙占쏙옙 , 占쏙옙크占쏙옙트占싫울옙占쏙옙 el표占쏙옙占� 占쏙옙占쏙옙, 표占쏙옙占쏙옙占쏙옙占쏙옙 占쌘바븝옙占쏙옙占쏙옙占쏙옙占쏙옙占썩가占쏙옙 */
+			let ta = $('textarea').val()
+				
 			$.ajax({
-				/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
-				url : 'BboardPagingCon',
-				method : 'post',
-				dataType : 'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
-				data : {
-					"num" : startRow
-				},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
-				success : function(data_list) {
-					console.log(data_list)
-
-					if (data_list.length < 10) {/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
-						list_write(data_list);
-						button_create(data_list, startPage);
-					}
-
-					else {
-						print_list(data_list);
-						button_create(data_list, startPage);
-					}
-
-				},
-				error : function(e) {
-					alert(e);
-				}
-
-			});
-
+			//占쏙옙청占쏙옙占�
+			url: 'ReplyCon',
+			//占쏙옙청占쏙옙占쏙옙占쏙옙 (占쌉시뱄옙占쏙옙호, 占쌜쇽옙占쏙옙占�)
+			data: {
+				'boardnum':${param.num},
+				'reply':ta
+			},
+			//占쏙옙청占쏙옙占�(get,post)
+			type:'post',
+			success:function(data){ //占쏙옙占쏙옙占� 占쏙옙占쏙옙
+				//alert(data) 
+				$('#reply').prepend('<li class="list-group-item"><span>'+ta+'/${loginVO.id}</span></li>')
+			},
+			error :function(){ //占쏙옙占쏙옙占� 占쏙옙占쏙옙
+				alert('占쏙옙탐占쏙옙占�')
+			}
+			
+			})
+		
+		
 		}
-
-		//jsonArray타입의 객체의 갯수가 10개보다 적을경우 객체를 매개변수로 받아 출력하는 함수이다.
-		function list_write(data_list) {
-
-			for (var i = 0; i < data_list.length; i++) {//jquery 문을통해 태그안의 내용을 바꾸어준다 --> .text()사용
-
-				$('#name' + i).html(
-						"<a href='boardView.jsp?num=" + data_list[i].num + "'>"
-								+ data_list[i].name + "</a>");
-				$('#writer' + i).text(data_list[i].writer);
-				$('#views' + i).text(data_list[i].views);
-			}
-
-			for (var i = data_list.length; i < 10; i++) {//jsonArray타입의 객체의 갯수가 10개보다 적을경우 데이터가 들어가지 않는 행은 안보임 처리를 해준다
-				$('#name' + i).hide();
-				$('#writer' + i).hide();
-				$('#views' + i).hide();
-			}
-
+		
+		function B() {
+			alert("참석완료!")
 		}
-
-		//클로저 함수 --> 클릭된 버튼의 값에 맞게 불러온 데이터 를 슬라이싱 해서 보여줌
-		//클릭된 버튼의 값을 사용해서 슬라이싱 범위인 startNum,endNum을 지정해 준다.
-		//한 페이지 에는 페이지안에 속해있는 페이지 블럭에 맞는 게시물(레코드) 수가 있기 때문이다.
-		//--->한 페이지 가 가지고 있는 배열안에서 그때그때 해당페이지 블럭을 클릭 한다면 거기 범위에 맞는 데이터를 가져오기 위해 슬라이싱 해줄 필요가 있다
-		function page(currentPage) {
-
-			var startNum = (currentPage - 1) * 10 + 1;
-			var endNum = currentPage * 10;
-
-			var start_index = 0;
-			var end_index = 0;
-
-			//endNum 이 해당 배열의 마지막 숫자보다 크다면 다시 슬라이싱이 제대로 되지 않으므로 범위를 다시 지정해 주어야 한다
-			//구분 하기 위해 check라는 변수를 사용해서 check 값이 변하지 않는다면 endNum의 범위를 다시 지정해준다
-			var check = null;
-
-			for (var i = 0; i < arr.length; i++) {
-				if (arr[i].num == startNum) {
-					start_index = i;
-				}
-				if (arr[i].num == endNum) {
-					end_index = i;
-					check = 1;
-				}
-
-			}
-
-			var new_arr = new Array();
-
-			if (check != 1) {
-				end_index = arr.length - 1; // endNum의 는 배열의 마지막 인덱스 번호이다. 
-			}
-
-			new_arr = arr.slice(start_index, end_index + 1);
-
-			if (new_arr.length < maxRow) {//데이터가 maxRow보다 작다면 데이터를 출력하는 데에 있어서 다르게 처리해주어야 함
-				list_write(new_arr);
-			} else {
-				print_list(new_arr);
-			}
-
+		
+		function I() {
+			alert("참석완료!")
 		}
-
-		//10개 보다 큰 게시물이 출력 될때 이전의 데이터는 10개보다 작을수 있으므로
-		//.hide()메소드가 사용되어 가려져 있을 확률 이 있다
-		//그래서 전부 .show() 로 보여준다음
-
-		//해당 게시물을 출력한다
-		function print_list(data_list) {
-			for (var i = 0; i < 10; i++) {
-				$('#name' + i).show();
-				$('#writer' + i).show();
-				$('#views' + i).show();
-
-				$('#name' + i).html(
-						"<a href='boardView.jsp?num=" + data_list[i].num + "'>"
-								+ data_list[i].name + "</a>");
-				$('#writer' + i).text(data_list[i].writer);
-				$('#views' + i).text(data_list[i].views);
-			}
+		
+		function A() {
+			alert("참석완료!")
 		}
-	</script>
-
+		
+		function F() {
+			alert("참석완료!")
+		}
+	</script>	
+	
 </body>
-
+</body>
 </html>
