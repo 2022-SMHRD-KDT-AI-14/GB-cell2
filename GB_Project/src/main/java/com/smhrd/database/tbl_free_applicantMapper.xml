@@ -12,4 +12,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_free_applicant where mem_id=#{loginMember}
 </select>
 
+
+	<select id="selectOnePar2" parameterType="com.smhrd.model.tbl_free_applicant" resultType="com.smhrd.model.tbl_free_applicant">
+		select * from tbl_free_applicant where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ} 
+	</select>
+	
+
+
+
 </mapper>

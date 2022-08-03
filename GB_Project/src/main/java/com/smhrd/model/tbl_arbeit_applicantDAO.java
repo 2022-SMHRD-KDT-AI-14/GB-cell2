@@ -35,15 +35,10 @@ public class tbl_arbeit_applicantDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		BigDecimal board_seq =new BigDecimal(num);
 		tbl_arbeit_applicant vo = new tbl_arbeit_applicant(id, board_seq);
-		System.out.println("tbl_arbeit_applicantDAO.selectOnePar2 진입했어");
-		System.out.println("vo id >> "+vo.getMEM_ID());
-		System.out.println("vo board_seq >> "+vo.getBOARD_SEQ());
 		tbl_arbeit_applicant result = null;
 		try {
-			
-			System.out.println("dao tbl_arbeit_applicant selectOnePar2 BOARD_SEQ >>" +vo.getBOARD_SEQ());
 			result = sqlSession.selectOne("com.smhrd.model.tbl_arbeit_applicantDAO.selectOnePar2",vo);
-			System.out.println("dao tbl_arbeit_applicant selectOnePar2 ARBEIT_PAY >>" +vo.getARBEIT_PAY());
+			System.out.println("dao tbl_arbeit_applicant selectOnePar2 ARBEIT_PAY >>"+result.getBOARD_SEQ()+", "+result.getARBEIT_PAY());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

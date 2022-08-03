@@ -25,8 +25,6 @@ public class updateStateCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		//t이거안되면 세션으로가자~
-		//String loginMember = request.getParameter("loginMember");
 		HttpSession session = request.getSession();
 		String loginMember = (String)session.getAttribute("loginMember");
 		System.out.println("updateStateCon, 로그인아이디 >> "+loginMember);

@@ -20,13 +20,13 @@ public class updateStateConpAll extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-System.out.println("all");
+		System.out.println("all");
 //		request.setCharacterEncoding("UTF-8");
 //		HttpSession session = request.getSession();
 //		String loginMember = (String)session.getAttribute("loginMember");
-//		
+		
+	
 		List<Integer> bList = (List<Integer>) request.getAttribute("bList");
-		System.out.println("여기까지 오면 반은 성공!!");
 		ShareDAO dao = new ShareDAO();
 			
 		String cat_name = null;

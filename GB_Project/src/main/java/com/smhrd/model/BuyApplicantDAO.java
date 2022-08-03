@@ -131,14 +131,8 @@ public class BuyApplicantDAO {
 		BuyApplicant vo = new BuyApplicant(id, board_seq);
 		BuyApplicant result = null;
 		try {
-			
-			System.out.println("dao BuyApplicant selectOnePar2 전 게시글번호>>" +vo.getBoard_seq());
-			System.out.println("dao BuyApplicant selectOnePar2 전 거래상태>>" +vo.getBuy_p_state());
 			result = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.selectOnePar2",vo);
-			
-			System.out.println("dao BuyApplicant selectOnePar2 후 게시글번호>>" +result.getBoard_seq());
-			System.out.println("dao BuyApplicant selectOnePar2 후 거래상태>>" +result.getBuy_p_state());
-
+			System.out.println("dao BuyApplicant selectOnePar2 후 게시글번호, 거래상태>>" +result.getBoard_seq()+" , "+result.getBuy_p_state());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
