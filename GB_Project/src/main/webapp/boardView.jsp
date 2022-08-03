@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.BoardDAO"%>
+<%@page import="com.smhrd.model.tbl_reportDAO"%>
 <%@page import="com.smhrd.model.tbl_shareDAO"%>
 <%@page import="com.smhrd.model.tbl_applicantselectDAO"%>
 <%@page import="com.smhrd.model.tbl_applicantDAO"%>
@@ -25,28 +27,40 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO"/>
-<c:set var="board" value="${BoardDAO.selectOne(param.num*2)}"/>
+<jsp:useBean id="BoardDAO" class="com.smhrd.model.BoardDAO" />
+<c:set var="board" value="${BoardDAO.selectOne(param.num*2)}" />
 
-<jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num*2)}"/>
+<jsp:useBean id="WritebuyDAO" class="com.smhrd.model.tbl_shareWriteDAO" />
+<c:set var="boardbuy" value="${WritebuyDAO.selectBuyOne(param.num*2)}" />
 
-<jsp:useBean id="WriteaccountDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardaccount" value="${WriteaccountDAO.selectAccountOne(param.num*2)}"/>
+<jsp:useBean id="WriteaccountDAO"
+	class="com.smhrd.model.tbl_shareWriteDAO" />
+<c:set var="boardaccount"
+	value="${WriteaccountDAO.selectAccountOne(param.num*2)}" />
 
-<jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardfree" value="${WritefreeDAO.selectFreeOne(param.num*2)}"/>
+<jsp:useBean id="WritefreeDAO" class="com.smhrd.model.tbl_shareWriteDAO" />
+<c:set var="boardfree"
+	value="${WritefreeDAO.selectFreeOne(param.num*2)}" />
 
-<jsp:useBean id="WritearbeitDAO" class="com.smhrd.model.tbl_shareWriteDAO"/>
-<c:set var="boardarbeit" value="${WritearbeitDAO.selectArbeitOne(param.num*2)}"/>
+<jsp:useBean id="WritearbeitDAO"
+	class="com.smhrd.model.tbl_shareWriteDAO" />
+<c:set var="boardarbeit"
+	value="${WritearbeitDAO.selectArbeitOne(param.num*2)}" />
 <body class="is-preload">
-<%
-int num = Integer.parseInt(request.getParameter("num"));
-int real_num = num*2;
-String MEM_ID = (String)session.getAttribute("loginMember");
-tbl_applicantselect vo = new tbl_applicantselect(MEM_ID,real_num);
-tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
-%>
+	<%
+	int num = Integer.parseInt(request.getParameter("num"));
+	int real_num = num * 2;
+	String MEM_ID = (String) session.getAttribute("loginMember");
+	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
+	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
+
+	int board_num = Integer.parseInt(request.getParameter("num"));
+	int board = board_num * 2;
+
+	BoardDAO dao3 = new BoardDAO();
+	tbl_reportDAO dao2 = new tbl_reportDAO();
+	int r_num = dao2.selectreportcount(MEM_ID);
+	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -90,121 +104,164 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 					<div class="row">
 						<div class="col-6 col-12-small">
 							<c:choose>
-							<c:when test="${empty board.ARTICLE_FILE}">
-							<img src="images/pic01.jpg" />
-							</c:when>
-							<c:otherwise>
-							<img src="img/${board.ARTICLE_FILE}" width="auto" height="200px">
-							</c:otherwise>
+								<c:when test="${empty board.ARTICLE_FILE}">
+									<img src="images/pic01.jpg" />
+								</c:when>
+								<c:otherwise>
+									<img src="img/${board.ARTICLE_FILE}" width="auto"
+										height="200px">
+								</c:otherwise>
 							</c:choose>
 						</div>
 						<div class="col-6 col-12-small">
 							<header class="major">
 								<p>제목 : ${board.ARTICLE_TITLE}</p>
 							</header>
-							<p>작성자 : ${board.MEM_ID}</p>
+							<p onclick="R()">작성자 : ${board.MEM_ID}</p>
 							<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
+							<p>
+								신고당한 게시물수 :
+								<%=r_num%></p>
 							<c:choose>
-				<c:when test="${board.CAT_NAME=='B'}">
-					<p>구매링크 : ${boardbuy.BUY_LINK}</p>
-					<p>구매가격 : ${boardbuy.BUY_PAY}</p>
-				</c:when>
-				
-				<c:when test="${board.CAT_NAME=='A'}">
-					<p>알바시간 : ${boardarbeit.ARBEIT_TIME}</p>
-					<p>알바장소 : ${boardarbeit.ARBEIT_SITE}</p>
-					<p>알바시급 : ${boardarbeit.ARBEIT_PAY}</p>
-				</c:when>
-				
-				<c:when test="${board.CAT_NAME=='I'}">
-					<p>계정링크 : ${boardaccount.ID_LINK}</p>
-					<p>이용기간 : ${boardaccount.ID_TIME}</p>
-					<p>구매가격 : ${boardaccount.ID_PAY}</p>
-				</c:when>
-				
-				<c:otherwise>
-				
-				</c:otherwise>
-				</c:choose>
-				<div class="card mb-2">
-			<!-- 이미지 가운데 자동 정렬  -->
-			<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+								<c:when test="${board.CAT_NAME=='B'}">
+									<p>구매링크 : ${boardbuy.BUY_LINK}</p>
+									<p>구매가격 : ${boardbuy.BUY_PAY}</p>
+								</c:when>
+
+								<c:when test="${board.CAT_NAME=='A'}">
+									<p>알바시간 : ${boardarbeit.ARBEIT_TIME}</p>
+									<p>알바장소 : ${boardarbeit.ARBEIT_SITE}</p>
+									<p>알바시급 : ${boardarbeit.ARBEIT_PAY}</p>
+								</c:when>
+
+								<c:when test="${board.CAT_NAME=='I'}">
+									<p>계정링크 : ${boardaccount.ID_LINK}</p>
+									<p>이용기간 : ${boardaccount.ID_TIME}</p>
+									<p>구매가격 : ${boardaccount.ID_PAY}</p>
+								</c:when>
+
+								<c:otherwise>
+
+								</c:otherwise>
+							</c:choose>
+							<div class="card mb-2">
+								<!-- 이미지 가운데 자동 정렬  -->
+								<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 				<p>${board.name}/${board.writer}</p>
 				<p id="date">작성일 : ${board.uploadday}</p>
 		</div> --%>
-			<div class="card-body" ><p>내용:${board.ARTICLE_CONTENT}</p></div>
-		</div>
+								<div class="card-body">
+									<p>내용:${board.ARTICLE_CONTENT}</p>
+								</div>
+							</div>
 							<br>
 							<div style="text-align: center;">
 								<button>
-								
-									<img 
+
+									<img
 										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbBJREFUeNrsls9LAkEcxb+au+JSGIEQyGbBdg881CmConsE9Qd07S/p0qG69RcUdOzSoUt0UujS3c0kEQULU7R17c2wyhazNbvaesgHH9xZh3kzb35tpNfrUV/5fJ7+Stls9ks5FqCNKTDv/L6AjyAdiUrWi4AdcAXewDMwwTu4AQdAHbXxCrh3TJm55vpPAVvgHDyC7VEZM6M7sCbRlgGuwaGM8U9zvAkunbn0M/8nzvNpkBHr4MKnqVvHYDWI8RGY84wpFiNFUX5L8sxZlNJRL4E9UeVkMknpdJoSiQQvt9ttKpfLVK1WhVsXbIBb2RHvi96nUikyDGNgyhSPxymTyZCu614D2/UT9bqooqZpnrm6OyNYoNLGy6KKxWKRR/td3W6XCoWCV/sLfoyFJ5Bt29zAfbb3O9TpdLzaZzFND3NkcjUaDapUKoNyvV6nWq0ms7eHM2YqlUrUarXIsiwyTTPwbeX7dmJRs8hVVeXmoRkzNZtNzjCK0pg0MQ5NosX1BKwRetjCb6lcLje2ES+GHDk72G1m/MCu2hCNZ8HrZDv9j33MVtlMiJ58X38KMADfFnDPWur9bAAAAABJRU5ErkJggg=="
-										width="15" height="15">
-										
-								<a href="tbl_reportWrite.jsp?num=${board.BOARD_SEQ}">
-										신고하기
-								</a>
+										width="15" height="15"> <a
+										href="tbl_reportWrite.jsp?num=${board.BOARD_SEQ}"> 신고하기 </a>
 								</button>
-									<c:if test="${loginMember != board.MEM_ID}">
-		<c:if test="${board.CAT_NAME=='B'}">
-		<%if(dao.selectB(vo)!=null){%>
-			<%}else{%>
-			<a href="insertStateConB?
+								<c:if test="${loginMember != board.MEM_ID}">
+									<c:if test="${board.CAT_NAME=='B'}">
+										<%
+										if (dao.selectB(vo) != null) {
+										%>
+										<%
+										} else {
+										%>
+										<a
+											href="insertStateConB?
 			board_seq=${board.BOARD_SEQ}&
 			buy_link=${boardbuy.BUY_LINK}&
 			buy_pay=${boardbuy.BUY_PAY}&
 			cat_name=B">
-			<button style="" onclick="B()"><h4>참여결정</h4></button></a>
-			<%} %>
-		</c:if>
-		<c:if test="${board.CAT_NAME=='A'}">
-		<%if(dao.selectA(vo)!=null){%>
-			<%}else{%>
-			<a href="insertStateConA?
+											<button style="" onclick="B()">
+												<h4>참여결정</h4>
+											</button>
+										</a>
+										<%
+										}
+										%>
+									</c:if>
+									<c:if test="${board.CAT_NAME=='A'}">
+										<%
+										if (dao.selectA(vo) != null) {
+										%>
+										<%
+										} else {
+										%>
+										<a
+											href="insertStateConA?
 			board_seq=${board.BOARD_SEQ}&
 			arb_time=${boardarbeit.ARBEIT_TIME}&
 			arb_site=${boardarbeit.ARBEIT_SITE}&
 			arb_pay=${boardarbeit.ARBEIT_PAY}&
 			cat_name=A">
-			<button style="" onclick="A()"><h4>참여결정</h4></button></a>
-			
-			<%} %>
-		</c:if>
-		<c:if test="${board.CAT_NAME=='I'}">
-		<%if(dao.selectI(vo)!=null){%>
-			<%}else{%>
-			<a href="insertStateConI?
+											<button style="" onclick="A()">
+												<h4>참여결정</h4>
+											</button>
+										</a>
+
+										<%
+										}
+										%>
+									</c:if>
+									<c:if test="${board.CAT_NAME=='I'}">
+										<%
+										if (dao.selectI(vo) != null) {
+										%>
+										<%
+										} else {
+										%>
+										<a
+											href="insertStateConI?
 			board_seq=${board.BOARD_SEQ}&
 			acc_link=${boardaccount.ID_LINK}&
 			acc_time=${boardaccount.ID_TIME}&
 			acc_pay=${boardaccount.ID_PAY}&
 			cat_name=I">
-			<button style="" onclick="I()"><h4>참여결정</h4></button></a>
-			
-			<%} %>
-		</c:if>
-		<c:if test="${board.CAT_NAME=='F'}">
-		<%if(dao.selectF(vo)!=null){%>	
-			<%}else{%>
-			<a href="insertStateConF?
+											<button style="" onclick="I()">
+												<h4>참여결정</h4>
+											</button>
+										</a>
+
+										<%
+										}
+										%>
+									</c:if>
+									<c:if test="${board.CAT_NAME=='F'}">
+										<%
+										if (dao.selectF(vo) != null) {
+										%>
+										<%
+										} else {
+										%>
+										<a
+											href="insertStateConF?
 			board_seq=${board.BOARD_SEQ}&
 			cat_name=F">
-			<button style="" onclick="F()"><h4>참여결정</h4></button></a>
-			
-			<%} %>
-		</c:if>
-	</c:if>
-								
+											<button style="" onclick="F()">
+												<h4>참여결정</h4>
+											</button>
+										</a>
+
+										<%
+										}
+										%>
+									</c:if>
+								</c:if>
+
 
 							</div>
 						</div>
 					</div>
 					<br>
 				</section>
-				
-				
-				
+
+
+
 			</div>
 		</div>
 		<!-- Sidebar -->
@@ -238,7 +295,7 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 				</nav>
 
 				<!-- Section -->
-				
+
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
@@ -298,6 +355,7 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 	<script src="assets/js/main.js"></script>
 	<script type="text/javascript">
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script>
 		//게시물요청
 		var slideIndex = 0; //slide index
 
@@ -536,6 +594,10 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 			
 			function F() {
 				alert("참석완료!")
+			}
+			
+			function R() {
+				alert("신고당한 횟수 : "+r_num)
 			}
 	</script>
 
