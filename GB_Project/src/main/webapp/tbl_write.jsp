@@ -36,7 +36,7 @@
 
 				<section>
 					<header class="main">
-						<h1>게시물 작성</h1>
+						<h2>게시물 작성</h2>
 					</header>
 					<form action="test_BoardWriteCon" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 						<div class="col-6 col-12-small">

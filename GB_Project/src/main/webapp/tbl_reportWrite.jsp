@@ -53,7 +53,7 @@
 				</header>
 				<section>
 					<header class="main">
-						<h1>신고서 작성</h1>
+						<h2>신고서 작성</h2>
 					</header>
 					<form action="tbl_reportCon" method="post">
 						<div class="col-6 col-12-small">
@@ -64,7 +64,14 @@
 						<!-- 게시물 작성 -->
 						<div class="card mb-2" style="width: 100%;">
 							<textarea name="content" rows="10" style="width: 100%;"></textarea>
-							<br> <input type="submit" value="신고신청">
+							<br>
+							<div style="text-align: center;">
+
+					<input type="submit" class="button primary"value="신고신청">
+					<a href="tbl_main.jsp" class="button">되돌아가기</a>
+							</div>
+							
+							<!-- <input type="submit" value="신고신청"> -->
 						</div>
 					</form>
 				</section>
