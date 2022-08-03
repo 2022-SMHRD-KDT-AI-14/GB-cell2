@@ -122,31 +122,23 @@
 									<td>${MyPageList.MEM_TEMPER}</td>
 
 								</tr>
-								<tr>
-									<td>희망배송지역</td>
-									<td>${MyPageList.MEM_AREA}</td>
-								</tr>
-							</table>
-
-
+								
+							<tr>
 							<c:choose>
 								<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
 									<td>희망배송지역 없음</td>
 								</c:when>
 
 								<c:otherwise>
-									<td>희망배송지역 : ${MyPageList.MEM_AREA}</td>
+									<td>희망배송지역</td>
+									<td>${MyPageList.MEM_AREA}</td>
 								</c:otherwise>
 							</c:choose>
-							</tr>
+							</tr>							
+							</table>
 
-							<tr>
-								<c:choose>
-									<c:when test="${MyPageList.MEM_AREA eq 'earth'}">
-										희망배송지역 없음<br>
-									</c:when>
-								</c:choose>
-							</tr>
+
+							
 						</tbody>
 						<tfoot>
 							<tr>
@@ -216,8 +208,8 @@
 				</nav>
 
 				<!-- Section -->
-<<<<<<< HEAD
-=======
+
+
 
 				<section>
 					<header class="major">
@@ -237,7 +229,7 @@
 							<p>상품3</p>
 
 				<!-- Section -->
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 				<%if(session.getAttribute("MEM_ID")!=null&&session.getAttribute("loginMember")!=null){ 
 				
 					
