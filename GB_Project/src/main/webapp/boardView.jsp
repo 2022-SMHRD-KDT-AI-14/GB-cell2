@@ -208,7 +208,7 @@ tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
 		</c:if>
 	</c:if>
 	
-
+<a href="tbl_reportWrite.jsp?num=${board.BOARD_SEQ}">신고버튼</a>
 
 <script>
 

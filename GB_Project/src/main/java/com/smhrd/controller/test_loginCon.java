@@ -33,15 +33,12 @@ public class test_loginCon extends HttpServlet {
 		tbl_coordinateDAO dao2 = new tbl_coordinateDAO();
 		
 		tbl_coordinate selectme = dao2.selectOneme(id);
-		System.out.println(selectme.getMEM_ID());
-		System.out.println(selectme.getMEM_LATITUDE());
-		System.out.println(selectme.getMEM_LONGITUDE());
-		
-		
+	
+		if(selectme!=null) {
 		session.setAttribute("MEM_ID", selectme.getMEM_ID());
 		session.setAttribute("MEM_LATITUDE", selectme.getMEM_LATITUDE());
 		session.setAttribute("MEM_LONGITUDE", selectme.getMEM_LONGITUDE());
-		
+		}
 		
 		if(loginMember != null) {
 			

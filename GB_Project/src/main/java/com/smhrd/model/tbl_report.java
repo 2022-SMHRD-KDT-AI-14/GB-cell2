@@ -11,14 +11,16 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @AllArgsConstructor
 public class tbl_report {
-	private BigDecimal R_SEQ;
+	private int R_SEQ;
 
 	private String R_TITLE;
 	
 	private String R_CONTENT;
 	
-	private Timestamp R_DATE;
-	
 	private String MEM_ID ;
+	
+	private String R_STATE;
+	
+	private int BOARD_SEQ;
 	
 }
