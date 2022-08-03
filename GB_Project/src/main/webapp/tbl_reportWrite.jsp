@@ -1,6 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR" isELIgnored="false"%>
-<!DOCTYPE html>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.model.tbl_share"%>
+<%@page import="java.util.Random"%>
+<%@page import="com.smhrd.model.tbl_coordinate"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.tbl_coordinateDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><!DOCTYPE html>
 <html>
 <head>
 <title>reportWrite</title>
@@ -11,23 +19,32 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="is-preload">
-	<%
+	<!-- Wrapper -->
+	<div id="wrapper">
+<%
 	String num = (String) request.getParameter("num");
 	session.setAttribute("num", num);
 	%>
-	<!-- Wrapper -->
-	<div id="wrapper">
-
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+
+
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>¹«¾ğ°¡ ³ª´©°í
-							½Í¾î?</strong> 1/N !</a>
+					<a href="tbl_main.jsp" class="logo"><strong>ë¬´ì–¸ê°€ ë‚˜ëˆ„ê³ 
+							ì‹¶ì–´?</strong> 1/N !</a>
 					<ul class="icons">
-						<li><a href="logoutCon" class="icon solid fa-lock-open"><span
-								class="label">Medium</span></a></li>
+						<c:choose>
+							<c:when test="${empty loginMember}">
+								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
+										class="label">ë¡œê·¸ì¸</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
+										class="label">Medium</span></a></li>
+							</c:otherwise>
+						</c:choose>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
 								class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
@@ -36,66 +53,209 @@
 				</header>
 				<section>
 					<header class="main">
-						<h2>½Å°í¼­ ÀÛ¼º</h2>
+						<h2>ì‹ ê³ ì„œ ì‘ì„±</h2>
 					</header>
 					<form action="tbl_reportCon" method="post">
 						<div class="col-6 col-12-small">
-							<input type="text" placeholder="½Å°íÁ¦¸ñ ÀÛ¼º" name="name">
+							<input type="text" placeholder="ì‹ ê³ ì œëª© ì‘ì„±" name="name">
 						</div>
 						<br>
 
-						<!-- °Ô½Ã¹° ÀÛ¼º -->
+						<!-- ê²Œì‹œë¬¼ ì‘ì„± -->
 						<div class="card mb-2" style="width: 100%;">
 							<textarea name="content" rows="10" style="width: 100%;"></textarea>
-							<br> <input type="submit" value="½Å°í½ÅÃ»">
+							<br>
+							<div style="text-align: center;">
+
+					<input type="submit" class="button primary"value="ì‹ ê³ ì‹ ì²­">
+					<a href="tbl_main.jsp" class="button">ë˜ëŒì•„ê°€ê¸°</a>
+							</div>
+							
+							<!-- <input type="submit" value="ì‹ ê³ ì‹ ì²­"> -->
 						</div>
 					</form>
 				</section>
-
 			</div>
 		</div>
+
 		<!-- Sidebar -->
-		<div id="sidebar">
+		<div id="sidebar" class="inactive">
 			<div class="inner">
+
 				<!-- Search -->
 				<section id="search" class="alt">
 					<form method="post" action="#">
 						<input type="text" name="query" id="query" placeholder="Search" />
 					</form>
 				</section>
+
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
 					</header>
 					<ul>
-						<li><a href="tbl_main.jsp">È¨ÆäÀÌÁö</a></li>
-						<li><a href="tbl_boardwrite.jsp">±ÛÀÛ¼º</a></li>
-						<li><span class="opener">°øÀ¯ÇÏ±â</span>
+						<li><a href="tbl_main.jsp">í™ˆí˜ì´ì§€</a></li>
+						<li><a href="tbl_boardwrite.jsp">ê¸€ì‘ì„±</a></li>
+						<li><span class="opener">ê²Œì‹œíŒ ì´ë™</span>
 							<ul>
-								<li><a href="tbl_boardBuy.jsp">±¸¸Å °Ô½ÃÆÇ</a></li>
-								<li><a href="tbl_boardId.jsp">°èÁ¤°øÀ¯ °Ô½ÃÆÇ</a></li>
-								<li><a href="tbl_boardArbeit.jsp">¾Ë¹Ù °Ô½ÃÆÇ</a></li>
-								<li><a href="tbl_boardFree.jsp">ÀÚÀ¯ °Ô½ÃÆÇ</a></li>
+								<li><a href="tbl_boardBuy.jsp">êµ¬ë§¤ ê²Œì‹œíŒ</a></li>
+								<li><a href="tbl_boardId.jsp">ê³„ì •ê³µìœ  ê²Œì‹œíŒ</a></li>
+								<li><a href="tbl_boardArbeit.jsp">ì•Œë°” ê²Œì‹œíŒ</a></li>
+								<li><a href="tbl_boardFree.jsp">ììœ  ê²Œì‹œíŒ</a></li>
 							</ul></li>
-						<li><a href="#">¹®ÀÇÇÏ±â</a></li>
+						<li><a href="#">ë¬¸ì˜í•˜ê¸°</a></li>
+
+
 					</ul>
 				</nav>
+
 				<!-- Section -->
+				<%
+				if (session.getAttribute("MEM_ID") != null && session.getAttribute("loginMember") != null) {
+
+					String MEM_ID = (String) session.getAttribute("MEM_ID");
+					int MEM_LATITUDE = (int) session.getAttribute("MEM_LATITUDE");
+					int MEM_LONGITUDE = (int) session.getAttribute("MEM_LONGITUDE");
+
+					tbl_coordinateDAO dao = new tbl_coordinateDAO();
+
+					ArrayList<String> id = new ArrayList<String>();
+					List<tbl_coordinate> tbl_coordinate = dao.selectAllList();
+
+					int cnt = 0;
+
+					for (int i = 0; i < tbl_coordinate.size(); i++) {
+						if (!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)) {
+					if (tbl_coordinate.get(i).getMEM_LATITUDE() < MEM_LATITUDE + 3
+							&& tbl_coordinate.get(i).getMEM_LATITUDE() > MEM_LATITUDE - 3
+							&& tbl_coordinate.get(i).getMEM_LONGITUDE() < MEM_LONGITUDE + 3
+							&& tbl_coordinate.get(i).getMEM_LONGITUDE() > MEM_LONGITUDE - 3) {
+						id.add(cnt, tbl_coordinate.get(i).getMEM_ID());
+						cnt++;
+					}
+						}
+					}
+
+					int num1 = 0;
+					int num2 = 0;
+					int num3 = 0;
+					int num11 = 0;
+					int num22 = 0;
+					int num33 = 0;
+					int a = 0;
+					int b = 0;
+					int c = 0;
+					List<tbl_share> list1 = new ArrayList<tbl_share>();
+					List<tbl_share> list2 = new ArrayList<tbl_share>();
+					List<tbl_share> list3 = new ArrayList<tbl_share>();
+
+					Random r = new Random();
+					if (id.size() > 0) {
+						num1 = r.nextInt(id.size());
+						num2 = r.nextInt(id.size());
+						num3 = r.nextInt(id.size());
+						list1 = dao.selectListshare(id.get(num1));
+						list2 = dao.selectListshare(id.get(num2));
+						list3 = dao.selectListshare(id.get(num3));
+					}
+					if (list1.size() > 0) {
+						num11 = r.nextInt(list1.size());
+						a = list1.get(num11).getBOARD_SEQ().intValue();
+					}
+					if (list2.size() > 0) {
+						num22 = r.nextInt(list2.size());
+						b = list2.get(num22).getBOARD_SEQ().intValue();
+					}
+					if (list3.size() > 0) {
+						num33 = r.nextInt(list3.size());
+						c = list3.get(num33).getBOARD_SEQ().intValue();
+
+					}
+
+					int board_seq1 = a / 2;
+					int board_seq2 = b / 2;
+					int board_seq3 = c / 2;
+
+					session.setAttribute("board_seq1", board_seq1);
+					session.setAttribute("board_seq2", board_seq2);
+					session.setAttribute("board_seq3", board_seq3);
+				%>
 
 				<section>
 					<header class="major">
-						<h2>¹®ÀÇÁÖ¼¼¿ä</h2>
+						<h2>ì¶”ì²œìƒí’ˆ</h2>
 					</header>
-					<p>»çÀÌÆ®ÀÇ ÀÌ»óÀÌ ÀÖ´Ù¸é ¾Æ·¡ ¿¬¶ôÃ³·Î ¿¬¶ô ºÎÅ¹ µå¸³´Ï´Ù</p>
+					<div class="mini-posts">
+						<%
+						if (list1.size() > 0) {
+						%>
+						<article>
+							<a href="boardView.jsp?num=${board_seq1}" class="image"><img
+								src="images/pic07.jpg" alt="" /></a>
+							<p>
+								ì œëª© :
+								<%=list1.get(num11).getARTICLE_TITLE()%></p>
+							<p>
+								ì‘ì„±ì :
+								<%=list1.get(num11).getMEM_ID()%></p>
+							<%
+							}
+							%>
+						</article>
+						<%
+						if (list2.size() > 0) {
+						%>
+						<article>
+							<a href="boardView.jsp?num=${board_seq2}" class="image"><img
+								src="images/pic08.jpg" alt="" /></a>
+							<p>
+								ì œëª© :
+								<%=list2.get(num22).getARTICLE_TITLE()%></p>
+							<p>
+								ì‘ì„±ì :
+								<%=list2.get(num22).getMEM_ID()%></p>
+							<%
+							}
+							%>
+						</article>
+						<%
+						if (list3.size() > 0) {
+						%>
+						<article>
+							<a href="boardView.jsp?num=${board_seq3}" class="image"><img
+								src="images/pic09.jpg" alt="" /></a>
+							<p>
+								ì œëª© :
+								<%=list3.get(num33).getARTICLE_TITLE()%></p>
+							<p>
+								ì‘ì„±ì :
+								<%=list3.get(num33).getMEM_ID()%></p>
+						</article>
+						<%
+						}
+						%>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button">ê³µìœ ì°¸ì—¬</a></li>
+					</ul>
+				</section>
+				<%
+				}
+				%>
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>ë¬¸ì˜ì£¼ì„¸ìš”</h2>
+					</header>
+					<p>ì‚¬ì´íŠ¸ì˜ ì´ìƒì´ ìˆë‹¤ë©´ ì•„ë˜ ì—°ë½ì²˜ë¡œ ì—°ë½ ë¶€íƒ ë“œë¦½ë‹ˆë‹¤</p>
 					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">ÀÌ¸ŞÀÏ</a></li>
-						<li class="icon solid fa-phone">¿¬¶ôÃ³</li>
-						<li class="icon solid fa-home">ÁÖ¼Ò<br /> »ó¼¼ÁÖ¼Ò
+						<li class="icon solid fa-envelope"><a href="#">ì´ë©”ì¼</a></li>
+						<li class="icon solid fa-phone">ì—°ë½ì²˜</li>
+						<li class="icon solid fa-home">ì£¼ì†Œ<br /> ìƒì„¸ì£¼ì†Œ
 						</li>
 					</ul>
 				</section>
-
 
 				<!-- Footer -->
 				<footer id="footer">
@@ -108,8 +268,16 @@
 
 			</div>
 		</div>
+
 	</div>
 
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
 </body>
-</body>
+
 </html>
