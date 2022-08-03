@@ -82,7 +82,10 @@
 				</section>
 
 
-				<!-- Section -->
+				<!--  
+				
+				
+				
 				<section>
 					<header class="major">
 						<h2>추천 상품들</h2>
@@ -137,7 +140,7 @@
 							</ul>
 						</article>
 					</div>
-				</section>
+				</section>-->
 
 				<!-- Section -->
 				<section>
