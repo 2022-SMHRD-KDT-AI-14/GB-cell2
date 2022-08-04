@@ -118,7 +118,7 @@
 							
 							<c:choose>
 								<c:when test="${board.CAT_NAME=='B'}">
-									<p>구매링크 : ${boardbuy.BUY_LINK}</p>
+									<p><a href="${boardbuy.BUY_LINK}" >구매링크 : ${boardbuy.BUY_LINK}</a></p>
 									<p>구매가격 : ${boardbuy.BUY_PAY}</p>
 								</c:when>
 

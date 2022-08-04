@@ -44,7 +44,7 @@ public class AoardPagingCon extends HttpServlet {
 			json.addProperty("name", b.getARTICLE_TITLE());
 			json.addProperty("writer", b.getMEM_ID());
 			json.addProperty("category", b.getCAT_NAME());
-			
+			json.addProperty("file", b.getARTICLE_FILE());
 			jarray.add(json);
 			json =new JsonObject();
 			}

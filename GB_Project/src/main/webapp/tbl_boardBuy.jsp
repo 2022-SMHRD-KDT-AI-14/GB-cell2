@@ -213,8 +213,9 @@ to {
 						<table class="table">
 							<c:forEach begin="0" end="9" step="1" varStatus="status">
 								<article>
-									<a href="#" class="image"><img src="images/pic01.jpg"
-										alt="" /></a>
+									<!-- <a href="#" class="image"> -->
+									<p id="file${status.index}"></p>
+									<%-- <p id="file${status.index}"></p> --%>
 									<p id="name${status.index}"></p>
 									<p id="writer${status.index}"></p>
 									<div style="text-align: right;">
