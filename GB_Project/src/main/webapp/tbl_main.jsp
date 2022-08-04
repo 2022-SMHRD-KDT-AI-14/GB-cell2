@@ -13,6 +13,12 @@
 <html>
 <head>
 <title>1/N 안전 🍞 공유 중계 서비스</title>
+
+<title>결제하기</title>
+  <!-- 1. 스크립트 추가 -->
+  <script src="https://js.tosspayments.com/v1"></script>
+  
+  
 <meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -21,6 +27,18 @@
 
 </head>
 <body class="is-preload">
+
+<script>
+  var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq' // 테스트용 클라이언트 키
+  /* test_sk_zXLkKEypNArWmo50nX3lmeaxYG5R */
+  // 2. 초기화
+  var tossPayments = TossPayments(clientKey)
+  
+  
+  
+</script>
+
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 

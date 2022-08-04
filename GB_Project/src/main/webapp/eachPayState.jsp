@@ -140,7 +140,11 @@ String state = new ConfirmationDAO().selectConfirm(voo);
 						</c:when> 
 				
 					<c:when test ="${board.CAT_NAME eq'A'}">
+<<<<<<< HEAD
+					<h1>결제상태: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq}/2'>해당글 보러가기</a></h1>
+=======
 				
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 					<p>알바수당: ${arbeit2.ARBEIT_PAY} 원</p>
 					<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 					<p><table>
@@ -252,7 +256,16 @@ String state = new ConfirmationDAO().selectConfirm(voo);
 						<%} %>
 		</div>
 		
-
+		<%if(cnt==b){ %>
+		<script>
+   
+    	alert(${board.BOARD_SEQ}+"번 게시글 전원 거래확정 \n 반환금을 신청해주세요")
+    	
+    
+</script>
+		
+		
+	<%} %>	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
