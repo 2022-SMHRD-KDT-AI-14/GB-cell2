@@ -65,7 +65,7 @@
 							계정이 될 수도 있으며 일 분담이 될 수도 있습니다. 무언가를 나누고자 하는 분들을 위한 서비스 입니다.</p>
 						<ul class="actions">
 							<c:if test="${!empty loginMember}">
-								<li><a href="tbl_boardwrite.jsp" class="button big">게시물
+								<li><a href="tbl_boardwrite.jsp" class="button big">게시글
 										작성</a></li>
 								<li><a href="payState.jsp" class="button big">결제상태</a></li>
 								<li><a href="myPage.jsp?MEM_ID=${loginMember}"

@@ -38,7 +38,7 @@
                 <!-- Content -->
                 <section>
                     <header class="main">
-                        <h1>게시물 작성</h1>
+                        <h1>게시글 작성</h1>
                     </header>
 
                     <span class="image main"><img src="images/pic11.png" alt="" /></span>
