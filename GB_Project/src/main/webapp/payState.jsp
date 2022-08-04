@@ -118,8 +118,10 @@
 		}
 		})
     });
+    
+    
 </script>
-
+ -->
 	<script> //게시글테이블 거래상태를 참석자 테이블에도 동기화
  
 $(window).load(function () { 
@@ -137,7 +139,7 @@ $(window).load(function () {
     });
 </script>
 
- -->
+
 
 
 
