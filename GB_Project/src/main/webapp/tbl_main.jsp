@@ -3,7 +3,7 @@
 <%@page import="com.smhrd.model.tbl_share"%>
 <%@page import="java.util.Random"%>
 <%@page import="com.smhrd.model.tbl_coordinate"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>http://localhost:8081/GB_Project/tbl_main.jsp
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.AppToPayDAO"> 
+
+	
+	<update id="updateAppToPay" parameterType="com.smhrd.model.AppToPay">
+		UPDATE tbl_payment
+		SET PAY_TF = '입금완료'
+		WHERE MEM_ID = #{MEM_ID} and BOARD_SEQ = #{BOARD_SEQ}
+	</update>
+	
+
+</mapper>
