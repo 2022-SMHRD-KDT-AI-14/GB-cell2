@@ -105,4 +105,101 @@ public class updateStatepDAO {
 		return cnt;
 	}
 	
+	
+	
+	
+	public int updateStatepAA(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepAA", num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepA cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int updateStatepII(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepII", num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepI cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int updateStatepBB(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+	
+		int cnt =0;
+		try {
+			
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepBB", num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepB cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int updateStatepFF(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepFF",num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepF cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
 }

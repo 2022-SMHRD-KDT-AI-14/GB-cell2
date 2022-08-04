@@ -19,4 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 
+<update id="updateState" parameterType="int">
+		UPDATE tbl_account_applicant
+		SET account_p_state = '입금대기'
+		WHERE board_seq = #{num}
+	</update>
+
 </mapper>
