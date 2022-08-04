@@ -68,7 +68,7 @@
 							계정이 될 수도 있으며 일 분담이 될 수도 있습니다. 무언가를 나누고자 하는 분들을 위한 서비스 입니다.</p>
 						<ul class="actions">
 							<c:if test="${!empty loginMember}">
-								<li><a href="tbl_boardwrite.jsp" class="button big">게시글
+								<li><a href="tbl_boardwrite.jsp" class="button big">게시물
 										작성</a></li>
 								<li><a href="payState.jsp" class="button big">결제상태</a></li>
 								<li><a href="myPage.jsp?MEM_ID=${loginMember}"
@@ -364,12 +364,9 @@
 					</header>
 					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
 					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">이메일</a></li><br/>
-						<p>cell1234@gmail.com</p>
-						<li class="icon solid fa-phone">연락처</li><br/>
-						<p>062-655-3510</p>
-						<li class="icon solid fa-home">주소</li><br/> 
-						<p>동명동 스마트인재개발원</p>
+						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
+						<li class="icon solid fa-phone">연락처</li>
+						<li class="icon solid fa-home">주소<br /> 상세주소
 						</li>
 					</ul>
 				</section>
