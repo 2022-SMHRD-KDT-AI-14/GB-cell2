@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +25,7 @@ import com.smhrd.model.tbl_free_applicant;
 import com.smhrd.model.tbl_free_applicantDAO;
 import com.smhrd.model.tbl_payment;
 import com.smhrd.model.updateStatepDAO;
+
 
 public class ShareToAppCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -46,18 +48,22 @@ public class ShareToAppCon extends HttpServlet {
 			int cnt2 = 0;
 			if(cat_name.equals("A")) {
 				cnt2 = dao2.updateStatepA( new BigDecimal(board_seq), state);
+				dao2.updateStatepAA(new BigDecimal(board_seq));
 			}else if(cat_name.equals("B")) {
 				cnt2 = dao2.updateStatepB( new BigDecimal(board_seq), state);
+				dao2.updateStatepBB(new BigDecimal(board_seq));
 			}else if(cat_name.equals("I")) {
 				cnt2 = dao2.updateStatepI( new BigDecimal(board_seq), state);
+				dao2.updateStatepII(new BigDecimal(board_seq));
 			}else {
 				cnt2 = dao2.updateStatepF( new BigDecimal(board_seq), state);
+				dao2.updateStatepFF(new BigDecimal(board_seq));
 			}	
 			
 			if (cnt2 > 0) {
 				System.out.println(board_seq+"번 "+cat_name+" 테이블<"+state+">으로 성공!");
 			} else {
-				System.out.println(board_seq+"번 "+cat_name+" 테이블<"+state+">으로 성공!");
+				System.out.println(board_seq+"번 "+cat_name+" 테이블<"+state+">으로 실패!");
 			}
 			
 			

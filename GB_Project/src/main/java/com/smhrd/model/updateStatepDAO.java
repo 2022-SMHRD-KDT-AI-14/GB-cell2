@@ -36,6 +36,7 @@ public class updateStatepDAO {
 	public int updateStatepI(BigDecimal num, String state){  //복붙하면됨이제.
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		tbl_account_applicant vo = new tbl_account_applicant(state,num);
+		System.out.println(state);
 		int cnt =0;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
@@ -62,6 +63,7 @@ public class updateStatepDAO {
 		BuyApplicant vo = new BuyApplicant(num,state);
 		int cnt =0;
 		try {
+			System.out.println(state);
 			//모든정보를 가져오려고하므로 인자필요없음.
 			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepB", vo); //왜 0줄이 나오?
 			System.out.println("dao, updateStatepB cnt >> "+cnt);
@@ -87,6 +89,103 @@ public class updateStatepDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepF", vo); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepF cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	
+	
+	
+	public int updateStatepAA(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepAA", num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepA cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int updateStatepII(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepII", num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepI cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int updateStatepBB(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+	
+		int cnt =0;
+		try {
+			
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepBB", num); //왜 0줄이 나오?
+			System.out.println("dao, updateStatepB cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int updateStatepFF(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepFF",num); //왜 0줄이 나오?
 			System.out.println("dao, updateStatepF cnt >> "+cnt);
 			
 			if (cnt > 0) {

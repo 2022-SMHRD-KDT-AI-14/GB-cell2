@@ -325,6 +325,12 @@
   	<display-name>tbl_reportDeleteCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.tbl_reportDeleteCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ShareToAppCon</servlet-name>
+  	<display-name>ShareToAppCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.ShareToAppCon</servlet-class>
   </servlet><servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
@@ -550,6 +556,10 @@
   <servlet-mapping>
   	<servlet-name>tbl_reportDeleteCon</servlet-name>
   	<url-pattern>/tbl_reportDeleteCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ShareToAppCon</servlet-name>
+  	<url-pattern>/ShareToAppCon</url-pattern>
   </servlet-mapping>
   
 

@@ -85,7 +85,7 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
-
+<!-- 
 	<script> // 작성자의 거래결정 후 참석자의 미입금 상태 알람
     $(window).load(function () { 
     	$.ajax({
@@ -118,8 +118,10 @@
 		}
 		})
     });
+    
+    
 </script>
-
+ -->
 	<script> //게시글테이블 거래상태를 참석자 테이블에도 동기화
  
 $(window).load(function () { 
@@ -179,7 +181,7 @@ $(window).load(function () {
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
 																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
-																<a href="ShareToAppCon?board_seq=${board_seq}&state=입금대기"><button>거래결정</button></a>
+																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}" ><button id="decision" onclick="decision()">거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
@@ -188,7 +190,7 @@ $(window).load(function () {
 																
 																</script>
 																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
-																<a href="ShareToAppCon?board_seq=${board_seq}&state=모집중"><button>거래취소</button></a>
+																<a href="ShareToAppCon?board_seq=${s.board_seq}&state=모집중"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
 															</c:when>

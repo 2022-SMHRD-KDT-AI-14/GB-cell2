@@ -7,27 +7,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<update id="updateStatepB" parameterType="com.smhrd.model.BuyApplicant">
-		UPDATE tbl_buy_applicant
-		SET buy_p_state = #{buy_p_state}
+		UPDATE tbl_share
+		SET ARTICLE_STATE = '모집중'
 		WHERE board_seq = #{board_seq}
 	</update>
 	
 	<update id="updateStatepA" parameterType="com.smhrd.model.tbl_arbeit_applicant">
-		UPDATE tbl_arbeit_applicant
-		SET arb_p_state = #{MEM_ID}
+		UPDATE tbl_share
+		SET ARTICLE_STATE = '모집중'
 		WHERE board_seq = #{BOARD_SEQ}
 	</update>
 	
 	<update id="updateStatepI" parameterType="com.smhrd.model.tbl_account_applicant">
-		UPDATE tbl_account_applicant
-		SET account_p_state = #{ACCOUNT_P_STATE}
+		UPDATE tbl_share
+		SET ARTICLE_STATE = '모집중'
 		WHERE board_seq = #{BOARD_SEQ}
 	</update>
 	
 	<update id="updateStatepF" parameterType="com.smhrd.model.tbl_free_applicant">
-		UPDATE tbl_free_applicant
-		SET free_p_state = #{MEM_ID}
+		UPDATE tbl_share
+		SET ARTICLE_STATE = '모집중'
 		WHERE board_seq = #{BOARD_SEQ}
+	</update>
+	
+	<update id="updateStatepBB" parameterType="com.smhrd.model.BuyApplicant">
+		UPDATE tbl_buy_applicant
+		SET buy_p_state = '모집중'
+		WHERE board_seq = #{num}
+	</update>
+	
+	<update id="updateStatepAA" parameterType="com.smhrd.model.tbl_arbeit_applicant">
+		UPDATE tbl_arbeit_applicant
+		SET buy_a_state = '모집중'
+		WHERE board_seq = #{num}
+	</update>
+	
+	<update id="updateStatepII" parameterType="com.smhrd.model.tbl_account_applicant">
+		UPDATE tbl_account_applicant
+		SET buy_i_state = '모집중'
+		WHERE board_seq = #{num}
+	</update>
+	
+	<update id="updateStatepFF" parameterType="com.smhrd.model.tbl_free_applicant">
+		UPDATE tbl_free_applicant
+		SET buy_f_state = '모집중'
+		WHERE board_seq = #{num}
 	</update>
 	
 
