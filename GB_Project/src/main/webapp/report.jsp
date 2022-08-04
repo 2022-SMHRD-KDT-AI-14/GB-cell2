@@ -23,9 +23,8 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="home.html" class="logo"><strong>무언가 나누고 싶어?</strong>
-						1/N !</a>
-					
+					<!-- <h3 id="main_test">무언가 나누고 싶어?</h3> -->
+
 				</header>
 
 				<!-- Content -->
