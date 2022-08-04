@@ -26,8 +26,11 @@
 
                 <!-- Header -->
                 <header id="header">
-                    <a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
-                    <ul class="icons">
+                    <h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
                         <li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
                         <li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
                         </li>
