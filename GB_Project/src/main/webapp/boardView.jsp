@@ -13,19 +13,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
-
 <head>
-<title>boardBuy</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-	integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-	crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
-	rel="stylesheet">
-<meta charset="UTF-8" />
+<title>boardView</title>
+<meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
@@ -56,12 +46,15 @@
 	String MEM_ID = (String) session.getAttribute("loginMember");
 	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
 	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
+<<<<<<< HEAD
 
 	
 	
 	Confirmation voo = new Confirmation(MEM_ID,real_num);
 
 	String state = new ConfirmationDAO().selectConfirm(voo);
+=======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -110,56 +103,69 @@
 									<img src="images/pic01.jpg" />
 								</c:when>
 								<c:otherwise>
-									<img src="img/${board.ARTICLE_FILE}" width="auto"
-										height="200px">
+									<img src="img/${board.ARTICLE_FILE}" width="400px"
+										height="300px">
 								</c:otherwise>
 							</c:choose>
 						</div>
 						<div class="col-6 col-12-small">
 							<header class="major">
+<<<<<<< HEAD
 								<p>제목 : ${board.ARTICLE_TITLE}
 								<%if(state!=null){%>
 								<%if(state.equals("거래확정")){ %>
 								(이미확정된거래입니다) 
 								<%} }%>
+=======
+								<p style="font-size: 20pt; color: black">
+									<b>${board.ARTICLE_TITLE}</b>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 								</p>
 							</header>
-							<p><a onclick="new_window();" >작성자 : ${board.MEM_ID}</a></p>
+							<p>
+								<a onclick="new_window();">작성자(신고기록) : ${board.MEM_ID}</a>
+							</p>
 							<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
+<<<<<<< HEAD
 							<p>진행상태 : ${board.ARTICLE_STATE}</p>
 							
+=======
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 							<c:choose>
 								<c:when test="${board.CAT_NAME=='B'}">
-									<p><a href="${boardbuy.BUY_LINK}" >구매링크 : ${boardbuy.BUY_LINK}</a></p>
-									<p>구매가격 : ${boardbuy.BUY_PAY}</p>
+									<p>
+										<a href="${boardbuy.BUY_LINK}">구매링크 : ${boardbuy.BUY_LINK}</a>
+									</p>
+									<p><b>구매가격 : ${boardbuy.BUY_PAY}</b></p>
 								</c:when>
 
 								<c:when test="${board.CAT_NAME=='A'}">
 									<p>알바시간 : ${boardarbeit.ARBEIT_TIME}</p>
 									<p>알바장소 : ${boardarbeit.ARBEIT_SITE}</p>
-									<p>알바시급 : ${boardarbeit.ARBEIT_PAY}</p>
+									<p><b>알바시급 : ${boardarbeit.ARBEIT_PAY}</b></p>
 								</c:when>
 
 								<c:when test="${board.CAT_NAME=='I'}">
 									<p>계정링크 : ${boardaccount.ID_LINK}</p>
 									<p>이용기간 : ${boardaccount.ID_TIME}</p>
-									<p>구매가격 : ${boardaccount.ID_PAY}</p>
+									<p><b>구매가격 : ${boardaccount.ID_PAY}</b></p>
 								</c:when>
 
 								<c:otherwise>
 
 								</c:otherwise>
 							</c:choose>
-							<div class="card mb-2">
-								<!-- 이미지 가운데 자동 정렬  -->
-								<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+
+							<!-- 이미지 가운데 자동 정렬  -->
+							<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 				<p>${board.name}/${board.writer}</p>
 				<p id="date">작성일 : ${board.uploadday}</p>
 		</div> --%>
-								<div class="card-body">
-									<p>내용:${board.ARTICLE_CONTENT}</p>
-								</div>
-							</div>
+
+							<%-- <p>내용:${board.ARTICLE_CONTENT}</p> --%>
+
+
 							<br>
 							<div style="text-align: center;">
 								<button>
@@ -183,9 +189,7 @@
 			buy_link=${boardbuy.BUY_LINK}&
 			buy_pay=${boardbuy.BUY_PAY}&
 			cat_name=B">
-											<button style="" onclick="B()">
-												<h4>참여결정</h4>
-											</button>
+											<button class="button primary" onclick="B()">참여결정</button>
 										</a>
 										<%
 										}
@@ -205,9 +209,7 @@
 			arb_site=${boardarbeit.ARBEIT_SITE}&
 			arb_pay=${boardarbeit.ARBEIT_PAY}&
 			cat_name=A">
-											<button style="" onclick="A()">
-												<h4>참여결정</h4>
-											</button>
+											<button class="button primary" onclick="A()">참여결정</button>
 										</a>
 
 										<%
@@ -228,9 +230,7 @@
 			acc_time=${boardaccount.ID_TIME}&
 			acc_pay=${boardaccount.ID_PAY}&
 			cat_name=I">
-											<button style="" onclick="I()">
-												<h4>참여결정</h4>
-											</button>
+											<button class="button primary" onclick="I()">참여결정</button>
 										</a>
 
 										<%
@@ -248,9 +248,7 @@
 											href="insertStateConF?
 			board_seq=${board.BOARD_SEQ}&
 			cat_name=F">
-											<button style="" onclick="F()">
-												<h4>참여결정</h4>
-											</button>
+											<button class="button primary" onclick="F()">참여결정</button>
 										</a>
 
 										<%
@@ -264,6 +262,51 @@
 						</div>
 					</div>
 					<br>
+				</section>
+				<header class="major">
+					<h4>작성자 게시물</h4>
+				</header>
+				<section style="padding: 10px; margin: 10px">
+					<div class="row">
+						<div class="col-3 col-12-small">
+							<article>
+								<img width="200" height="150" src="./images/item.png">
+								<p>상품명</p>
+								<p style="padding: 10px;">상품가격</p>
+							</article>
+						</div>
+						<div class="col-3 col-12-small">
+							<article>
+								<img width="200" height="150" src="./images/item2.png">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+						<div class="col-3 col-12-small">
+							<article>
+								<img width="200" height="150" src="./images/item3.png">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+						<div class="col-3 col-12-small">
+							<article>
+								<img width="200" height="150" src="./images/item4.png">
+								<p>상품명</p>
+								<p>상품가격</p>
+							</article>
+						</div>
+					</div>
+				</section>
+				<section>
+					<header class="major">
+						<h4>작성내용</h4>
+					</header>
+					<div>
+
+						<p>${board.ARTICLE_CONTENT}</p>
+
+					</div>
 				</section>
 
 
@@ -608,7 +651,7 @@
 			
 			function new_window() {
 				window.open("report.jsp?R_MEM_ID=${board.MEM_ID}", "report",
-						"width=500, height=400 top=50, left=50");
+						"width=400, height=300 top=50, left=50");
 			}
 	</script>
 
