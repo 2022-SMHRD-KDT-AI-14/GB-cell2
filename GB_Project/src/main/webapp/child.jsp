@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>배송지 수정</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -23,18 +23,15 @@
 </head>
 <body>
 	<div id="wrapper">
-
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
 				<header id="header">
-					<header class="main">
+					<header class="main" style="text-align: center;">
 						<h1>배송지수정</h1>
 					</header>
 				</header>
 				<section>
-
-
 					<form action="MyPageMemareaUpdate">
 						<input type="text" id="sample5_address" name="MEM_AREA"
 							placeholder="주소 검색을 통해서 입력하세요.">

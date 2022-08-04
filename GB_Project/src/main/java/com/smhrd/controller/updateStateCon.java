@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.smhrd.model.BuyApplicant;
 import com.smhrd.model.BuyApplicantDAO;
 import com.smhrd.model.ShareDAO;
 import com.smhrd.model.ShareForUpdate;
+import com.smhrd.model.tbl_account_applicantDAO;
+import com.smhrd.model.tbl_arbeit_applicantDAO;
+import com.smhrd.model.tbl_free_applicantDAO;
 import com.smhrd.model.tbl_paymentDAO;
 
 public class updateStateCon extends HttpServlet {
@@ -69,6 +71,9 @@ public class updateStateCon extends HttpServlet {
 			//if(cat_name=='A')
 			//구매 update
 			new BuyApplicantDAO().updateState(board_seq,"입금대기");
+			new tbl_account_applicantDAO().updateState(board_seq);
+			new tbl_arbeit_applicantDAO().updateState(board_seq);
+			new tbl_free_applicantDAO().updateState(board_seq);
 			//계정 update
 			//알바 update
 			System.out.println("updateStateCon, 후 >> "+vo.getArticle_state());

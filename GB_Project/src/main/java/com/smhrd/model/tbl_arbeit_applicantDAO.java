@@ -12,6 +12,31 @@ public class tbl_arbeit_applicantDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
+	public int updateState(BigDecimal num){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.update("com.smhrd.model.tbl_arbeit_applicantDAO.updateState",num); //왜 0줄이 나오?
+			System.out.println("dao, UpdateState cnt >> "+cnt);
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	
+	
 	
 	public int insertArbeitApplicant(tbl_arbeit_applicant vo){ // 참여결정시 추가~
 		SqlSession sqlSession = sqlSessionFactory.openSession();

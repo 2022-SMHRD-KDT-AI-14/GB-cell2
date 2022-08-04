@@ -17,6 +17,8 @@
 </head>
 
 <body class="is-preload">
+
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -26,8 +28,11 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
-					<ul class="icons">
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
 						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
@@ -61,21 +66,21 @@
 
 									<div class="buyForm" style="width:300px; display:none;">
 										구매링크 <input type="text" name="buylink">
-										구매가격 <input type="text" name="buypay">
+										구매가격 <input type="text" name="buypay" placeholder="숫자만 입력하세요" >
 										<br>
 									</div>
 
 									<div class="accountingForm" style="width:300px; display:none;">
 										계정링크 <input type="text" name="idlink">
 										이용기간 <input type="text" name="idtime">
-										구매가격 <input type="text" name="idpay">
+										구매가격 <input type="text" name="idpay" placeholder="숫자만 입력하세요">
 										<br>
 									</div>
 
 									<div class="albeitForm" style="width:300px;  display:none;">
 										알바시간 <input type="text" name="arbeittime">
 										알바장소 <input type="text" name="arbeitsite">
-										알바시급 <input type="text" name="arbeitpay">
+										알바시급 <input type="text" name="arbeitpay" placeholder="숫자만 입력하세요">
 										<br>
 									</div>
 								</div>

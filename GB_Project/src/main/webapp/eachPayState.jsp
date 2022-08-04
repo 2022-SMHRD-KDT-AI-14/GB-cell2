@@ -1,3 +1,9 @@
+<%@page import="com.smhrd.model.Confirmation"%>
+<%@page import="com.smhrd.model.ConfirmationDAO"%>
+<%@page import="com.smhrd.model.shareCompleteDAO"%>
+<%@page import="com.smhrd.model.BuyApplicantDAO"%>
+<%@page import="com.smhrd.model.AppToPayDAO"%>
+<%@page import="com.smhrd.model.AppToPay"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="com.smhrd.model.tbl_paymentDAO"%>
 <%@page import="com.smhrd.model.tbl_payment"%>
@@ -38,6 +44,7 @@ p {
 	font-size: 30px;
 }
 
+
 </style>
 </head>
 <!-- 스크립틀릿 안쓰려고 지금 이작업 하는거임..JSP파일 안에서 변수 선언하는 태그 임. id는 변수명 -->
@@ -73,12 +80,24 @@ p {
 <%
 int num = Integer.parseInt(request.getParameter("board_seq"));
 int number=num/2;
+
+String board_seq = (String)request.getParameter("board_seq");
+String id = (String)session.getAttribute("loginMember");
+int cnt = 0;
+
+BuyApplicantDAO a = new BuyApplicantDAO();
+int b = a.SelectBuyApplicantCNT(num);
+
+Confirmation voo = new Confirmation(id,num);
+
+String state = new ConfirmationDAO().selectConfirm(voo);
 %>
+
 
 			<div>							
 			<c:choose>
 		 			<c:when test ="${board.CAT_NAME eq'B'}">
-						<h1>결제상태: ${buyer2.buy_p_state} , <a href='boardView.jsp?num=<%=number%>'>해당글 보러가기</a></h1>
+		 			
 						<p>구매가격: ${buyer2.buy_pay} 원</p>
 						<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 						<p><table>
@@ -92,14 +111,24 @@ int number=num/2;
 										<tr>
 											<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
 											<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
-											<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
+											<td><h3>
+										<c:choose>
+										<c:when test="${m.PAY_TF=='입금완료'}">
+											<c:out value="${buyer2.buy_pay/buyerCNT}원 입금"/>
+											<%cnt+=1; %>
+										</c:when>
+										<c:otherwise>
+											<c:out value="${m.PAY_MONEY}원 입금"/>
+										</c:otherwise>
+										</c:choose>
+											</h3></td>
 											 <td><h3><c:out value="${buyer2.buy_pay/buyerCNT} 원"/>	</h3></td>	
 											 
 											<c:if test ="${loginMember == m.MEM_ID}"> 
 											
 											<td>	
 											<!--<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>  -->
-											<button onclick="payment()">입금하기</button>
+											<a href="AppToPay?board_seq=<%=board_seq%>">입금</a>
 																			
 											</td>
 											</c:if>
@@ -111,7 +140,11 @@ int number=num/2;
 						</c:when> 
 				
 					<c:when test ="${board.CAT_NAME eq'A'}">
+<<<<<<< HEAD
 					<h1>결제상태: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq}/2'>해당글 보러가기</a></h1>
+=======
+				
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 					<p>알바수당: ${arbeit2.ARBEIT_PAY} 원</p>
 					<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 					<p><table>
@@ -125,13 +158,25 @@ int number=num/2;
 									<tr>
 										<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
 										<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
-										<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
+										
+										<td><h3>
+										<c:choose>
+										<c:when test="${m.PAY_TF=='입금완료'}">
+											<c:out value="${arbeit2.ARBEIT_PAY/paymentPar.size()}원 입금"/>
+											<%cnt+=1; %>
+										</c:when>
+										<c:otherwise>
+											<c:out value="${m.PAY_MONEY}원 입금"/>
+										</c:otherwise>
+										</c:choose>
+											</h3></td>
+											
 										 <td><h3><c:out value="${arbeit2.ARBEIT_PAY/paymentPar.size()} 원"/>	</h3></td>	
 										 
 										<c:if test ="${loginMember == m.MEM_ID}">
 										
 										<td>	
-										<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+										<a href="AppToPay?board_seq=<%=board_seq%>">입금</a>
 																		
 										</td>
 										</c:if>
@@ -142,7 +187,7 @@ int number=num/2;
 					<%-- <p>입금률 : <c:out value=" ${paymentTFcnt}/${buyerCNT} = " /><fmt:formatNumber value="${(paymentTFcnt/buyerCNT)*100}" pattern=".00"/>%</p> --%>
 					</c:when> 
 				<c:when test ="${board.CAT_NAME eq'I'}">
-					<h1>결제상태: ${account2.ACCOUNT_P_STATE} , <a href='boardView.jsp?num=<%=number%>'>해당글 보러가기</a></h1>
+					
 					<p>구매가격: ${account2.ID_PAY} 원</p>
 					<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 					<p><table>
@@ -156,13 +201,23 @@ int number=num/2;
 									<tr>
 										<td><h3><c:out value="${m.MEM_ID}님	"/>	</h3></td>
 										<td><h3><c:out value="${m.PAY_TF}"/>	</h3></td>
-										<td><h3><c:out value="${m.PAY_MONEY}원 입금"/>	</h3></td>
+										<td><h3>
+										<c:choose>
+										<c:when test="${m.PAY_TF=='입금완료'}">
+											<c:out value="${account2.ID_PAY/paymentPar.size()}원 입금"/>
+											<%cnt+=1; %>
+										</c:when>
+										<c:otherwise>
+											<c:out value="${m.PAY_MONEY}원 입금"/>
+										</c:otherwise>
+										</c:choose>
+											</h3></td>
 										 <td><h3><c:out value="${account2.ID_PAY/paymentPar.size()} 원"/>	</h3></td>	
 										 
 										<c:if test ="${loginMember == m.MEM_ID}"> //입금여부 미입금 
 										
 										<td>	
-										<button onclick="payment()">입금하기</button>
+										<a href="AppToPay?board_seq=<%=board_seq%>">입금</a>
 																		
 										</td>
 										</c:if>
@@ -178,15 +233,47 @@ int number=num/2;
 				</c:otherwise>
 		</c:choose>
 		</div>
-	
+		<div  id = "top">
+		
+		
+			 			<%if(cnt==b){ %>
+						<h1>결제상태: 결제완료 , <a href='boardView.jsp?num=<%=number%>'>해당글 보러가기</a></h1>
+						<%
+						new shareCompleteDAO().Complete(num);
+						%>
+						<%
+						
+						if(state!=null){%>
+						<a href="#">구매확정완료</a>
+						<%}else{
+						%>
+						<a href="ConfirmationCon?board_seq=<%=board_seq%>">구매확정</a>
+						
+							
+						<%} %>
+						<%}else{ %>
+						<h1>결제상태: 결제미완료 , <a href='boardView.jsp?num=<%=number%>'>해당글 보러가기</a></h1>
+						<%} %>
+		</div>
+		
 
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
-	function payment(){
+	function payment({
 		
-	       let bankNum= prompt('농협+계좌번호','우리1234567890')
-	       let price= prompt('금액을 입력하세요')
-	}
+	      	$.ajax({
+	      		url : "AppToPay",
+	      		type: 'post',
+				data:{"board_seq": ${board_seq}},
+				success : {
+					alert("입금성공")
+				},
+				error :{
+					alert("통신실패")
+				}
+	      	})
+	})
 	
 	</script>
 </body>

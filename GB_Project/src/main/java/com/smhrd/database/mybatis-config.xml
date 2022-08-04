@@ -43,7 +43,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<mapper resource="com/smhrd/database/tbl_applicantselectMapper.xml"/>
 		<mapper resource="com/smhrd/database/updateStatepMapper.xml"/>
 		<mapper resource="com/smhrd/database/tbl_reportMapper.xml"/>
-		
+		<mapper resource="com/smhrd/database/AppToPayMapper.xml"/>
+		<mapper resource="com/smhrd/database/shareCompleteMapper.xml"/>
+		<mapper resource="com/smhrd/database/ComfirmationMapper.xml"/>
 		
 		
 

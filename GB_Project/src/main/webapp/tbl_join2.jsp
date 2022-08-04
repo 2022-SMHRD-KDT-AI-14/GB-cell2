@@ -26,8 +26,11 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
-					<ul class="icons">
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
 						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
 						</li>
@@ -38,12 +41,12 @@
 				<!-- Content -->
 				<section>
 					<header class="main">
-						<h1>회원이 아니신가요?</h1>
+						<h2>회원이 아니신가요?</h2>
 					</header>
-					<p> 저희 사이트에 가입하시면 다양한 서비스를 이용하실 수 있습니다.</p>
+					<p> N분의 1에 가입하시면 다양한 서비스를 이용하실 수 있습니다.</p>
 					<table boder="" bgcolor="#ffffff" cellspacing="1" width: 100%;>
 						<form action="test_JoinCon" method="post">
-							<tr><td>회원가입</td></tr>
+							
 							<tr>
 								<td text-align="center">아이디 </td>
 								<td>
@@ -53,7 +56,7 @@
 							placeholder="id를 입력하세요" name="id">
 										</div>
 										<div class="col-6 col-12-small">
-											<input type="button" value="중복확인" />
+											
 										</div>
 									</div>
 								</td>
@@ -106,7 +109,7 @@
 											<input type="text" placeholder="전화번호를 입력하세요" name="phone">
 										</div>
 										<div>
-											<a href="mobilePhoneAPI.jsp"><input type="button" name="certification" value="인증받기"></a>
+											
 										</div>
 									</div>
 									
@@ -134,7 +137,7 @@
 											</select>
 										</div>
 										<div>
-											<input type="button" name="certification" value="인증받기">
+											<
 										</div>
 										<div class="col-6 col-12-small">
 											<input type="text" placeholder="계좌번호를 입력하세요" name="account">
@@ -151,23 +154,31 @@
 											<input type="text" placeholder="주민번호를 입력하세요" name="jumin">
 										</div>
 										<div>
-											<input type="button" name="certification" value="인증받기">
+											
 										</div>
 									</div>
 								</td>
+								
+							<tr>
+							<td></td>
+							<td>
+							
+						<a href="tbl_main.jsp" class="button">메인으로 가기</a></li>
+					<input type="submit" class="button primary" value="회원가입" class="button fit">
+							</td>
+							</tr>
+					
 							</tr>
 							<br>
 							<br />
 							</td>
+					
 							</tr>
 							
+					
 						</form>
 					</table>
-					<div style="text-align: center;">
-						<a href="tbl_main.jsp" class="button">메인으로 가기</a></li>
-					<input type="submit" class="button primary" value="회원가입" class="button fit">
 						
-					</div>
 					
 
 					<!-- Content -->

@@ -26,8 +26,11 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고 싶어?</strong> 1/N !</a>
-					<ul class="icons">
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
 						<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span class="label">Medium</span></a></li>
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
 						</li>
@@ -38,7 +41,7 @@
 				<!-- Content -->
 				<section>
 					<header class="main">
-						<h1>가입을 축하드립니다!</h1>
+						<h2>가입을 축하드립니다!</h2>
 					</header>
 					<span class="image main"><img src="images/join.gif" alt="" /></span>
 					<p> 이제 1/n에서 다양한 서비스를 이용하실 수 있습니다.</p>

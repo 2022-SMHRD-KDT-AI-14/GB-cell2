@@ -17,6 +17,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_free_applicant where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ} 
 	</select>
 	
+	<update id="updateState" parameterType="int">
+		UPDATE tbl_free_applicant
+		SET free_p_state = '입금대기'
+		WHERE board_seq = #{num}
+	</update>
 
 
 

@@ -24,6 +24,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body class="is-preload">
 
@@ -48,9 +49,11 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
-							싶어?</strong> 1/N !</a>
-					<ul class="icons">
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
 
 						<c:choose>
 							<c:when test="${empty loginMember}">
@@ -83,7 +86,7 @@
 							계정이 될 수도 있으며 일 분담이 될 수도 있습니다. 무언가를 나누고자 하는 분들을 위한 서비스 입니다.</p>
 						<ul class="actions">
 							<c:if test="${!empty loginMember}">
-								<li><a href="tbl_boardwrite.jsp" class="button big">게시물
+								<li><a href="tbl_boardwrite.jsp" class="button big">게시글
 										작성</a></li>
 								<li><a href="payState.jsp" class="button big">결제상태</a></li>
 								<li><a href="myPage.jsp?MEM_ID=${loginMember}"
@@ -379,9 +382,12 @@
 					</header>
 					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
 					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
-						<li class="icon solid fa-phone">연락처</li>
-						<li class="icon solid fa-home">주소<br /> 상세주소
+						<li class="icon solid fa-envelope"><a href="#">이메일</a></li><br/>
+						<p>cell1234@gmail.com</p>
+						<li class="icon solid fa-phone">연락처</li><br/>
+						<p>062-655-3510</p>
+						<li class="icon solid fa-home">주소</li><br/> 
+						<p>동명동 스마트인재개발원</p>
 						</li>
 					</ul>
 				</section>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.ConfirmationDAO"> 
+
+	
+	<update id="updateConfirm" parameterType="com.smhrd.model.Confirmation">
+		UPDATE tbl_payment
+		SET CAT_NAME = '거래확정'
+		WHERE MEM_ID = #{MEM_ID} and BOARD_SEQ = #{BOARD_SEQ}
+	</update>
+	
+	<select id="selectConfirm" parameterType="com.smhrd.model.Confirmation" resultType="String">
+		select CAT_NAME from tbl_payment where MEM_ID=#{MEM_ID} and BOARD_SEQ =#{BOARD_SEQ}
+	</select>
+	
+
+</mapper>
