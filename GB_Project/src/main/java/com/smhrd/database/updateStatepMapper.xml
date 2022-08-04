@@ -6,10 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.smhrd.model.updateStatepDAO"> 
 
 	
-	<update id="updateStatepB" parameterType="com.smhrd.model.BuyApplicant">
+	<update id="updateStatepB" parameterType="int">
 		UPDATE tbl_buy_applicant
-		SET buy_p_state = #{buy_p_state}
-		WHERE board_seq = #{board_seq}
+		SET buy_p_state = '모집중'
+		WHERE board_seq = #{num}
 	</update>
 	
 	<update id="updateStatepA" parameterType="com.smhrd.model.tbl_arbeit_applicant">

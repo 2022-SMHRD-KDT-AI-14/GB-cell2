@@ -36,6 +36,7 @@ public class updateStatepDAO {
 	public int updateStatepI(BigDecimal num, String state){  //복붙하면됨이제.
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		tbl_account_applicant vo = new tbl_account_applicant(state,num);
+		System.out.println(state);
 		int cnt =0;
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
@@ -62,6 +63,7 @@ public class updateStatepDAO {
 		BuyApplicant vo = new BuyApplicant(num,state);
 		int cnt =0;
 		try {
+			System.out.println(state);
 			//모든정보를 가져오려고하므로 인자필요없음.
 			cnt=sqlSession.update("com.smhrd.model.updateStatepDAO.updateStatepB", vo); //왜 0줄이 나오?
 			System.out.println("dao, updateStatepB cnt >> "+cnt);
