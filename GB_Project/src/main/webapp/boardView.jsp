@@ -46,15 +46,13 @@
 	String MEM_ID = (String) session.getAttribute("loginMember");
 	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
 	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
-<<<<<<< HEAD
 
 	
 	
 	Confirmation voo = new Confirmation(MEM_ID,real_num);
 
 	String state = new ConfirmationDAO().selectConfirm(voo);
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -110,7 +108,7 @@
 						</div>
 						<div class="col-6 col-12-small">
 							<header class="major">
-<<<<<<< HEAD
+
 								<p>제목 : ${board.ARTICLE_TITLE}
 								<%if(state!=null){%>
 								<%if(state.equals("거래확정")){ %>
@@ -119,19 +117,19 @@
 =======
 								<p style="font-size: 20pt; color: black">
 									<b>${board.ARTICLE_TITLE}</b>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 								</p>
 							</header>
 							<p>
 								<a onclick="new_window();">작성자(신고기록) : ${board.MEM_ID}</a>
 							</p>
 							<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
-<<<<<<< HEAD
+
 							<p>진행상태 : ${board.ARTICLE_STATE}</p>
 							
 =======
 
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
+
 							<c:choose>
 								<c:when test="${board.CAT_NAME=='B'}">
 									<p>
