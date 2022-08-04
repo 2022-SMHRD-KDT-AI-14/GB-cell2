@@ -91,8 +91,8 @@
 									<img src="images/pic01.jpg" />
 								</c:when>
 								<c:otherwise>
-									<img src="img/${board.ARTICLE_FILE}" width="auto"
-										height="200px">
+									<img src="img/${board.ARTICLE_FILE}" width="400px"
+										height="300px">
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -112,35 +112,35 @@
 									<p>
 										<a href="${boardbuy.BUY_LINK}">구매링크 : ${boardbuy.BUY_LINK}</a>
 									</p>
-									<p>구매가격 : ${boardbuy.BUY_PAY}</p>
+									<p><b>구매가격 : ${boardbuy.BUY_PAY}</b></p>
 								</c:when>
 
 								<c:when test="${board.CAT_NAME=='A'}">
 									<p>알바시간 : ${boardarbeit.ARBEIT_TIME}</p>
 									<p>알바장소 : ${boardarbeit.ARBEIT_SITE}</p>
-									<p>알바시급 : ${boardarbeit.ARBEIT_PAY}</p>
+									<p><b>알바시급 : ${boardarbeit.ARBEIT_PAY}</b></p>
 								</c:when>
 
 								<c:when test="${board.CAT_NAME=='I'}">
 									<p>계정링크 : ${boardaccount.ID_LINK}</p>
 									<p>이용기간 : ${boardaccount.ID_TIME}</p>
-									<p>구매가격 : ${boardaccount.ID_PAY}</p>
+									<p><b>구매가격 : ${boardaccount.ID_PAY}</b></p>
 								</c:when>
 
 								<c:otherwise>
 
 								</c:otherwise>
 							</c:choose>
-							
-								<!-- 이미지 가운데 자동 정렬  -->
-								<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
+
+							<!-- 이미지 가운데 자동 정렬  -->
+							<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
 				<p>${board.name}/${board.writer}</p>
 				<p id="date">작성일 : ${board.uploadday}</p>
 		</div> --%>
-								
-									<%-- <p>내용:${board.ARTICLE_CONTENT}</p> --%>
-								
-							
+
+							<%-- <p>내용:${board.ARTICLE_CONTENT}</p> --%>
+
+
 							<br>
 							<div style="text-align: center;">
 								<button>
@@ -274,11 +274,11 @@
 					</div>
 				</section>
 				<section>
-				<header class="major">
-					<h4>작성내용</h4>
-				</header>
+					<header class="major">
+						<h4>작성내용</h4>
+					</header>
 					<div>
-					
+
 						<p>${board.ARTICLE_CONTENT}</p>
 
 					</div>
