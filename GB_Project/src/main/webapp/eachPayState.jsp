@@ -252,7 +252,16 @@ String state = new ConfirmationDAO().selectConfirm(voo);
 						<%} %>
 		</div>
 		
-
+		<%if(cnt==b){ %>
+		<script>
+   
+    	alert(${board.BOARD_SEQ}+"번 게시글 전원 거래확정 \n 반환금을 신청해주세요")
+    	
+    
+</script>
+		
+		
+	<%} %>	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>

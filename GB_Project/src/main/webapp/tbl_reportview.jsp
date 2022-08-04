@@ -25,9 +25,14 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header"> <a href="tbl_main.jsp" class="logo"><strong>무언가
-						나누고 싶어?</strong> 1/N !</a>
-				<ul class="icons">
+				<header id="header"> 
+				<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong>
+					</a>
+				
+				
+				<ul class="icons" style="padding: 20px;">
 					<li><a href="logoutCon" class="icon solid fa-lock-open"><span
 							class="label">Medium</span></a></li>
 
@@ -42,16 +47,16 @@
 				</section>
 				<table style="text-align: center;">
 
-					
-						<tr>
+
+					<tr>
 						<td><h5>제목</h5></td>
 						<td><h5>내용</h5></td>
 						<td><h5>신고자</h5></td>
 						<td><h5>작성자</h5></td>
 						<td><h5>신고상태</h5></td>
-						</tr>
-					
-					
+					</tr>
+
+
 					<%
 					for (int i = 0; i < list.size(); i++) {
 					%>

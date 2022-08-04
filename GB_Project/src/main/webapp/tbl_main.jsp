@@ -18,6 +18,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -30,9 +31,11 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
-							싶어?</strong> 1/N !</a>
-					<ul class="icons">
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
 
 						<c:choose>
 							<c:when test="${empty loginMember}">

@@ -63,9 +63,11 @@
 
 				<!-- Header -->
 				<header id="header">
-					<a href="tbl_main.jsp" class="logo"><strong>무언가 나누고
-							싶어?</strong> 1/N !</a>
-					<ul class="icons">
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
+					<a href="tbl_main.jsp" class="logo">
+					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
+
+					<ul class="icons" style="padding: 20px;">
 						<c:choose>
 							<c:when test="${empty loginMember}">
 								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
@@ -127,6 +129,8 @@
 
 							<p>진행상태 : ${board.ARTICLE_STATE}</p>
 							
+
+
 
 
 
