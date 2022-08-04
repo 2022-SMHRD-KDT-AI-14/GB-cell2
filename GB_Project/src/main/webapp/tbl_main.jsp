@@ -3,7 +3,7 @@
 <%@page import="com.smhrd.model.tbl_share"%>
 <%@page import="java.util.Random"%>
 <%@page import="com.smhrd.model.tbl_coordinate"%>
-<%@page import="java.util.List"%>http://localhost:8081/GB_Project/tbl_main.jsp
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -361,9 +361,12 @@
 					</header>
 					<p>사이트의 이상이 있다면 아래 연락처로 연락 부탁 드립니다</p>
 					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">이메일</a></li>
-						<li class="icon solid fa-phone">연락처</li>
-						<li class="icon solid fa-home">주소<br /> 상세주소
+						<li class="icon solid fa-envelope"><a href="#">이메일</a></li><br/>
+						<p>cell1234@gmail.com</p>
+						<li class="icon solid fa-phone">연락처</li><br/>
+						<p>062-655-3510</p>
+						<li class="icon solid fa-home">주소</li><br/> 
+						<p>동명동 스마트인재개발원</p>
 						</li>
 					</ul>
 				</section>
