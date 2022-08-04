@@ -56,6 +56,7 @@ public class checkPay extends HttpServlet {
 			
 		}
 		request.setAttribute("bList", nList);
+		request.setAttribute("state", "입금대기");
 		RequestDispatcher rd = request.getRequestDispatcher("updateStateConp");
 		rd.forward(request, response);
 		

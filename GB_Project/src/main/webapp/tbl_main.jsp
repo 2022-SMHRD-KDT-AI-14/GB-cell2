@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>1/N 😎분의 1 공유 중계 서비스</title>
+<title>1/N 안전 🍞 공유 중계 서비스</title>
 <meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -58,7 +58,7 @@
 					<div class="content">
 						<header>
 							<h1>
-								1/N 😎분의 1<br> 공유 중계 서비스
+								1/N 안전 🍞<br> 공유 중계 서비스
 							</h1>
 						</header>
 						<p>1/n은 무언가를 나누고 싶다는 목적으로 만들어진 사이트 입니다. 그 'N'의 것은 상품이 될 수도 있고

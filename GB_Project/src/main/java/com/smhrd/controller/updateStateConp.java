@@ -29,35 +29,35 @@ public class updateStateConp extends HttpServlet {
 		System.out.println("여기까지 오면 반은 성공!!");
 		ShareDAO dao = new ShareDAO();
 		String cat_name = null;
-		String board_state = "거랭ㅋ";
+		String state =(String)request.getAttribute("state");
 		for (Integer i : bList) {
 
-			Share vo = new Share( new BigDecimal(i), board_state);
+			Share vo = new Share( new BigDecimal(i), state);
 			dao.selectOne(i).getCat_name();
 			int cnt = dao.updateStatep(vo);
 			if (cnt > 0) {
-				System.out.println("share 테이블 거래중으로 성공!");
+				System.out.println(i+"번 share 테이블<"+state+">으로 성공!");
 			} else {
-				System.out.println("share 테이블 거래중으로 실패..");
+				System.out.println(i+"번 share 테이블<"+state+">으로 실패!");
 			}
 			
 			updateStatepDAO	dao2=new updateStatepDAO();
 			cat_name = dao.selectOne(i).getCat_name();
 			int cnt2 = 0;
 			if(cat_name.equals("A")) {
-				cnt2 = dao2.updateStatepA( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepA( new BigDecimal(i), state);
 			}else if(cat_name.equals("B")) {
-				cnt2 = dao2.updateStatepB( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepB( new BigDecimal(i), state);
 			}else if(cat_name.equals("I")) {
-				cnt2 = dao2.updateStatepI( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepI( new BigDecimal(i), state);
 			}else {
-				cnt2 = dao2.updateStatepF( new BigDecimal(i), board_state);
+				cnt2 = dao2.updateStatepF( new BigDecimal(i), state);
 			}	
 			
 			if (cnt2 > 0) {
-				System.out.println(cat_name+" 테이블은 거래중으로 성공!");
+				System.out.println(i+"번 "+cat_name+" 테이블<"+state+">으로 성공!");
 			} else {
-				System.out.println(cat_name+" 테이블은 거래중으로 실패..");
+				System.out.println(i+"번 "+cat_name+" 테이블<"+state+">으로 실패!");
 			}
 			
 		}

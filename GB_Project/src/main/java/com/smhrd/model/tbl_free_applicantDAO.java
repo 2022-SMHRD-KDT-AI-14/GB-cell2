@@ -1,5 +1,6 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -45,6 +46,25 @@ public class tbl_free_applicantDAO {
 		}
 		return result;
 	
+	}
+	
+	
+	
+	public tbl_free_applicant selectOnePar2(String id,int num) { 
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		BigDecimal board_seq =new BigDecimal(num);
+		tbl_free_applicant vo = new tbl_free_applicant(id, board_seq);
+		tbl_free_applicant result = null;
+		try {
+			result = sqlSession.selectOne("com.smhrd.model.tbl_free_applicantDAO.selectOnePar2",vo);
+			System.out.println("dao tbl_free_applicant selectOnePar2 거래상황 >>"+result.getBOARD_SEQ()+", "+result.getFREE_P_STATE());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return result;
 	}
 	
 }

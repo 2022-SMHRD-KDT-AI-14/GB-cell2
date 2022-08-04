@@ -34,15 +34,14 @@ public class tbl_account_applicantDAO {
 	
 	public tbl_account_applicant selectOnePar2(String id,int num) { 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		System.out.println("tbl_account_applicantDAO.selectOnePar2 진입했어");
 		BigDecimal board_seq =new BigDecimal(num);
-		tbl_account_applicant vo = new tbl_account_applicant(id,"I",board_seq);
+		tbl_account_applicant vo = new tbl_account_applicant(id,board_seq);
+//		tbl_account_applicant vo = new tbl_account_applicant(id,"I",board_seq);
 		tbl_account_applicant result = null;
 		try {
-			System.out.println("dao tbl_account_applicant selectOnePar2 전 BOARD_SEQ >>" +vo.getBOARD_SEQ());
 			//여기가 문제다
 			result = sqlSession.selectOne("com.smhrd.model.tbl_account_applicantDAO.selectOnePar2",vo);
-			System.out.println("dao tbl_account_applicant selectOnePar2 후 BUY_PAY >>" +result.getID_PAY());
+			System.out.println("dao tbl_account_applicant selectOnePar2 후 BUY_PAY >>" +vo.getBOARD_SEQ()+", "+result.getID_PAY());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

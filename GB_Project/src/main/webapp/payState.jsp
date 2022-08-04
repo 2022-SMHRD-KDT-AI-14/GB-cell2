@@ -82,11 +82,11 @@
 
 
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  
-  
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-  <script> // 작성자의 거래결정 후 참석자의 미입금 상태 알람
+
+
+	<script> // 작성자의 거래결정 후 참석자의 미입금 상태 알람
     $(window).load(function () { 
     	$.ajax({
 		url : 'alramCon',
@@ -104,7 +104,7 @@
     });
 </script>
 
-<script> //입금모두 되면 조건 변경하여 자동 업데이트
+	<script> //입금모두 되면 조건 변경하여 자동 업데이트
     $(window).load(function () { 
     	$.ajax({
 		url : 'checkPay',
@@ -118,9 +118,9 @@
 		}
 		})
     });
-</script> 
+</script>
 
-<script> //게시글테이블 거래상태를 참석자 테이블에도 동기화
+	<script> //게시글테이블 거래상태를 참석자 테이블에도 동기화
  
 $(window).load(function () { 
     	$.ajax({
@@ -156,7 +156,8 @@ $(window).load(function () {
 								<div class="separator_left"></div>
 								<p>
 									<jsp:useBean id="ShareDAO" class="com.smhrd.model.ShareDAO" />
-									<c:set var="ShareList" value="${ShareDAO.selectAllMyList(loginMember)}" />
+									<c:set var="ShareList"
+										value="${ShareDAO.selectAllMyList(loginMember)}" />
 									<c:if test="${!empty loginMember}">
 										<table>
 											<tr>
@@ -177,16 +178,17 @@ $(window).load(function () {
 													<td><c:out value="${s.article_state}" /></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-																<a href="updateStateCon?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}" ><button id="decision" onclick="decision()">거래결정</button></a>
+																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																<a href="ShareToAppCon?board_seq=${board_seq}&state=입금대기"><button>거래결정</button></a>
 																<a href="shareDeleteCon?board_seq=${s.board_seq}"><button>게시판삭제</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																
+
 																<script>
 																
 																</script>
 																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
-																<a href="#"><button>거래취소</button></a>
+																<a href="ShareToAppCon?board_seq=${board_seq}&state=모집중"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
 															</c:when>
@@ -195,11 +197,11 @@ $(window).load(function () {
 															</c:otherwise>
 														</c:choose></td>
 												</tr>
-												
-												
-												
-												
-												
+
+
+
+
+
 											</c:forEach>
 										</table>
 									</c:if>
@@ -219,10 +221,14 @@ $(window).load(function () {
 								<div class="separator_left"></div>
 
 								<p>
-									<c:set var="nShareListA"	value="${ShareDAO.selectAllMyParListA(loginMember)}" />
-									<c:set var="nShareListB"	value="${ShareDAO.selectAllMyParListB(loginMember)}" />
-									<c:set var="nShareListF"	value="${ShareDAO.selectAllMyParListF(loginMember)}" />
-									<c:set var="nShareListI"	value="${ShareDAO.selectAllMyParListI(loginMember)}" />
+									<c:set var="nShareListA"
+										value="${ShareDAO.selectAllMyParListA(loginMember)}" />
+									<c:set var="nShareListB"
+										value="${ShareDAO.selectAllMyParListB(loginMember)}" />
+									<c:set var="nShareListF"
+										value="${ShareDAO.selectAllMyParListF(loginMember)}" />
+									<c:set var="nShareListI"
+										value="${ShareDAO.selectAllMyParListI(loginMember)}" />
 
 									<c:if test="${!empty loginMember}">
 										<table>
@@ -245,7 +251,7 @@ $(window).load(function () {
 													<td><a href="chatting.jsp">채팅방 참여</a></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+																<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
 																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
@@ -260,7 +266,7 @@ $(window).load(function () {
 														</c:choose></td>
 												</tr>
 											</c:forEach>
-											
+
 											<c:forEach items="${nShareListB}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
@@ -273,10 +279,11 @@ $(window).load(function () {
 													<td><a href="chatting.jsp">채팅방 참여</a></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+																<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																<a
+																	href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -288,7 +295,7 @@ $(window).load(function () {
 														</c:choose></td>
 												</tr>
 											</c:forEach>
-											
+
 											<c:forEach items="${nShareListF}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
@@ -301,10 +308,11 @@ $(window).load(function () {
 													<td><a href="chatting.jsp">채팅방 참여</a></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+																<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																<a
+																	href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -316,7 +324,7 @@ $(window).load(function () {
 														</c:choose></td>
 												</tr>
 											</c:forEach>
-											
+
 											<c:forEach items="${nShareListI}" var="s">
 												<tr>
 													<td><c:out value="${s.board_seq}" /></td>
@@ -329,10 +337,11 @@ $(window).load(function () {
 													<td><a href="chatting.jsp">채팅방 참여</a></td>
 													<td><c:choose>
 															<c:when test="${s.article_state =='모집중'}">
-															<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
+																<!-- 가격 변동이 발생하므로 입금하기 하면 안 됨! -->
 															</c:when>
 															<c:when test="${s.article_state =='입금대기'}">
-																<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																<a
+																	href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
 																<a href="#"><button>거래취소</button></a>
 															</c:when>
 															<c:when test="${s.article_state =='거래중'}">
@@ -344,13 +353,13 @@ $(window).load(function () {
 														</c:choose></td>
 												</tr>
 											</c:forEach>
-											
-											
-											
+
+
+
 										</table>
-										
-										
-										
+
+
+
 									</c:if>
 
 								</p>
@@ -417,7 +426,7 @@ $(window).load(function () {
 
 	<!-- 버튼클릭하면 jsp->servlet으로 정보전달 
 	63번(smart가 작성한))게시글에서 참여확정버튼클릭! -->
- 
+
 
 
 
@@ -601,7 +610,7 @@ function resize() {
 var paragraphText = '<p>Somebody once told me the world is gonna roll me. I ain\'t the sharpest tool in the shed. She was looking kind of dumb with her finger and her thumb in the shape of an "L" on her forehead. Well the years start coming and they don\'t stop coming. Fed to the rules and I hit the ground running. Didn\'t make sense not to live for fun. Your brain gets smart but your head gets dumb. So much to do, so much to see. So what\'s wrong with taking the back streets? You\'ll never know if you don\'t go. You\'ll never shine if you don\'t glow.</p><p>Hey now, you\'re an all-star, get your game on, go play. Hey now, you\'re a rock star, get the show on, get paid. And all that glitters is gold. Only shooting stars break the mold.</p><p>It\'s a cool place and they say it gets colder. You\'re bundled up now, wait till you get older. But the meteor men beg to differ. Judging by the hole in the satellite picture. The ice we skate is getting pretty thin. The water\'s getting warm so you might as well swim. My world\'s on fire, how about yours? That\'s the way I like it and I never get bored.</p>';
 </script>
 
-	
+
 
 
 </body>

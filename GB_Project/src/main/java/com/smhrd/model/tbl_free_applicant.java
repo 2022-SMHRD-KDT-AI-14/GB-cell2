@@ -49,6 +49,7 @@ public class tbl_free_applicant {
 		BOARD_SEQ = bOARD_SEQ;
 	}
 
+
 	
 
 	

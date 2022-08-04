@@ -6,17 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>결제시스템 가동중</title>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body> 	
-	<form action="updateStateCon?board_seq=${board_seq}&article_state=${article_state}$cat_name=${cat_name}">
-	${board_seq}는 ${article_state} 상태임
+	<form action="ShareToAppCon?board_seq=${board_seq}&state=입금대기">
 	<c:out value=" ${board_seq}"/>는 ${article_state} 상태임
 	입금액<input type="text" name="input">
-	<input type="submit" value="이체API 되었다 하고 상태변화하러가기">
+	<input type="submit" value="이체API 가정 및 상태변화">
 	</form>
-	<script>alert('dkssud')</script>
 
 
 
