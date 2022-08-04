@@ -128,8 +128,8 @@ String state = new ConfirmationDAO().selectConfirm(voo);
 											
 											<td>	
 											<!--<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>  -->
-											<a href="AppToPay?board_seq=<%=board_seq%>">입금</a>
-																			
+												<a href="paymentAPI.jsp?board_seq=${s.board_seq}&article_state=${s.article_state}&cat_name=${s.cat_name}"><button>입금하기</button></a>
+																								
 											</td>
 											</c:if>
 										</tr>
@@ -142,7 +142,10 @@ String state = new ConfirmationDAO().selectConfirm(voo);
 					<c:when test ="${board.CAT_NAME eq'A'}">
 
 					<h1>결제상태: ${arbeit2.ARB_P_STATE} , <a href='boardView.jsp?num=${param.board_seq}/2'>해당글 보러가기</a></h1>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/GB-cell2.git
 					<p>알바수당: ${arbeit2.ARBEIT_PAY} 원</p>
 					<p>총 참여수: <c:out value="${paymentPar.size()}" /></p>
 					<p><table>

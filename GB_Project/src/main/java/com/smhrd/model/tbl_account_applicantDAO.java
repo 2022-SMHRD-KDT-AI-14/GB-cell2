@@ -60,7 +60,6 @@ public class tbl_account_applicantDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		BigDecimal board_seq =new BigDecimal(num);
 		tbl_account_applicant vo = new tbl_account_applicant(id,board_seq);
-//		tbl_account_applicant vo = new tbl_account_applicant(id,"I",board_seq);
 		tbl_account_applicant result = null;
 		try {
 			//여기가 문제다
