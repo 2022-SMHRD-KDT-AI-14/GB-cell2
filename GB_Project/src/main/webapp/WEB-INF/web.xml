@@ -331,6 +331,18 @@
   	<display-name>ShareToAppCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ShareToAppCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AppToPay</servlet-name>
+  	<display-name>AppToPay</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.AppToPay</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ConfirmationCon</servlet-name>
+  	<display-name>ConfirmationCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.ConfirmationCon</servlet-class>
   </servlet><servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
@@ -560,6 +572,14 @@
   <servlet-mapping>
   	<servlet-name>ShareToAppCon</servlet-name>
   	<url-pattern>/ShareToAppCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AppToPay</servlet-name>
+  	<url-pattern>/AppToPay</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ConfirmationCon</servlet-name>
+  	<url-pattern>/ConfirmationCon</url-pattern>
   </servlet-mapping>
   
 

@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.ConfirmationDAO"%>
+<%@page import="com.smhrd.model.Confirmation"%>
+<%@page import="javax.swing.text.html.CSS"%>
 <%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.tbl_reportDAO"%>
 <%@page import="com.smhrd.model.tbl_shareDAO"%>
@@ -43,6 +46,13 @@
 	String MEM_ID = (String) session.getAttribute("loginMember");
 	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
 	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
+
+	
+	
+	Confirmation voo = new Confirmation(MEM_ID,real_num);
+
+	String state = new ConfirmationDAO().selectConfirm(voo);
+
 	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -98,14 +108,27 @@
 						</div>
 						<div class="col-6 col-12-small">
 							<header class="major">
+
+								<p>제목 : ${board.ARTICLE_TITLE}
+								<%if(state!=null){%>
+								<%if(state.equals("거래확정")){ %>
+								(이미확정된거래입니다) 
+								<%} }%>
+=======
 								<p style="font-size: 20pt; color: black">
 									<b>${board.ARTICLE_TITLE}</b>
+
 								</p>
 							</header>
 							<p>
 								<a onclick="new_window();">작성자(신고기록) : ${board.MEM_ID}</a>
 							</p>
 							<p id="date">작성날짜 : ${board.ARTICLE_DATE}</p>
+
+							<p>진행상태 : ${board.ARTICLE_STATE}</p>
+							
+=======
+
 
 							<c:choose>
 								<c:when test="${board.CAT_NAME=='B'}">

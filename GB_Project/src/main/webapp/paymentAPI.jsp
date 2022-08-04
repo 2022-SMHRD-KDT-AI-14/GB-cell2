@@ -10,11 +10,14 @@
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body> 	
-	<form action="ShareToAppCon?board_seq=${board_seq}&state=입금대기">
-	<c:out value=" ${board_seq}"/>는 ${article_state} 상태임
-	입금액<input type="text" name="input">
-	<input type="submit" value="이체API 가정 및 상태변화">
-	</form>
+
+<%
+String board_seq = (String)request.getParameter("board_seq");
+%>
+	
+	 
+	입금금액 :<input type="text">
+	<a href="AppToPay?board_seq=<%=board_seq%>">보내기</a>
 
 
 

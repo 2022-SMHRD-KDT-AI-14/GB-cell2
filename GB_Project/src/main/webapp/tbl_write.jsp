@@ -17,6 +17,8 @@
 </head>
 
 <body class="is-preload">
+
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -64,21 +66,21 @@
 
 									<div class="buyForm" style="width:300px; display:none;">
 										구매링크 <input type="text" name="buylink">
-										구매가격 <input type="text" name="buypay">
+										구매가격 <input type="text" name="buypay" placeholder="숫자만 입력하세요" >
 										<br>
 									</div>
 
 									<div class="accountingForm" style="width:300px; display:none;">
 										계정링크 <input type="text" name="idlink">
 										이용기간 <input type="text" name="idtime">
-										구매가격 <input type="text" name="idpay">
+										구매가격 <input type="text" name="idpay" placeholder="숫자만 입력하세요">
 										<br>
 									</div>
 
 									<div class="albeitForm" style="width:300px;  display:none;">
 										알바시간 <input type="text" name="arbeittime">
 										알바장소 <input type="text" name="arbeitsite">
-										알바시급 <input type="text" name="arbeitpay">
+										알바시급 <input type="text" name="arbeitpay" placeholder="숫자만 입력하세요">
 										<br>
 									</div>
 								</div>

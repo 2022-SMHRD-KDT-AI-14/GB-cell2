@@ -45,7 +45,11 @@ request.setCharacterEncoding("UTF-8");
 		
 		String name = multi.getParameter("name");
 		System.out.println(name);
-		String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
+		
+			
+			String filename =  URLEncoder.encode(multi.getFilesystemName("filename"), "UTF-8");
+	
+		
 		String content = multi.getParameter("content");
 		String cate = multi.getParameter("radio");
 		
