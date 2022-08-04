@@ -114,7 +114,7 @@
 								<%if(state.equals("거래확정")){ %>
 								(이미확정된거래입니다) 
 								<%} }%>
-=======
+
 								<p style="font-size: 20pt; color: black">
 									<b>${board.ARTICLE_TITLE}</b>
 
@@ -127,7 +127,7 @@
 
 							<p>진행상태 : ${board.ARTICLE_STATE}</p>
 							
-=======
+
 
 
 							<c:choose>
