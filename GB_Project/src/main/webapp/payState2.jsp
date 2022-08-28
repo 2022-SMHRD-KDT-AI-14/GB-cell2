@@ -41,8 +41,20 @@
 					<a href="tbl_main.jsp" class="logo"><strong
 						style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a></a>
 					<ul class="icons" style="padding: 20px;">
-						<li><a href="login.html" class="icon solid fa-lock"><span
-								class="label">Medium</span></a></li>
+					
+						<c:choose>
+							<c:when test="${empty loginMember}">
+								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
+										class="label">로그인</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li>${loginMember}님 환영합니다!😊&nbsp;</li>
+								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
+										class="label">Medium</span></a></li>
+							</c:otherwise>
+						</c:choose>
+					
+						
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
 								class="label">Medium</span></a></li>
 						<li><a href="join.html" class="icon solid fa-user"><span
@@ -158,7 +170,7 @@
 								 %>  <a href="newUpdatePayCon?board_seq=<%=s.getBoard_seq()%>">
 										<button onclick="trans()">입금하기</button></a>
 								 <a href="newUpdateCancelCon?board_seq=<%=s.getBoard_seq()%>">
-										<button>입금취소</button></a>
+										<button onclick="transCancel()">입금취소</button></a>
 								 <%
 								 } else if (s.getArticle_state().equals("거래중")) {
 								 %> <a href="tradeDecCon?board_seq=<%=s.getBoard_seq()%>">
@@ -191,8 +203,11 @@
 		}
 		
 		function tradeDec(){
-			$('#tradeDec').style.visibility = 'hidden'; //이거왜안되지?
+			$('#tradeDec').hide(); //
 			alert("거래확정 완료!")
+		}
+		function transCancel(){
+			alert("입금환불 완료!")
 		}
 	</script>
 		<!-- Sidebar -->
@@ -308,8 +323,9 @@
 						if (list1.size() > 0) {
 						%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq1}" class="image"><img
-								src="images/pic07.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq1}" class="image">
+							<img src="img/<%=list1.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
 							<p>
 								제목 :
 								<%=list1.get(num11).getARTICLE_TITLE()%></p>
@@ -324,8 +340,9 @@
 						if (list2.size() > 0) {
 						%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq2}" class="image"><img
-								src="images/pic08.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq2}" class="image">
+							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
 							<p>
 								제목 :
 								<%=list2.get(num22).getARTICLE_TITLE()%></p>
@@ -340,8 +357,9 @@
 						if (list3.size() > 0) {
 						%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq3}" class="image"><img
-								src="images/pic09.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq3}" class="image">
+							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
 							<p>
 								제목 :
 								<%=list3.get(num33).getARTICLE_TITLE()%></p>
@@ -353,13 +371,11 @@
 						}
 						%>
 					</div>
-					<ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
 				</section>
 				<%
 				}
 				%>
+				
 				<!-- Section -->
 				<section>
 					<header class="major">

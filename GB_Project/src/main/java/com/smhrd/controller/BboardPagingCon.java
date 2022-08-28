@@ -28,10 +28,10 @@ public class BboardPagingCon extends HttpServlet {
 		int num = Integer.parseInt(request.getParameter("num"));
 		tbl_shareDAO dao = new tbl_shareDAO();
 		List<tbl_share> list =  dao.selectAllListPage(num);
-		System.out.println(num);
+		System.out.println("startRow로 보낸 수>> "+num);
 		System.out.println(list.size());
-		System.out.println(list.get(0).toString());
-		System.out.println(list.get(0).getCAT_NAME());
+		System.out.println(list.get(0).getBOARD_SEQ());
+		System.out.println(list.get(0).getARTICLE_TITLE());
 		/* 자바객체를 json형태로 바꿔주는 라이브러리 사용 */
 		JsonObject json = new JsonObject(); //json객체
 		JsonArray jarray = new JsonArray(); //json Array
@@ -47,6 +47,8 @@ public class BboardPagingCon extends HttpServlet {
 			json.addProperty("writer", b.getMEM_ID());
 			json.addProperty("category", b.getCAT_NAME());
 			json.addProperty("file", b.getARTICLE_FILE());
+			json.addProperty("date", b.getARTICLE_DATE().toString());
+			json.addProperty("state", b.getARTICLE_STATE());
 			
 			jarray.add(json);
 			json =new JsonObject();

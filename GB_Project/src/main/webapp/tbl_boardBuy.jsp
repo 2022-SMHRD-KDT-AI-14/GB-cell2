@@ -1,3 +1,5 @@
+<%@page import="javax.swing.border.Border"%>
+<%@page import="com.smhrd.model.ShareDAO"%>
 <%@page import="com.smhrd.model.tbl_share"%>
 <%@page import="java.util.Random"%>
 <%@page import="com.smhrd.model.tbl_coordinate"%>
@@ -17,6 +19,8 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <style>
+ 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -129,7 +133,12 @@ keyframes fade {from { opacity:.4
 
 to {
 	opacity: 1
+	 
 }
+
+
+
+
 }
 </style>
 </head>
@@ -149,22 +158,62 @@ to {
 					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
 
 					<ul class="icons" style="padding: 20px;">
+					
 						<c:choose>
 							<c:when test="${empty loginMember}">
 								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
 										class="label">로그인</span></a></li>
 							</c:when>
 							<c:otherwise>
+								<li>${loginMember}님 환영합니다!😊&nbsp;</li>
 								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
 										class="label">Medium</span></a></li>
 							</c:otherwise>
 						</c:choose>
+						
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
 								class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
 								class="label">Medium</span></a></li>
 					</ul>
 				</header>
+
+				<!-- Section -->
+				<section>
+						<header class="major">
+						<h2>신규 게시물</h2>
+					<!-- </header>
+						<header class="main" style="text-align: right;"> -->
+							<p align="right"><a href="tbl_write.jsp" class="button"
+							style="
+							 color: #ffffff;
+							font-size: 1.5em;
+							padding: 0.3em 0.5em;
+							margin-right: 0.1em;
+							" >글쓰기✏️</a><p>
+						</header>
+					<div class="posts">
+						<table class="table">
+							<c:forEach begin="0" end="8" step="1" varStatus="status">
+								<article>
+								<a id="anfile${status.index}" href="" class="image">
+								<img id="file${status.index}" src="" /></a>
+									<p id="name${status.index}"></p>
+									<p id="state${status.index}"></p>
+									<pre id="writer${status.index}"></pre>
+									<div style="text-align: right;">
+									</div>
+								</article>
+							</c:forEach>
+							 <tr>
+							  <td colspan="4" id="controller" ></td>
+						  	</tr>
+						</table>
+						
+					</div>
+					
+					
+								<!-- Section -->
 				<section>
 					<header class="major">
 						<h2>구매 게시판</h2>
@@ -200,36 +249,15 @@ to {
 					<p>이곳은 구매 게시판 입니다.</p>
 					<p>다양한 상품을 나눠 공유 할 수 있습니다.</p>
 				</div>
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>신규 게시물</h2>
-					</header>
-					<article>
-						<header class="main" style="text-align: right;">
-							<a href="tbl_write.jsp" class="button big">게시물 작성</a>
-						</header>
-						<br>
-					</article>
-					<div class="posts">
-						<table class="table">
-							<c:forEach begin="0" end="9" step="1" varStatus="status">
-								<article>
-									<!-- <a href="#" class="image"> -->
-									<p id="file${status.index}"></p>
-									<%-- <p id="file${status.index}"></p> --%>
-									<p id="name${status.index}"></p>
-									<p id="writer${status.index}"></p>
-									<div style="text-align: right;">
-										<button>공유참여</button>
-									</div>
-								</article>
-							</c:forEach>
-						</table>
-					</div>
+					
 				</section>
+				
+			
+				
 			</div>
 		</div>
+
+			
 
 		<!-- Sidebar -->
 		<div id="sidebar">
@@ -342,31 +370,46 @@ to {
 					<div class="mini-posts">
 						<%if(list1.size()>0) {%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq1}" class="image"><img src="images/pic07.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq1}" class="image">
+							<img src="img/<%=list1.get(num11).getARTICLE_FILE()%>" alt="" /></a>
 							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
 							<%} %>
 						</article>
 						<%if(list2.size()>0) {%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq2}" class="image"><img src="images/pic08.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq2}" class="image">
+							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
 							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
 							<%} %>
 						</article>
 						<%if(list3.size()>0) {%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq3}" class="image"><img src="images/pic09.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq3}" class="image">
+							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
 							<%} %>
 					</div>
-					<ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
 				</section>
 				<%} %>
+				
+				
+				
+				
+				
+				
+				
+		
+				
+				
+				
+				
+				
+				
+				
 				<!-- Section -->
 				<section>
 					<header class="major">
@@ -395,6 +438,7 @@ to {
 		</div>
 
 	</div>
+
 
 	<!-- Scripts -->
 
@@ -463,8 +507,43 @@ to {
 
 		var arr = null;
 		var pageSize = 3;
-		var maxRow = 10;
+		var maxRow = 9;
 
+		
+		//다음 버튼이 눌린다면 그에 맞는 버튼들이 생성, 삭제 와 해당 리스트가 출력되기 위한 메소드 
+		function next_list(startRow, startPage) {
+			$.ajax({
+				/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
+				url : 'BboardPagingCon',
+				method : 'post',
+				dataType : 'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
+				data : {
+					"num" : startRow
+				},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
+				success : function(data_list) {
+					console.log(data_list) // 페이지 넘길 데이터 리스트 전부
+
+					if (data_list.length < maxRow) {/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
+						list_write(data_list);
+						button_create(data_list, startPage);
+					}
+
+					else {
+						print_list(data_list);
+						button_create(data_list, startPage);
+					}
+
+				},
+				error : function(e) {
+					alert(e);
+				}
+
+			});
+
+		}
+		
+		
+		
 		function button_create(data_list, startPage) {
 
 			var pageNum = null;
@@ -489,53 +568,29 @@ to {
 			}
 		}
 
-		//다음 버튼이 눌린다면 그에 맞는 버튼들이 생성, 삭제 와 해당 리스트가 출력되기 위한 메소드 
-		function next_list(startRow, startPage) {
-			$.ajax({
-				/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
-				url : 'BboardPagingCon',
-				method : 'post',
-				dataType : 'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
-				data : {
-					"num" : startRow
-				},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
-				success : function(data_list) {
-					console.log(data_list)
-
-					if (data_list.length < 10) {/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
-						list_write(data_list);
-						button_create(data_list, startPage);
-					}
-
-					else {
-						print_list(data_list);
-						button_create(data_list, startPage);
-					}
-
-				},
-				error : function(e) {
-					alert(e);
-				}
-
-			});
-
-		}
+		
 
 		//jsonArray타입의 객체의 갯수가 10개보다 적을경우 객체를 매개변수로 받아 출력하는 함수이다.
 		function list_write(data_list) {
-
+			console.log("list_write 함수가동중~")
 			for (var i = 0; i < data_list.length; i++) {//jquery 문을통해 태그안의 내용을 바꾸어준다 --> .text()사용
-
+				$('#anfile' + i).attr("href","boardView.jsp?num="+data_list[i].num)
 				$('#name' + i).html(
-						"<a href='boardView.jsp?num=" + data_list[i].num + "'>"
-								+ data_list[i].name + "</a>");
-				$('#writer' + i).text(data_list[i].writer);
+						"<h2><a href='boardView.jsp?num=" + data_list[i].num + "'>"
+								+ data_list[i].name +"</a></h2>");
+				$('#state' + i).html("<strong>"+data_list[i].state+"</strong>");
+				$('#writer' + i).html("작성자 "+data_list[i].writer+"    ("+data_list[i].date+")");
 				$('#views' + i).text(data_list[i].views);
+				$('#file' + i).attr("src", "img/"+data_list[i].file);
+				
 			}
 
-			for (var i = data_list.length; i < 10; i++) {//jsonArray타입의 객체의 갯수가 10개보다 적을경우 데이터가 들어가지 않는 행은 안보임 처리를 해준다
+			for (var i = data_list.length; i <maxRow; i++) {//jsonArray타입의 객체의 갯수가 10개보다 적을경우 데이터가 들어가지 않는 행은 안보임 처리를 해준다
 				$('#name' + i).hide();
+				$('#state' + i).hide();
 				$('#writer' + i).hide();
+				$('#views' + i).hide();
+				$('#file' + i).hide();
 				$('#views' + i).hide();
 			}
 
@@ -546,10 +601,14 @@ to {
 		//한 페이지 에는 페이지안에 속해있는 페이지 블럭에 맞는 게시물(레코드) 수가 있기 때문이다.
 		//--->한 페이지 가 가지고 있는 배열안에서 그때그때 해당페이지 블럭을 클릭 한다면 거기 범위에 맞는 데이터를 가져오기 위해 슬라이싱 해줄 필요가 있다
 		function page(currentPage) {
-
-			var startNum = (currentPage - 1) * 10 + 1;
-			var endNum = currentPage * 10;
-
+			
+			var startNum = (currentPage - 1) * maxRow + 1;
+			var endNum = currentPage * maxRow;
+			var startNum_ =arr[startNum-1].num;
+			var endNum_ = startNum_-maxRow;
+			console.log("currentPage에서 바뀐 startNum_ >> "+startNum_)
+			console.log("currentPage에서 바뀐 endNum_ >> "+endNum_)
+			console.log("currentPage에서 바뀐 arr.length >> "+arr.length)
 			var start_index = 0;
 			var end_index = 0;
 
@@ -557,13 +616,16 @@ to {
 			//구분 하기 위해 check라는 변수를 사용해서 check 값이 변하지 않는다면 endNum의 범위를 다시 지정해준다
 			var check = null;
 
-			for (var i = 0; i < arr.length; i++) {
-				if (arr[i].num == startNum) {
+			for (var i = 0; i < arr.length; i++) { 
+				console.log(i+" 번째 arr["+i+"].num >>"+arr[i].num)
+				if (arr[i].num == startNum_) {
 					start_index = i;
+					console.log("currentPage에서 start_index >> "+start_index)
 				}
-				if (arr[i].num == endNum) {
+				if (arr[i].num == endNum_) {
 					end_index = i;
 					check = 1;
+					console.log("currentPage에서 end_index >> "+end_index)
 				}
 
 			}
@@ -572,6 +634,7 @@ to {
 
 			if (check != 1) {
 				end_index = arr.length - 1; // endNum의 는 배열의 마지막 인덱스 번호이다. 
+				console.log("currentPage에서 end_index >> "+end_index)
 			}
 
 			new_arr = arr.slice(start_index, end_index + 1);
@@ -590,16 +653,25 @@ to {
 
 		//해당 게시물을 출력한다
 		function print_list(data_list) {
-			for (var i = 0; i < 10; i++) {
-				$('#name' + i).show();
-				$('#writer' + i).show();
-				$('#views' + i).show();
-
+			for (var i = 0; i < data_list.length; i++) {//jquery 문을통해 태그안의 내용을 바꾸어준다 --> .text()사용
+				console.log(i+" >> "+data_list[i].name)
+				$('#anfile'+i).show();
+				$('#name'+i).show();
+				$('#state'+i).show();
+				$('#writer'+i).show();
+				$('#views'+i).show();
+				$('#file'+i).show();
+				
+				
+				$('#anfile' + i).attr("href","boardView.jsp?num="+data_list[i].num)
 				$('#name' + i).html(
-						"<a href='boardView.jsp?num=" + data_list[i].num + "'>"
-								+ data_list[i].name + "</a>");
-				$('#writer' + i).text(data_list[i].writer);
+						"<h2><a href='boardView.jsp?num=" + data_list[i].num + "'>"
+								+ data_list[i].name +"</a></h2>");
+				$('#state' + i).html("<strong>"+data_list[i].state+"</strong>");
+				$('#writer' + i).html("작성자 "+data_list[i].writer+"    ("+data_list[i].date+")");
 				$('#views' + i).text(data_list[i].views);
+				$('#file' + i).attr("src", "img/"+data_list[i].file);
+				
 			}
 		}
 	</script>
