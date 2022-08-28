@@ -194,7 +194,7 @@ to {
 						</header>
 					<div class="posts">
 						<table class="table">
-							<c:forEach begin="0" end="9" step="1" varStatus="status">
+							<c:forEach begin="0" end="8" step="1" varStatus="status">
 								<article>
 								<a id="anfile${status.index}" href="" class="image">
 								<img id="file${status.index}" src="" /></a>
@@ -507,7 +507,7 @@ to {
 
 		var arr = null;
 		var pageSize = 3;
-		var maxRow = 10;
+		var maxRow = 9;
 
 		
 		//다음 버튼이 눌린다면 그에 맞는 버튼들이 생성, 삭제 와 해당 리스트가 출력되기 위한 메소드 

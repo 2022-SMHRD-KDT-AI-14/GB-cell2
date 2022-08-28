@@ -92,7 +92,7 @@
 	</tr>
 	<%}%>
 	</table>
-	<p> 입금률 : <%= paymentTFcnt%>명/ <%=totalPar %>명 =<%=(100*paymentTFcnt/totalPar) %>%</p>
+	<p><h3> 입금률 : <%= paymentTFcnt%>명/ <%=totalPar %>명 =<%=(100*paymentTFcnt/totalPar) %>%</h3></p>
 	</div>
 	</section>
 	</div></div>
