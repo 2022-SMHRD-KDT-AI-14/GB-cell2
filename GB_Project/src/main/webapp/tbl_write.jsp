@@ -292,9 +292,6 @@
 						}
 						%>
 					</div>
-					<ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
 				</section>
 				<%
 				}

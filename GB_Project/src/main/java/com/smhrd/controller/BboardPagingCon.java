@@ -28,10 +28,11 @@ public class BboardPagingCon extends HttpServlet {
 		int num = Integer.parseInt(request.getParameter("num"));
 		tbl_shareDAO dao = new tbl_shareDAO();
 		List<tbl_share> list =  dao.selectAllListPage(num);
-		System.out.println("startRow로 보낸 수>> "+num);
-		System.out.println(list.size());
-		System.out.println(list.get(0).getBOARD_SEQ());
-		System.out.println(list.get(0).getARTICLE_TITLE());
+		/*
+		 * System.out.println("startRow로 보낸 수>> "+num); System.out.println(list.size());
+		 * System.out.println(list.get(0).getBOARD_SEQ());
+		 * System.out.println(list.get(0).getARTICLE_TITLE());
+		 */
 		/* 자바객체를 json형태로 바꿔주는 라이브러리 사용 */
 		JsonObject json = new JsonObject(); //json객체
 		JsonArray jarray = new JsonArray(); //json Array

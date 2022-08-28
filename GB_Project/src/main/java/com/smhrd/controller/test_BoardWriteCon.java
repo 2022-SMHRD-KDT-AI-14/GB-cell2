@@ -86,18 +86,20 @@ request.setCharacterEncoding("UTF-8");
 			}else {
 				System.out.println("결제테이블 실패");
 			}//추가 by성결
-			
 			if(cnt1>0) {
-				System.out.println("작성성공1");
+				System.out.println("게시글 테이블 성공");
+				
 			}else {
-				System.out.println("작성실패1");
+				System.out.println("게시글 테이블 실패");
+			}
+			if(cnt2>0) {
+				System.out.println("참석자 테이블 작성");
+				
+			}else {
+				System.out.println("참석자 테이블 실패");
+			
 			}
 			
-			if(cnt2>0) {
-				System.out.println("작성성공2");
-			}else {
-				System.out.println("작성실패2");
-			}
 			response.sendRedirect("tbl_boardBuy.jsp");
 			
 			
@@ -161,19 +163,18 @@ request.setCharacterEncoding("UTF-8");
 			}else {
 				System.out.println("결제테이블 실패");
 			}//추가 by성결
-			
 			if(cnt1>0) {
-				System.out.println("작성성공1");
+				System.out.println("게시글 테이블 성공");
 				
 			}else {
-				System.out.println("작성실패1");
-			
+				System.out.println("게시글 테이블 실패");
 			}
 			if(cnt2>0) {
-				System.out.println("작성성공2");
+				System.out.println("참석자 테이블 작성");
 				
 			}else {
-				System.out.println("작성실패2");
+				System.out.println("참석자 테이블 실패");
+			
 			}
 			
 			response.sendRedirect("tbl_boardArbeit.jsp");
