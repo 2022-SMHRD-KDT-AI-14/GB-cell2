@@ -353,6 +353,36 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.ConfirmationCon</servlet-class>
 
+  </servlet>
+  <servlet>
+  	<servlet-name>newUpdateCon</servlet-name>
+  	<display-name>newUpdateCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.newUpdateCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>newUpdatePayCon</servlet-name>
+  	<display-name>newUpdatePayCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.newUpdatePayCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>newUpdateCancelCon</servlet-name>
+  	<display-name>newUpdateCancelCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.newUpdateCancelCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>tradeDecCon</servlet-name>
+  	<display-name>tradeDecCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.tradeDecCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>parCancelCon</servlet-name>
+  	<display-name>parCancelCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.parCancelCon</servlet-class>
   </servlet><servlet-mapping>
   	<servlet-name>ReplyCon</servlet-name>
   	<url-pattern>/ReplyCon</url-pattern>
@@ -599,6 +629,26 @@
   <servlet-mapping>
   	<servlet-name>ConfirmationCon</servlet-name>
   	<url-pattern>/ConfirmationCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>newUpdateCon</servlet-name>
+  	<url-pattern>/newUpdateCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>newUpdatePayCon</servlet-name>
+  	<url-pattern>/newUpdatePayCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>newUpdateCancelCon</servlet-name>
+  	<url-pattern>/newUpdateCancelCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>tradeDecCon</servlet-name>
+  	<url-pattern>/tradeDecCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>parCancelCon</servlet-name>
+  	<url-pattern>/parCancelCon</url-pattern>
   </servlet-mapping>
   
 

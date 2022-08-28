@@ -13,7 +13,47 @@ public class BuyApplicantDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
+	public int deleteBuyApp(BigDecimal board_seq){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.delete("com.smhrd.model.BuyApplicantDAO.deleteBuyApp", board_seq); //왜 0줄이 나오?
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
 	
+	public int deleteBuyAppPar(BuyApplicant vo){  //복붙하면됨이제.
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt =0;
+		try {
+			//모든정보를 가져오려고하므로 인자필요없음.
+			cnt=sqlSession.delete("com.smhrd.model.BuyApplicantDAO.deleteBuyAppPar", vo); //왜 0줄이 나오?
+			
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
 	
 	public List<BuyApplicant> selectOneB(String loginMember) { 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -21,7 +61,6 @@ public class BuyApplicantDAO {
 
 		try {
 			result = sqlSession.selectList("com.smhrd.model.BuyApplicantDAO.SelectOneB",loginMember);
-			System.out.println("B 게시글 크기 >>" +result.size());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -39,7 +78,6 @@ public class BuyApplicantDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			cnt=sqlSession.update("com.smhrd.model.BuyApplicantDAO.updateState", vo); //왜 0줄이 나오?
-			System.out.println("dao, UpdateState cnt >> "+cnt);
 			
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
@@ -79,7 +117,6 @@ public class BuyApplicantDAO {
 		
 		try {
 			cnt = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectBuyApplicantCNT",board_seq);
-			System.out.println("BuyApplicantDAO, cnt >>" +cnt);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -91,19 +128,21 @@ public class BuyApplicantDAO {
 	
 	public BuyApplicant selectOne(int board_seq) { 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		BuyApplicant vo =null;
+		List<BuyApplicant> vo =null;
 
 		try {
-			vo = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.SelectOne",board_seq);
-			System.out.println("BuyApplicant selectOne dao 작성자? >>" +vo.getMem_id());
+			vo = sqlSession.selectList("com.smhrd.model.BuyApplicantDAO.SelectOne",board_seq);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			sqlSession.close();
 		}
 		
-		return vo;
+		return vo.get(0);
 	}
+	
+	
+	
 	
 	public BuyApplicant selectOnePar(String id,int num) { 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -114,7 +153,6 @@ public class BuyApplicantDAO {
 		try {
 			
 			result = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.selectOnePar",vo);
-			System.out.println("BuyApplicant selectOnePar BUY_PAY >>" +result.getBuy_pay());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -132,7 +170,6 @@ public class BuyApplicantDAO {
 		BuyApplicant result = null;
 		try {
 			result = sqlSession.selectOne("com.smhrd.model.BuyApplicantDAO.selectOnePar2",vo);
-			System.out.println("dao BuyApplicant selectOnePar2 후 게시글번호, 거래상태>>" +result.getBoard_seq()+" , "+result.getBuy_p_state());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

@@ -88,7 +88,7 @@
 							<c:if test="${!empty loginMember}">
 								<li><a href="tbl_boardwrite.jsp" class="button big">게시물
 										작성</a></li>
-								<li><a href="payState.jsp" class="button big">결제상태</a></li>
+								<li><a href="payState2.jsp" class="button big">결제상태</a></li>
 								<li><a href="myPage.jsp?MEM_ID=${loginMember}"
 									class="button primary">마이페이지</a></li>
 								<c:if test="${loginMember=='admin'}">
@@ -97,8 +97,7 @@
 							</c:if>
 						</ul>
 					</div>
-					<span class="image object"> <img src="images/pic10.png"
-						alt="" />
+					<span class="image object"> <img src="images/pic10.png" alt="" />
 					</span>
 				</section>
 

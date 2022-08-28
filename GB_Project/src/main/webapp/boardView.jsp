@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.ShareDAO"%>
+<%@page import="com.smhrd.model.Share"%>
 <%@page import="com.smhrd.model.ConfirmationDAO"%>
 <%@page import="com.smhrd.model.Confirmation"%>
 <%@page import="javax.swing.text.html.CSS"%>
@@ -46,11 +48,12 @@
 	String MEM_ID = (String) session.getAttribute("loginMember");
 	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
 	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
-
+	
 	
 	
 	Confirmation voo = new Confirmation(MEM_ID,real_num);
-
+	String comState = new ShareDAO().selectOne(real_num).getArticle_state();
+	System.out.print("게시글번호, 상태 >> "+real_num+" , "+comState+"\n");
 	String state = new ConfirmationDAO().selectConfirm(voo);
 
 	%>
@@ -109,17 +112,12 @@
 							</c:choose>
 						</div>
 						<div class="col-6 col-12-small">
-							<header class="major">
-
-								<p>제목 : ${board.ARTICLE_TITLE}
-								<%if(state!=null){%>
-								<%if(state.equals("거래확정")){ %>
-								(이미확정된거래입니다) 
-								<%} }%>
-
+							<p>제목 : ${board.ARTICLE_TITLE}
+								<%if(comState.equals("거래확정")){ %>
+								(이미확정된거래입니다)
+								<%} %>
 								<p style="font-size: 20pt; color: black">
 									<b>${board.ARTICLE_TITLE}</b>
-
 								</p>
 							</header>
 							<p>
@@ -159,13 +157,6 @@
 								</c:otherwise>
 							</c:choose>
 
-							<!-- 이미지 가운데 자동 정렬  -->
-							<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-				<p>${board.name}/${board.writer}</p>
-				<p id="date">작성일 : ${board.uploadday}</p>
-		</div> --%>
-
-							<%-- <p>내용:${board.ARTICLE_CONTENT}</p> --%>
 
 
 							<br>
@@ -179,18 +170,18 @@
 								</button>
 								<c:if test="${loginMember != board.MEM_ID}">
 									<c:if test="${board.CAT_NAME=='B'}">
-										<%
-										if (dao.selectB(vo) != null) {
+										<%//거래확정된글이거나 내가이미 참석하기 버튼을 눌렀을 경우
+										if(comState.equals("거래확정") || dao.selectB(vo)!=null){
+										/* if (dao.selectB(vo) != null) { */
 										%>
 										<%
 										} else {
 										%>
 										<a
-											href="insertStateConB?
-			board_seq=${board.BOARD_SEQ}&
-			buy_link=${boardbuy.BUY_LINK}&
-			buy_pay=${boardbuy.BUY_PAY}&
-			cat_name=B">
+											href="insertStateConB?board_seq=${board.BOARD_SEQ}&
+											buy_link=${boardbuy.BUY_LINK}&
+											buy_pay=${boardbuy.BUY_PAY}&
+											cat_name=B">
 											<button class="button primary" onclick="B()">참여결정</button>
 										</a>
 										<%

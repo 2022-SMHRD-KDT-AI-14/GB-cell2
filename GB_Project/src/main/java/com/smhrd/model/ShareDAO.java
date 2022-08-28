@@ -17,7 +17,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyList",loginMember); 
-			System.out.println("등록글: "+list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -34,7 +33,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyAlramList",loginMember); 
-			System.out.println("dao,selectAllMyAlramList의 사이즈 "+list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -51,7 +49,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyParListB",loginMember); 
-			System.out.println("참여글: "+list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -66,7 +63,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyParListA",loginMember); 
-			System.out.println("참여글: "+list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -81,7 +77,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyParListI",loginMember); 
-			System.out.println("참여글: "+list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,7 +91,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			list=sqlSession.selectList("com.smhrd.model.ShareDAO.selectAllMyParListF",loginMember); 
-			System.out.println("참여글: "+list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -128,7 +122,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			cnt=sqlSession.update("com.smhrd.model.ShareDAO.updateState", vo); //왜 0줄이 나오?
-			System.out.println("dao, UpdateState cnt >> "+cnt);
 			
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
@@ -150,7 +143,6 @@ public class ShareDAO {
 		try {
 			//모든정보를 가져오려고하므로 인자필요없음.
 			cnt=sqlSession.update("com.smhrd.model.ShareDAO.updateStatep", vo); //왜 0줄이 나오?
-			System.out.println("dao, UpdateStatep cnt >> "+cnt);
 			
 			if (cnt > 0) {
 				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.

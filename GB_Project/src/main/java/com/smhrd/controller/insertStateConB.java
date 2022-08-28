@@ -15,6 +15,7 @@ import com.smhrd.model.Share;
 import com.smhrd.model.ShareDAO;
 import com.smhrd.model.tbl_payment;
 import com.smhrd.model.tbl_paymentDAO;
+import com.smhrd.model.tbl_shareDAO;
 
 public class insertStateConB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,15 +24,14 @@ public class insertStateConB extends HttpServlet {
 		//시퀀스 받는다.
 		//참석자 입장이다. 시퀀스에 접근해서 share table에 간다
 		// 필요한정보꺼낸다
-		System.out.println("ㅅㅂ");
 		
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String loginMember = (String)session.getAttribute("loginMember");
-		String buy_link = request.getParameter("buy_link");
-		int buy_pay= Integer.parseInt( request.getParameter("buy_pay"));
-		String cat_name = request.getParameter("cat_name");
 		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		String buy_link = request.getParameter("buy_link");
+		BigDecimal buy_pay=new BuyApplicantDAO().selectOne(board_seq).getBuy_pay();
+		String cat_name = request.getParameter("cat_name");
 		
 		
 		//추가 by성결
@@ -53,7 +53,7 @@ public class insertStateConB extends HttpServlet {
 		System.out.println("insertUpdateConb, board_seq >> "+board_seq);
 		
 		BuyApplicantDAO dao = new BuyApplicantDAO();
-		BuyApplicant vo = new BuyApplicant(loginMember,"모집중","P",buy_link, new BigDecimal(buy_pay) , cat_name,new BigDecimal(board_seq));
+		BuyApplicant vo = new BuyApplicant(loginMember,"모집중","P",buy_link, buy_pay , cat_name,new BigDecimal(board_seq));
 		int cnt =  dao.insertBuyApplicant(vo);
 		if(cnt>0) {
 			 System.out.println("buyApllicant 참석자 추가 성공");

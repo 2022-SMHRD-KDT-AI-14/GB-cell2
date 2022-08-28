@@ -6,9 +6,19 @@
 
 <mapper namespace="com.smhrd.model.tbl_paymentDAO">
 
+
+	<select id="deletePayment" parameterType="BigDecimal">
+		delete tbl_payment where board_seq=#{board_seq}
+	</select>
+	
+	<select id="deletePaymentPar" parameterType="com.smhrd.model.tbl_payment">
+		delete tbl_payment where MEM_ID=#{MEM_ID} and BOARD_SEQ=#{BOARD_SEQ}
+	</select>
+	
+
 	<select id="insertPayment" parameterType="String">
 		insert into tbl_payment values(
-		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,null,'미입금',tbl_share_seq.currval)
+		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,'미정','미입금',tbl_share_seq.currval)
 	</select>
 	
 	
@@ -16,7 +26,7 @@
 	
 	<select id="insertPaymentPar" parameterType="com.smhrd.model.tbl_payment">
 		insert into tbl_payment values(
-		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,null,'미입금',#{BOARD_SEQ})
+		tbl_payment_seq.nextval,#{MEM_ID},0,sysdate,'미정','미입금',#{BOARD_SEQ})
 	</select>
 	
 	
@@ -51,6 +61,25 @@
 	<update id="updatePayment" parameterType="com.smhrd.model.tbl_payment">
 		UPDATE tbl_payment
 		SET pay_money=#{PAY_MONEY} , pay_tf=#{PAY_TF}
+        WHERE board_seq = #{BOARD_SEQ} and mem_id =#{MEM_ID}
+	</update>
+
+	<update id="updatePayment3" parameterType="com.smhrd.model.tbl_payment">
+		UPDATE tbl_payment
+		SET pay_money=#{PAY_MONEY} , pay_tf='입금완료'
+        WHERE board_seq = #{BOARD_SEQ} and mem_id =#{MEM_ID}
+	</update>
+	
+	<update id="tradeDec" parameterType="com.smhrd.model.tbl_payment">
+		UPDATE tbl_payment
+		SET cat_name='거래확정'
+        WHERE board_seq = #{BOARD_SEQ} and mem_id =#{MEM_ID}
+	</update>
+	
+	
+	<update id="updatePaymentCancel" parameterType="com.smhrd.model.tbl_payment">
+		UPDATE tbl_payment
+		SET pay_money=0, pay_tf='입금대기'
         WHERE board_seq = #{BOARD_SEQ} and mem_id =#{MEM_ID}
 	</update>
 

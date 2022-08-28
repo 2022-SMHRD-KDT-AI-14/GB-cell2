@@ -12,6 +12,44 @@ public class tbl_paymentDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 
+	
+	public int deletePayment(BigDecimal board_seq) { // 1. 회원가입시 자동으로 지불테이블 생성(게시글null)
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt = 0;
+		try {
+			cnt = sqlSession.delete("com.smhrd.model.tbl_paymentDAO.deletePayment", board_seq);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int deletePaymentPar(tbl_payment vo) { // 1. 회원가입시 자동으로 지불테이블 생성(게시글null)
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt = 0;
+		try {
+			cnt = sqlSession.delete("com.smhrd.model.tbl_paymentDAO.deletePaymentPar",vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	
 	public int insertPayment(String id) { // 1. 회원가입시 자동으로 지불테이블 생성(게시글null)
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int cnt = 0;
@@ -157,6 +195,70 @@ public class tbl_paymentDAO {
 		return cnt;
 	}
 
+	public int updatePayment3(tbl_payment vo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt = 0;
+
+		try {
+			cnt = sqlSession.update("com.smhrd.model.tbl_paymentDAO.updatePayment3", vo);
+
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	public int tradeDec(tbl_payment vo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt = 0;
+
+		try {
+			cnt = sqlSession.update("com.smhrd.model.tbl_paymentDAO.tradeDec",vo);
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
+	
+	public int updatePaymentCancel(tbl_payment vo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int cnt = 0;
+
+		try {
+			cnt = sqlSession.update("com.smhrd.model.tbl_paymentDAO.updatePaymentCancel", vo);
+			System.out.println("dao, updatePaymen >> " + cnt);
+
+			if (cnt > 0) {
+				sqlSession.commit(); // DML이지만 여기서는 커밋사용함.
+			} else {
+				sqlSession.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+	}
+	
 	public tbl_payment selectPayment2(String MEM_ID, int intNum) { // 1개의 참여한
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		BigDecimal BOARD_SEQ = new BigDecimal(intNum);
