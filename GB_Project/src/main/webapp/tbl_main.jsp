@@ -261,6 +261,7 @@
 					<div class="mini-posts">
 						<%
 						if (list1.size() > 0) {
+							if(list1.get(num11).getARTICLE_STATE().equals("모집중")){
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq1}" class="image">
@@ -272,11 +273,12 @@
 								작성자 :
 								<%=list1.get(num11).getMEM_ID()%></p>
 							<%
-							}
+							}}
 							%>
 						</article>
 						<%
-						if (list2.size() > 0) {
+						if (list2.size() > 0 ) {
+							if(list2.get(num22).getARTICLE_STATE().equals("모집중")){
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image">
@@ -288,11 +290,12 @@
 								작성자 :
 								<%=list2.get(num22).getMEM_ID()%></p>
 							<%
-							}
+							}}
 							%>
 						</article>
 						<%
 						if (list3.size() > 0) {
+							if(list3.get(num33).getARTICLE_STATE().equals("모집중")){
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image">
@@ -306,7 +309,7 @@
 								<%=list3.get(num33).getMEM_ID()%></p>
 						</article>
 						<%
-						}
+						}}
 						%>
 					</div>
 				</section>

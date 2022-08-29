@@ -200,6 +200,7 @@ String loginMember = (String) session.getAttribute("loginMember");
 					<div class="mini-posts">
 						<%
 						if (list1.size() > 0) {
+							if(list1.get(num11).getARTICLE_STATE().equals("모집중")){
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq1}" class="image">
@@ -211,11 +212,12 @@ String loginMember = (String) session.getAttribute("loginMember");
 								작성자 :
 								<%=list1.get(num11).getMEM_ID()%></p>
 							<%
-							}
+							}}
 							%>
 						</article>
 						<%
-						if (list2.size() > 0) {
+						if (list2.size() > 0 ) {
+							if(list2.get(num22).getARTICLE_STATE().equals("모집중")){
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image">
@@ -227,11 +229,12 @@ String loginMember = (String) session.getAttribute("loginMember");
 								작성자 :
 								<%=list2.get(num22).getMEM_ID()%></p>
 							<%
-							}
+							}}
 							%>
 						</article>
 						<%
 						if (list3.size() > 0) {
+							if(list3.get(num33).getARTICLE_STATE().equals("모집중")){
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image">
@@ -245,12 +248,9 @@ String loginMember = (String) session.getAttribute("loginMember");
 								<%=list3.get(num33).getMEM_ID()%></p>
 						</article>
 						<%
-						}
+						}}
 						%>
 					</div>
-					<!-- <ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul> -->
 				</section>
 				<%
 				}
