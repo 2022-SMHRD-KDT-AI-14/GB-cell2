@@ -36,7 +36,10 @@ request.setCharacterEncoding("UTF-8");
 		//파일이 저장될 서버의 경로 지정
 		System.out.println("서버의경로1? >> "+request.getServletContext().getContextPath());
 		System.out.println("서버의경로2? >> "+request.getServletContext().getRealPath("/"));
-		String saveDir = request.getServletContext().getRealPath("img");
+		/* String saveDir = request.getServletContext().getRealPath("img"); */
+		 String saveDir = request.getServletContext().getRealPath("img"); 
+		
+		
 		
 		//파일의 최대크기 15MB
 		int maxSize = 1024*1024*15;
