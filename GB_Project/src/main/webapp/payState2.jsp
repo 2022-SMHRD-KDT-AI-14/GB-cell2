@@ -96,6 +96,7 @@
 								<td><%=s.getMem_id()%></td>
 								<td><%=s.getArticle_state()%></td>
 								<td>
+								
 								<% if (s.getArticle_state().equals("모집중")) {%>
 									 <a href="newUpdateCon?board_seq=<%=s.getBoard_seq()%>&article_state=입금대기">
 										<button onclick="decision()">거래결정</button></a>
@@ -111,10 +112,12 @@
 								<%}else if(s.getArticle_state().equals("거래완료")) {
 											if(loginMember.equals(s.getMem_id())){ %> 
 												<a href="#">
-												<button>반환금신청</button></a> 
+												<button id="returnP" onclick="returnP()">반환금신청</button></a> 
 										<% }//if닫고
-								}//elseif닫고
-						}// for문닫고%>
+								}//elseif닫고%>
+								<a href="chatting.jsp">채팅방 참여</a>
+						<% }// for문닫고%>
+						
 						</table>
 						</p>
 					</div>
@@ -181,12 +184,15 @@
 								 }else if(s.getArticle_state().equals("거래완료")) {
 									 if(loginMember.equals(s.getMem_id())){%> 
 									<a href="#">
-									<button>반환금신청</button></a> 
+									<button id="returnP" onclick="returnP()">반환금신청</button></a> 
 									<%}
 								}else { %>
 								 <!-- 거래완료--> 
-								<% } //if문 끝
-								 }//for문 끝%>
+								<% } //if문 끝 %>
+									
+									<a href="chatting.jsp">채팅방 참여</a>
+									<% }// for문닫고%>
+									
 								 
 								
 						</table>
@@ -206,9 +212,16 @@
 			$('#tradeDec').hide(); //
 			alert("거래확정 완료!")
 		}
+		
 		function transCancel(){
 			alert("입금환불 완료!")
 		}
+		
+		function returnP(){
+			alert("반환금 신청이 접수되었습니다.\n영업일 기준2~3일 소요됩니다.")
+			//$('#returnP').hide();
+		}
+		
 	</script>
 		<!-- Sidebar -->
 		<div id="sidebar" class="inactive">
@@ -319,57 +332,31 @@
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
-						<%
-						if (list1.size() > 0) {
-						%>
+						<%if(list1.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq1}" class="image">
 							<img src="img/<%=list1.get(num11).getARTICLE_FILE()%>" alt="" /></a>
-							
-							<p>
-								제목 :
-								<%=list1.get(num11).getARTICLE_TITLE()%></p>
-							<p>
-								작성자 :
-								<%=list1.get(num11).getMEM_ID()%></p>
-							<%
-							}
-							%>
+							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
+						
 						</article>
-						<%
-						if (list2.size() > 0) {
-						%>
+						<%} %>
+						<%if(list2.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image">
-							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
-							
-							<p>
-								제목 :
-								<%=list2.get(num22).getARTICLE_TITLE()%></p>
-							<p>
-								작성자 :
-								<%=list2.get(num22).getMEM_ID()%></p>
-							<%
-							}
-							%>
+							<img src="img/<%=list2.get(num22).getARTICLE_FILE()%>" alt="" /></a>
+							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
+							<%} %>
 						</article>
-						<%
-						if (list3.size() > 0) {
-						%>
+						<%if(list3.size()>0){%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image">
-							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
-							
-							<p>
-								제목 :
-								<%=list3.get(num33).getARTICLE_TITLE()%></p>
-							<p>
-								작성자 :
-								<%=list3.get(num33).getMEM_ID()%></p>
+							<img src="img/<%=list3.get(num33).getARTICLE_FILE()%>" alt="" /></a>
+							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
+							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
-						<%
-						}
-						%>
+						<%} %>
 					</div>
 				</section>
 				<%

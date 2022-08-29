@@ -374,24 +374,25 @@ to {
 							<img src="img/<%=list1.get(num11).getARTICLE_FILE()%>" alt="" /></a>
 							<p>제목 : <%=list1.get(num11).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list1.get(num11).getMEM_ID() %></p>
-							<%} %>
+						
 						</article>
+						<%} %>
 						<%if(list2.size()>0) {%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image">
-							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							<img src="img/<%=list2.get(num22).getARTICLE_FILE()%>" alt="" /></a>
 							<p>제목 : <%=list2.get(num22).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list2.get(num22).getMEM_ID() %></p>
 							<%} %>
 						</article>
-						<%if(list3.size()>0) {%>
+						<%if(list3.size()>0){%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image">
-							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							<img src="img/<%=list3.get(num33).getARTICLE_FILE()%>" alt="" /></a>
 							<p>제목 : <%=list3.get(num33).getARTICLE_TITLE() %></p>
 							<p>작성자 : <%=list3.get(num33).getMEM_ID() %></p>
 						</article>
-							<%} %>
+						<%} %>
 					</div>
 				</section>
 				<%} %>

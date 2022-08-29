@@ -280,7 +280,7 @@
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq2}" class="image">
-							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							<img src="img/<%=list2.get(num22).getARTICLE_FILE()%>" alt="" /></a>
 							<p>
 								제목 :
 								<%=list2.get(num22).getARTICLE_TITLE()%></p>
@@ -296,7 +296,7 @@
 						%>
 						<article>
 							<a href="boardView.jsp?num=${board_seq3}" class="image">
-							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							<img src="img/<%=list3.get(num33).getARTICLE_FILE()%>" alt="" /></a>
 							
 							<p>
 								제목 :
@@ -309,13 +309,13 @@
 						}
 						%>
 					</div>
-					<!-- <ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul> -->
 				</section>
 				<%
 				}
 				%>
+				
+				
+				
 				<!-- Section -->
 				<section>
 					<header class="major">
