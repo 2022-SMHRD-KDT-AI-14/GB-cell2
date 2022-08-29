@@ -398,7 +398,7 @@
 					</p>
 				</footer>
 
-			</div>
+		f	</div>
 		</div>
 
 	</div>
