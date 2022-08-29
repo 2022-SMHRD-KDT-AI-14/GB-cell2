@@ -48,6 +48,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SET article_state = #{article_state}
 		WHERE board_seq = #{board_seq}
 	</update>
+	
+	
 	<update id="updateStatep" parameterType="com.smhrd.model.Share">
 	update tbl_share set article_state =#{article_state} where board_seq =#{board_seq}
 	</update>

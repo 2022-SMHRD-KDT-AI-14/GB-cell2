@@ -1,3 +1,13 @@
+<%@page import="java.util.Random"%>
+<%@page import="com.smhrd.model.tbl_share"%>
+<%@page import="com.smhrd.model.tbl_coordinate"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.tbl_coordinateDAO"%>
+<%@page import="com.smhrd.model.BuyApplicant"%>
+<%@page import="com.smhrd.model.BuyApplicantDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.ShareDAO"%>
+<%@page import="com.smhrd.model.Share"%>
 <%@page import="com.smhrd.model.ConfirmationDAO"%>
 <%@page import="com.smhrd.model.Confirmation"%>
 <%@page import="javax.swing.text.html.CSS"%>
@@ -46,11 +56,12 @@
 	String MEM_ID = (String) session.getAttribute("loginMember");
 	tbl_applicantselect vo = new tbl_applicantselect(MEM_ID, real_num);
 	tbl_applicantselectDAO dao = new tbl_applicantselectDAO();
-
+	
 	
 	
 	Confirmation voo = new Confirmation(MEM_ID,real_num);
-
+	String comState = new ShareDAO().selectOne(real_num).getArticle_state();
+	System.out.print("게시글번호, 상태 >> "+real_num+" , "+comState+"\n");
 	String state = new ConfirmationDAO().selectConfirm(voo);
 
 	%>
@@ -68,16 +79,21 @@
 					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
 
 					<ul class="icons" style="padding: 20px;">
+					
+					
 						<c:choose>
 							<c:when test="${empty loginMember}">
 								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
 										class="label">로그인</span></a></li>
 							</c:when>
 							<c:otherwise>
+								<li>${loginMember}님 환영합니다!😊&nbsp;</li>
 								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
 										class="label">Medium</span></a></li>
 							</c:otherwise>
 						</c:choose>
+						
+						
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
 								class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
@@ -95,6 +111,7 @@
 						src="https://m.bunjang.co.kr/pc-static/resource/c5ce9d5a172b0744e630.png"
 						width="6" height="10"> 공유하기
 				</section>
+				
 				<section>
 					<div class="row">
 						<div class="col-6 col-12-small">
@@ -109,17 +126,12 @@
 							</c:choose>
 						</div>
 						<div class="col-6 col-12-small">
-							<header class="major">
-
-								<p>제목 : ${board.ARTICLE_TITLE}
-								<%if(state!=null){%>
-								<%if(state.equals("거래확정")){ %>
-								(이미확정된거래입니다) 
-								<%} }%>
-
+							<p>제목 : ${board.ARTICLE_TITLE}
+								<%if(comState.equals("거래확정")){ %>
+								(이미확정된거래입니다)
+								<%} %>
 								<p style="font-size: 20pt; color: black">
 									<b>${board.ARTICLE_TITLE}</b>
-
 								</p>
 							</header>
 							<p>
@@ -139,7 +151,7 @@
 									<p>
 										<a href="${boardbuy.BUY_LINK}">구매링크 : ${boardbuy.BUY_LINK}</a>
 									</p>
-									<p><b>구매가격 : ${boardbuy.BUY_PAY}</b></p>
+									<p><b>구매가격 : ${boardbuy.BUY_PAY}원</b></p>
 								</c:when>
 
 								<c:when test="${board.CAT_NAME=='A'}">
@@ -159,13 +171,6 @@
 								</c:otherwise>
 							</c:choose>
 
-							<!-- 이미지 가운데 자동 정렬  -->
-							<%-- <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 150px">
-				<p>${board.name}/${board.writer}</p>
-				<p id="date">작성일 : ${board.uploadday}</p>
-		</div> --%>
-
-							<%-- <p>내용:${board.ARTICLE_CONTENT}</p> --%>
 
 
 							<br>
@@ -179,18 +184,18 @@
 								</button>
 								<c:if test="${loginMember != board.MEM_ID}">
 									<c:if test="${board.CAT_NAME=='B'}">
-										<%
-										if (dao.selectB(vo) != null) {
+										<%//거래확정된글이거나 내가이미 참석하기 버튼을 눌렀을 경우
+										if(comState.equals("거래확정") || dao.selectB(vo)!=null){
+										/* if (dao.selectB(vo) != null) { */
 										%>
 										<%
 										} else {
 										%>
 										<a
-											href="insertStateConB?
-			board_seq=${board.BOARD_SEQ}&
-			buy_link=${boardbuy.BUY_LINK}&
-			buy_pay=${boardbuy.BUY_PAY}&
-			cat_name=B">
+											href="insertStateConB?board_seq=${board.BOARD_SEQ}&
+											buy_link=${boardbuy.BUY_LINK}&
+											buy_pay=${boardbuy.BUY_PAY}&
+											cat_name=B">
 											<button class="button primary" onclick="B()">참여결정</button>
 										</a>
 										<%
@@ -265,39 +270,32 @@
 					</div>
 					<br>
 				</section>
+				
+				<%
+					Share share = new ShareDAO().selectOne(real_num);
+					String writer = share.getMem_id();
+					List<Share> shareList = new ShareDAO().selectAllMyList(writer);
+				%>
+				
 				<header class="major">
 					<h4>작성자 게시물</h4>
 				</header>
 				<section style="padding: 10px; margin: 10px">
 					<div class="row">
+						<%for(Share s: shareList){
+							BuyApplicant b= new BuyApplicantDAO().selectOne(s.getBoard_seq().intValue());	
+							int price = b.getBuy_pay().intValue();
+						%>
+						
 						<div class="col-3 col-12-small">
 							<article>
-								<img width="200" height="150" src="./images/item.png">
-								<p>상품명</p>
-								<p style="padding: 10px;">상품가격</p>
+								<a href="boardView.jsp?num=<%=s.getBoard_seq().intValue()/2 %>" class="image">	
+								<img width="200" height="150" src="img/<%=s.getArticle_file() %>"></a>
+								<p><%=s.getArticle_title() %></p>
+								<p style="padding: 10px;"><%=price%>원</p>
 							</article>
 						</div>
-						<div class="col-3 col-12-small">
-							<article>
-								<img width="200" height="150" src="./images/item2.png">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
-						<div class="col-3 col-12-small">
-							<article>
-								<img width="200" height="150" src="./images/item3.png">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
-						<div class="col-3 col-12-small">
-							<article>
-								<img width="200" height="150" src="./images/item4.png">
-								<p>상품명</p>
-								<p>상품가격</p>
-							</article>
-						</div>
+						<%} %>
 					</div>
 				</section>
 				<section>
@@ -345,30 +343,141 @@
 					</ul>
 				</nav>
 
-				<!-- Section -->
+									<!-- Section -->
+				<%
+				if (session.getAttribute("MEM_ID") != null && session.getAttribute("loginMember") != null) {
+
+					int MEM_LATITUDE = (int) session.getAttribute("MEM_LATITUDE");
+					int MEM_LONGITUDE = (int) session.getAttribute("MEM_LONGITUDE");
+					
+					tbl_coordinateDAO ddao = new tbl_coordinateDAO();
+					ArrayList<String> id = new ArrayList<String>();
+					List<tbl_coordinate> tbl_coordinate = ddao.selectAllList();
+
+					int cnt = 0;
+
+					for (int i = 0; i < tbl_coordinate.size(); i++) {
+						if (!tbl_coordinate.get(i).getMEM_ID().equals(MEM_ID)) {
+					if (tbl_coordinate.get(i).getMEM_LATITUDE() < MEM_LATITUDE + 3
+							&& tbl_coordinate.get(i).getMEM_LATITUDE() > MEM_LATITUDE - 3
+							&& tbl_coordinate.get(i).getMEM_LONGITUDE() < MEM_LONGITUDE + 3
+							&& tbl_coordinate.get(i).getMEM_LONGITUDE() > MEM_LONGITUDE - 3) {
+						id.add(cnt, tbl_coordinate.get(i).getMEM_ID());
+						cnt++;
+					}
+						}
+					}
+
+					int num1 = 0;
+					int num2 = 0;
+					int num3 = 0;
+					int num11 = 0;
+					int num22 = 0;
+					int num33 = 0;
+					int a = 0;
+					int b = 0;
+					int c = 0;
+					List<tbl_share> list1 = new ArrayList<tbl_share>();
+					List<tbl_share> list2 = new ArrayList<tbl_share>();
+					List<tbl_share> list3 = new ArrayList<tbl_share>();
+
+					Random r = new Random();
+					if (id.size() > 0) {
+						num1 = r.nextInt(id.size());
+						num2 = r.nextInt(id.size());
+						num3 = r.nextInt(id.size());
+						list1 = ddao.selectListshare(id.get(num1));
+						list2 = ddao.selectListshare(id.get(num2));
+						list3 = ddao.selectListshare(id.get(num3));
+					}
+					if (list1.size() > 0) {
+						num11 = r.nextInt(list1.size());
+						a = list1.get(num11).getBOARD_SEQ().intValue();
+					}
+					if (list2.size() > 0) {
+						num22 = r.nextInt(list2.size());
+						b = list2.get(num22).getBOARD_SEQ().intValue();
+					}
+					if (list3.size() > 0) {
+						num33 = r.nextInt(list3.size());
+						c = list3.get(num33).getBOARD_SEQ().intValue();
+
+					}
+
+					int board_seq1 = a / 2;
+					int board_seq2 = b / 2;
+					int board_seq3 = c / 2;
+
+					session.setAttribute("board_seq1", board_seq1);
+					session.setAttribute("board_seq2", board_seq2);
+					session.setAttribute("board_seq3", board_seq3);
+				%>
 
 				<section>
 					<header class="major">
 						<h2>추천상품</h2>
 					</header>
 					<div class="mini-posts">
+						<%
+						if (list1.size() > 0) {
+						%>
 						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>상품1</p>
+							<a href="boardView.jsp?num=${board_seq1}" class="image">
+							<img src="img/<%=list1.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
+							<p>
+								제목 :
+								<%=list1.get(num11).getARTICLE_TITLE()%></p>
+							<p>
+								작성자 :
+								<%=list1.get(num11).getMEM_ID()%></p>
+							<%
+							}
+							%>
 						</article>
+						<%
+						if (list2.size() > 0) {
+						%>
 						<article>
-							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-							<p>상품2</p>
+							<a href="boardView.jsp?num=${board_seq2}" class="image">
+							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
+							<p>
+								제목 :
+								<%=list2.get(num22).getARTICLE_TITLE()%></p>
+							<p>
+								작성자 :
+								<%=list2.get(num22).getMEM_ID()%></p>
+							<%
+							}
+							%>
 						</article>
+						<%
+						if (list3.size() > 0) {
+						%>
 						<article>
-							<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-							<p>상품3</p>
+							<a href="boardView.jsp?num=${board_seq3}" class="image">
+							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
+							<p>
+								제목 :
+								<%=list3.get(num33).getARTICLE_TITLE()%></p>
+							<p>
+								작성자 :
+								<%=list3.get(num33).getMEM_ID()%></p>
 						</article>
+						<%
+						}
+						%>
 					</div>
-					<ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
 				</section>
+				<%
+				}
+				%>
+				
+				
+				
+				
 
 				<!-- Section -->
 				<section>
@@ -466,6 +575,39 @@
 		var pageSize = 3;
 		var maxRow = 10;
 
+
+		//다음 버튼이 눌린다면 그에 맞는 버튼들이 생성, 삭제 와 해당 리스트가 출력되기 위한 메소드 
+		function next_list(startRow, startPage) {
+			$.ajax({
+				/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
+				url : 'BboardPagingCon',
+				method : 'post',
+				dataType : 'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
+				data : {
+					"num" : startRow
+				},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
+				success : function(data_list) {
+					console.log("next_list함수에서 받아온 data_list"+data_list)
+
+					if (data_list.length < 10) {/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
+						list_write(data_list);
+						button_create(data_list, startPage);
+					}
+
+					else {
+						print_list(data_list);
+						button_create(data_list, startPage);
+					}
+
+				},
+				error : function(e) {
+					alert(e);
+				}
+
+			});
+
+		}
+		
 		function button_create(data_list, startPage) {
 
 			var pageNum = null;
@@ -488,38 +630,6 @@
 								+ currentPage + '</button>');
 				currentPage = currentPage + 1;
 			}
-		}
-
-		//다음 버튼이 눌린다면 그에 맞는 버튼들이 생성, 삭제 와 해당 리스트가 출력되기 위한 메소드 
-		function next_list(startRow, startPage) {
-			$.ajax({
-				/* jsp 시작하면서 바로 border서블릿과 비동기 통신으로 DB 에있는 내용을 가져온다 */
-				url : 'BboardPagingCon',
-				method : 'post',
-				dataType : 'json', //응답데이터 형식지정 (그전에는 문자열을 받아와서 따로지정안했음)
-				data : {
-					"num" : startRow
-				},/* 한 페이지 에서 가져와야하는 양이 정해저 있으므로 어디 페이지에서 요청했는지 알기위해 가져올DB의 시작 num을 같이 넘겨 준다 */
-				success : function(data_list) {
-					console.log(data_list)
-
-					if (data_list.length < 10) {/* DB를 통해 가져왔는데 가져온 양이 테이블 행의 갯수인 10 보다 적으면 html의 테이블은 이전값을 가지고 있으므로 안보이게 .hide()를 사용해주어야 한다 */
-						list_write(data_list);
-						button_create(data_list, startPage);
-					}
-
-					else {
-						print_list(data_list);
-						button_create(data_list, startPage);
-					}
-
-				},
-				error : function(e) {
-					alert(e);
-				}
-
-			});
-
 		}
 
 		//jsonArray타입의 객체의 갯수가 10개보다 적을경우 객체를 매개변수로 받아 출력하는 함수이다.

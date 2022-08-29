@@ -5,7 +5,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +15,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="is-preload">
-
+<% 
+String loginMember = (String) session.getAttribute("loginMember");
+%>
     <!-- Wrapper -->
     <div id="wrapper">
 
@@ -26,17 +31,32 @@
 
                 <!-- Header -->
                 <header id="header">
-                    <h3 id="main_test">무언가 나누고 싶어?</h3>
+					<h3 id="main_test">무언가 나누고 싶어?</h3>
 					<a href="tbl_main.jsp" class="logo">
 					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
 
 					<ul class="icons" style="padding: 20px;">
-                        <li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
-                        <li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a>
-                        </li>
-                        <li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
-                    </ul>
-                </header>
+
+						<c:choose>
+							<c:when test="${empty loginMember}">
+								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
+										class="label">로그인</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li>${loginMember}님 환영합니다!😊&nbsp;</li>
+								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
+										class="label">Medium</span></a></li>
+							</c:otherwise>
+						</c:choose>
+
+
+						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span
+								class="label">Medium</span></a></li>
+						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span
+								class="label">Medium</span></a></li>
+					</ul>
+				</header>
+                
 
                 <!-- Content -->
                 <section>

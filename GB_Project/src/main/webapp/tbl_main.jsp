@@ -49,6 +49,7 @@
 
 				<!-- Header -->
 				<header id="header">
+					
 					<h3 id="main_test">무언가 나누고 싶어?</h3>
 					<a href="tbl_main.jsp" class="logo">
 					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
@@ -61,6 +62,7 @@
 										class="label">로그인</span></a></li>
 							</c:when>
 							<c:otherwise>
+								<li>${loginMember}님 환영합니다!😊&nbsp;</li>
 								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
 										class="label">Medium</span></a></li>
 							</c:otherwise>
@@ -88,7 +90,7 @@
 							<c:if test="${!empty loginMember}">
 								<li><a href="tbl_boardwrite.jsp" class="button big">게시물
 										작성</a></li>
-								<li><a href="payState.jsp" class="button big">결제상태</a></li>
+								<li><a href="payState2.jsp" class="button big">결제상태</a></li>
 								<li><a href="myPage.jsp?MEM_ID=${loginMember}"
 									class="button primary">마이페이지</a></li>
 								<c:if test="${loginMember=='admin'}">
@@ -97,71 +99,9 @@
 							</c:if>
 						</ul>
 					</div>
-					<span class="image object"> <img src="images/pic10.png"
-						alt="" />
+					<span class="image object"> <img src="images/pic10.png" alt="" />
 					</span>
 				</section>
-
-
-				<!--  
-				
-				
-				
-				<section>
-					<header class="major">
-						<h2>추천 상품들</h2>
-					</header>
-					<div class="posts">
-						<article>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-							<h3>Interdum aenean</h3>
-							<p>공유 하실 물건을 홍보하세요!</p>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-							<h3>Nulla amet dolore</h3>
-							<p>공유 하실 물건을 홍보하세요!</p>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-							<h3>Tempus ullamcorper</h3>
-							<p>공유 하실 물건을 홍보하세요!</p>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-							<h3>Sed etiam facilis</h3>
-							<p>공유 하실 물건을 홍보하세요!</p>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-							<h3>Feugiat lorem aenean</h3>
-							<p>공유 하실 물건을 홍보하세요!</p>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-							<h3>Amet varius aliquam</h3>
-							<p>공유 하실 물건을 홍보하세요!</p>
-							<ul class="actions">
-								<li><a href="#" class="button">공유참여</a></li>
-							</ul>
-						</article>
-					</div>
-				</section>-->
 
 				<!-- Section -->
 				<section>
@@ -323,8 +263,8 @@
 						if (list1.size() > 0) {
 						%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq1}" class="image"><img
-								src="images/pic07.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq1}" class="image">
+							<img src="img/<%=list1.get(num11).getARTICLE_FILE()%>" alt="" /></a>
 							<p>
 								제목 :
 								<%=list1.get(num11).getARTICLE_TITLE()%></p>
@@ -339,8 +279,8 @@
 						if (list2.size() > 0) {
 						%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq2}" class="image"><img
-								src="images/pic08.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq2}" class="image">
+							<img src="img/<%=list2.get(num11).getARTICLE_FILE()%>" alt="" /></a>
 							<p>
 								제목 :
 								<%=list2.get(num22).getARTICLE_TITLE()%></p>
@@ -355,8 +295,9 @@
 						if (list3.size() > 0) {
 						%>
 						<article>
-							<a href="boardView.jsp?num=${board_seq3}" class="image"><img
-								src="images/pic09.jpg" alt="" /></a>
+							<a href="boardView.jsp?num=${board_seq3}" class="image">
+							<img src="img/<%=list3.get(num11).getARTICLE_FILE()%>" alt="" /></a>
+							
 							<p>
 								제목 :
 								<%=list3.get(num33).getARTICLE_TITLE()%></p>
@@ -368,9 +309,9 @@
 						}
 						%>
 					</div>
-					<ul class="actions">
+					<!-- <ul class="actions">
 						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
+					</ul> -->
 				</section>
 				<%
 				}

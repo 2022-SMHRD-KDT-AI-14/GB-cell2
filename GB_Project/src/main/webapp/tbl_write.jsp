@@ -5,7 +5,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.tbl_coordinateDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,22 @@
 					<strong style="font-size: 40pt;">&nbsp;&nbsp;&nbsp;&nbsp;N분의 1</strong></a>
 
 					<ul class="icons" style="padding: 20px;">
-						<li><a href="logoutCon" class="icon solid fa-lock-open"><span class="label">Medium</span></a></li>
+						
+						
+						<c:choose>
+							<c:when test="${empty loginMember}">
+								<li><a href="tbl_login.jsp" class="icon solid fa-lock"><span
+										class="label">로그인</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li>${loginMember}님 환영합니다!😊&nbsp;</li>
+								<li><a href="logoutCon" class="icon solid fa-lock-open"><span
+										class="label">Medium</span></a></li>
+							</c:otherwise>
+						</c:choose>
+						
+						
+						
 						<li><a href="#" class="icon solid fa-file-invoice-dollar"><span class="label">Medium</span></a></li>
 						<li><a href="tbl_join.jsp" class="icon solid fa-user"><span class="label">Medium</span></a></li>
 					</ul>
@@ -276,9 +292,6 @@
 						}
 						%>
 					</div>
-					<ul class="actions">
-						<li><a href="#" class="button">공유참여</a></li>
-					</ul>
 				</section>
 				<%
 				}
